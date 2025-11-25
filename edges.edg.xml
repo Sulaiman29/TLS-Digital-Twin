@@ -1,0 +1,14 @@
+<edges>
+  <!-- north to center -->
+  <edge id="N_C" from="N_in" to="C" priority="1" numLanes="2" speed="13.9"/>
+  <edge id="C_N" from="C" to="N_out" priority="1" numLanes="2" speed="13.9"/>
+  <!-- east to center -->
+  <edge id="E_C" from="E_in" to="C" priority="1" numLanes="2" speed="13.9"/>
+  <edge id="C_E" from="C" to="E_out" priority="1" numLanes="2" speed="13.9"/>
+  <!-- south to center -->
+  <edge id="S_C" from="S_in" to="C" priority="1" numLanes="2" speed="13.9"/>
+  <edge id="C_S" from="C" to="S_out" priority="1" numLanes="2" speed="13.9"/>
+  <!-- west to center -->
+  <edge id="W_C" from="W_in" to="C" priority="1" numLanes="2" speed="13.9"/>
+  <edge id="C_W" from="C" to="W_out" priority="1" numLanes="2" speed="13.9"/>
+</edges>

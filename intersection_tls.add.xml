@@ -1,0 +1,21 @@
+<additional>
+  <tlLogic id="C" type="static" programID="1" offset="0">
+
+    <!-- Phase 1: North green (links 1–4) -->
+    <phase duration="20" state="ggggrrrrrrrrrrrr"/>
+    <phase duration="4"  state="yyyrrrrrrrrrrrrr"/>
+
+    <!-- Phase 2: East green (links 5–8) -->
+    <phase duration="20" state="rrrrggggrrrrrrrr"/>
+    <phase duration="4"  state="rrrryyyrrrrrrrrr"/>
+
+    <!-- Phase 3: South green (links 9–12) -->
+    <phase duration="20" state="rrrrrrrrggggrrrr"/>
+    <phase duration="4"  state="rrrrrrrryyyrrrrr"/>
+
+    <!-- Phase 4: West green (links 13–16) -->
+    <phase duration="20" state="rrrrrrrrrrrrgggg"/>
+    <phase duration="4"  state="rrrrrrrrrrrryyyy"/>
+
+  </tlLogic>
+</additional>

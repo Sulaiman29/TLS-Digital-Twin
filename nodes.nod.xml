@@ -1,0 +1,16 @@
+<nodes>
+  <!-- center node -->
+  <node id="C" x="0.0" y="0.0" type="traffic_light"/>
+  <!-- north approach -->
+  <node id="N_in" x="0.0" y="200.0"/>
+  <node id="N_out" x="0.0" y="120.0"/>
+  <!-- east approach -->
+  <node id="E_in" x="200.0" y="0.0"/>
+  <node id="E_out" x="120.0" y="0.0"/>
+  <!-- south approach -->
+  <node id="S_in" x="0.0" y="-200.0"/>
+  <node id="S_out" x="0.0" y="-120.0"/>
+  <!-- west approach -->
+  <node id="W_in" x="-200.0" y="0.0"/>
+  <node id="W_out" x="-120.0" y="0.0"/>
+</nodes>

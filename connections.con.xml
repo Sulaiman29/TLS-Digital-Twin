@@ -1,0 +1,21 @@
+<connections>
+  <!-- north approach: straight to south, left to east, right to west -->
+  <connection from="N_C" to="C_S" via=""/>
+  <connection from="N_C" to="C_E" via=""/>
+  <connection from="N_C" to="C_W" via=""/>
+
+  <!-- east -->
+  <connection from="E_C" to="C_W" via=""/>
+  <connection from="E_C" to="C_N" via=""/>
+  <connection from="E_C" to="C_S" via=""/>
+
+  <!-- south -->
+  <connection from="S_C" to="C_N" via=""/>
+  <connection from="S_C" to="C_W" via=""/>
+  <connection from="S_C" to="C_E" via=""/>
+
+  <!-- west -->
+  <connection from="W_C" to="C_E" via=""/>
+  <connection from="W_C" to="C_S" via=""/>
+  <connection from="W_C" to="C_N" via=""/>
+</connections>

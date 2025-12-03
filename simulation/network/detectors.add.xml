@@ -1,23 +1,23 @@
 <additional>
 
   <inductionLoop id="loop_N_0" lane="N_C_0" pos="15" freq="60" friendlyPos="true"
-                 file="outputs/loop_N_0.xml"/>
+                 file="outputs/raw/loop_N_0.xml"/>
   <inductionLoop id="loop_N_1" lane="N_C_1" pos="15" freq="60" friendlyPos="true"
-                 file="outputs/loop_N_1.xml"/>
+                 file="outputs/raw/loop_N_1.xml"/>
 
   <inductionLoop id="loop_E_0" lane="E_C_0" pos="15" freq="60" friendlyPos="true"
-                 file="outputs/loop_E_0.xml"/>
+                 file="outputs/raw/loop_E_0.xml"/>
   <inductionLoop id="loop_E_1" lane="E_C_1" pos="15" freq="60" friendlyPos="true"
-                 file="outputs/loop_E_1.xml"/>
+                 file="outputs/raw/loop_E_1.xml"/>
 
   <inductionLoop id="loop_S_0" lane="S_C_0" pos="15" freq="60" friendlyPos="true"
-                 file="outputs/loop_S_0.xml"/>
+                 file="outputs/raw/loop_S_0.xml"/>
   <inductionLoop id="loop_S_1" lane="S_C_1" pos="15" freq="60" friendlyPos="true"
-                 file="outputs/loop_S_1.xml"/>
+                 file="outputs/raw/loop_S_1.xml"/>
 
   <inductionLoop id="loop_W_0" lane="W_C_0" pos="15" freq="60" friendlyPos="true"
-                 file="outputs/loop_W_0.xml"/>
+                 file="outputs/raw/loop_W_0.xml"/>
   <inductionLoop id="loop_W_1" lane="W_C_1" pos="15" freq="60" friendlyPos="true"
-                 file="outputs/loop_W_1.xml"/>
+                 file="outputs/raw/loop_W_1.xml"/>
 
 </additional>

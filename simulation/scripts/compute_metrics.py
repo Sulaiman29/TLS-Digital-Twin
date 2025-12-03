@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import xml.etree.ElementTree as ET
 
-OUTPUT_DIR = "outputs"   # folder where SUMO output files are saved
+OUTPUT_DIR = "outputs/raw"   # folder where SUMO output files are saved
 
 # --------------------------
 # Parse tripinfo.xml

@@ -11,7 +11,9 @@ MQTT_BROKER = "localhost"
 TOPIC_METRICS = "simulation/metrics/live"
 TOPIC_VEHICLES = "simulation/vehicles/live"
 
-SUMO_CFG = "../../cfg/intersection.sumocfg"   # relative path from scripts/realtime
+script_dir = os.path.dirname(os.path.abspath(__file__))
+SUMO_CFG = os.path.join(script_dir, "../../cfg/intersection.sumocfg")
+SUMO_CFG = os.path.normpath(SUMO_CFG)
 
 
 # -------------------------------------

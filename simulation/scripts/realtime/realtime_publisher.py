@@ -1,4 +1,5 @@
 import json
+import os
 import time
 import paho.mqtt.client as mqtt
 import traci
@@ -8,7 +9,9 @@ MQTT_BROKER = "localhost"
 MQTT_TOPIC = "dt/traffic/state"
 
 SUMO_BINARY = "sumo"   # or sumo-gui
-SUMOCFG = "../../cfg/intersection.sumocfg"
+script_dir = os.path.dirname(os.path.abspath(__file__))
+SUMO_CFG = os.path.join(script_dir, "../../cfg/intersection.sumocfg")
+SUMO_CFG = os.path.normpath(SUMO_CFG)
 
 
 def build_state():

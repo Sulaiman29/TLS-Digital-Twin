@@ -1,8 +1,8 @@
 <configuration>
   <input>
-    <net-file value="network/intersection.net.xml"/>
-    <route-files value="routes/random.rou.xml"/>
-    <additional-files value="network/intersection_tls.add.xml, network/detectors.add.xml"/>
+    <net-file value="../network/intersection.net.xml"/>
+    <route-files value="../routes/random.rou.xml"/>
+    <additional-files value="../network/intersection_tls.add.xml, ../network/detectors.add.xml"/>
   </input>
 
   <time>

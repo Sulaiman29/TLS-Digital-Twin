@@ -108,7 +108,7 @@ def decide_phase(client):
         time.sleep(5) 
 
 # --- RUN AGENT ---
-client = mqtt.Client()
+client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
 client.connect(BROKER)
 client.subscribe(TOPIC_VEHICLES)
 client.subscribe(TOPIC_TL)

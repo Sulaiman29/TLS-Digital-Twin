@@ -51,7 +51,7 @@ def on_message(client, userdata, msg):
     except Exception as e:
         print(f"Error parsing command: {e}")
 
-client = mqtt.Client()
+client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
 client.on_connect = on_connect
 client.on_message = on_message
 client.connect(MQTT_BROKER, MQTT_PORT, 60)

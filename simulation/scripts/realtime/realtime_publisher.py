@@ -3,6 +3,7 @@ import sys
 import time
 import json
 import traci
+import queue
 import paho.mqtt.client as mqtt
 from geo_utils import xy_to_latlon
 
@@ -15,20 +16,46 @@ else:
 
 # ---  CONFIG & TOPICS ---
 MQTT_BROKER = "localhost"
-# Topic design: "simulation/{entity}/{type}"
+MQTT_PORT = 1883
+# Topics for Publishing (The "Eyes")
 TOPIC_METRICS = "simulation/metrics/live"      # For Dashboard Graphs
 TOPIC_VEHICLES = "simulation/vehicles/live"    # For Map Visualization
 TOPIC_TL = "simulation/tl/live"                # For AI Agent Observations
+# Topic for Listening (The "Ears")
+TOPIC_COMMANDS = "simulation/commands"
 
 # Dynamic path resolution
 script_dir = os.path.dirname(os.path.abspath(__file__))
 SUMO_CFG = os.path.join(script_dir, "../../cfg/intersection.sumocfg")
 SUMO_CFG = os.path.normpath(SUMO_CFG)
 
+# Global Queue to hold commands from the AI Agent
+CMD_QUEUE = queue.Queue()
+
 # ---  MQTT SETUP ---
+def on_connect(client, userdata, flags, rc):
+    print(f"Connected to MQTT Broker (Code: {rc})")
+    # Subscribe to commands immediately upon connection
+    client.subscribe(TOPIC_COMMANDS)
+    print(f"Listening for commands on: {TOPIC_COMMANDS}")
+
+def on_message(client, userdata, msg):
+    """
+    This runs in a background thread whenever a message arrives.
+    We just push the command to the queue so the Main Loop can handle it safely.
+    """
+    try:
+        payload = json.loads(msg.payload.decode())
+        # print(f"Received Command: {payload}")  # Uncomment for debugging
+        CMD_QUEUE.put(payload)
+    except Exception as e:
+        print(f"Error parsing command: {e}")
+
 client = mqtt.Client()
-client.connect(MQTT_BROKER, 1883, 60)
-client.loop_start()
+client.on_connect = on_connect
+client.on_message = on_message
+client.connect(MQTT_BROKER, MQTT_PORT, 60)
+client.loop_start()  # Starts the background network thread
 
 # ---  DATA COLLECTION FUNCTIONS ---
 
@@ -96,11 +123,31 @@ def run_simulation():
     # Start TraCI
     traci.start(["sumo", "-c", SUMO_CFG, "--start", "--quit-on-end"])
     
+    # --- NEW: Subscribe to the Command Topic so we can hear the AI ---
+    client.subscribe(TOPIC_COMMANDS)
+
     step = 0
     try:
         while step < 3600:
             traci.simulationStep()
-            
+
+            # PROCESS AI COMMANDS (The "Action" Step)
+            while not CMD_QUEUE.empty():
+                cmd = CMD_QUEUE.get()
+                
+                # Command Format Expected: {"action": "set_phase", "id": "C", "phase": 2}
+                if cmd['action'] == "set_phase":
+                    tl_id = cmd['id']
+                    target_phase = cmd['phase']
+                    
+                    print(f"Executing AI Command: Set {tl_id} -> Phase {target_phase}")
+                    
+                    # Force the traffic light change in SUMO
+                    traci.trafficlight.setPhase(tl_id, target_phase)
+                    
+                    # Optional: Lock this phase for 10s so it doesn't switch back instantly
+                    # traci.trafficlight.setPhaseDuration(tl_id, 10)
+
             # Get list of vehicles once to save performance
             vehicle_ids = traci.vehicle.getIDList()
 
@@ -128,6 +175,7 @@ def run_simulation():
     finally:
         traci.close()
         client.loop_stop()
+        print("Simulation closed.")
 
 if __name__ == "__main__":
     run_simulation()

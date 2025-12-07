@@ -33,7 +33,7 @@ SUMO_CFG = os.path.normpath(SUMO_CFG)
 CMD_QUEUE = queue.Queue()
 
 # ---  MQTT SETUP ---
-def on_connect(client, userdata, flags, rc):
+def on_connect(client, userdata, flags, rc, properties=None):
     print(f"Connected to MQTT Broker (Code: {rc})")
     # Subscribe to commands immediately upon connection
     client.subscribe(TOPIC_COMMANDS)
@@ -145,8 +145,8 @@ def run_simulation():
                     # Force the traffic light change in SUMO
                     traci.trafficlight.setPhase(tl_id, target_phase)
                     
-                    # Optional: Lock this phase for 10s so it doesn't switch back instantly
-                    # traci.trafficlight.setPhaseDuration(tl_id, 10)
+                    # Lock this phase for 60s so it doesn't switch back instantly
+                    traci.trafficlight.setPhaseDuration(tl_id, 60)
 
             # Get list of vehicles once to save performance
             vehicle_ids = traci.vehicle.getIDList()

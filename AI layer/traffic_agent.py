@@ -8,111 +8,123 @@ TOPIC_VEHICLES = "simulation/vehicles/live"
 TOPIC_TL = "simulation/tl/live"
 TOPIC_COMMANDS = "simulation/commands"
 
-# YOUR SPECIFIC IDS
-TLS_ID = "C"  # From intersection_tls.add.xml
+TLS_ID = "C"
 
-# STATE
-current_phase_index = 0
-waiting_counts = {
-    "North": 0, 
-    "East": 0, 
-    "South": 0, 
-    "West": 0
-}
+# --- STATE MANAGEMENT ---
+current_phase_index = -1
+waiting_counts = {"North": 0, "East": 0, "South": 0, "West": 0}
 
 def parse_lanes(vehicles):
     """
-    Maps specific lane IDs (N_C_0, E_C_1) to cardinal directions.
+    Maps lane IDs to cardinal directions.
+    Counts ALL incoming traffic regardless of speed to ensure we catch fast-approaching cars.
     """
     counts = {"North": 0, "East": 0, "South": 0, "West": 0}
     
     for v in vehicles:
-        lane = v['lane']  # e.g., "N_C_0"
-        speed = v['speed']
+        lane = v['lane']
         
-        # Only count cars that are stopped or moving very slowly (< 1.0 m/s)
-        if speed < 1.0:
-            if "N_C" in lane:    # Matches N_C_0, N_C_1
-                counts["North"] += 1
-            elif "E_C" in lane:  # Matches E_C_0, E_C_1
-                counts["East"] += 1
-            elif "S_C" in lane:  # Matches S_C_0, S_C_1
-                counts["South"] += 1
-            elif "W_C" in lane:  # Matches W_C_0, W_C_1
-                counts["West"] += 1
-                
+        # Simple string matching for your edges (N_C, E_C, etc.)
+        if "N_C" in lane: counts["North"] += 1
+        elif "E_C" in lane: counts["East"] += 1
+        elif "S_C" in lane: counts["South"] += 1
+        elif "W_C" in lane: counts["West"] += 1
+            
     return counts
-
-def on_message(client, userdata, msg):
-    global current_phase_index, waiting_counts
-
-    payload = json.loads(msg.payload.decode())
-
-    # 1. Update Traffic Light State
-    if msg.topic == TOPIC_TL:
-        lights = payload.get("lights", [])
-        for tl in lights:
-            if tl['id'] == TLS_ID:
-                current_phase_index = tl['phase']
-
-    # 2. Update Vehicle Counts & Make Decision
-    if msg.topic == TOPIC_VEHICLES:
-        vehicles = payload.get("vehicles", [])
-        waiting_counts = parse_lanes(vehicles)
-        decide_phase(client)
 
 def decide_phase(client):
     """
-    Greedy Logic: Always try to switch to the direction with the MOST waiting cars.
+    Logic for 2-Phase System (NS vs EW) with Dynamic Duration.
     """
-    # 1. Find the direction with the max queue
-    busiest_direction = max(waiting_counts, key=waiting_counts.get)
-    max_queue = waiting_counts[busiest_direction]
+    global current_phase_index
+
+    # 1. GROUP THE TEAMS
+    # Phase 0 serves both North and South
+    ns_score = waiting_counts["North"] + waiting_counts["South"]
     
-    print(f"Queues: N={waiting_counts['North']} E={waiting_counts['East']} "
-          f"S={waiting_counts['South']} W={waiting_counts['West']} | "
-          f"Active Phase: {current_phase_index}")
+    # Phase 2 serves both East and West
+    ew_score = waiting_counts["East"] + waiting_counts["West"]
 
-    # If traffic is light everywhere, don't intervene
-    if max_queue < 2:
-        return
+    print(f"Queue Status -> NS: {ns_score} | EW: {ew_score} (Active Phase: {current_phase_index})")
 
-    # 2. Map Direction to Phase ID (Based on your XML)
-    # Phase 0 = North Green
-    # Phase 2 = East Green
-    # Phase 4 = South Green
-    # Phase 6 = West Green
+    # 2. DECIDE WINNER
     target_phase = -1
-    
-    if busiest_direction == "North": target_phase = 0
-    elif busiest_direction == "East": target_phase = 2
-    elif busiest_direction == "South": target_phase = 4
-    elif busiest_direction == "West": target_phase = 6
+    winning_count = 0
 
-    # 3. Send Command if we aren't already in that phase
-    # Note: We allow slight mismatch (e.g., if phase is 1 (North Yellow), we don't force 0 immediately)
-    if target_phase != -1 and current_phase_index != target_phase:
+    # Hysteresis: Only switch if the other side has > 2 more cars
+    if ns_score > ew_score + 2:
+        target_phase = 0  # North-South Green
+        winning_count = ns_score
+    elif ew_score > ns_score + 2:
+        target_phase = 2  # East-West Green
+        winning_count = ew_score
+
+    # 3. EXECUTE SWITCH
+    if target_phase != -1:
+        # If already in the correct phase, do nothing
+        if current_phase_index == target_phase:
+            return 
         
-        # Logic: Only switch if the new queue is significantly larger than others
-        # This prevents rapid flickering
-        print(f">>> AI Decision: Switching to {busiest_direction} (Phase {target_phase})")
+        # If in Yellow transition (Phase 1 or 3), wait for it to finish
+        if current_phase_index in [1, 3]:
+             print(">>> AI: Light is transitioning... Waiting.")
+             return 
+
+        # 4. CALCULATE DYNAMIC DURATION
+        # Base 10s + (2s per car). Clamped between 15s and 60s.
+        duration = 10 + (winning_count * 2)
+        duration = max(15, min(duration, 60))
+
+        direction_name = "North-South" if target_phase == 0 else "East-West"
+        print(f">>> AI: Heavy Traffic on {direction_name} ({winning_count} cars).")
+        print(f">>> Command: Switch to Phase {target_phase} for {duration} seconds.")
         
         command = {
-            "action": "set_phase",
-            "id": TLS_ID,
-            "phase": target_phase
+            "action": "set_phase", 
+            "id": TLS_ID, 
+            "phase": target_phase,
+            "duration": float(duration)
         }
         client.publish(TOPIC_COMMANDS, json.dumps(command))
         
-        # Artificial sleep to prevent spamming commands every millisecond
+        # Cooldown to allow the command to arrive and phase to change
         time.sleep(5) 
 
-# --- RUN AGENT ---
-client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
-client.connect(BROKER)
-client.subscribe(TOPIC_VEHICLES)
-client.subscribe(TOPIC_TL)
-client.on_message = on_message
+# --- MQTT HANDLERS ---
 
-print(f"AI Agent Active. Controlling TLS: {TLS_ID}")
-client.loop_forever()
+def on_connect(client, userdata, flags, rc, properties=None):
+    print("AI Agent Connected. Monitoring traffic...")
+    client.subscribe(TOPIC_VEHICLES)
+    client.subscribe(TOPIC_TL)
+
+def on_message(client, userdata, msg):
+    global current_phase_index, waiting_counts
+    
+    try:
+        payload = json.loads(msg.payload.decode())
+
+        if msg.topic == TOPIC_TL:
+            lights = payload.get("lights", [])
+            for tl in lights:
+                if tl['id'] == TLS_ID:
+                    current_phase_index = tl['phase']
+
+        if msg.topic == TOPIC_VEHICLES:
+            vehicles = payload.get("vehicles", [])
+            waiting_counts = parse_lanes(vehicles)
+            decide_phase(client)
+            
+    except Exception as e:
+        print(f"AI Error: {e}")
+
+# --- MAIN ---
+if __name__ == "__main__":
+    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
+    client.on_connect = on_connect
+    client.on_message = on_message
+    client.connect(BROKER, 1883, 60)
+    
+    try:
+        client.loop_forever()
+    except KeyboardInterrupt:
+        print("AI Agent shutting down.")

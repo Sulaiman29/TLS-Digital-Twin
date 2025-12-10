@@ -111,6 +111,12 @@ def run_simulation():
 
     traci.start(sumo_cmd)
     
+    try:
+        traci.trafficlight.setProgram("C", "1") 
+        print(">>> SUCCESS: Forced TLS 'C' to use Program '1' (Simple 2-Phase)")
+    except Exception as e:
+        print(f">>> WARNING: Could not set Program '1'. Is the XML loaded? Error: {e}")
+
     step = 0
     try:
         while step < 3600:

@@ -3,3 +3,7 @@
 
 ### Search Results
 Scopus: 348
+IEEE Xplore: 9
+ACM Digital Library: 160
+Science Direct: 123
+TOTAL: 640

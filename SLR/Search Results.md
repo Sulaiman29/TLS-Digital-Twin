@@ -7,3 +7,8 @@ IEEE Xplore: 9
 ACM Digital Library: 160
 Science Direct: 123
 TOTAL: 640
+
+## Deduplication
+I used Zotero too for identifying and removing duplicates.
+Across 4 databases, there were duplicates identified.
+After removing duplicates, 615 records remained (~4% removed).

@@ -12,3 +12,31 @@ TOTAL: 640
 I used Zotero too for identifying and removing duplicates.
 Across 4 databases, there were duplicates identified.
 After removing duplicates, 615 records remained (~4% removed).
+
+## Inclusion/Exclusion Criteria
+INCLUDE_TA if:
+
+- Mentions digital twin, smart city, urban simulation, or cyber-physical system
+
+- Mentions AI, agents, autonomous decision-making, or learning
+
+- Mentions blockchain, trust, security, or data integrity
+
+- Mentions traffic, mobility, transport, or SUMO
+
+EXCLUDE_TA if:
+
+- Manufacturing-only digital twins
+
+- Pure AI theory with no urban/simulation context
+
+- Blockchain unrelated to IoT or smart cities
+
+- Healthcare, biology, finance-only systems
+
+- No abstract available
+
+### Filtering Results:
+MAYBE_TA: 65
+INCLUDE_TA: 95
+EXCLUDE_TA: 455

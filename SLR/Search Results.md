@@ -37,6 +37,6 @@ EXCLUDE_TA if:
 - No abstract available
 
 ### Filtering Results:
-MAYBE_TA: 65
-INCLUDE_TA: 95
-EXCLUDE_TA: 455
+MAYBE_TA: 65  
+INCLUDE_TA: 95  
+EXCLUDE_TA: 455  

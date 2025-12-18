@@ -2,10 +2,10 @@
 ( "digital twin" OR "smart city" OR "smart cities" OR "city digital twin" OR "urban digital twin" OR "cognitive city" OR "urban simulation" OR "city simulation" ) AND ( "AI agent" OR "multi-agent system" OR "autonomous agent" OR "Agentic AI" OR "LLM agent" OR "AI-driven decision-making" OR "intelligent agent" ) AND ( "blockchain" OR "smart contract" OR "distributed ledger" OR "secure data sharing" ) AND ( "Traffic Signal" OR "Smart Transportation" OR "SUMO" OR "traffic simulation" )
 
 ### Search Results
-Scopus: 348
-IEEE Xplore: 9
-ACM Digital Library: 160
-Science Direct: 123
+Scopus: 348  
+IEEE Xplore: 9  
+ACM Digital Library: 160  
+Science Direct: 123  
 TOTAL: 640
 
 ## Deduplication
@@ -40,3 +40,14 @@ EXCLUDE_TA if:
 MAYBE_TA: 65  
 INCLUDE_TA: 95  
 EXCLUDE_TA: 455  
+
+## Full Text Screening
+Criteria:  
+- Proposes or evaluates a digital twin / smart city system
+- Contains architectural or system design details
+- Uses or discusses AI agents / decision-making / learning
+- Addresses security, trust, or blockchain (directly or indirectly)
+- Mentions simulation, traffic, mobility, or real-time systems  
+
+### Filtering Results:
+Papers eligible: 40  

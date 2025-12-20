@@ -54,6 +54,6 @@ Papers eligible: 40
 
 ## Data Extraction Sheet
 RQ1: What Digital Twin frameworks/models are being used for smart cities?  
-RQ2: What sort of Artifical Intelligence technologies are bein implored to solve traffic congestion and make transport systems better in smart cities?  
-RQ3: How blockchain is ensuring data security and integrity among smart city twins and models?  
+RQ2: What sort of Artificial Intelligence technologies are being employed to solve traffic congestion and make transport systems better in smart cities?  
+RQ3: How is blockchain ensuring data security and integrity among smart city twins and models?  
 RQ4: Are there any challenges or limitations that arise in the proposed method/framework?  

@@ -143,7 +143,7 @@ def run_simulation():
             
             client.publish(TOPIC_METRICS, json.dumps(get_aggregated_metrics(step, vehicle_ids)))
             client.publish(TOPIC_VEHICLES, json.dumps({"time": step, "vehicles": get_vehicle_states(vehicle_ids)}))
-            client.publish(TOPIC_TL, json.dumps({"time": step, "lights": get_traffic_light_states()}))
+            client.publish(TOPIC_TL, json.dumps({"time": step, "lights": get_traffic_light_states(), "sim_speed": 1.0}))
             
             if step % 50 == 0:
                 print(f"[Step {step}] Active Vehicles: {len(vehicle_ids)}")

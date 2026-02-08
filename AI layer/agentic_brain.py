@@ -23,13 +23,18 @@ mqtt_client = None
 def set_traffic_phase(target_phase: int, duration: int):
     """
     Switches the traffic light to a specific phase for a specific duration.
-    Use Phase 0 for North/South traffic.
-    Use Phase 2 for East/West traffic.
-    Duration should be between 20 and 60 seconds based on traffic density.
+    Available phases (use GREEN phases only):
+      Phase 0: North green (vehicles approaching from North)
+      Phase 2: East green (vehicles approaching from East)
+      Phase 4: South green (vehicles approaching from South)
+      Phase 6: West green (vehicles approaching from West)
+    Yellow phases (1,3,5,7) are transitional - do not set directly.
+    Duration should be between 15 and 45 seconds based on queue length for that direction.
     """
     global mqtt_client
     
-    direction = "North-South" if target_phase == 0 else "East-West"
+    phase_names = {0: "North", 2: "East", 4: "South", 6: "West"}
+    direction = phase_names.get(target_phase, f"Unknown({target_phase})")
     print(f"\n>>> TOOL EXECUTION: Switching to {direction} (Phase {target_phase}) for {duration}s")
 
     command = {
@@ -41,7 +46,7 @@ def set_traffic_phase(target_phase: int, duration: int):
     
     if mqtt_client:
         mqtt_client.publish(TOPIC_COMMANDS, json.dumps(command))
-        return f"Successfully sent command to switch to Phase {target_phase} for {duration} seconds."
+        return f"Successfully switched to {direction} (Phase {target_phase}) for {duration} seconds."
     else:
         return "Error: MQTT Client not connected."
 
@@ -104,36 +109,42 @@ def run_agentic_loop():
 
     try:
         while True:
-            # 1. OBSERVE
-            ns_count = waiting_counts["North"] + waiting_counts["South"]
-            ew_count = waiting_counts["East"] + waiting_counts["West"]
+            # 1. OBSERVE - get individual direction counts
+            n_count = waiting_counts["North"]
+            e_count = waiting_counts["East"]
+            s_count = waiting_counts["South"]
+            w_count = waiting_counts["West"]
+            total_count = n_count + e_count + s_count + w_count
             
             if current_phase_index == -1:
                 time.sleep(1)
                 continue
 
-            # We craft the prompt to send to the Agent
+            # Map phase index to direction name for context
+            phase_names = {0: "North", 1: "North(yellow)", 2: "East", 3: "East(yellow)",
+                           4: "South", 5: "South(yellow)", 6: "West", 7: "West(yellow)"}
+            current_dir = phase_names.get(current_phase_index, f"Phase {current_phase_index}")
+
+            # Craft prompt with individual direction counts
             user_input = (
-                f"Current Status: Active Phase is {current_phase_index}. "
-                f"North/South Queue: {ns_count} cars. "
-                f"East/West Queue: {ew_count} cars. "
-                f"Decide if you need to switch phases to reduce congestion."
+                f"Traffic Signal Control - Current green: {current_dir} (phase {current_phase_index}). "
+                f"Queue lengths: North={n_count}, East={e_count}, South={s_count}, West={w_count} vehicles. "
+                f"Choose the direction with the highest queue to receive green next. "
+                f"Use phase 0 for North, 2 for East, 4 for South, 6 for West."
             )
 
-            # 2. DECIDE & ACT
-            # Only run if there is traffic to save API costs
-            if ns_count > 0 or ew_count > 0:
+            # 2. DECIDE & ACT - only run if there is traffic
+            if total_count > 0:
                 print(f"\n--- AI TICK ---\n{user_input}")
                 
-                # LangGraph uses a standard "messages" format
                 events = agent_executor.invoke({
                     "messages": [("user", user_input)]
                 })
                 
-                # Optional: Print the AI's final response if you want to see what it said
-                # print(events["messages"][-1].content)
+                # Print AI's final reasoning
+                print(f"AI Response: {events['messages'][-1].content}")
             
-            # 3. SLEEP
+            # 3. SLEEP - allow time for phase to execute
             time.sleep(5)
 
     except KeyboardInterrupt:

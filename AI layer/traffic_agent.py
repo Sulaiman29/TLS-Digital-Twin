@@ -34,61 +34,58 @@ def parse_lanes(vehicles):
 
 def decide_phase(client):
     """
-    Logic for 2-Phase System (NS vs EW) with Dynamic Duration.
+    Logic for 4-Phase System (N, E, S, W separate) with Dynamic Duration.
+    Phases: 0=North, 2=East, 4=South, 6=West (odd phases are yellows)
     """
     global current_phase_index
 
-    # 1. GROUP THE TEAMS
-    # Phase 0 serves both North and South
-    ns_score = waiting_counts["North"] + waiting_counts["South"]
+    # Phase mapping: direction -> green phase index
+    PHASE_MAP = {"North": 0, "East": 2, "South": 4, "West": 6}
+    PHASE_NAMES = {0: "North", 2: "East", 4: "South", 6: "West"}
+
+    # Find direction with highest queue
+    max_dir = max(waiting_counts, key=waiting_counts.get)
+    max_count = waiting_counts[max_dir]
     
-    # Phase 2 serves both East and West
-    ew_score = waiting_counts["East"] + waiting_counts["West"]
+    # Get current direction (if in a green phase)
+    current_dir = PHASE_NAMES.get(current_phase_index, None)
+    current_count = waiting_counts.get(current_dir, 0) if current_dir else 0
 
-    print(f"Queue Status -> NS: {ns_score} | EW: {ew_score} (Active Phase: {current_phase_index})")
+    print(f"Queue Status -> N:{waiting_counts['North']} E:{waiting_counts['East']} "
+          f"S:{waiting_counts['South']} W:{waiting_counts['West']} (Active Phase: {current_phase_index})")
 
-    # 2. DECIDE WINNER
-    target_phase = -1
-    winning_count = 0
+    # Hysteresis: Only switch if another direction has > 2 more cars than current
+    if current_dir and max_count <= current_count + 2:
+        return  # Stay in current phase
+    
+    target_phase = PHASE_MAP[max_dir]
 
-    # Hysteresis: Only switch if the other side has > 2 more cars
-    if ns_score > ew_score + 2:
-        target_phase = 0  # North-South Green
-        winning_count = ns_score
-    elif ew_score > ns_score + 2:
-        target_phase = 2  # East-West Green
-        winning_count = ew_score
+    # If already in the correct phase, do nothing
+    if current_phase_index == target_phase:
+        return
 
-    # 3. EXECUTE SWITCH
-    if target_phase != -1:
-        # If already in the correct phase, do nothing
-        if current_phase_index == target_phase:
-            return 
-        
-        # If in Yellow transition (Phase 1 or 3), wait for it to finish
-        if current_phase_index in [1, 3]:
-             print(">>> AI: Light is transitioning... Waiting.")
-             return 
+    # If in Yellow transition (Phase 1, 3, 5, or 7), wait for it to finish
+    if current_phase_index in [1, 3, 5, 7]:
+        print(">>> AI: Light is transitioning (yellow)... Waiting.")
+        return
 
-        # 4. CALCULATE DYNAMIC DURATION
-        # Base 10s + (2s per car). Clamped between 15s and 60s.
-        duration = 10 + (winning_count * 2)
-        duration = max(15, min(duration, 60))
+    # Calculate dynamic duration: Base 10s + (2s per car), clamped 15-60s
+    duration = 10 + (max_count * 2)
+    duration = max(15, min(duration, 60))
 
-        direction_name = "North-South" if target_phase == 0 else "East-West"
-        print(f">>> AI: Heavy Traffic on {direction_name} ({winning_count} cars).")
-        print(f">>> Command: Switch to Phase {target_phase} for {duration} seconds.")
-        
-        command = {
-            "action": "set_phase", 
-            "id": TLS_ID, 
-            "phase": target_phase,
-            "duration": float(duration)
-        }
-        client.publish(TOPIC_COMMANDS, json.dumps(command))
-        
-        # Cooldown to allow the command to arrive and phase to change
-        time.sleep(5) 
+    print(f">>> AI: Heavy Traffic on {max_dir} ({max_count} cars).")
+    print(f">>> Command: Switch to Phase {target_phase} ({max_dir}) for {duration} seconds.")
+
+    command = {
+        "action": "set_phase",
+        "id": TLS_ID,
+        "phase": target_phase,
+        "duration": float(duration)
+    }
+    client.publish(TOPIC_COMMANDS, json.dumps(command))
+
+    # Cooldown to allow the command to arrive and phase to change
+    time.sleep(5) 
 
 # --- MQTT HANDLERS ---
 

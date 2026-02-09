@@ -2,7 +2,10 @@ import os
 import pandas as pd
 import xml.etree.ElementTree as ET
 
-OUTPUT_DIR = "outputs/raw"   # folder where SUMO output files are saved
+# Get absolute path relative to this script's location
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+OUTPUT_DIR = os.path.join(SCRIPT_DIR, "..", "outputs", "raw")
+OUTPUT_DIR = os.path.normpath(OUTPUT_DIR)
 
 # --------------------------
 # Parse tripinfo.xml

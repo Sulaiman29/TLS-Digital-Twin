@@ -1,0 +1,25 @@
+<edges>
+  <!-- C1: North approach -->
+  <edge id="N1_C1" from="N1_in" to="C1" priority="1" numLanes="2" speed="13.9"/>
+  <edge id="C1_N1" from="C1" to="N1_out" priority="1" numLanes="2" speed="13.9"/>
+  <!-- C1: South approach -->
+  <edge id="S1_C1" from="S1_in" to="C1" priority="1" numLanes="2" speed="13.9"/>
+  <edge id="C1_S1" from="C1" to="S1_out" priority="1" numLanes="2" speed="13.9"/>
+  <!-- C1: West approach -->
+  <edge id="W_C1"  from="W_in"  to="C1" priority="1" numLanes="2" speed="13.9"/>
+  <edge id="C1_W"  from="C1"    to="W_out" priority="1" numLanes="2" speed="13.9"/>
+
+  <!-- Corridor between C1 and C2 -->
+  <edge id="C1_C2" from="C1" to="C2" priority="1" numLanes="2" speed="13.9"/>
+  <edge id="C2_C1" from="C2" to="C1" priority="1" numLanes="2" speed="13.9"/>
+
+  <!-- C2: North approach -->
+  <edge id="N2_C2" from="N2_in" to="C2" priority="1" numLanes="2" speed="13.9"/>
+  <edge id="C2_N2" from="C2" to="N2_out" priority="1" numLanes="2" speed="13.9"/>
+  <!-- C2: South approach -->
+  <edge id="S2_C2" from="S2_in" to="C2" priority="1" numLanes="2" speed="13.9"/>
+  <edge id="C2_S2" from="C2" to="S2_out" priority="1" numLanes="2" speed="13.9"/>
+  <!-- C2: East approach -->
+  <edge id="E_C2"  from="E_in"  to="C2" priority="1" numLanes="2" speed="13.9"/>
+  <edge id="C2_E"  from="C2"    to="E_out" priority="1" numLanes="2" speed="13.9"/>
+</edges>

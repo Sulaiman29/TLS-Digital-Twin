@@ -1,0 +1,43 @@
+<additional>
+  <!-- ========== INTERSECTION C1 ========== -->
+  <tlLogic id="C1" type="static" programID="1" offset="0">
+
+    <!-- Phase 0: North green (N1_C1) -->
+    <phase duration="20" state="ggggrrrrrrrrrrrr"/>
+    <phase duration="4"  state="yyyyrrrrrrrrrrrr"/>
+
+    <!-- Phase 2: South green (S1_C1) -->
+    <phase duration="20" state="rrrrggggrrrrrrrr"/>
+    <phase duration="4"  state="rrrryyyyrrrrrrrr"/>
+
+    <!-- Phase 4: West green (W_C1) -->
+    <phase duration="20" state="rrrrrrrrggggrrrr"/>
+    <phase duration="4"  state="rrrrrrrryyyyrrrr"/>
+
+    <!-- Phase 6: Corridor from C2 green (C2_C1) -->
+    <phase duration="20" state="rrrrrrrrrrrrgggg"/>
+    <phase duration="4"  state="rrrrrrrrrrrryyyy"/>
+
+  </tlLogic>
+
+  <!-- ========== INTERSECTION C2 ========== -->
+  <tlLogic id="C2" type="static" programID="1" offset="0">
+
+    <!-- Phase 0: North green (N2_C2) -->
+    <phase duration="20" state="ggggrrrrrrrrrrrr"/>
+    <phase duration="4"  state="yyyyrrrrrrrrrrrr"/>
+
+    <!-- Phase 2: South green (S2_C2) -->
+    <phase duration="20" state="rrrrggggrrrrrrrr"/>
+    <phase duration="4"  state="rrrryyyyrrrrrrrr"/>
+
+    <!-- Phase 4: East green (E_C2) -->
+    <phase duration="20" state="rrrrrrrrggggrrrr"/>
+    <phase duration="4"  state="rrrrrrrryyyyrrrr"/>
+
+    <!-- Phase 6: Corridor from C1 green (C1_C2) -->
+    <phase duration="20" state="rrrrrrrrrrrrgggg"/>
+    <phase duration="4"  state="rrrrrrrrrrrryyyy"/>
+
+  </tlLogic>
+</additional>

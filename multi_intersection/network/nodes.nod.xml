@@ -1,0 +1,22 @@
+<nodes>
+  <!-- Intersection C1 at origin -->
+  <node id="C1" x="0.0" y="0.0" type="traffic_light"/>
+  <!-- Intersection C2 300m east -->
+  <node id="C2" x="300.0" y="0.0" type="traffic_light"/>
+
+  <!-- C1 external approaches -->
+  <node id="N1_in"  x="0.0"    y="200.0"/>
+  <node id="N1_out" x="0.0"    y="120.0"/>
+  <node id="S1_in"  x="0.0"    y="-200.0"/>
+  <node id="S1_out" x="0.0"    y="-120.0"/>
+  <node id="W_in"   x="-200.0" y="0.0"/>
+  <node id="W_out"  x="-120.0" y="0.0"/>
+
+  <!-- C2 external approaches -->
+  <node id="N2_in"  x="300.0"  y="200.0"/>
+  <node id="N2_out" x="300.0"  y="120.0"/>
+  <node id="S2_in"  x="300.0"  y="-200.0"/>
+  <node id="S2_out" x="300.0"  y="-120.0"/>
+  <node id="E_in"   x="500.0"  y="0.0"/>
+  <node id="E_out"  x="420.0"  y="0.0"/>
+</nodes>

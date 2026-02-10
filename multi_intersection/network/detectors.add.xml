@@ -1,0 +1,53 @@
+<additional>
+
+  <!-- ========== INTERSECTION C1 DETECTORS ========== -->
+  <!-- North approach -->
+  <inductionLoop id="loop_C1_N_0" lane="N1_C1_0" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_C1_N_0.xml"/>
+  <inductionLoop id="loop_C1_N_1" lane="N1_C1_1" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_C1_N_1.xml"/>
+
+  <!-- South approach -->
+  <inductionLoop id="loop_C1_S_0" lane="S1_C1_0" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_C1_S_0.xml"/>
+  <inductionLoop id="loop_C1_S_1" lane="S1_C1_1" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_C1_S_1.xml"/>
+
+  <!-- West approach -->
+  <inductionLoop id="loop_C1_W_0" lane="W_C1_0" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_C1_W_0.xml"/>
+  <inductionLoop id="loop_C1_W_1" lane="W_C1_1" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_C1_W_1.xml"/>
+
+  <!-- Corridor from C2 -->
+  <inductionLoop id="loop_C1_corr_0" lane="C2_C1_0" pos="250" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_C1_corr_0.xml"/>
+  <inductionLoop id="loop_C1_corr_1" lane="C2_C1_1" pos="250" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_C1_corr_1.xml"/>
+
+  <!-- ========== INTERSECTION C2 DETECTORS ========== -->
+  <!-- North approach -->
+  <inductionLoop id="loop_C2_N_0" lane="N2_C2_0" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_C2_N_0.xml"/>
+  <inductionLoop id="loop_C2_N_1" lane="N2_C2_1" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_C2_N_1.xml"/>
+
+  <!-- South approach -->
+  <inductionLoop id="loop_C2_S_0" lane="S2_C2_0" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_C2_S_0.xml"/>
+  <inductionLoop id="loop_C2_S_1" lane="S2_C2_1" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_C2_S_1.xml"/>
+
+  <!-- East approach -->
+  <inductionLoop id="loop_C2_E_0" lane="E_C2_0" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_C2_E_0.xml"/>
+  <inductionLoop id="loop_C2_E_1" lane="E_C2_1" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_C2_E_1.xml"/>
+
+  <!-- Corridor from C1 -->
+  <inductionLoop id="loop_C2_corr_0" lane="C1_C2_0" pos="250" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_C2_corr_0.xml"/>
+  <inductionLoop id="loop_C2_corr_1" lane="C1_C2_1" pos="250" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_C2_corr_1.xml"/>
+
+</additional>

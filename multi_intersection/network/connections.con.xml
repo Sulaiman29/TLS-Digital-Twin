@@ -1,0 +1,43 @@
+<connections>
+  <!-- ========== INTERSECTION C1 ========== -->
+  <!-- North approach at C1 -->
+  <connection from="N1_C1" to="C1_S1" via=""/>
+  <connection from="N1_C1" to="C1_C2" via=""/>
+  <connection from="N1_C1" to="C1_W"  via=""/>
+
+  <!-- South approach at C1 -->
+  <connection from="S1_C1" to="C1_N1" via=""/>
+  <connection from="S1_C1" to="C1_W"  via=""/>
+  <connection from="S1_C1" to="C1_C2" via=""/>
+
+  <!-- West approach at C1 -->
+  <connection from="W_C1" to="C1_C2" via=""/>
+  <connection from="W_C1" to="C1_S1" via=""/>
+  <connection from="W_C1" to="C1_N1" via=""/>
+
+  <!-- Corridor from C2 arriving at C1 -->
+  <connection from="C2_C1" to="C1_N1" via=""/>
+  <connection from="C2_C1" to="C1_S1" via=""/>
+  <connection from="C2_C1" to="C1_W"  via=""/>
+
+  <!-- ========== INTERSECTION C2 ========== -->
+  <!-- North approach at C2 -->
+  <connection from="N2_C2" to="C2_S2" via=""/>
+  <connection from="N2_C2" to="C2_C1" via=""/>
+  <connection from="N2_C2" to="C2_E"  via=""/>
+
+  <!-- South approach at C2 -->
+  <connection from="S2_C2" to="C2_N2" via=""/>
+  <connection from="S2_C2" to="C2_E"  via=""/>
+  <connection from="S2_C2" to="C2_C1" via=""/>
+
+  <!-- East approach at C2 -->
+  <connection from="E_C2" to="C2_C1" via=""/>
+  <connection from="E_C2" to="C2_S2" via=""/>
+  <connection from="E_C2" to="C2_N2" via=""/>
+
+  <!-- Corridor from C1 arriving at C2 -->
+  <connection from="C1_C2" to="C2_N2" via=""/>
+  <connection from="C1_C2" to="C2_S2" via=""/>
+  <connection from="C1_C2" to="C2_E"  via=""/>
+</connections>

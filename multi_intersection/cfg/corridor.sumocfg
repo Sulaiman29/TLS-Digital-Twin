@@ -1,0 +1,18 @@
+<configuration>
+  <input>
+    <net-file value="../network/corridor.net.xml"/>
+    <route-files value="../routes/random.rou.xml"/>
+    <additional-files value="../network/corridor_tls.add.xml, ../network/detectors.add.xml"/>
+  </input>
+
+  <time>
+    <begin value="0"/>
+    <end value="3600"/>
+    <step-length value="1"/>
+  </time>
+
+  <report>
+    <verbose value="true"/>
+    <no-step-log value="true"/>
+  </report>
+</configuration>

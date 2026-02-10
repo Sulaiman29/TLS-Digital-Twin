@@ -18,7 +18,7 @@ env/
 trips.trips.xml
 
 # SUMO output files (regenerated each run)
-simulation/outputs/raw/*.xml
+single_intersection/outputs/raw/*.xml
 multi_intersection/outputs/raw/*.xml
 
 # IDE / Editor

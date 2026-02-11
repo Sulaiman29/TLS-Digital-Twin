@@ -56,7 +56,7 @@ def set_c1_phase(target_phase: int, duration: int):
       Phase 4: West green (vehicles from W approach)
       Phase 6: Corridor green (vehicles arriving from C2)
     Yellow phases (1,3,5,7) are transitional - do not set directly.
-    Duration should be between 15 and 45 seconds based on queue length.
+    Duration should be between 60 and 120 seconds based on queue length.
     """
     global mqtt_client
     phase_names = {0: "North", 2: "South", 4: "West", 6: "Corridor"}
@@ -83,7 +83,7 @@ def set_c2_phase(target_phase: int, duration: int):
       Phase 4: East green (vehicles from E approach)
       Phase 6: Corridor green (vehicles arriving from C1)
     Yellow phases (1,3,5,7) are transitional - do not set directly.
-    Duration should be between 15 and 45 seconds based on queue length.
+    Duration should be between 60 and 120 seconds based on queue length.
     """
     global mqtt_client
     phase_names = {0: "North", 2: "South", 4: "East", 6: "Corridor"}
@@ -147,19 +147,23 @@ def build_c1_prompt():
 
     return (
         f"You are Agent C1. You control ONLY intersection C1.\n"
-        f"C1 is connected to intersection C2 via an east-west corridor.\n\n"
+        f"C1 is connected to intersection C2 via a 300m corridor (~22 seconds travel time).\n\n"
         f"YOUR INTERSECTION (C1) - Current green: {c1_dir} (phase {c1_phase})\n"
         f"  Your Queues: North={c1['North']}, South={c1['South']}, "
         f"West={c1['West']}, Corridor(from C2)={c1['Corridor']}\n\n"
         f"NEIGHBOR (C2) - Current green: {c2_dir} (phase {c2_phase})\n"
         f"  C2 Queues: North={c2['North']}, South={c2['South']}, "
         f"East={c2['East']}, Corridor(from C1)={c2['Corridor']}\n\n"
-        f"COLLABORATION INFO:\n"
-        f"- If C2 is releasing corridor traffic toward you (C2 phase=6), "
-        f"prepare YOUR corridor green (phase 6) soon.\n"
-        f"- If you give green to West/North/South, some cars will enter "
-        f"the C1->C2 corridor. C2's corridor queue will grow.\n"
-        f"- Prioritize the direction with the highest queue at YOUR intersection.\n"
+        f"COORDINATION RULES (IMPORTANT):\n"
+        f"1. CORRIDOR PRIORITY: If your Corridor queue (from C2) > 3, give corridor "
+        f"green (phase 6) immediately — those cars are stuck at your doorstep.\n"
+        f"2. ANTICIPATION: If C2 is currently green on North/South/East (not corridor), "
+        f"cars from C2 will enter the corridor and arrive at YOU in ~22 seconds. "
+        f"Plan to give corridor green (phase 6) soon after serving your highest queue.\n"
+        f"3. FLOW BALANCE: When you give green to North/South/West, some cars will "
+        f"enter the corridor toward C2. Don't keep these greens too long if C2's "
+        f"corridor queue is already high ({c2['Corridor']} cars) — you'd flood C2.\n"
+        f"4. Prioritize the direction with the highest queue at YOUR intersection.\n"
         f"Use set_c1_phase to adjust your traffic light."
     ), c1, c1_phase
 
@@ -177,19 +181,23 @@ def build_c2_prompt():
 
     return (
         f"You are Agent C2. You control ONLY intersection C2.\n"
-        f"C2 is connected to intersection C1 via an east-west corridor.\n\n"
+        f"C2 is connected to intersection C1 via a 300m corridor (~22 seconds travel time).\n\n"
         f"YOUR INTERSECTION (C2) - Current green: {c2_dir} (phase {c2_phase})\n"
         f"  Your Queues: North={c2['North']}, South={c2['South']}, "
         f"East={c2['East']}, Corridor(from C1)={c2['Corridor']}\n\n"
         f"NEIGHBOR (C1) - Current green: {c1_dir} (phase {c1_phase})\n"
         f"  C1 Queues: North={c1['North']}, South={c1['South']}, "
         f"West={c1['West']}, Corridor(from C2)={c1['Corridor']}\n\n"
-        f"COLLABORATION INFO:\n"
-        f"- If C1 is releasing corridor traffic toward you (C1 giving green to "
-        f"non-corridor directions), cars will soon arrive at YOUR corridor.\n"
-        f"- If you give green to East/North/South, some cars will enter "
-        f"the C2->C1 corridor. C1's corridor queue will grow.\n"
-        f"- Prioritize the direction with the highest queue at YOUR intersection.\n"
+        f"COORDINATION RULES (IMPORTANT):\n"
+        f"1. CORRIDOR PRIORITY: If your Corridor queue (from C1) > 3, give corridor "
+        f"green (phase 6) immediately — those cars are stuck at your doorstep.\n"
+        f"2. ANTICIPATION: If C1 is currently green on North/South/West (not corridor), "
+        f"cars from C1 will enter the corridor and arrive at YOU in ~22 seconds. "
+        f"Plan to give corridor green (phase 6) soon after serving your highest queue.\n"
+        f"3. FLOW BALANCE: When you give green to North/South/East, some cars will "
+        f"enter the corridor toward C1. Don't keep these greens too long if C1's "
+        f"corridor queue is already high ({c1['Corridor']} cars) — you'd flood C1.\n"
+        f"4. Prioritize the direction with the highest queue at YOUR intersection.\n"
         f"Use set_c2_phase to adjust your traffic light."
     ), c2, c2_phase
 
@@ -221,7 +229,7 @@ def agent_loop(agent_name, agent_executor, prompt_builder):
                 response = events['messages'][-1].content
                 print(f"[{agent_name}] Decision: {response}")
 
-            time.sleep(5)
+            time.sleep(10)
 
         except Exception as e:
             print(f"[{agent_name}] Error: {e}")

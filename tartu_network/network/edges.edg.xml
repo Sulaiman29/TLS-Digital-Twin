@@ -1,0 +1,51 @@
+<edges>
+  <!-- ========== CORRIDOR: TRiia_Vaba ↔ TRiia_Turu (Riia mnt, ~300m) ========== -->
+  <edge id="RiiaVaba_RiiaTuru" from="TRiia_Vaba" to="TRiia_Turu" priority="2" numLanes="2" speed="13.9" name="Riia maantee (southbound)"/>
+  <edge id="RiiaTuru_RiiaVaba" from="TRiia_Turu" to="TRiia_Vaba" priority="2" numLanes="2" speed="13.9" name="Riia maantee (northbound)"/>
+
+  <!-- ========== CORRIDOR: TRiia_Turu ↔ TTuru_Vaks (Turu tn, ~300m) ========== -->
+  <edge id="RiiaTuru_TuruVaks" from="TRiia_Turu" to="TTuru_Vaks" priority="2" numLanes="2" speed="13.9" name="Turu tanav (eastbound)"/>
+  <edge id="TuruVaks_RiiaTuru" from="TTuru_Vaks" to="TRiia_Turu" priority="2" numLanes="2" speed="13.9" name="Turu tanav (westbound)"/>
+
+  <!-- ========== CORRIDOR: TTuru_Vaks ↔ TTuru_Alek (Turu tn, ~300m) ========== -->
+  <edge id="TuruVaks_TuruAlek" from="TTuru_Vaks" to="TTuru_Alek" priority="2" numLanes="2" speed="13.9" name="Turu tanav (eastbound)"/>
+  <edge id="TuruAlek_TuruVaks" from="TTuru_Alek" to="TTuru_Vaks" priority="2" numLanes="2" speed="13.9" name="Turu tanav (westbound)"/>
+
+  <!-- ========== TRiia_Vaba: External approaches ========== -->
+  <!-- Riia mnt North -->
+  <edge id="RiiaN_RiiaVaba" from="Riia_N_in"  to="TRiia_Vaba" priority="2" numLanes="2" speed="13.9" name="Riia mnt (from North)"/>
+  <edge id="RiiaVaba_RiiaN" from="TRiia_Vaba" to="Riia_N_out"  priority="2" numLanes="2" speed="13.9" name="Riia mnt (to North)"/>
+  <!-- Vabaduse pst West -->
+  <edge id="VabaW_RiiaVaba" from="Vaba_W_in"  to="TRiia_Vaba" priority="2" numLanes="2" speed="13.9" name="Vabaduse pst (from West)"/>
+  <edge id="RiiaVaba_VabaW" from="TRiia_Vaba" to="Vaba_W_out"  priority="2" numLanes="2" speed="13.9" name="Vabaduse pst (to West)"/>
+  <!-- Vabaduse pst East -->
+  <edge id="VabaE_RiiaVaba" from="Vaba_E_in"  to="TRiia_Vaba" priority="2" numLanes="2" speed="13.9" name="Vabaduse pst (from East)"/>
+  <edge id="RiiaVaba_VabaE" from="TRiia_Vaba" to="Vaba_E_out"  priority="2" numLanes="2" speed="13.9" name="Vabaduse pst (to East)"/>
+
+  <!-- ========== TRiia_Turu: External approaches ========== -->
+  <!-- Riia mnt South -->
+  <edge id="RiiaS_RiiaTuru" from="Riia_S_in"  to="TRiia_Turu" priority="2" numLanes="2" speed="13.9" name="Riia mnt (from South)"/>
+  <edge id="RiiaTuru_RiiaS" from="TRiia_Turu" to="Riia_S_out"  priority="2" numLanes="2" speed="13.9" name="Riia mnt (to South)"/>
+  <!-- Turu tn West -->
+  <edge id="TuruW_RiiaTuru" from="Turu_W_in"  to="TRiia_Turu" priority="1" numLanes="2" speed="13.9" name="Turu tanav (from West)"/>
+  <edge id="RiiaTuru_TuruW" from="TRiia_Turu" to="Turu_W_out"  priority="1" numLanes="2" speed="13.9" name="Turu tanav (to West)"/>
+
+  <!-- ========== TTuru_Vaks: External approaches ========== -->
+  <!-- Vaksali tn North -->
+  <edge id="VaksN_TuruVaks" from="Vaks_N_in"  to="TTuru_Vaks" priority="1" numLanes="1" speed="11.1" name="Vaksali tanav (from North)"/>
+  <edge id="TuruVaks_VaksN" from="TTuru_Vaks" to="Vaks_N_out"  priority="1" numLanes="1" speed="11.1" name="Vaksali tanav (to North)"/>
+  <!-- Vaksali tn South -->
+  <edge id="VaksS_TuruVaks" from="Vaks_S_in"  to="TTuru_Vaks" priority="1" numLanes="1" speed="11.1" name="Vaksali tanav (from South)"/>
+  <edge id="TuruVaks_VaksS" from="TTuru_Vaks" to="Vaks_S_out"  priority="1" numLanes="1" speed="11.1" name="Vaksali tanav (to South)"/>
+
+  <!-- ========== TTuru_Alek: External approaches ========== -->
+  <!-- Aleksandri / Turu East -->
+  <edge id="AlekE_TuruAlek" from="Alek_E_in"  to="TTuru_Alek" priority="1" numLanes="2" speed="13.9" name="Turu tanav (from East)"/>
+  <edge id="TuruAlek_AlekE" from="TTuru_Alek" to="Alek_E_out"  priority="1" numLanes="2" speed="13.9" name="Turu tanav (to East)"/>
+  <!-- Aleksandri tn North -->
+  <edge id="AlekN_TuruAlek" from="Alek_N_in"  to="TTuru_Alek" priority="1" numLanes="1" speed="11.1" name="Aleksandri tanav (from North)"/>
+  <edge id="TuruAlek_AlekN" from="TTuru_Alek" to="Alek_N_out"  priority="1" numLanes="1" speed="11.1" name="Aleksandri tanav (to North)"/>
+  <!-- Aleksandri tn South -->
+  <edge id="AlekS_TuruAlek" from="Alek_S_in"  to="TTuru_Alek" priority="1" numLanes="1" speed="11.1" name="Aleksandri tanav (from South)"/>
+  <edge id="TuruAlek_AlekS" from="TTuru_Alek" to="Alek_S_out"  priority="1" numLanes="1" speed="11.1" name="Aleksandri tanav (to South)"/>
+</edges>

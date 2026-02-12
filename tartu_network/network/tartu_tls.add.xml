@@ -1,0 +1,65 @@
+<additional>
+  <!-- ========== INTERSECTION TRiia_Vaba (4 approaches) ========== -->
+  <tlLogic id="TRiia_Vaba" type="static" programID="1" offset="0">
+    <!-- Phase 0: Riia North green -->
+    <phase duration="20" state="ggggrrrrrrrrrrrr"/>
+    <phase duration="4"  state="yyyyrrrrrrrrrrrr"/>
+    <!-- Phase 2: Vabaduse West green -->
+    <phase duration="20" state="rrrrggggrrrrrrrr"/>
+    <phase duration="4"  state="rrrryyyyrrrrrrrr"/>
+    <!-- Phase 4: Vabaduse East green -->
+    <phase duration="20" state="rrrrrrrrggggrrrr"/>
+    <phase duration="4"  state="rrrrrrrryyyyrrrr"/>
+    <!-- Phase 6: Corridor from Riia_Turu (south) green -->
+    <phase duration="20" state="rrrrrrrrrrrrgggg"/>
+    <phase duration="4"  state="rrrrrrrrrrrryyyy"/>
+  </tlLogic>
+
+  <!-- ========== INTERSECTION TRiia_Turu — Kaubamaja (4 approaches) ========== -->
+  <tlLogic id="TRiia_Turu" type="static" programID="1" offset="0">
+    <!-- Phase 0: Corridor from Riia_Vaba (north) green -->
+    <phase duration="20" state="ggggrrrrrrrrrrrr"/>
+    <phase duration="4"  state="yyyyrrrrrrrrrrrr"/>
+    <!-- Phase 2: Riia South green -->
+    <phase duration="20" state="rrrrggggrrrrrrrr"/>
+    <phase duration="4"  state="rrrryyyyrrrrrrrr"/>
+    <!-- Phase 4: Turu West green -->
+    <phase duration="20" state="rrrrrrrrggggrrrr"/>
+    <phase duration="4"  state="rrrrrrrryyyyrrrr"/>
+    <!-- Phase 6: Corridor from Turu_Vaks (east) green -->
+    <phase duration="20" state="rrrrrrrrrrrrgggg"/>
+    <phase duration="4"  state="rrrrrrrrrrrryyyy"/>
+  </tlLogic>
+
+  <!-- ========== INTERSECTION TTuru_Vaks (4 approaches) ========== -->
+  <tlLogic id="TTuru_Vaks" type="static" programID="1" offset="0">
+    <!-- Phase 0: Corridor from Riia_Turu (west) green -->
+    <phase duration="20" state="ggggrrrrrrrrrrrr"/>
+    <phase duration="4"  state="yyyyrrrrrrrrrrrr"/>
+    <!-- Phase 2: Vaksali North green -->
+    <phase duration="20" state="rrrrggggrrrrrrrr"/>
+    <phase duration="4"  state="rrrryyyyrrrrrrrr"/>
+    <!-- Phase 4: Vaksali South green -->
+    <phase duration="20" state="rrrrrrrrggggrrrr"/>
+    <phase duration="4"  state="rrrrrrrryyyyrrrr"/>
+    <!-- Phase 6: Corridor from Turu_Alek (east) green -->
+    <phase duration="20" state="rrrrrrrrrrrrgggg"/>
+    <phase duration="4"  state="rrrrrrrrrrrryyyy"/>
+  </tlLogic>
+
+  <!-- ========== INTERSECTION TTuru_Alek (4 approaches) ========== -->
+  <tlLogic id="TTuru_Alek" type="static" programID="1" offset="0">
+    <!-- Phase 0: Corridor from Turu_Vaks (west) green -->
+    <phase duration="20" state="ggggrrrrrrrrrrrr"/>
+    <phase duration="4"  state="yyyyrrrrrrrrrrrr"/>
+    <!-- Phase 2: Aleksandri East green -->
+    <phase duration="20" state="rrrrggggrrrrrrrr"/>
+    <phase duration="4"  state="rrrryyyyrrrrrrrr"/>
+    <!-- Phase 4: Aleksandri North green -->
+    <phase duration="20" state="rrrrrrrrggggrrrr"/>
+    <phase duration="4"  state="rrrrrrrryyyyrrrr"/>
+    <!-- Phase 6: Aleksandri South green -->
+    <phase duration="20" state="rrrrrrrrrrrrgggg"/>
+    <phase duration="4"  state="rrrrrrrrrrrryyyy"/>
+  </tlLogic>
+</additional>

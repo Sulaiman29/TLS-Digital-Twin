@@ -1,0 +1,22 @@
+<configuration>
+  <input>
+    <net-file value="../network/tartu.net.xml"/>
+    <route-files value="../routes/random.rou.xml"/>
+    <additional-files value="../network/tartu_tls.add.xml, ../network/detectors.add.xml, ../network/labels.add.xml"/>
+  </input>
+
+  <time>
+    <begin value="0"/>
+    <end value="3600"/>
+    <step-length value="1"/>
+  </time>
+
+  <gui_only>
+    <gui-settings-file value="tartu.view.xml"/>
+  </gui_only>
+
+  <report>
+    <verbose value="true"/>
+    <no-step-log value="true"/>
+  </report>
+</configuration>

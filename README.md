@@ -1,67 +1,125 @@
-# Digital Twin for smart Traffic Signal
+# Digital Twin for Smart Traffic Signal
 
-This repository contains a traffic simulation project for Tartu, Estonia, implementing various traffic control strategies using SUMO (Simulation of Urban MObility) and Python. The project explores rule-based and LLM-driven agentic approaches to optimize traffic flow. Will add now Elixir Dashboard and Blockchain layer.
+This repository contains a traffic simulation project for Tartu, Estonia, implementing various traffic control strategies using SUMO (Simulation of Urban MObility) and Python. The project explores rule-based and LLM-driven agentic approaches to optimize traffic flow, with a real-time Digital Twin dashboard built using Elixir/Phoenix LiveView.
+
+## Architecture
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│  SUMO Simulation (Python)                                        │
+│  realtime_publisher.py → publishes vehicle, TL, metrics via MQTT │
+└──────────────┬───────────────────────────────────────────────────┘
+               │ MQTT (JSON)
+               ▼
+┌──────────────────────────────────────────┐
+│  AI Layer (Python)                       │
+│  tartu_traffic_agent.py  (rule-based)    │
+│  tartu_agentic_brain.py  (GPT-4o-mini)   │
+│  Subscribes + publishes phase commands   │
+└──────────────┬───────────────────────────┘
+               │ MQTT (JSON)
+               ▼
+┌──────────────────────────────────────────┐
+│  Digital Twin Dashboard (Elixir/Phoenix) │
+│  Tortoise MQTT → GenServer → PubSub     │
+│  LiveView → LeafletJS (browser)          │
+│  http://localhost:4000                   │
+└──────────────────────────────────────────┘
+```
 
 ## Project Structure
 
-The repository is organized as follows:
+- **`AI layer/`** — Traffic control agents (Python)
+  - `tartu_agentic_brain.py` — LLM-based agent (4× GPT-4o-mini) for the Tartu network
+  - `tartu_traffic_agent.py` — Rule-based agent for the Tartu network
+  - `multi_agentic_brain.py` / `multi_traffic_agent.py` — Agents for multi-intersection scenarios
+  - `agentic_brain.py` / `traffic_agent.py` — Single-intersection agent logic
 
-- **`AI layer/`**: Contains the Python implementation of traffic control agents.
-  - `tartu_agentic_brain.py`: LLM-based agent for the full Tartu network.
-  - `tartu_traffic_agent.py`: Rule-based agent for the full Tartu network.
-  - `multi_agentic_brain.py` / `multi_traffic_agent.py`: Agents for multi-intersection scenarios.
-  - `agentic_brain.py` / `traffic_agent.py`: Core or single-intersection agent logic.
+- **`digital_twin/`** — Real-time dashboard (Elixir/Phoenix LiveView)
+  - `lib/digital_twin/traffic_state.ex` — GenServer holding live city state in memory
+  - `lib/digital_twin/mqtt_handler.ex` — Tortoise MQTT handler for SUMO data ingestion
+  - `lib/digital_twin_web/live/dashboard_live.ex` — LiveView page with metrics and TL sidebar
+  - `assets/js/hooks/traffic_map.js` — LeafletJS map hook with vehicle markers
 
-- **`tartu_network/`**: SUMO configuration and network files for the specific Tartu city simulation.
-  - `cfg/`: Contains `.sumocfg` configuration files.
-  - `network/`: Network topology (`.net.xml`), connections, and edge data.
+- **`tartu_network/`** — SUMO network files for the 4-intersection Tartu corridor
+  - `cfg/` — Simulation configuration (`.sumocfg`)
+  - `network/` — Network topology, traffic lights, detectors, labels
+  - `scripts/` — Realtime publisher, offline metrics computation
 
-- **`multi_intersection/`**: Scenarios involving multiple interconnected intersections.
-  - `cfg/`: Simulation configurations.
-  - `routes/`, `network/`: Route and network definitions.
+- **`multi_intersection/`** — Two-intersection corridor scenarios
 
-- **`single_intersection/`**: Baseline scenarios for a single intersection.
+- **`single_intersection/`** — Baseline single-intersection scenarios
 
-- **`SLR/`**: System Literature Review and related documents.
+- **`SLR/`** — Systematic Literature Review documents
 
 ## Requirements
 
-To run the simulations, you need:
+### Python (Simulation + AI Agents)
+- Python 3.x
+- SUMO with `SUMO_HOME` environment variable set
+- `traci`, `sumolib`
+- `paho-mqtt` — MQTT client
+- `langchain`, `langchain-openai`, `langgraph` — for LLM agents
+- `openai` API key (for LLM agents only)
 
-1.  **SUMO**: Install SUMO and ensure `SUMO_HOME` environment variable is set.
-2.  **Python 3.x**: Recommended to use a virtual environment.
-3.  **Python Libraries**:
-    - `traci`
-    - `sumolib`
-    - `openai` (for LLM-based agents)
-    - `python-dotenv` (recommended for API key management)
+### Elixir (Digital Twin Dashboard)
+- Erlang/OTP 27+
+- Elixir 1.17+
+- Phoenix 1.8+
+
+### Infrastructure
+- Mosquitto MQTT broker (or any MQTT broker on `localhost:1883`)
 
 ## Installation
 
-1.  Clone the repository.
-2.  Install dependencies:
-    ```bash
-    pip install traci sumolib openai python-dotenv
-    ```
-3.  Ensure SUMO is installed and accessible in your system path.
+```bash
+# 1. Clone the repository
+git clone https://github.com/Sulaiman29/TLS-Digital-Twin.git
+cd TLS-Digital-Twin
+
+# 2. Python dependencies
+pip install traci sumolib paho-mqtt langchain langchain-openai langgraph
+
+# 3. Elixir/Phoenix dependencies
+cd digital_twin
+mix deps.get
+mix compile
+cd ..
+```
 
 ## Usage
 
-Each simulation scenario is controlled by scripts in the `AI layer`.
+### 1. Start MQTT Broker
+```bash
+mosquitto
+```
 
-### Running Rule-Based Agents
-To run a standard rule-based stimulation (e.g., for Tartu):
+### 2. Run SUMO Simulation with MQTT Publisher
+```bash
+python tartu_network/scripts/realtime/realtime_publisher.py
+```
+
+### 3a. Run Rule-Based Agent
 ```bash
 python "AI layer/tartu_traffic_agent.py"
 ```
 
-### Running LLM-Based Agents
-To run the agentic (LLM-driven) simulation (ensure your OpenAI API key is configured):
+### 3b. Run LLM-Based Agent (requires OpenAI API key)
 ```bash
+set OPENAI_API_KEY=sk-...
 python "AI layer/tartu_agentic_brain.py"
 ```
 
-*Note: You may need to adjust the paths within the python scripts to point to the correct `.sumocfg` file if running from the root directory.*
+### 4. Start Digital Twin Dashboard
+```bash
+cd digital_twin
+mix phx.server
+```
+
+Open **http://localhost:4000** to see the live dashboard with:
+- 🗺️ LeafletJS map with real-time vehicle markers on Tartu streets
+- 📊 Live metrics (vehicle count, speed, congestion index)
+- 🚦 Traffic light state visualization for all 4 intersections
 
 ## Contributing
 Personal thesis implementation.

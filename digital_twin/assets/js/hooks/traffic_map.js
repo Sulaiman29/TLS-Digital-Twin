@@ -9,12 +9,12 @@
  *   lon = 26.7230 + x * 0.0000167
  */
 
-// Intersection positions (SUMO XY)
+// Intersection positions (from SUMO .net.xml — NOT nodes.nod.xml)
 const INTERSECTIONS = [
-  { id: "TRiia_Vaba", x: 0, y: 300, label: "Riia × Vabaduse" },
-  { id: "TRiia_Turu", x: 0, y: 0, label: "Riia × Turu (Kaubamaja)" },
-  { id: "TTuru_Vaks", x: 300, y: 0, label: "Turu × Vaksali" },
-  { id: "TTuru_Alek", x: 600, y: 0, label: "Turu × Aleksandri" },
+  { id: "TRiia_Vaba", x: 200, y: 500, label: "Riia × Vabaduse" },
+  { id: "TRiia_Turu", x: 200, y: 200, label: "Riia × Turu (Kaubamaja)" },
+  { id: "TTuru_Vaks", x: 500, y: 200, label: "Turu × Vaksali" },
+  { id: "TTuru_Alek", x: 800, y: 200, label: "Turu × Aleksandri" },
 ];
 
 // SUMO XY → Leaflet LatLng

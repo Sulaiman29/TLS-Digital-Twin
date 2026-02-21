@@ -21,7 +21,7 @@ This repository contains a traffic simulation project for Tartu, Estonia, implem
                ▼
 ┌──────────────────────────────────────────┐
 │  Digital Twin Dashboard (Elixir/Phoenix) │
-│  Tortoise MQTT → GenServer → PubSub     │
+│  Tortoise MQTT → GenServer → PubSub      │
 │  LiveView → LeafletJS (browser)          │
 │  http://localhost:4000                   │
 └──────────────────────────────────────────┘

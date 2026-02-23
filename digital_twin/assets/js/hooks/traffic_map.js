@@ -4,27 +4,33 @@
  * Renders an OpenStreetMap centered on Tartu city center,
  * places intersection markers, and moves vehicle markers in real-time.
  *
- * Coordinate transform: SUMO XY → Tartu GPS
- *   lat = 58.3780 + y * 0.000009
- *   lon = 26.7230 + x * 0.0000167
+ * Coordinate transform: SUMO .net.xml XY → Tartu GPS
+ *   Anchor: TRiia_Turu (Kaubamaja) at SUMO (232, 529) = GPS 58.37798, 26.72738
+ *   lat = 58.37798 + (sumo_y - 529) / 111320
+ *   lon = 26.72738 + (sumo_x - 232) / 58367
  */
 
-// Intersection positions (from SUMO .net.xml — NOT nodes.nod.xml)
+// Intersection positions (from rebuilt SUMO .net.xml with geo-referenced nodes)
+// netOffset = 232.00, 529.00
 const INTERSECTIONS = [
-  { id: "TRiia_Vaba", x: 200, y: 500, label: "Riia × Vabaduse" },
-  { id: "TRiia_Turu", x: 200, y: 200, label: "Riia × Turu (Kaubamaja)" },
-  { id: "TTuru_Vaks", x: 500, y: 200, label: "Turu × Vaksali" },
-  { id: "TTuru_Alek", x: 800, y: 200, label: "Turu × Aleksandri" },
+  { id: "TRiia_Vaba", x: 193.2, y: 673.9, label: "Riia × Vabaduse" },
+  { id: "TRiia_Turu", x: 232.0, y: 529.0, label: "Riia × Turu (Kaubamaja)" },
+  { id: "TTuru_Vaks", x: 495.1, y: 433.2, label: "Turu × Vaksali" },
+  { id: "TTuru_Alek", x: 618.0, y: 197.0, label: "Turu × Aleksandri" },
 ];
 
-// SUMO XY → Leaflet LatLng
-const ORIGIN_LAT = 58.378;
-const ORIGIN_LON = 26.723;
-const SCALE_LAT = 0.000009;
-const SCALE_LON = 0.0000167;
+// SUMO XY → Leaflet LatLng (anchor-based transform)
+const ANCHOR_SUMO_X = 232.0;   // TRiia_Turu x in .net.xml
+const ANCHOR_SUMO_Y = 529.0;   // TRiia_Turu y in .net.xml
+const ANCHOR_LAT = 58.37798;   // Kaubamaja GPS latitude
+const ANCHOR_LON = 26.72738;   // Kaubamaja GPS longitude
+const M_PER_DEG_LAT = 111320;  // meters per degree latitude
+const M_PER_DEG_LON = 58367;   // meters per degree longitude at ~58.4°N
 
 function sumoToLatLng(x, y) {
-  return [ORIGIN_LAT + y * SCALE_LAT, ORIGIN_LON + x * SCALE_LON];
+  const lat = ANCHOR_LAT + (y - ANCHOR_SUMO_Y) / M_PER_DEG_LAT;
+  const lon = ANCHOR_LON + (x - ANCHOR_SUMO_X) / M_PER_DEG_LON;
+  return [lat, lon];
 }
 
 // Traffic light color from SUMO phase state character

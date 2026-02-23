@@ -7,9 +7,9 @@
   <edge id="RiiaTuru_TuruSoola" from="TRiia_Turu" to="TTuru_Soola" priority="2" numLanes="2" speed="13.9" name="Turu tanav (eastbound)"/>
   <edge id="TuruSoola_RiiaTuru" from="TTuru_Soola" to="TRiia_Turu" priority="2" numLanes="2" speed="13.9" name="Turu tanav (westbound)"/>
 
-  <!-- ========== CORRIDOR: TTuru_Soola ↔ TTuru_Alek (Turu tn, ~300m) ========== -->
-  <edge id="TuruSoola_TuruAlek" from="TTuru_Soola" to="TTuru_Alek" priority="2" numLanes="2" speed="13.9" name="Turu tanav (eastbound)"/>
-  <edge id="TuruAlek_TuruSoola" from="TTuru_Alek" to="TTuru_Soola" priority="2" numLanes="2" speed="13.9" name="Turu tanav (westbound)"/>
+  <!-- ========== CORRIDOR: TTuru_Soola ↔ TTuru_Aida (Turu tn, ~300m) ========== -->
+  <edge id="TuruSoola_TuruAida" from="TTuru_Soola" to="TTuru_Aida" priority="2" numLanes="2" speed="13.9" name="Turu tanav (eastbound)"/>
+  <edge id="TuruAida_TuruSoola" from="TTuru_Aida" to="TTuru_Soola" priority="2" numLanes="2" speed="13.9" name="Turu tanav (westbound)"/>
 
   <!-- ========== TRiia_Kalevi (Riia×Kalevi): External approaches ========== -->
   <!-- Riia tn South (node IDs say N for route compat) -->
@@ -38,14 +38,14 @@
   <edge id="SoolaS_TuruSoola" from="Soola_S_in"  to="TTuru_Soola" priority="1" numLanes="1" speed="11.1" name="Soola tanav (from South)"/>
   <edge id="TuruSoola_SoolaS" from="TTuru_Soola" to="Soola_S_out"  priority="1" numLanes="1" speed="11.1" name="Soola tanav (to South)"/>
 
-  <!-- ========== TTuru_Alek: External approaches ========== -->
-  <!-- Aleksandri / Turu East -->
-  <edge id="AlekE_TuruAlek" from="Alek_E_in"  to="TTuru_Alek" priority="1" numLanes="2" speed="13.9" name="Turu tanav (from East)"/>
-  <edge id="TuruAlek_AlekE" from="TTuru_Alek" to="Alek_E_out"  priority="1" numLanes="2" speed="13.9" name="Turu tanav (to East)"/>
-  <!-- Aleksandri tn North -->
-  <edge id="AlekN_TuruAlek" from="Alek_N_in"  to="TTuru_Alek" priority="1" numLanes="1" speed="11.1" name="Aleksandri tanav (from North)"/>
-  <edge id="TuruAlek_AlekN" from="TTuru_Alek" to="Alek_N_out"  priority="1" numLanes="1" speed="11.1" name="Aleksandri tanav (to North)"/>
-  <!-- Aleksandri tn South -->
-  <edge id="AlekS_TuruAlek" from="Alek_S_in"  to="TTuru_Alek" priority="1" numLanes="1" speed="11.1" name="Aleksandri tanav (from South)"/>
-  <edge id="TuruAlek_AlekS" from="TTuru_Alek" to="Alek_S_out"  priority="1" numLanes="1" speed="11.1" name="Aleksandri tanav (to South)"/>
+  <!-- ========== TTuru_Aida: External approaches ========== -->
+  <!-- Turu tn continuing SE -->
+  <edge id="AidaE_TuruAida" from="Aida_E_in"  to="TTuru_Aida" priority="1" numLanes="2" speed="13.9" name="Turu tanav (from East)"/>
+  <edge id="TuruAida_AidaE" from="TTuru_Aida" to="Aida_E_out"  priority="1" numLanes="2" speed="13.9" name="Turu tanav (to East)"/>
+  <!-- Väike-Turu tn NE -->
+  <edge id="AidaN_TuruAida" from="Aida_N_in"  to="TTuru_Aida" priority="1" numLanes="1" speed="11.1" name="Väike-Turu tn (from NE)"/>
+  <edge id="TuruAida_AidaN" from="TTuru_Aida" to="Aida_N_out"  priority="1" numLanes="1" speed="11.1" name="Väike-Turu tn (to NE)"/>
+  <!-- Aida tn SW -->
+  <edge id="AidaS_TuruAida" from="Aida_S_in"  to="TTuru_Aida" priority="1" numLanes="1" speed="11.1" name="Aida tn (from SW)"/>
+  <edge id="TuruAida_AidaS" from="TTuru_Aida" to="Aida_S_out"  priority="1" numLanes="1" speed="11.1" name="Aida tn (to SW)"/>
 </edges>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-02-24T00:12:35.703697+05:00 by Eclipse SUMO GUI 1.25.0
+<!-- generated on 2026-02-24T00:59:39.828205+05:00 by Eclipse SUMO GUI 1.25.0
 <sumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
 
     <input>
@@ -27,7 +27,7 @@
     </report>
 
     <traci_server>
-        <remote-port value="50961"/>
+        <remote-port value="56776"/>
     </traci_server>
 
     <gui_only>
@@ -40,10 +40,24 @@
 -->
 
 <detector xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/det_e1_file.xsd">
-    <interval begin="0.00" end="60.00" id="loop_RiiaKalevi_corr_1" nVehContrib="1" flow="60.00" occupancy="1.18" speed="7.09" harmonicMeanSpeed="7.09" length="5.00" nVehEntered="1"/>
+    <interval begin="0.00" end="60.00" id="loop_RiiaKalevi_corr_1" nVehContrib="1" flow="60.00" occupancy="1.30" speed="6.39" harmonicMeanSpeed="6.39" length="5.00" nVehEntered="1"/>
     <interval begin="60.00" end="120.00" id="loop_RiiaKalevi_corr_1" nVehContrib="1" flow="60.00" occupancy="2.35" speed="3.54" harmonicMeanSpeed="3.54" length="5.00" nVehEntered="1"/>
-    <interval begin="120.00" end="180.00" id="loop_RiiaKalevi_corr_1" nVehContrib="3" flow="180.00" occupancy="15.01" speed="4.15" harmonicMeanSpeed="1.95" length="5.00" nVehEntered="5"/>
-    <interval begin="180.00" end="240.00" id="loop_RiiaKalevi_corr_1" nVehContrib="4" flow="240.00" occupancy="12.23" speed="7.83" harmonicMeanSpeed="2.73" length="5.00" nVehEntered="4"/>
+    <interval begin="120.00" end="180.00" id="loop_RiiaKalevi_corr_1" nVehContrib="4" flow="240.00" occupancy="17.75" speed="4.29" harmonicMeanSpeed="2.00" length="5.00" nVehEntered="5"/>
+    <interval begin="180.00" end="240.00" id="loop_RiiaKalevi_corr_1" nVehContrib="2" flow="120.00" occupancy="11.17" speed="2.99" harmonicMeanSpeed="1.49" length="5.00" nVehEntered="2"/>
     <interval begin="240.00" end="300.00" id="loop_RiiaKalevi_corr_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
-    <interval begin="300.00" end="347.00" id="loop_RiiaKalevi_corr_1" nVehContrib="3" flow="229.79" occupancy="6.07" speed="8.01" harmonicMeanSpeed="6.16" length="5.00" nVehEntered="4"/>
+    <interval begin="300.00" end="360.00" id="loop_RiiaKalevi_corr_1" nVehContrib="4" flow="240.00" occupancy="6.95" speed="8.51" harmonicMeanSpeed="6.43" length="5.00" nVehEntered="6"/>
+    <interval begin="360.00" end="420.00" id="loop_RiiaKalevi_corr_1" nVehContrib="5" flow="300.00" occupancy="6.89" speed="8.37" harmonicMeanSpeed="6.67" length="5.00" nVehEntered="7"/>
+    <interval begin="420.00" end="480.00" id="loop_RiiaKalevi_corr_1" nVehContrib="3" flow="180.00" occupancy="26.44" speed="2.04" harmonicMeanSpeed="0.94" length="5.00" nVehEntered="2"/>
+    <interval begin="480.00" end="540.00" id="loop_RiiaKalevi_corr_1" nVehContrib="4" flow="240.00" occupancy="3.97" speed="10.43" harmonicMeanSpeed="8.40" length="5.00" nVehEntered="4"/>
+    <interval begin="540.00" end="600.00" id="loop_RiiaKalevi_corr_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="600.00" end="660.00" id="loop_RiiaKalevi_corr_1" nVehContrib="6" flow="360.00" occupancy="8.95" speed="6.51" harmonicMeanSpeed="5.59" length="5.00" nVehEntered="6"/>
+    <interval begin="660.00" end="720.00" id="loop_RiiaKalevi_corr_1" nVehContrib="4" flow="240.00" occupancy="4.72" speed="9.44" harmonicMeanSpeed="7.06" length="5.00" nVehEntered="4"/>
+    <interval begin="720.00" end="780.00" id="loop_RiiaKalevi_corr_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="780.00" end="840.00" id="loop_RiiaKalevi_corr_1" nVehContrib="2" flow="120.00" occupancy="8.77" speed="2.47" harmonicMeanSpeed="2.04" length="5.00" nVehEntered="3"/>
+    <interval begin="840.00" end="900.00" id="loop_RiiaKalevi_corr_1" nVehContrib="2" flow="120.00" occupancy="1.39" speed="12.30" harmonicMeanSpeed="11.99" length="5.00" nVehEntered="2"/>
+    <interval begin="900.00" end="960.00" id="loop_RiiaKalevi_corr_1" nVehContrib="1" flow="60.00" occupancy="1.86" speed="4.76" harmonicMeanSpeed="4.76" length="5.00" nVehEntered="2"/>
+    <interval begin="960.00" end="1020.00" id="loop_RiiaKalevi_corr_1" nVehContrib="6" flow="360.00" occupancy="10.78" speed="8.47" harmonicMeanSpeed="4.71" length="5.00" nVehEntered="7"/>
+    <interval begin="1020.00" end="1080.00" id="loop_RiiaKalevi_corr_1" nVehContrib="1" flow="60.00" occupancy="6.12" speed="1.36" harmonicMeanSpeed="1.36" length="5.00" nVehEntered="1"/>
+    <interval begin="1080.00" end="1140.00" id="loop_RiiaKalevi_corr_1" nVehContrib="5" flow="300.00" occupancy="6.59" speed="8.01" harmonicMeanSpeed="6.76" length="5.00" nVehEntered="6"/>
+    <interval begin="1140.00" end="1192.00" id="loop_RiiaKalevi_corr_1" nVehContrib="4" flow="276.92" occupancy="18.63" speed="4.32" harmonicMeanSpeed="2.06" length="5.00" nVehEntered="4"/>
 </detector>

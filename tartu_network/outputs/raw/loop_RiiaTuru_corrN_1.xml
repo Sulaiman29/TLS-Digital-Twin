@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-02-24T00:12:35.704989+05:00 by Eclipse SUMO GUI 1.25.0
+<!-- generated on 2026-02-24T00:59:39.830756+05:00 by Eclipse SUMO GUI 1.25.0
 <sumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
 
     <input>
@@ -27,7 +27,7 @@
     </report>
 
     <traci_server>
-        <remote-port value="50961"/>
+        <remote-port value="56776"/>
     </traci_server>
 
     <gui_only>
@@ -42,8 +42,22 @@
 <detector xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/det_e1_file.xsd">
     <interval begin="0.00" end="60.00" id="loop_RiiaTuru_corrN_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="60.00" end="120.00" id="loop_RiiaTuru_corrN_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
-    <interval begin="120.00" end="180.00" id="loop_RiiaTuru_corrN_1" nVehContrib="3" flow="180.00" occupancy="4.27" speed="8.28" harmonicMeanSpeed="5.85" length="5.00" nVehEntered="3"/>
+    <interval begin="120.00" end="180.00" id="loop_RiiaTuru_corrN_1" nVehContrib="3" flow="180.00" occupancy="4.68" speed="7.60" harmonicMeanSpeed="5.35" length="5.00" nVehEntered="3"/>
     <interval begin="180.00" end="240.00" id="loop_RiiaTuru_corrN_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="240.00" end="300.00" id="loop_RiiaTuru_corrN_1" nVehContrib="2" flow="120.00" occupancy="3.63" speed="5.11" harmonicMeanSpeed="4.59" length="5.00" nVehEntered="2"/>
-    <interval begin="300.00" end="347.00" id="loop_RiiaTuru_corrN_1" nVehContrib="1" flow="76.60" occupancy="2.89" speed="3.71" harmonicMeanSpeed="3.71" length="5.00" nVehEntered="2"/>
+    <interval begin="300.00" end="360.00" id="loop_RiiaTuru_corrN_1" nVehContrib="2" flow="120.00" occupancy="3.91" speed="4.76" harmonicMeanSpeed="4.26" length="5.00" nVehEntered="2"/>
+    <interval begin="360.00" end="420.00" id="loop_RiiaTuru_corrN_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="420.00" end="480.00" id="loop_RiiaTuru_corrN_1" nVehContrib="1" flow="60.00" occupancy="1.19" speed="7.01" harmonicMeanSpeed="7.01" length="5.00" nVehEntered="1"/>
+    <interval begin="480.00" end="540.00" id="loop_RiiaTuru_corrN_1" nVehContrib="1" flow="60.00" occupancy="2.37" speed="3.52" harmonicMeanSpeed="3.52" length="5.00" nVehEntered="1"/>
+    <interval begin="540.00" end="600.00" id="loop_RiiaTuru_corrN_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="600.00" end="660.00" id="loop_RiiaTuru_corrN_1" nVehContrib="1" flow="60.00" occupancy="2.56" speed="3.25" harmonicMeanSpeed="3.25" length="5.00" nVehEntered="1"/>
+    <interval begin="660.00" end="720.00" id="loop_RiiaTuru_corrN_1" nVehContrib="1" flow="60.00" occupancy="0.62" speed="13.45" harmonicMeanSpeed="13.45" length="5.00" nVehEntered="1"/>
+    <interval begin="720.00" end="780.00" id="loop_RiiaTuru_corrN_1" nVehContrib="2" flow="120.00" occupancy="4.00" speed="4.49" harmonicMeanSpeed="4.17" length="5.00" nVehEntered="2"/>
+    <interval begin="780.00" end="840.00" id="loop_RiiaTuru_corrN_1" nVehContrib="2" flow="120.00" occupancy="1.45" speed="11.46" harmonicMeanSpeed="11.46" length="5.00" nVehEntered="2"/>
+    <interval begin="840.00" end="900.00" id="loop_RiiaTuru_corrN_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="900.00" end="960.00" id="loop_RiiaTuru_corrN_1" nVehContrib="1" flow="60.00" occupancy="2.62" speed="3.18" harmonicMeanSpeed="3.18" length="5.00" nVehEntered="1"/>
+    <interval begin="960.00" end="1020.00" id="loop_RiiaTuru_corrN_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1020.00" end="1080.00" id="loop_RiiaTuru_corrN_1" nVehContrib="0" flow="0.00" occupancy="0.28" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="2"/>
+    <interval begin="1080.00" end="1140.00" id="loop_RiiaTuru_corrN_1" nVehContrib="6" flow="360.00" occupancy="8.08" speed="7.36" harmonicMeanSpeed="6.19" length="5.00" nVehEntered="6"/>
+    <interval begin="1140.00" end="1192.00" id="loop_RiiaTuru_corrN_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
 </detector>

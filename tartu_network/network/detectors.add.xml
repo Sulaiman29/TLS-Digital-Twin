@@ -57,27 +57,27 @@
   <inductionLoop id="loop_TuruSoola_SoolaS_0" lane="SoolaS_TuruSoola_0" pos="15" freq="60" friendlyPos="true"
                  file="../outputs/raw/loop_TuruSoola_SoolaS_0.xml"/>
   <!-- Corridor from Turu_Alek (east) -->
-  <inductionLoop id="loop_TuruSoola_corrE_0" lane="TuruAlek_TuruSoola_0" pos="250" freq="60" friendlyPos="true"
+  <inductionLoop id="loop_TuruSoola_corrE_0" lane="TuruAida_TuruSoola_0" pos="250" freq="60" friendlyPos="true"
                  file="../outputs/raw/loop_TuruSoola_corrE_0.xml"/>
-  <inductionLoop id="loop_TuruSoola_corrE_1" lane="TuruAlek_TuruSoola_1" pos="250" freq="60" friendlyPos="true"
+  <inductionLoop id="loop_TuruSoola_corrE_1" lane="TuruAida_TuruSoola_1" pos="250" freq="60" friendlyPos="true"
                  file="../outputs/raw/loop_TuruSoola_corrE_1.xml"/>
 
-  <!-- ========== INTERSECTION TTuru_Alek DETECTORS ========== -->
+  <!-- ========== INTERSECTION TTuru_Aida DETECTORS ========== -->
   <!-- Corridor from Turu_Vaks (west) -->
-  <inductionLoop id="loop_TuruAlek_corrW_0" lane="TuruSoola_TuruAlek_0" pos="250" freq="60" friendlyPos="true"
-                 file="../outputs/raw/loop_TuruAlek_corrW_0.xml"/>
-  <inductionLoop id="loop_TuruAlek_corrW_1" lane="TuruSoola_TuruAlek_1" pos="250" freq="60" friendlyPos="true"
-                 file="../outputs/raw/loop_TuruAlek_corrW_1.xml"/>
-  <!-- Aleksandri East approach -->
-  <inductionLoop id="loop_TuruAlek_AlekE_0" lane="AlekE_TuruAlek_0" pos="15" freq="60" friendlyPos="true"
-                 file="../outputs/raw/loop_TuruAlek_AlekE_0.xml"/>
-  <inductionLoop id="loop_TuruAlek_AlekE_1" lane="AlekE_TuruAlek_1" pos="15" freq="60" friendlyPos="true"
-                 file="../outputs/raw/loop_TuruAlek_AlekE_1.xml"/>
-  <!-- Aleksandri North approach -->
-  <inductionLoop id="loop_TuruAlek_AlekN_0" lane="AlekN_TuruAlek_0" pos="15" freq="60" friendlyPos="true"
-                 file="../outputs/raw/loop_TuruAlek_AlekN_0.xml"/>
-  <!-- Aleksandri South approach -->
-  <inductionLoop id="loop_TuruAlek_AlekS_0" lane="AlekS_TuruAlek_0" pos="15" freq="60" friendlyPos="true"
-                 file="../outputs/raw/loop_TuruAlek_AlekS_0.xml"/>
+  <inductionLoop id="loop_TuruAida_corrW_0" lane="TuruSoola_TuruAida_0" pos="250" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_TuruAida_corrW_0.xml"/>
+  <inductionLoop id="loop_TuruAida_corrW_1" lane="TuruSoola_TuruAida_1" pos="250" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_TuruAida_corrW_1.xml"/>
+  <!-- AidaSandri East approach -->
+  <inductionLoop id="loop_TuruAida_AidaE_0" lane="AidaE_TuruAida_0" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_TuruAida_AidaE_0.xml"/>
+  <inductionLoop id="loop_TuruAida_AidaE_1" lane="AidaE_TuruAida_1" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_TuruAida_AidaE_1.xml"/>
+  <!-- AidaSandri North approach -->
+  <inductionLoop id="loop_TuruAida_AidaN_0" lane="AidaN_TuruAida_0" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_TuruAida_AidaN_0.xml"/>
+  <!-- AidaSandri South approach -->
+  <inductionLoop id="loop_TuruAida_AidaS_0" lane="AidaS_TuruAida_0" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_TuruAida_AidaS_0.xml"/>
 
 </additional>

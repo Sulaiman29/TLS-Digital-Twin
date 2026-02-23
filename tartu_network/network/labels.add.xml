@@ -9,12 +9,12 @@
   <poi id="Riia_x_Vabaduse__TRiia_Kalevi"         type="intersection" color="255,80,80" x="55.0" y="325.0" layer="10"/>
   <poi id="Riia_x_Turu_Kaubamaja__TRiia_Turu"    type="intersection" color="255,80,80" x="55.0" y="25.0" layer="10"/>
   <poi id="Turu_x_Soola__TTuru_Soola"            type="intersection" color="255,80,80" x="355.0" y="25.0" layer="10"/>
-  <poi id="Turu_x_Aleksandri__TTuru_Alek"         type="intersection" color="255,80,80" x="655.0" y="25.0" layer="10"/>
+  <poi id="Turu_x_AidaSandri__TTuru_Aida"         type="intersection" color="255,80,80" x="655.0" y="25.0" layer="10"/>
 
   <!-- ========== STREET NAME LABELS ========== -->
   <poi id="Riia_maantee"        type="street" color="80,220,80" x="-40.0" y="150.0" layer="10"/>
   <poi id="Turu_tanav"          type="street" color="80,220,80" x="150.0" y="-40.0" layer="10"/>
   <poi id="Vabaduse_puiestee"   type="street" color="80,220,80" x="100.0" y="335.0" layer="10"/>
   <poi id="Soola_tanav"       type="street" color="80,220,80" x="335.0" y="100.0" layer="10"/>
-  <poi id="Aleksandri_tanav"    type="street" color="80,220,80" x="635.0" y="100.0" layer="10"/>
+  <poi id="AidaSandri_tanav"    type="street" color="80,220,80" x="635.0" y="100.0" layer="10"/>
 </additional>

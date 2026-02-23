@@ -11,17 +11,17 @@
  */
 
 // Intersection positions (from rebuilt SUMO .net.xml)
-// netOffset = 301.40, 529.00
+// netOffset = 301.40, 578.70
 const INTERSECTIONS = [
-  { id: "TRiia_Kalevi", x: 143.9, y: 374.7, label: "Riia × Ülikooli/Kalevi" },
-  { id: "TRiia_Turu", x: 301.4, y: 529.0, label: "Riia × Turu (Kaubamaja)" },
-  { id: "TTuru_Soola", x: 394.7, y: 428.9, label: "Turu × Soola" },
-  { id: "TTuru_Alek", x: 687.4, y: 197.0, label: "Turu × Aleksandri" },
+  { id: "TRiia_Kalevi", x: 143.9, y: 424.4, label: "Riia × Ülikooli/Kalevi" },
+  { id: "TRiia_Turu", x: 301.4, y: 578.7, label: "Riia × Turu (Kaubamaja)" },
+  { id: "TTuru_Soola", x: 394.7, y: 478.6, label: "Turu × Soola" },
+  { id: "TTuru_Aida", x: 695.0, y: 141.4, label: "Turu × Aida" },
 ];
 
 // SUMO XY → Leaflet LatLng (anchor-based transform)
 const ANCHOR_SUMO_X = 301.4;   // TRiia_Turu x in .net.xml
-const ANCHOR_SUMO_Y = 529.0;   // TRiia_Turu y in .net.xml
+const ANCHOR_SUMO_Y = 578.7;   // TRiia_Turu y in .net.xml
 const ANCHOR_LAT = 58.37798;   // Riia × Turu intersection latitude
 const ANCHOR_LON = 26.72892;   // Riia × Turu intersection longitude (road center, not Kaubamaja building)
 const M_PER_DEG_LAT = 111320;  // meters per degree latitude

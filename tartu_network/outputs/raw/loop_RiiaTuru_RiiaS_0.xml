@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-02-24T00:12:35.705687+05:00 by Eclipse SUMO GUI 1.25.0
+<!-- generated on 2026-02-24T00:59:39.832118+05:00 by Eclipse SUMO GUI 1.25.0
 <sumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
 
     <input>
@@ -27,7 +27,7 @@
     </report>
 
     <traci_server>
-        <remote-port value="50961"/>
+        <remote-port value="56776"/>
     </traci_server>
 
     <gui_only>
@@ -45,5 +45,19 @@
     <interval begin="120.00" end="180.00" id="loop_RiiaTuru_RiiaS_0" nVehContrib="3" flow="180.00" occupancy="3.51" speed="7.13" harmonicMeanSpeed="7.11" length="5.00" nVehEntered="3"/>
     <interval begin="180.00" end="240.00" id="loop_RiiaTuru_RiiaS_0" nVehContrib="3" flow="180.00" occupancy="3.59" speed="6.97" harmonicMeanSpeed="6.97" length="5.00" nVehEntered="3"/>
     <interval begin="240.00" end="300.00" id="loop_RiiaTuru_RiiaS_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
-    <interval begin="300.00" end="347.00" id="loop_RiiaTuru_RiiaS_0" nVehContrib="1" flow="76.60" occupancy="1.43" speed="7.43" harmonicMeanSpeed="7.43" length="5.00" nVehEntered="1"/>
+    <interval begin="300.00" end="360.00" id="loop_RiiaTuru_RiiaS_0" nVehContrib="1" flow="60.00" occupancy="1.12" speed="7.43" harmonicMeanSpeed="7.43" length="5.00" nVehEntered="1"/>
+    <interval begin="360.00" end="420.00" id="loop_RiiaTuru_RiiaS_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="420.00" end="480.00" id="loop_RiiaTuru_RiiaS_0" nVehContrib="1" flow="60.00" occupancy="1.23" speed="6.77" harmonicMeanSpeed="6.77" length="5.00" nVehEntered="1"/>
+    <interval begin="480.00" end="540.00" id="loop_RiiaTuru_RiiaS_0" nVehContrib="3" flow="180.00" occupancy="3.79" speed="6.60" harmonicMeanSpeed="6.60" length="5.00" nVehEntered="3"/>
+    <interval begin="540.00" end="600.00" id="loop_RiiaTuru_RiiaS_0" nVehContrib="5" flow="300.00" occupancy="6.13" speed="6.80" harmonicMeanSpeed="6.79" length="5.00" nVehEntered="5"/>
+    <interval begin="600.00" end="660.00" id="loop_RiiaTuru_RiiaS_0" nVehContrib="1" flow="60.00" occupancy="1.19" speed="7.02" harmonicMeanSpeed="7.02" length="5.00" nVehEntered="1"/>
+    <interval begin="660.00" end="720.00" id="loop_RiiaTuru_RiiaS_0" nVehContrib="3" flow="180.00" occupancy="3.61" speed="6.96" harmonicMeanSpeed="6.93" length="5.00" nVehEntered="3"/>
+    <interval begin="720.00" end="780.00" id="loop_RiiaTuru_RiiaS_0" nVehContrib="7" flow="420.00" occupancy="8.42" speed="6.95" harmonicMeanSpeed="6.93" length="5.00" nVehEntered="7"/>
+    <interval begin="780.00" end="840.00" id="loop_RiiaTuru_RiiaS_0" nVehContrib="1" flow="60.00" occupancy="1.20" speed="6.95" harmonicMeanSpeed="6.95" length="5.00" nVehEntered="1"/>
+    <interval begin="840.00" end="900.00" id="loop_RiiaTuru_RiiaS_0" nVehContrib="3" flow="180.00" occupancy="3.66" speed="6.83" harmonicMeanSpeed="6.82" length="5.00" nVehEntered="3"/>
+    <interval begin="900.00" end="960.00" id="loop_RiiaTuru_RiiaS_0" nVehContrib="1" flow="60.00" occupancy="1.16" speed="7.18" harmonicMeanSpeed="7.18" length="5.00" nVehEntered="1"/>
+    <interval begin="960.00" end="1020.00" id="loop_RiiaTuru_RiiaS_0" nVehContrib="2" flow="120.00" occupancy="2.49" speed="6.68" harmonicMeanSpeed="6.68" length="5.00" nVehEntered="2"/>
+    <interval begin="1020.00" end="1080.00" id="loop_RiiaTuru_RiiaS_0" nVehContrib="2" flow="120.00" occupancy="2.44" speed="6.84" harmonicMeanSpeed="6.83" length="5.00" nVehEntered="2"/>
+    <interval begin="1080.00" end="1140.00" id="loop_RiiaTuru_RiiaS_0" nVehContrib="1" flow="60.00" occupancy="1.22" speed="6.80" harmonicMeanSpeed="6.80" length="5.00" nVehEntered="1"/>
+    <interval begin="1140.00" end="1192.00" id="loop_RiiaTuru_RiiaS_0" nVehContrib="2" flow="138.46" occupancy="2.82" speed="6.82" harmonicMeanSpeed="6.82" length="5.00" nVehEntered="2"/>
 </detector>

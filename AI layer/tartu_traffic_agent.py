@@ -1,7 +1,7 @@
 """
 Rule-Based Traffic Agent for Tartu 4-Intersection Network
 ==========================================================
-Controls all 4 intersections: TRiia_Kalevi, TRiia_Turu, TTuru_Soola, TTuru_Alek.
+Controls all 4 intersections: TRiia_Kalevi, TRiia_Turu, TTuru_Soola, TTuru_Aida.
 Uses a simple hysteresis-based approach: switch to the direction with the
 most waiting vehicles, but only if it exceeds the current direction by >2.
 """
@@ -34,10 +34,10 @@ INTERSECTIONS = {
         "phase_map": {"Corridor_West": 0, "Soola_North": 2, "Soola_South": 4, "Corridor_East": 6},
         "phase_names": {0: "Corridor_West", 2: "Soola_North", 4: "Soola_South", 6: "Corridor_East"},
     },
-    "TTuru_Alek": {
-        "directions": ["Corridor_West", "Aleksandri_East", "Aleksandri_North", "Aleksandri_South"],
-        "phase_map": {"Corridor_West": 0, "Aleksandri_East": 2, "Aleksandri_North": 4, "Aleksandri_South": 6},
-        "phase_names": {0: "Corridor_West", 2: "Aleksandri_East", 4: "Aleksandri_North", 6: "Aleksandri_South"},
+    "TTuru_Aida": {
+        "directions": ["Corridor_West", "AidaSandri_East", "AidaSandri_North", "AidaSandri_South"],
+        "phase_map": {"Corridor_West": 0, "AidaSandri_East": 2, "AidaSandri_North": 4, "AidaSandri_South": 6},
+        "phase_names": {0: "Corridor_West", 2: "AidaSandri_East", 4: "AidaSandri_North", 6: "AidaSandri_South"},
     },
 }
 
@@ -63,12 +63,12 @@ LANE_MAP = [
     ("RiiaTuru_TuruSoola",    "TTuru_Soola", "Corridor_West"),
     ("SoolaN_TuruSoola",       "TTuru_Soola", "Soola_North"),
     ("SoolaS_TuruSoola",       "TTuru_Soola", "Soola_South"),
-    ("TuruAlek_TuruSoola",    "TTuru_Soola", "Corridor_East"),
-    # TTuru_Alek approaches
-    ("TuruSoola_TuruAlek",    "TTuru_Alek", "Corridor_West"),
-    ("AlekE_TuruAlek",       "TTuru_Alek", "Aleksandri_East"),
-    ("AlekN_TuruAlek",       "TTuru_Alek", "Aleksandri_North"),
-    ("AlekS_TuruAlek",       "TTuru_Alek", "Aleksandri_South"),
+    ("TuruAida_TuruSoola",    "TTuru_Soola", "Corridor_East"),
+    # TTuru_Aida approaches
+    ("TuruSoola_TuruAida",    "TTuru_Aida", "Corridor_West"),
+    ("AidaE_TuruAida",       "TTuru_Aida", "AidaSandri_East"),
+    ("AidaN_TuruAida",       "TTuru_Aida", "AidaSandri_North"),
+    ("AidaS_TuruAida",       "TTuru_Aida", "AidaSandri_South"),
 ]
 
 

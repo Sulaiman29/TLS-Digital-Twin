@@ -10,8 +10,8 @@
   <node id="TRiia_Kalevi" x="-157.5" y="-154.3" type="traffic_light"/>
   <!-- Turu tn × Soola/Soola — GPS 58.377081, 26.730518 -->
   <node id="TTuru_Soola" x="93.3" y="-100.1" type="traffic_light"/>
-  <!-- Turu tn × Aleksandri — further ESE -->
-  <node id="TTuru_Alek" x="386.0" y="-332.0" type="traffic_light"/>
+  <!-- Turu tn × Aida/Väike-Turu — GPS 58.374051, 26.735664 -->
+  <node id="TTuru_Aida" x="393.6" y="-437.3" type="traffic_light"/>
 
   <!-- ========== TRiia_Kalevi (Riia×Ülikooli/Kalevi) EXTERNAL APPROACHES ========== -->
   <!-- NOTE: Node IDs say "N" but physically these are SOUTH (IDs kept for route compat) -->
@@ -42,11 +42,14 @@
   <node id="Soola_S_in"  x="93.3"  y="-300.1"/>
   <node id="Soola_S_out" x="93.3"  y="-220.1"/>
 
-  <!-- ========== TTuru_Alek EXTERNAL APPROACHES ========== -->
-  <node id="Alek_E_in"  x="573.9"  y="-400.4"/>
-  <node id="Alek_E_out" x="498.8"  y="-373.0"/>
-  <node id="Alek_N_in"  x="420.7"  y="-135.0"/>
-  <node id="Alek_N_out" x="406.8"  y="-213.8"/>
-  <node id="Alek_S_in"  x="351.3"  y="-529.0"/>
-  <node id="Alek_S_out" x="365.2"  y="-450.2"/>
+  <!-- ========== TTuru_Aida EXTERNAL APPROACHES ========== -->
+  <!-- Turu tn continuing SE (bearing ~135°) -->
+  <node id="Aida_E_in"  x="535.0"  y="-578.7"/>
+  <node id="Aida_E_out" x="478.5"  y="-522.2"/>
+  <!-- Väike-Turu tn going NE (bearing ~45°) -->
+  <node id="Aida_N_in"  x="535.0"  y="-295.9"/>
+  <node id="Aida_N_out" x="478.5"  y="-352.4"/>
+  <!-- Aida tn going SW (bearing ~225°) -->
+  <node id="Aida_S_in"  x="252.2"  y="-578.7"/>
+  <node id="Aida_S_out" x="308.7"  y="-522.2"/>
 </nodes>

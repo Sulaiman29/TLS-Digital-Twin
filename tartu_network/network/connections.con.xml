@@ -23,63 +23,63 @@
   <!-- ========== INTERSECTION TRiia_Turu (Riia × Turu — Kaubamaja) ========== -->
   <!-- From corridor (Riia_Vaba heading south) -->
   <connection from="RiiaKalevi_RiiaTuru" to="RiiaTuru_RiiaS"    via=""/>
-  <connection from="RiiaKalevi_RiiaTuru" to="RiiaTuru_TuruVaks" via=""/>
+  <connection from="RiiaKalevi_RiiaTuru" to="RiiaTuru_TuruSoola" via=""/>
   <connection from="RiiaKalevi_RiiaTuru" to="RiiaTuru_TuruW"    via=""/>
 
   <!-- From Riia South -->
   <connection from="RiiaS_RiiaTuru" to="RiiaTuru_RiiaKalevi" via=""/>
   <connection from="RiiaS_RiiaTuru" to="RiiaTuru_TuruW"    via=""/>
-  <connection from="RiiaS_RiiaTuru" to="RiiaTuru_TuruVaks" via=""/>
+  <connection from="RiiaS_RiiaTuru" to="RiiaTuru_TuruSoola" via=""/>
 
   <!-- From Turu West -->
-  <connection from="TuruW_RiiaTuru" to="RiiaTuru_TuruVaks" via=""/>
+  <connection from="TuruW_RiiaTuru" to="RiiaTuru_TuruSoola" via=""/>
   <connection from="TuruW_RiiaTuru" to="RiiaTuru_RiiaKalevi" via=""/>
   <connection from="TuruW_RiiaTuru" to="RiiaTuru_RiiaS"    via=""/>
 
   <!-- From corridor (Turu_Vaks heading west) -->
-  <connection from="TuruVaks_RiiaTuru" to="RiiaTuru_TuruW"    via=""/>
-  <connection from="TuruVaks_RiiaTuru" to="RiiaTuru_RiiaKalevi" via=""/>
-  <connection from="TuruVaks_RiiaTuru" to="RiiaTuru_RiiaS"    via=""/>
+  <connection from="TuruSoola_RiiaTuru" to="RiiaTuru_TuruW"    via=""/>
+  <connection from="TuruSoola_RiiaTuru" to="RiiaTuru_RiiaKalevi" via=""/>
+  <connection from="TuruSoola_RiiaTuru" to="RiiaTuru_RiiaS"    via=""/>
 
-  <!-- ========== INTERSECTION TTuru_Vaks (Turu × Vaksali) ========== -->
+  <!-- ========== INTERSECTION TTuru_Soola (Turu × Soola) ========== -->
   <!-- From corridor (Riia_Turu heading east) -->
-  <connection from="RiiaTuru_TuruVaks" to="TuruVaks_TuruAlek" via=""/>
-  <connection from="RiiaTuru_TuruVaks" to="TuruVaks_VaksN"    via=""/>
-  <connection from="RiiaTuru_TuruVaks" to="TuruVaks_VaksS"    via=""/>
+  <connection from="RiiaTuru_TuruSoola" to="TuruSoola_TuruAlek" via=""/>
+  <connection from="RiiaTuru_TuruSoola" to="TuruSoola_SoolaN"    via=""/>
+  <connection from="RiiaTuru_TuruSoola" to="TuruSoola_SoolaS"    via=""/>
 
-  <!-- From Vaksali North -->
-  <connection from="VaksN_TuruVaks" to="TuruVaks_VaksS"    via=""/>
-  <connection from="VaksN_TuruVaks" to="TuruVaks_RiiaTuru" via=""/>
-  <connection from="VaksN_TuruVaks" to="TuruVaks_TuruAlek" via=""/>
+  <!-- From Soola North -->
+  <connection from="SoolaN_TuruSoola" to="TuruSoola_SoolaS"    via=""/>
+  <connection from="SoolaN_TuruSoola" to="TuruSoola_RiiaTuru" via=""/>
+  <connection from="SoolaN_TuruSoola" to="TuruSoola_TuruAlek" via=""/>
 
-  <!-- From Vaksali South -->
-  <connection from="VaksS_TuruVaks" to="TuruVaks_VaksN"    via=""/>
-  <connection from="VaksS_TuruVaks" to="TuruVaks_TuruAlek" via=""/>
-  <connection from="VaksS_TuruVaks" to="TuruVaks_RiiaTuru" via=""/>
+  <!-- From Soola South -->
+  <connection from="SoolaS_TuruSoola" to="TuruSoola_SoolaN"    via=""/>
+  <connection from="SoolaS_TuruSoola" to="TuruSoola_TuruAlek" via=""/>
+  <connection from="SoolaS_TuruSoola" to="TuruSoola_RiiaTuru" via=""/>
 
   <!-- From corridor (Turu_Alek heading west) -->
-  <connection from="TuruAlek_TuruVaks" to="TuruVaks_RiiaTuru" via=""/>
-  <connection from="TuruAlek_TuruVaks" to="TuruVaks_VaksN"    via=""/>
-  <connection from="TuruAlek_TuruVaks" to="TuruVaks_VaksS"    via=""/>
+  <connection from="TuruAlek_TuruSoola" to="TuruSoola_RiiaTuru" via=""/>
+  <connection from="TuruAlek_TuruSoola" to="TuruSoola_SoolaN"    via=""/>
+  <connection from="TuruAlek_TuruSoola" to="TuruSoola_SoolaS"    via=""/>
 
   <!-- ========== INTERSECTION TTuru_Alek (Turu × Aleksandri) ========== -->
   <!-- From corridor (Turu_Vaks heading east) -->
-  <connection from="TuruVaks_TuruAlek" to="TuruAlek_AlekE" via=""/>
-  <connection from="TuruVaks_TuruAlek" to="TuruAlek_AlekN" via=""/>
-  <connection from="TuruVaks_TuruAlek" to="TuruAlek_AlekS" via=""/>
+  <connection from="TuruSoola_TuruAlek" to="TuruAlek_AlekE" via=""/>
+  <connection from="TuruSoola_TuruAlek" to="TuruAlek_AlekN" via=""/>
+  <connection from="TuruSoola_TuruAlek" to="TuruAlek_AlekS" via=""/>
 
   <!-- From Aleksandri East -->
-  <connection from="AlekE_TuruAlek" to="TuruAlek_TuruVaks" via=""/>
+  <connection from="AlekE_TuruAlek" to="TuruAlek_TuruSoola" via=""/>
   <connection from="AlekE_TuruAlek" to="TuruAlek_AlekN"    via=""/>
   <connection from="AlekE_TuruAlek" to="TuruAlek_AlekS"    via=""/>
 
   <!-- From Aleksandri North -->
   <connection from="AlekN_TuruAlek" to="TuruAlek_AlekS"    via=""/>
-  <connection from="AlekN_TuruAlek" to="TuruAlek_TuruVaks" via=""/>
+  <connection from="AlekN_TuruAlek" to="TuruAlek_TuruSoola" via=""/>
   <connection from="AlekN_TuruAlek" to="TuruAlek_AlekE"    via=""/>
 
   <!-- From Aleksandri South -->
   <connection from="AlekS_TuruAlek" to="TuruAlek_AlekN"    via=""/>
   <connection from="AlekS_TuruAlek" to="TuruAlek_AlekE"    via=""/>
-  <connection from="AlekS_TuruAlek" to="TuruAlek_TuruVaks" via=""/>
+  <connection from="AlekS_TuruAlek" to="TuruAlek_TuruSoola" via=""/>
 </connections>

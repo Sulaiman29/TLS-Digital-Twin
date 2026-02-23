@@ -39,34 +39,34 @@
   <inductionLoop id="loop_RiiaTuru_TuruW_1" lane="TuruW_RiiaTuru_1" pos="15" freq="60" friendlyPos="true"
                  file="../outputs/raw/loop_RiiaTuru_TuruW_1.xml"/>
   <!-- Corridor from Turu_Vaks (east) -->
-  <inductionLoop id="loop_RiiaTuru_corrE_0" lane="TuruVaks_RiiaTuru_0" pos="250" freq="60" friendlyPos="true"
+  <inductionLoop id="loop_RiiaTuru_corrE_0" lane="TuruSoola_RiiaTuru_0" pos="250" freq="60" friendlyPos="true"
                  file="../outputs/raw/loop_RiiaTuru_corrE_0.xml"/>
-  <inductionLoop id="loop_RiiaTuru_corrE_1" lane="TuruVaks_RiiaTuru_1" pos="250" freq="60" friendlyPos="true"
+  <inductionLoop id="loop_RiiaTuru_corrE_1" lane="TuruSoola_RiiaTuru_1" pos="250" freq="60" friendlyPos="true"
                  file="../outputs/raw/loop_RiiaTuru_corrE_1.xml"/>
 
-  <!-- ========== INTERSECTION TTuru_Vaks DETECTORS ========== -->
+  <!-- ========== INTERSECTION TTuru_Soola DETECTORS ========== -->
   <!-- Corridor from Riia_Turu (west) -->
-  <inductionLoop id="loop_TuruVaks_corrW_0" lane="RiiaTuru_TuruVaks_0" pos="250" freq="60" friendlyPos="true"
-                 file="../outputs/raw/loop_TuruVaks_corrW_0.xml"/>
-  <inductionLoop id="loop_TuruVaks_corrW_1" lane="RiiaTuru_TuruVaks_1" pos="250" freq="60" friendlyPos="true"
-                 file="../outputs/raw/loop_TuruVaks_corrW_1.xml"/>
-  <!-- Vaksali North approach -->
-  <inductionLoop id="loop_TuruVaks_VaksN_0" lane="VaksN_TuruVaks_0" pos="15" freq="60" friendlyPos="true"
-                 file="../outputs/raw/loop_TuruVaks_VaksN_0.xml"/>
-  <!-- Vaksali South approach -->
-  <inductionLoop id="loop_TuruVaks_VaksS_0" lane="VaksS_TuruVaks_0" pos="15" freq="60" friendlyPos="true"
-                 file="../outputs/raw/loop_TuruVaks_VaksS_0.xml"/>
+  <inductionLoop id="loop_TuruSoola_corrW_0" lane="RiiaTuru_TuruSoola_0" pos="250" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_TuruSoola_corrW_0.xml"/>
+  <inductionLoop id="loop_TuruSoola_corrW_1" lane="RiiaTuru_TuruSoola_1" pos="250" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_TuruSoola_corrW_1.xml"/>
+  <!-- Soola North approach -->
+  <inductionLoop id="loop_TuruSoola_SoolaN_0" lane="SoolaN_TuruSoola_0" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_TuruSoola_SoolaN_0.xml"/>
+  <!-- Soola South approach -->
+  <inductionLoop id="loop_TuruSoola_SoolaS_0" lane="SoolaS_TuruSoola_0" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_TuruSoola_SoolaS_0.xml"/>
   <!-- Corridor from Turu_Alek (east) -->
-  <inductionLoop id="loop_TuruVaks_corrE_0" lane="TuruAlek_TuruVaks_0" pos="250" freq="60" friendlyPos="true"
-                 file="../outputs/raw/loop_TuruVaks_corrE_0.xml"/>
-  <inductionLoop id="loop_TuruVaks_corrE_1" lane="TuruAlek_TuruVaks_1" pos="250" freq="60" friendlyPos="true"
-                 file="../outputs/raw/loop_TuruVaks_corrE_1.xml"/>
+  <inductionLoop id="loop_TuruSoola_corrE_0" lane="TuruAlek_TuruSoola_0" pos="250" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_TuruSoola_corrE_0.xml"/>
+  <inductionLoop id="loop_TuruSoola_corrE_1" lane="TuruAlek_TuruSoola_1" pos="250" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_TuruSoola_corrE_1.xml"/>
 
   <!-- ========== INTERSECTION TTuru_Alek DETECTORS ========== -->
   <!-- Corridor from Turu_Vaks (west) -->
-  <inductionLoop id="loop_TuruAlek_corrW_0" lane="TuruVaks_TuruAlek_0" pos="250" freq="60" friendlyPos="true"
+  <inductionLoop id="loop_TuruAlek_corrW_0" lane="TuruSoola_TuruAlek_0" pos="250" freq="60" friendlyPos="true"
                  file="../outputs/raw/loop_TuruAlek_corrW_0.xml"/>
-  <inductionLoop id="loop_TuruAlek_corrW_1" lane="TuruVaks_TuruAlek_1" pos="250" freq="60" friendlyPos="true"
+  <inductionLoop id="loop_TuruAlek_corrW_1" lane="TuruSoola_TuruAlek_1" pos="250" freq="60" friendlyPos="true"
                  file="../outputs/raw/loop_TuruAlek_corrW_1.xml"/>
   <!-- Aleksandri East approach -->
   <inductionLoop id="loop_TuruAlek_AlekE_0" lane="AlekE_TuruAlek_0" pos="15" freq="60" friendlyPos="true"

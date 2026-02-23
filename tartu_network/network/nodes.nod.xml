@@ -8,8 +8,8 @@
   <!-- Riia tn × Ülikooli/Kalevi — south of Kaubamaja (GPS 58.376594, 26.726221) -->
   <!-- ID kept as TRiia_Kalevi for TLS/agent compatibility -->
   <node id="TRiia_Kalevi" x="-157.5" y="-154.3" type="traffic_light"/>
-  <!-- Turu tn × Vaksali/Soola — GPS 58.377081, 26.730518 -->
-  <node id="TTuru_Vaks" x="93.3" y="-100.1" type="traffic_light"/>
+  <!-- Turu tn × Soola/Soola — GPS 58.377081, 26.730518 -->
+  <node id="TTuru_Soola" x="93.3" y="-100.1" type="traffic_light"/>
   <!-- Turu tn × Aleksandri — further ESE -->
   <node id="TTuru_Alek" x="386.0" y="-332.0" type="traffic_light"/>
 
@@ -34,13 +34,13 @@
   <node id="Turu_W_in"  x="-187.9" y="68.4"/>
   <node id="Turu_W_out" x="-112.8" y="41.0"/>
 
-  <!-- ========== TTuru_Vaks EXTERNAL APPROACHES ========== -->
-  <!-- Vaksali/Soola going N (bearing ~0°) -->
-  <node id="Vaks_N_in"  x="93.3"  y="99.9"/>
-  <node id="Vaks_N_out" x="93.3"  y="19.9"/>
-  <!-- Vaksali/Soola going S (bearing ~180°) -->
-  <node id="Vaks_S_in"  x="93.3"  y="-300.1"/>
-  <node id="Vaks_S_out" x="93.3"  y="-220.1"/>
+  <!-- ========== TTuru_Soola EXTERNAL APPROACHES ========== -->
+  <!-- Soola/Soola going N (bearing ~0°) -->
+  <node id="Soola_N_in"  x="93.3"  y="99.9"/>
+  <node id="Soola_N_out" x="93.3"  y="19.9"/>
+  <!-- Soola/Soola going S (bearing ~180°) -->
+  <node id="Soola_S_in"  x="93.3"  y="-300.1"/>
+  <node id="Soola_S_out" x="93.3"  y="-220.1"/>
 
   <!-- ========== TTuru_Alek EXTERNAL APPROACHES ========== -->
   <node id="Alek_E_in"  x="573.9"  y="-400.4"/>

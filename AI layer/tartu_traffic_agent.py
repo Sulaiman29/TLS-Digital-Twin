@@ -1,7 +1,7 @@
 """
 Rule-Based Traffic Agent for Tartu 4-Intersection Network
 ==========================================================
-Controls all 4 intersections: TRiia_Kalevi, TRiia_Turu, TTuru_Vaks, TTuru_Alek.
+Controls all 4 intersections: TRiia_Kalevi, TRiia_Turu, TTuru_Soola, TTuru_Alek.
 Uses a simple hysteresis-based approach: switch to the direction with the
 most waiting vehicles, but only if it exceeds the current direction by >2.
 """
@@ -29,10 +29,10 @@ INTERSECTIONS = {
         "phase_map": {"Corridor_North": 0, "Riia_South": 2, "Turu_West": 4, "Corridor_East": 6},
         "phase_names": {0: "Corridor_North", 2: "Riia_South", 4: "Turu_West", 6: "Corridor_East"},
     },
-    "TTuru_Vaks": {
-        "directions": ["Corridor_West", "Vaksali_North", "Vaksali_South", "Corridor_East"],
-        "phase_map": {"Corridor_West": 0, "Vaksali_North": 2, "Vaksali_South": 4, "Corridor_East": 6},
-        "phase_names": {0: "Corridor_West", 2: "Vaksali_North", 4: "Vaksali_South", 6: "Corridor_East"},
+    "TTuru_Soola": {
+        "directions": ["Corridor_West", "Soola_North", "Soola_South", "Corridor_East"],
+        "phase_map": {"Corridor_West": 0, "Soola_North": 2, "Soola_South": 4, "Corridor_East": 6},
+        "phase_names": {0: "Corridor_West", 2: "Soola_North", 4: "Soola_South", 6: "Corridor_East"},
     },
     "TTuru_Alek": {
         "directions": ["Corridor_West", "Aleksandri_East", "Aleksandri_North", "Aleksandri_South"],
@@ -58,14 +58,14 @@ LANE_MAP = [
     ("RiiaKalevi_RiiaTuru",    "TRiia_Turu", "Corridor_North"),
     ("RiiaS_RiiaTuru",       "TRiia_Turu", "Riia_South"),
     ("TuruW_RiiaTuru",       "TRiia_Turu", "Turu_West"),
-    ("TuruVaks_RiiaTuru",    "TRiia_Turu", "Corridor_East"),
-    # TTuru_Vaks approaches
-    ("RiiaTuru_TuruVaks",    "TTuru_Vaks", "Corridor_West"),
-    ("VaksN_TuruVaks",       "TTuru_Vaks", "Vaksali_North"),
-    ("VaksS_TuruVaks",       "TTuru_Vaks", "Vaksali_South"),
-    ("TuruAlek_TuruVaks",    "TTuru_Vaks", "Corridor_East"),
+    ("TuruSoola_RiiaTuru",    "TRiia_Turu", "Corridor_East"),
+    # TTuru_Soola approaches
+    ("RiiaTuru_TuruSoola",    "TTuru_Soola", "Corridor_West"),
+    ("SoolaN_TuruSoola",       "TTuru_Soola", "Soola_North"),
+    ("SoolaS_TuruSoola",       "TTuru_Soola", "Soola_South"),
+    ("TuruAlek_TuruSoola",    "TTuru_Soola", "Corridor_East"),
     # TTuru_Alek approaches
-    ("TuruVaks_TuruAlek",    "TTuru_Alek", "Corridor_West"),
+    ("TuruSoola_TuruAlek",    "TTuru_Alek", "Corridor_West"),
     ("AlekE_TuruAlek",       "TTuru_Alek", "Aleksandri_East"),
     ("AlekN_TuruAlek",       "TTuru_Alek", "Aleksandri_North"),
     ("AlekS_TuruAlek",       "TTuru_Alek", "Aleksandri_South"),

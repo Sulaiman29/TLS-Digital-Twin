@@ -3,7 +3,7 @@ Compute Metrics Offline — Tartu 4-Intersection Network
 =======================================================
 Parses SUMO output files (tripinfo.xml, summary.xml, detector loops)
 and prints baseline traffic performance metrics for all 4 intersections:
-  TRiia_Kalevi, TRiia_Turu, TTuru_Vaks, TTuru_Alek
+  TRiia_Kalevi, TRiia_Turu, TTuru_Soola, TTuru_Alek
 """
 
 import os
@@ -19,7 +19,7 @@ OUTPUT_DIR = os.path.normpath(OUTPUT_DIR)
 INTERSECTIONS = {
     "TRiia_Kalevi": "RiiaKalevi",
     "TRiia_Turu": "RiiaTuru",
-    "TTuru_Vaks": "TuruVaks",
+    "TTuru_Soola": "TuruSoola",
     "TTuru_Alek": "TuruAlek",
 }
 

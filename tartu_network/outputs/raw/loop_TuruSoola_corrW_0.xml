@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-02-24T00:12:35.706829+05:00 by Eclipse SUMO GUI 1.25.0
+<!-- generated on 2026-02-24T00:12:35.709635+05:00 by Eclipse SUMO GUI 1.25.0
 <sumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
 
     <input>
@@ -40,10 +40,10 @@
 -->
 
 <detector xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/det_e1_file.xsd">
-    <interval begin="0.00" end="60.00" id="loop_RiiaTuru_TuruW_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
-    <interval begin="60.00" end="120.00" id="loop_RiiaTuru_TuruW_0" nVehContrib="2" flow="120.00" occupancy="2.44" speed="6.83" harmonicMeanSpeed="6.82" length="5.00" nVehEntered="2"/>
-    <interval begin="120.00" end="180.00" id="loop_RiiaTuru_TuruW_0" nVehContrib="3" flow="180.00" occupancy="3.61" speed="6.93" harmonicMeanSpeed="6.92" length="5.00" nVehEntered="3"/>
-    <interval begin="180.00" end="240.00" id="loop_RiiaTuru_TuruW_0" nVehContrib="2" flow="120.00" occupancy="2.39" speed="7.03" harmonicMeanSpeed="6.98" length="5.00" nVehEntered="2"/>
-    <interval begin="240.00" end="300.00" id="loop_RiiaTuru_TuruW_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
-    <interval begin="300.00" end="347.00" id="loop_RiiaTuru_TuruW_0" nVehContrib="1" flow="76.60" occupancy="1.65" speed="6.44" harmonicMeanSpeed="6.44" length="5.00" nVehEntered="1"/>
+    <interval begin="0.00" end="60.00" id="loop_TuruSoola_corrW_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="60.00" end="120.00" id="loop_TuruSoola_corrW_0" nVehContrib="4" flow="240.00" occupancy="6.26" speed="7.78" harmonicMeanSpeed="6.17" length="5.00" nVehEntered="6"/>
+    <interval begin="120.00" end="180.00" id="loop_TuruSoola_corrW_0" nVehContrib="1" flow="60.00" occupancy="0.57" speed="14.53" harmonicMeanSpeed="14.53" length="5.00" nVehEntered="1"/>
+    <interval begin="180.00" end="240.00" id="loop_TuruSoola_corrW_0" nVehContrib="4" flow="240.00" occupancy="4.10" speed="10.51" harmonicMeanSpeed="8.13" length="5.00" nVehEntered="4"/>
+    <interval begin="240.00" end="300.00" id="loop_TuruSoola_corrW_0" nVehContrib="3" flow="180.00" occupancy="6.02" speed="6.88" harmonicMeanSpeed="4.15" length="5.00" nVehEntered="3"/>
+    <interval begin="300.00" end="347.00" id="loop_TuruSoola_corrW_0" nVehContrib="3" flow="229.79" occupancy="2.94" speed="13.56" harmonicMeanSpeed="13.54" length="5.00" nVehEntered="4"/>
 </detector>

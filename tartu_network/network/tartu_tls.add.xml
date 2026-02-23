@@ -19,8 +19,8 @@
     <phase duration="4"  state="rrrrrrrrrryyyyyyrrrr"/>
   </tlLogic>
 
-  <!-- ========== Turu × Vaksali (TTuru_Vaks) — 17 signal groups ========== -->
-  <tlLogic id="TTuru_Vaks" type="static" programID="1" offset="0">
+  <!-- ========== Turu × Soola (TTuru_Soola) — 17 signal groups ========== -->
+  <tlLogic id="TTuru_Soola" type="static" programID="1" offset="0">
     <phase duration="20" state="rrrrGGGggrrrrGGGgg"/>
     <phase duration="4"  state="rrrryyyyyrrrryyyyy"/>
     <phase duration="20" state="GGggrrrrrGGggrrrrr"/>

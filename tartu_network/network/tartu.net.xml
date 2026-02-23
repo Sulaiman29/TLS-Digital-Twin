@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-02-23T20:07:49.928744+05:00 by Eclipse SUMO netconvert 1.25.0
+<!-- generated on 2026-02-23T21:31:02.019302+05:00 by Eclipse SUMO netconvert 1.25.0
 <netconvertConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
 
     <input>
         <node-files value="network/nodes.nod.xml"/>
         <edge-files value="network/edges.edg.xml"/>
-        <connection-files value="network/connections.con.xml"/>
     </input>
 
     <output>
@@ -19,574 +18,748 @@
 
 <net version="1.20" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
 
-    <location netOffset="232.00,529.00" convBoundary="0.00,0.00,805.90,867.10" origBoundary="-232.00,-529.00,573.90,338.10" projParameter="!"/>
+    <location netOffset="301.40,529.00" convBoundary="0.00,0.00,875.30,722.20" origBoundary="-301.40,-529.00,573.90,193.20" projParameter="!"/>
 
+    <edge id=":TRiia_Kalevi_0" function="internal">
+        <lane id=":TRiia_Kalevi_0_0" index="0" speed="6.61" length="9.29" shape="148.02,385.45 145.98,383.96 143.94,383.47 141.90,384.00 139.86,385.53"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_1" function="internal">
+        <lane id=":TRiia_Kalevi_1_0" index="0" speed="13.90" length="20.96" shape="148.02,385.45 132.99,370.85"/>
+        <lane id=":TRiia_Kalevi_1_1" index="1" speed="13.90" length="20.96" shape="150.26,383.17 135.22,368.55"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_3" function="internal">
+        <lane id=":TRiia_Kalevi_3_0" index="0" speed="9.24" length="4.88" shape="150.26,383.17 147.29,379.29"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_4" function="internal">
+        <lane id=":TRiia_Kalevi_4_0" index="0" speed="3.65" length="1.44" shape="150.26,383.17 149.96,381.76"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_20" function="internal">
+        <lane id=":TRiia_Kalevi_20_0" index="0" speed="9.24" length="14.55" shape="147.29,379.29 147.01,378.93 145.92,374.69 146.97,370.43 150.17,366.17"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_21" function="internal">
+        <lane id=":TRiia_Kalevi_21_0" index="0" speed="3.65" length="3.23" shape="149.96,381.76 150.23,380.90 151.08,380.61 152.50,380.88"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_5" function="internal">
+        <lane id=":TRiia_Kalevi_5_0" index="0" speed="6.49" length="9.03" shape="154.69,370.69 153.21,372.68 152.72,374.65 153.23,376.63 154.74,378.60"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_6" function="internal">
+        <lane id=":TRiia_Kalevi_6_0" index="0" speed="13.90" length="20.98" shape="154.69,370.69 139.86,385.53"/>
+        <lane id=":TRiia_Kalevi_6_1" index="1" speed="13.90" length="20.98" shape="152.43,368.43 137.59,383.27"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_8" function="internal">
+        <lane id=":TRiia_Kalevi_8_0" index="0" speed="9.37" length="5.01" shape="152.43,368.43 148.42,371.44"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_9" function="internal">
+        <lane id=":TRiia_Kalevi_9_0" index="0" speed="3.65" length="1.44" shape="152.43,368.43 151.02,368.71"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_22" function="internal">
+        <lane id=":TRiia_Kalevi_22_0" index="0" speed="9.37" length="14.54" shape="148.42,371.44 148.16,371.63 143.87,372.72 139.56,371.69 135.22,368.55"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_23" function="internal">
+        <lane id=":TRiia_Kalevi_23_0" index="0" speed="3.65" length="3.23" shape="151.02,368.71 150.17,368.43 149.89,367.58 150.17,366.17"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_10" function="internal">
+        <lane id=":TRiia_Kalevi_10_0" index="0" speed="6.65" length="9.36" shape="139.66,363.94 141.74,365.45 143.81,365.95 145.87,365.43 147.91,363.91"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_11" function="internal">
+        <lane id=":TRiia_Kalevi_11_0" index="0" speed="13.90" length="21.01" shape="139.66,363.94 154.74,378.60"/>
+        <lane id=":TRiia_Kalevi_11_1" index="1" speed="13.90" length="21.01" shape="137.44,366.24 152.50,380.88"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_13" function="internal">
+        <lane id=":TRiia_Kalevi_13_0" index="0" speed="9.23" length="5.17" shape="137.44,366.24 140.61,370.32"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_14" function="internal">
+        <lane id=":TRiia_Kalevi_14_0" index="0" speed="3.65" length="1.45" shape="137.44,366.24 137.75,367.65"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_24" function="internal">
+        <lane id=":TRiia_Kalevi_24_0" index="0" speed="9.23" length="14.33" shape="140.61,370.32 140.73,370.47 141.85,374.72 140.81,378.98 137.59,383.27"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_25" function="internal">
+        <lane id=":TRiia_Kalevi_25_0" index="0" speed="3.65" length="3.24" shape="137.75,367.65 137.48,368.51 136.64,368.81 135.22,368.55"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_15" function="internal">
+        <lane id=":TRiia_Kalevi_15_0" index="0" speed="6.47" length="9.03" shape="133.07,378.74 134.55,376.76 135.04,374.78 134.52,372.81 132.99,370.85"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_16" function="internal">
+        <lane id=":TRiia_Kalevi_16_0" index="0" speed="13.90" length="20.98" shape="133.07,378.74 147.91,363.91"/>
+        <lane id=":TRiia_Kalevi_16_1" index="1" speed="13.90" length="20.98" shape="135.33,381.00 150.17,366.17"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_18" function="internal">
+        <lane id=":TRiia_Kalevi_18_0" index="0" speed="9.33" length="5.06" shape="135.33,381.00 139.37,377.97"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_19" function="internal">
+        <lane id=":TRiia_Kalevi_19_0" index="0" speed="3.65" length="1.44" shape="135.33,381.00 136.74,380.72"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_26" function="internal">
+        <lane id=":TRiia_Kalevi_26_0" index="0" speed="9.33" length="14.48" shape="139.37,377.97 139.61,377.79 143.90,376.70 148.20,377.73 152.50,380.88"/>
+    </edge>
+    <edge id=":TRiia_Kalevi_27" function="internal">
+        <lane id=":TRiia_Kalevi_27_0" index="0" speed="3.65" length="3.23" shape="136.74,380.72 137.59,381.00 137.88,381.85 137.59,383.27"/>
+    </edge>
     <edge id=":TRiia_Turu_0" function="internal">
-        <lane id=":TRiia_Turu_0_0" index="0" speed="13.90" length="25.47" shape="248.96,527.93 243.06,530.83 238.34,534.80 234.79,539.85 232.42,545.97"/>
+        <lane id=":TRiia_Turu_0_0" index="0" speed="12.12" length="18.07" shape="310.59,530.76 308.09,532.42 305.80,535.51 303.70,540.03 301.81,545.98"/>
     </edge>
     <edge id=":TRiia_Turu_1" function="internal">
-        <lane id=":TRiia_Turu_1_0" index="0" speed="13.90" length="32.59" shape="248.96,527.93 218.33,539.07"/>
-        <lane id=":TRiia_Turu_1_1" index="1" speed="13.90" length="32.59" shape="247.86,524.93 217.24,536.07"/>
+        <lane id=":TRiia_Turu_1_0" index="0" speed="13.90" length="24.32" shape="310.59,530.76 287.73,539.08"/>
+        <lane id=":TRiia_Turu_1_1" index="1" speed="13.90" length="24.32" shape="309.49,527.76 286.64,536.07"/>
     </edge>
     <edge id=":TRiia_Turu_3" function="internal">
-        <lane id=":TRiia_Turu_3_0" index="0" speed="8.82" length="5.60" shape="247.86,524.93 242.40,526.16"/>
-    </edge>
-    <edge id=":TRiia_Turu_16" function="internal">
-        <lane id=":TRiia_Turu_16_0" index="0" speed="8.82" length="20.01" shape="242.40,526.16 240.21,526.66 235.46,525.22 233.62,520.62 234.68,512.84"/>
+        <lane id=":TRiia_Turu_3_0" index="0" speed="11.98" length="3.73" shape="309.49,527.76 305.81,528.33"/>
     </edge>
     <edge id=":TRiia_Turu_4" function="internal">
-        <lane id=":TRiia_Turu_4_0" index="0" speed="5.58" length="9.35" shape="240.86,514.50 240.47,517.34 241.14,519.02 242.88,519.55 245.67,518.91"/>
-    </edge>
-    <edge id=":TRiia_Turu_5" function="internal">
-        <lane id=":TRiia_Turu_5_0" index="0" speed="13.90" length="32.58" shape="240.86,514.50 232.42,545.97"/>
-        <lane id=":TRiia_Turu_5_1" index="1" speed="13.90" length="32.58" shape="237.77,513.67 229.33,545.14"/>
-    </edge>
-    <edge id=":TRiia_Turu_7" function="internal">
-        <lane id=":TRiia_Turu_7_0" index="0" speed="13.90" length="6.53" shape="237.77,513.67 235.41,519.76"/>
-    </edge>
-    <edge id=":TRiia_Turu_17" function="internal">
-        <lane id=":TRiia_Turu_17_0" index="0" speed="13.90" length="25.10" shape="235.41,519.76 234.82,521.28 230.42,527.54 224.56,532.47 217.24,536.07"/>
-    </edge>
-    <edge id=":TRiia_Turu_8" function="internal">
-        <lane id=":TRiia_Turu_8_0" index="0" speed="13.90" length="25.48" shape="215.06,530.06 220.95,527.16 225.67,523.19 229.21,518.14 231.59,512.01"/>
-    </edge>
-    <edge id=":TRiia_Turu_9" function="internal">
-        <lane id=":TRiia_Turu_9_0" index="0" speed="13.90" length="32.58" shape="215.06,530.06 245.67,518.91"/>
-        <lane id=":TRiia_Turu_9_1" index="1" speed="13.90" length="32.58" shape="216.15,533.07 246.77,521.92"/>
-    </edge>
-    <edge id=":TRiia_Turu_11" function="internal">
-        <lane id=":TRiia_Turu_11_0" index="0" speed="8.82" length="5.54" shape="216.15,533.07 221.55,531.85"/>
-    </edge>
-    <edge id=":TRiia_Turu_18" function="internal">
-        <lane id=":TRiia_Turu_18_0" index="0" speed="8.82" length="20.05" shape="221.55,531.85 223.80,531.34 228.54,532.78 230.39,537.38 229.33,545.14"/>
-    </edge>
-    <edge id=":TRiia_Turu_12" function="internal">
-        <lane id=":TRiia_Turu_12_0" index="0" speed="5.59" length="9.35" shape="223.15,543.49 223.54,540.65 222.86,538.97 221.13,538.44 218.33,539.07"/>
-    </edge>
-    <edge id=":TRiia_Turu_13" function="internal">
-        <lane id=":TRiia_Turu_13_0" index="0" speed="13.90" length="32.59" shape="223.15,543.49 231.59,512.01"/>
-        <lane id=":TRiia_Turu_13_1" index="1" speed="13.90" length="32.59" shape="226.24,544.32 234.68,512.84"/>
-    </edge>
-    <edge id=":TRiia_Turu_15" function="internal">
-        <lane id=":TRiia_Turu_15_0" index="0" speed="13.90" length="6.56" shape="226.24,544.32 228.61,538.20"/>
+        <lane id=":TRiia_Turu_4_0" index="0" speed="3.65" length="1.44" shape="309.49,527.76 308.09,527.41"/>
     </edge>
     <edge id=":TRiia_Turu_19" function="internal">
-        <lane id=":TRiia_Turu_19_0" index="0" speed="13.90" length="25.06" shape="228.61,538.20 229.19,536.72 233.59,530.45 239.45,525.52 246.77,521.92"/>
+        <lane id=":TRiia_Turu_19_0" index="0" speed="11.98" length="18.09" shape="305.81,528.33 305.10,528.45 300.42,527.42 295.44,524.68 290.17,520.23"/>
     </edge>
-    <edge id=":TRiia_Vaba_0" function="internal">
-        <lane id=":TRiia_Vaba_0_0" index="0" speed="6.51" length="9.04" shape="202.02,681.23 199.56,680.94 197.59,681.50 196.13,682.92 195.16,685.19"/>
+    <edge id=":TRiia_Turu_20" function="internal">
+        <lane id=":TRiia_Turu_20_0" index="0" speed="3.65" length="3.23" shape="308.09,527.41 307.44,526.80 307.55,525.91 308.40,524.75"/>
     </edge>
-    <edge id=":TRiia_Vaba_1" function="internal">
-        <lane id=":TRiia_Vaba_1_0" index="0" speed="13.90" length="20.83" shape="202.02,681.23 181.91,675.85"/>
-        <lane id=":TRiia_Vaba_1_1" index="1" speed="13.90" length="20.83" shape="202.86,678.15 182.74,672.76"/>
+    <edge id=":TRiia_Turu_5" function="internal">
+        <lane id=":TRiia_Turu_5_0" index="0" speed="9.89" length="14.66" shape="294.64,515.66 298.42,518.96 301.79,521.08 304.75,522.00 307.30,521.74"/>
     </edge>
-    <edge id=":TRiia_Vaba_3" function="internal">
-        <lane id=":TRiia_Vaba_3_0" index="0" speed="9.27" length="4.74" shape="202.86,678.15 198.51,676.29"/>
+    <edge id=":TRiia_Turu_6" function="internal">
+        <lane id=":TRiia_Turu_6_0" index="0" speed="13.90" length="32.74" shape="294.64,515.66 299.64,522.01 302.50,529.18 303.22,537.17 301.81,545.98"/>
+        <lane id=":TRiia_Turu_6_1" index="1" speed="13.90" length="29.35" shape="292.40,517.95 296.84,523.61 299.38,530.03 300.00,537.21 298.72,545.15"/>
     </edge>
-    <edge id=":TRiia_Vaba_16" function="internal">
-        <lane id=":TRiia_Vaba_16_0" index="0" speed="9.27" length="14.65" shape="198.51,676.29 197.97,676.06 194.92,672.91 193.71,668.70 194.35,663.44"/>
+    <edge id=":TRiia_Turu_8" function="internal">
+        <lane id=":TRiia_Turu_8_0" index="0" speed="9.08" length="11.52" shape="292.40,517.95 296.52,523.46 296.91,528.09"/>
     </edge>
-    <edge id=":TRiia_Vaba_4" function="internal">
-        <lane id=":TRiia_Vaba_4_0" index="0" speed="6.55" length="9.12" shape="200.53,665.09 200.23,667.57 200.80,669.54 202.24,671.03 204.54,672.02"/>
+    <edge id=":TRiia_Turu_9" function="internal">
+        <lane id=":TRiia_Turu_9_0" index="0" speed="3.65" length="1.44" shape="292.40,517.95 292.70,519.36"/>
     </edge>
-    <edge id=":TRiia_Vaba_5" function="internal">
-        <lane id=":TRiia_Vaba_5_0" index="0" speed="13.90" length="20.81" shape="200.53,665.09 195.16,685.19"/>
-        <lane id=":TRiia_Vaba_5_1" index="1" speed="13.90" length="20.81" shape="197.44,664.27 192.06,684.37"/>
+    <edge id=":TRiia_Turu_21" function="internal">
+        <lane id=":TRiia_Turu_21_0" index="0" speed="9.08" length="13.42" shape="296.91,528.09 296.93,528.32 293.63,532.52 286.64,536.07"/>
     </edge>
-    <edge id=":TRiia_Vaba_7" function="internal">
-        <lane id=":TRiia_Vaba_7_0" index="0" speed="9.26" length="5.02" shape="197.44,664.27 195.47,668.88"/>
+    <edge id=":TRiia_Turu_22" function="internal">
+        <lane id=":TRiia_Turu_22_0" index="0" speed="3.65" length="3.23" shape="292.70,519.36 292.43,520.21 291.58,520.50 290.17,520.23"/>
     </edge>
-    <edge id=":TRiia_Vaba_17" function="internal">
-        <lane id=":TRiia_Vaba_17_0" index="0" speed="9.26" length="14.34" shape="195.47,668.88 195.35,669.14 192.21,672.19 188.00,673.39 182.74,672.76"/>
+    <edge id=":TRiia_Turu_10" function="internal">
+        <lane id=":TRiia_Turu_10_0" index="0" speed="6.17" length="10.74" shape="284.45,530.06 287.72,528.48 289.39,526.69 289.46,524.71 287.93,522.52"/>
     </edge>
-    <edge id=":TRiia_Vaba_8" function="internal">
-        <lane id=":TRiia_Vaba_8_0" index="0" speed="6.51" length="9.04" shape="184.39,666.57 186.85,666.87 188.81,666.30 190.28,664.89 191.25,662.61"/>
+    <edge id=":TRiia_Turu_11" function="internal">
+        <lane id=":TRiia_Turu_11_0" index="0" speed="13.90" length="24.32" shape="284.45,530.06 307.30,521.74"/>
+        <lane id=":TRiia_Turu_11_1" index="1" speed="13.90" length="24.32" shape="285.55,533.07 308.40,524.75"/>
     </edge>
-    <edge id=":TRiia_Vaba_9" function="internal">
-        <lane id=":TRiia_Vaba_9_0" index="0" speed="13.90" length="20.86" shape="184.39,666.57 204.54,672.02"/>
-        <lane id=":TRiia_Vaba_9_1" index="1" speed="13.90" length="20.86" shape="183.56,669.66 203.69,675.11"/>
+    <edge id=":TRiia_Turu_13" function="internal">
+        <lane id=":TRiia_Turu_13_0" index="0" speed="8.82" length="5.54" shape="285.55,533.07 290.95,531.85"/>
     </edge>
-    <edge id=":TRiia_Vaba_11" function="internal">
-        <lane id=":TRiia_Vaba_11_0" index="0" speed="9.27" length="5.05" shape="183.56,669.66 188.21,671.64"/>
+    <edge id=":TRiia_Turu_14" function="internal">
+        <lane id=":TRiia_Turu_14_0" index="0" speed="3.65" length="1.44" shape="285.55,533.07 286.94,533.41"/>
     </edge>
-    <edge id=":TRiia_Vaba_18" function="internal">
-        <lane id=":TRiia_Vaba_18_0" index="0" speed="9.27" length="14.32" shape="188.21,671.64 188.44,671.75 191.49,674.89 192.69,679.10 192.06,684.37"/>
+    <edge id=":TRiia_Turu_23" function="internal">
+        <lane id=":TRiia_Turu_23_0" index="0" speed="8.82" length="20.05" shape="290.95,531.85 293.19,531.34 297.94,532.78 299.78,537.38 298.72,545.15"/>
     </edge>
-    <edge id=":TRiia_Vaba_12" function="internal">
-        <lane id=":TRiia_Vaba_12_0" index="0" speed="6.51" length="9.04" shape="185.87,682.72 186.16,680.26 185.60,678.29 184.19,676.82 181.91,675.85"/>
+    <edge id=":TRiia_Turu_24" function="internal">
+        <lane id=":TRiia_Turu_24_0" index="0" speed="3.65" length="3.22" shape="286.94,533.41 287.59,534.02 287.49,534.91 286.64,536.07"/>
     </edge>
-    <edge id=":TRiia_Vaba_13" function="internal">
-        <lane id=":TRiia_Vaba_13_0" index="0" speed="13.90" length="20.81" shape="185.87,682.72 191.25,662.61"/>
-        <lane id=":TRiia_Vaba_13_1" index="1" speed="13.90" length="20.81" shape="188.96,683.54 194.35,663.44"/>
+    <edge id=":TRiia_Turu_15" function="internal">
+        <lane id=":TRiia_Turu_15_0" index="0" speed="5.59" length="9.35" shape="292.55,543.49 292.93,540.65 292.26,538.97 290.52,538.45 287.73,539.08"/>
     </edge>
-    <edge id=":TRiia_Vaba_15" function="internal">
-        <lane id=":TRiia_Vaba_15_0" index="0" speed="9.25" length="5.07" shape="188.96,683.54 190.95,678.88"/>
+    <edge id=":TRiia_Turu_16" function="internal">
+        <lane id=":TRiia_Turu_16_0" index="0" speed="13.16" length="24.40" shape="292.55,543.49 294.06,535.82 294.17,529.39 292.87,524.19 290.17,520.23"/>
     </edge>
-    <edge id=":TRiia_Vaba_19" function="internal">
-        <lane id=":TRiia_Vaba_19_0" index="0" speed="9.25" length="14.31" shape="190.95,678.88 191.05,678.66 194.20,675.63 198.41,674.45 203.69,675.11"/>
+    <edge id=":TRiia_Turu_17" function="internal">
+        <lane id=":TRiia_Turu_17_0" index="0" speed="13.90" length="4.33" shape="295.64,544.32 297.00,540.21"/>
+    </edge>
+    <edge id=":TRiia_Turu_18" function="internal">
+        <lane id=":TRiia_Turu_18_0" index="0" speed="3.65" length="1.33" shape="295.64,544.32 296.64,543.44"/>
+    </edge>
+    <edge id=":TRiia_Turu_25" function="internal">
+        <lane id=":TRiia_Turu_25_0" index="0" speed="13.90" length="19.83" shape="297.00,540.21 298.10,536.90 301.04,531.16 304.48,527.11 308.40,524.75"/>
+    </edge>
+    <edge id=":TRiia_Turu_26" function="internal">
+        <lane id=":TRiia_Turu_26_0" index="0" speed="3.65" length="3.34" shape="296.64,543.44 296.72,543.37 297.59,543.19 298.26,543.78 298.72,545.15"/>
     </edge>
     <edge id=":TTuru_Alek_0" function="internal">
-        <lane id=":TTuru_Alek_0_0" index="0" speed="5.46" length="10.27" shape="619.67,215.69 618.75,212.41 617.53,211.18 615.99,211.99 614.13,214.83"/>
+        <lane id=":TTuru_Alek_0_0" index="0" speed="5.46" length="10.27" shape="689.07,215.69 688.15,212.41 686.93,211.18 685.39,211.99 683.53,214.83"/>
     </edge>
     <edge id=":TTuru_Alek_1" function="internal">
-        <lane id=":TTuru_Alek_1_0" index="0" speed="11.10" length="29.75" shape="619.67,215.69 614.51,186.38"/>
+        <lane id=":TTuru_Alek_1_0" index="0" speed="11.10" length="29.75" shape="689.07,215.69 683.91,186.38"/>
     </edge>
     <edge id=":TTuru_Alek_2" function="internal">
-        <lane id=":TTuru_Alek_2_0" index="0" speed="11.33" length="9.21" shape="619.67,215.69 618.72,206.85 618.75,206.53"/>
-    </edge>
-    <edge id=":TTuru_Alek_13" function="internal">
-        <lane id=":TTuru_Alek_13_0" index="0" speed="11.33" length="16.36" shape="618.75,206.53 619.34,200.06 621.55,195.32 625.33,192.63"/>
+        <lane id=":TTuru_Alek_2_0" index="0" speed="11.33" length="9.21" shape="689.07,215.69 688.12,206.85 688.15,206.53"/>
     </edge>
     <edge id=":TTuru_Alek_3" function="internal">
-        <lane id=":TTuru_Alek_3_0" index="0" speed="9.72" length="18.56" shape="627.51,198.65 624.54,200.65 622.77,204.07 622.19,208.89 622.82,215.13"/>
+        <lane id=":TTuru_Alek_3_0" index="0" speed="3.65" length="1.44" shape="689.07,215.69 689.65,214.37"/>
+    </edge>
+    <edge id=":TTuru_Alek_17" function="internal">
+        <lane id=":TTuru_Alek_17_0" index="0" speed="11.33" length="16.36" shape="688.15,206.53 688.74,200.06 690.95,195.32 694.73,192.63"/>
+    </edge>
+    <edge id=":TTuru_Alek_18" function="internal">
+        <lane id=":TTuru_Alek_18_0" index="0" speed="3.65" length="3.23" shape="689.65,214.37 690.36,213.83 691.22,214.09 692.22,215.13"/>
     </edge>
     <edge id=":TTuru_Alek_4" function="internal">
-        <lane id=":TTuru_Alek_4_0" index="0" speed="13.90" length="22.96" shape="627.51,198.65 622.10,201.37 619.03,204.70 616.85,209.04 614.13,214.83"/>
-        <lane id=":TTuru_Alek_4_1" index="1" speed="13.90" length="22.96" shape="626.42,195.64 620.74,198.60 617.06,202.45 614.28,207.33 611.29,213.36"/>
+        <lane id=":TTuru_Alek_4_0" index="0" speed="9.72" length="18.56" shape="696.91,198.65 693.94,200.65 692.17,204.07 691.59,208.89 692.22,215.13"/>
     </edge>
-    <edge id=":TTuru_Alek_6" function="internal">
-        <lane id=":TTuru_Alek_6_0" index="0" speed="8.41" length="2.22" shape="626.42,195.64 624.23,196.01"/>
-    </edge>
-    <edge id=":TTuru_Alek_14" function="internal">
-        <lane id=":TTuru_Alek_14_0" index="0" speed="8.41" length="15.66" shape="624.23,196.01 622.05,196.38 618.61,195.08 616.09,191.75 614.51,186.38"/>
+    <edge id=":TTuru_Alek_5" function="internal">
+        <lane id=":TTuru_Alek_5_0" index="0" speed="13.90" length="22.96" shape="696.91,198.65 691.50,201.37 688.43,204.70 686.25,209.04 683.53,214.83"/>
+        <lane id=":TTuru_Alek_5_1" index="1" speed="13.90" length="22.96" shape="695.82,195.64 690.14,198.60 686.46,202.45 683.68,207.33 680.69,213.36"/>
     </edge>
     <edge id=":TTuru_Alek_7" function="internal">
-        <lane id=":TTuru_Alek_7_0" index="0" speed="6.16" length="9.05" shape="617.66,185.83 618.45,188.25 619.81,189.69 621.74,190.15 624.23,189.63"/>
+        <lane id=":TTuru_Alek_7_0" index="0" speed="8.41" length="2.22" shape="695.82,195.64 693.63,196.01"/>
     </edge>
     <edge id=":TTuru_Alek_8" function="internal">
-        <lane id=":TTuru_Alek_8_0" index="0" speed="11.10" length="29.75" shape="617.66,185.83 622.82,215.13"/>
+        <lane id=":TTuru_Alek_8_0" index="0" speed="3.65" length="1.30" shape="695.82,195.64 694.56,195.33"/>
+    </edge>
+    <edge id=":TTuru_Alek_19" function="internal">
+        <lane id=":TTuru_Alek_19_0" index="0" speed="8.41" length="15.66" shape="693.63,196.01 691.45,196.38 688.01,195.08 685.49,191.75 683.91,186.38"/>
+    </edge>
+    <edge id=":TTuru_Alek_20" function="internal">
+        <lane id=":TTuru_Alek_20_0" index="0" speed="3.65" length="3.37" shape="694.56,195.33 694.42,195.30 693.77,194.68 693.87,193.80 694.73,192.63"/>
     </edge>
     <edge id=":TTuru_Alek_9" function="internal">
-        <lane id=":TTuru_Alek_9_0" index="0" speed="12.50" length="4.20" shape="617.66,185.83 617.67,190.03"/>
-    </edge>
-    <edge id=":TTuru_Alek_15" function="internal">
-        <lane id=":TTuru_Alek_15_0" index="0" speed="12.50" length="24.33" shape="617.67,190.03 617.68,190.96 616.53,198.11 614.36,206.01 611.29,213.36"/>
+        <lane id=":TTuru_Alek_9_0" index="0" speed="6.16" length="9.05" shape="687.06,185.83 687.85,188.25 689.21,189.69 691.14,190.15 693.63,189.63"/>
     </edge>
     <edge id=":TTuru_Alek_10" function="internal">
-        <lane id=":TTuru_Alek_10_0" index="0" speed="12.50" length="25.86" shape="605.62,210.40 609.07,203.60 612.12,196.91 614.13,190.97 614.51,186.38"/>
+        <lane id=":TTuru_Alek_10_0" index="0" speed="11.10" length="29.75" shape="687.06,185.83 692.22,215.13"/>
     </edge>
     <edge id=":TTuru_Alek_11" function="internal">
-        <lane id=":TTuru_Alek_11_0" index="0" speed="13.90" length="26.31" shape="608.45,211.88 611.72,205.61 615.10,200.21 619.37,195.84 625.33,192.63"/>
+        <lane id=":TTuru_Alek_11_0" index="0" speed="12.50" length="4.20" shape="687.06,185.83 687.07,190.03"/>
     </edge>
     <edge id=":TTuru_Alek_12" function="internal">
-        <lane id=":TTuru_Alek_12_0" index="0" speed="7.29" length="2.38" shape="608.45,211.88 610.12,210.19"/>
+        <lane id=":TTuru_Alek_12_0" index="0" speed="3.65" length="1.44" shape="687.06,185.83 686.48,187.15"/>
+    </edge>
+    <edge id=":TTuru_Alek_21" function="internal">
+        <lane id=":TTuru_Alek_21_0" index="0" speed="12.50" length="24.33" shape="687.07,190.03 687.08,190.96 685.93,198.11 683.76,206.01 680.69,213.36"/>
+    </edge>
+    <edge id=":TTuru_Alek_22" function="internal">
+        <lane id=":TTuru_Alek_22_0" index="0" speed="3.65" length="3.23" shape="686.48,187.15 685.76,187.68 684.90,187.42 683.91,186.38"/>
+    </edge>
+    <edge id=":TTuru_Alek_13" function="internal">
+        <lane id=":TTuru_Alek_13_0" index="0" speed="12.50" length="25.86" shape="675.02,210.40 678.47,203.60 681.52,196.91 683.53,190.97 683.91,186.38"/>
+    </edge>
+    <edge id=":TTuru_Alek_14" function="internal">
+        <lane id=":TTuru_Alek_14_0" index="0" speed="13.90" length="26.31" shape="677.85,211.88 681.12,205.61 684.50,200.21 688.77,195.84 694.73,192.63"/>
+    </edge>
+    <edge id=":TTuru_Alek_15" function="internal">
+        <lane id=":TTuru_Alek_15_0" index="0" speed="7.29" length="2.38" shape="677.85,211.88 679.52,210.19"/>
     </edge>
     <edge id=":TTuru_Alek_16" function="internal">
-        <lane id=":TTuru_Alek_16_0" index="0" speed="7.29" length="17.37" shape="610.12,210.19 612.09,208.19 616.52,207.76 620.50,210.20 622.82,215.13"/>
+        <lane id=":TTuru_Alek_16_0" index="0" speed="3.65" length="1.44" shape="677.85,211.88 679.12,211.18"/>
+    </edge>
+    <edge id=":TTuru_Alek_23" function="internal">
+        <lane id=":TTuru_Alek_23_0" index="0" speed="7.29" length="17.37" shape="679.52,210.19 681.49,208.19 685.92,207.76 689.90,210.20 692.22,215.13"/>
+    </edge>
+    <edge id=":TTuru_Alek_24" function="internal">
+        <lane id=":TTuru_Alek_24_0" index="0" speed="3.65" length="3.23" shape="679.12,211.18 680.01,211.20 680.54,211.92 680.69,213.36"/>
     </edge>
     <edge id=":TTuru_Vaks_0" function="internal">
-        <lane id=":TTuru_Vaks_0_0" index="0" speed="5.88" length="9.11" shape="493.50,445.18 493.13,442.56 492.02,441.00 490.18,440.49 487.59,441.04"/>
+        <lane id=":TTuru_Vaks_0_0" index="0" speed="5.88" length="9.11" shape="562.90,445.18 562.53,442.56 561.42,441.00 559.58,440.49 556.99,441.04"/>
     </edge>
     <edge id=":TTuru_Vaks_1" function="internal">
-        <lane id=":TTuru_Vaks_1_0" index="0" speed="11.10" length="35.99" shape="493.50,445.18 493.50,409.18"/>
+        <lane id=":TTuru_Vaks_1_0" index="0" speed="11.10" length="35.99" shape="562.90,445.18 562.90,409.18"/>
     </edge>
     <edge id=":TTuru_Vaks_2" function="internal">
-        <lane id=":TTuru_Vaks_2_0" index="0" speed="12.50" length="4.17" shape="493.50,445.18 494.21,441.07"/>
-    </edge>
-    <edge id=":TTuru_Vaks_13" function="internal">
-        <lane id=":TTuru_Vaks_13_0" index="0" speed="12.50" length="31.02" shape="494.21,441.07 494.55,439.11 497.22,429.97 500.75,420.10 504.40,411.85"/>
+        <lane id=":TTuru_Vaks_2_0" index="0" speed="12.50" length="4.17" shape="562.90,445.18 563.61,441.07"/>
     </edge>
     <edge id=":TTuru_Vaks_3" function="internal">
-        <lane id=":TTuru_Vaks_3_0" index="0" speed="12.50" length="33.29" shape="510.08,414.81 506.04,422.59 501.66,431.44 498.14,439.57 496.70,445.18"/>
+        <lane id=":TTuru_Vaks_3_0" index="0" speed="3.65" length="1.44" shape="562.90,445.18 563.70,443.98"/>
+    </edge>
+    <edge id=":TTuru_Vaks_17" function="internal">
+        <lane id=":TTuru_Vaks_17_0" index="0" speed="12.50" length="31.02" shape="563.61,441.07 563.95,439.11 566.62,429.97 570.15,420.10 573.80,411.85"/>
+    </edge>
+    <edge id=":TTuru_Vaks_18" function="internal">
+        <lane id=":TTuru_Vaks_18_0" index="0" speed="3.65" length="3.23" shape="563.70,443.98 564.50,443.58 565.30,443.98 566.10,445.18"/>
     </edge>
     <edge id=":TTuru_Vaks_4" function="internal">
-        <lane id=":TTuru_Vaks_4_0" index="0" speed="13.90" length="32.88" shape="507.24,413.33 503.38,420.45 498.66,427.73 493.06,433.98 486.50,438.03"/>
+        <lane id=":TTuru_Vaks_4_0" index="0" speed="12.50" length="33.29" shape="579.48,414.81 575.44,422.59 571.06,431.44 567.54,439.57 566.10,445.18"/>
     </edge>
     <edge id=":TTuru_Vaks_5" function="internal">
-        <lane id=":TTuru_Vaks_5_0" index="0" speed="7.02" length="2.27" shape="507.24,413.33 505.59,414.88"/>
-    </edge>
-    <edge id=":TTuru_Vaks_14" function="internal">
-        <lane id=":TTuru_Vaks_14_0" index="0" speed="7.02" length="17.33" shape="505.59,414.88 503.54,416.79 498.99,416.90 495.13,414.19 493.50,409.18"/>
+        <lane id=":TTuru_Vaks_5_0" index="0" speed="13.90" length="32.88" shape="576.64,413.33 572.78,420.45 568.06,427.73 562.46,433.98 555.90,438.03"/>
     </edge>
     <edge id=":TTuru_Vaks_6" function="internal">
-        <lane id=":TTuru_Vaks_6_0" index="0" speed="5.58" length="11.66" shape="496.70,409.18 497.00,413.21 497.92,414.75 499.44,413.81 501.57,410.37"/>
+        <lane id=":TTuru_Vaks_6_0" index="0" speed="7.02" length="2.27" shape="576.64,413.33 574.99,414.88"/>
     </edge>
     <edge id=":TTuru_Vaks_7" function="internal">
-        <lane id=":TTuru_Vaks_7_0" index="0" speed="11.10" length="35.99" shape="496.70,409.18 496.70,445.18"/>
+        <lane id=":TTuru_Vaks_7_0" index="0" speed="3.65" length="1.44" shape="576.64,413.33 575.38,414.02"/>
+    </edge>
+    <edge id=":TTuru_Vaks_19" function="internal">
+        <lane id=":TTuru_Vaks_19_0" index="0" speed="7.02" length="17.33" shape="574.99,414.88 572.94,416.79 568.39,416.90 564.53,414.19 562.90,409.18"/>
+    </edge>
+    <edge id=":TTuru_Vaks_20" function="internal">
+        <lane id=":TTuru_Vaks_20_0" index="0" speed="3.65" length="3.23" shape="575.38,414.02 574.49,414.01 573.96,413.29 573.80,411.85"/>
     </edge>
     <edge id=":TTuru_Vaks_8" function="internal">
-        <lane id=":TTuru_Vaks_8_0" index="0" speed="12.50" length="11.49" shape="496.70,409.18 496.06,420.41 496.01,420.65"/>
-    </edge>
-    <edge id=":TTuru_Vaks_15" function="internal">
-        <lane id=":TTuru_Vaks_15_0" index="0" speed="12.50" length="20.70" shape="496.01,420.65 494.15,428.96 490.96,434.84 486.50,438.03"/>
+        <lane id=":TTuru_Vaks_8_0" index="0" speed="5.58" length="11.66" shape="566.10,409.18 566.40,413.21 567.32,414.75 568.84,413.81 570.97,410.37"/>
     </edge>
     <edge id=":TTuru_Vaks_9" function="internal">
-        <lane id=":TTuru_Vaks_9_0" index="0" speed="12.39" length="26.03" shape="484.31,432.02 488.33,429.34 491.20,424.64 492.93,417.92 493.50,409.18"/>
+        <lane id=":TTuru_Vaks_9_0" index="0" speed="11.10" length="35.99" shape="566.10,409.18 566.10,445.18"/>
     </edge>
     <edge id=":TTuru_Vaks_10" function="internal">
-        <lane id=":TTuru_Vaks_10_0" index="0" speed="13.90" length="29.51" shape="484.31,432.02 490.32,428.44 494.73,423.24 498.24,417.02 501.57,410.37"/>
-        <lane id=":TTuru_Vaks_10_1" index="1" speed="13.90" length="29.51" shape="485.40,435.03 491.69,431.21 496.70,425.48 500.81,418.73 504.40,411.85"/>
+        <lane id=":TTuru_Vaks_10_0" index="0" speed="12.50" length="11.49" shape="566.10,409.18 565.46,420.41 565.41,420.65"/>
+    </edge>
+    <edge id=":TTuru_Vaks_11" function="internal">
+        <lane id=":TTuru_Vaks_11_0" index="0" speed="3.65" length="1.44" shape="566.10,409.18 565.30,410.38"/>
+    </edge>
+    <edge id=":TTuru_Vaks_21" function="internal">
+        <lane id=":TTuru_Vaks_21_0" index="0" speed="12.50" length="20.70" shape="565.41,420.65 563.55,428.96 560.36,434.84 555.90,438.03"/>
+    </edge>
+    <edge id=":TTuru_Vaks_22" function="internal">
+        <lane id=":TTuru_Vaks_22_0" index="0" speed="3.65" length="3.23" shape="565.30,410.38 564.50,410.78 563.70,410.38 562.90,409.18"/>
     </edge>
     <edge id=":TTuru_Vaks_12" function="internal">
-        <lane id=":TTuru_Vaks_12_0" index="0" speed="8.23" length="1.91" shape="485.40,435.03 487.28,434.68"/>
+        <lane id=":TTuru_Vaks_12_0" index="0" speed="12.39" length="26.03" shape="553.71,432.02 557.73,429.34 560.60,424.64 562.33,417.92 562.90,409.18"/>
+    </edge>
+    <edge id=":TTuru_Vaks_13" function="internal">
+        <lane id=":TTuru_Vaks_13_0" index="0" speed="13.90" length="29.51" shape="553.71,432.02 559.72,428.44 564.13,423.24 567.64,417.02 570.97,410.37"/>
+        <lane id=":TTuru_Vaks_13_1" index="1" speed="13.90" length="29.51" shape="554.80,435.03 561.09,431.21 566.10,425.48 570.21,418.73 573.80,411.85"/>
+    </edge>
+    <edge id=":TTuru_Vaks_15" function="internal">
+        <lane id=":TTuru_Vaks_15_0" index="0" speed="8.23" length="1.91" shape="554.80,435.03 556.68,434.68"/>
     </edge>
     <edge id=":TTuru_Vaks_16" function="internal">
-        <lane id=":TTuru_Vaks_16_0" index="0" speed="8.23" length="17.18" shape="487.28,434.68 490.35,434.12 493.88,435.51 495.99,439.19 496.70,445.18"/>
+        <lane id=":TTuru_Vaks_16_0" index="0" speed="3.65" length="1.25" shape="554.80,435.03 556.02,435.32"/>
+    </edge>
+    <edge id=":TTuru_Vaks_23" function="internal">
+        <lane id=":TTuru_Vaks_23_0" index="0" speed="8.23" length="17.18" shape="556.68,434.68 559.75,434.12 563.28,435.51 565.39,439.19 566.10,445.18"/>
+    </edge>
+    <edge id=":TTuru_Vaks_24" function="internal">
+        <lane id=":TTuru_Vaks_24_0" index="0" speed="3.65" length="3.42" shape="556.02,435.32 556.21,435.37 556.86,435.98 556.75,436.87 555.90,438.03"/>
     </edge>
 
     <edge id="AlekE_TuruAlek" from="Alek_E_in" to="TTuru_Alek" name="Turu tanav (from East)" priority="1">
-        <lane id="AlekE_TuruAlek_0" index="0" speed="13.90" length="191.59" shape="807.54,133.11 627.51,198.65"/>
-        <lane id="AlekE_TuruAlek_1" index="1" speed="13.90" length="191.59" shape="806.45,130.10 626.42,195.64"/>
+        <lane id="AlekE_TuruAlek_0" index="0" speed="13.90" length="191.59" shape="876.94,133.11 696.91,198.65"/>
+        <lane id="AlekE_TuruAlek_1" index="1" speed="13.90" length="191.59" shape="875.85,130.10 695.82,195.64"/>
     </edge>
     <edge id="AlekN_TuruAlek" from="Alek_N_in" to="TTuru_Alek" name="Aleksandri tanav (from North)" priority="1">
-        <lane id="AlekN_TuruAlek_0" index="0" speed="11.10" length="181.34" shape="651.12,394.28 619.67,215.69"/>
+        <lane id="AlekN_TuruAlek_0" index="0" speed="11.10" length="181.34" shape="720.52,394.28 689.07,215.69"/>
     </edge>
     <edge id="AlekS_TuruAlek" from="Alek_S_in" to="TTuru_Alek" name="Aleksandri tanav (from South)" priority="1">
-        <lane id="AlekS_TuruAlek_0" index="0" speed="11.10" length="188.97" shape="584.88,-0.28 617.66,185.83"/>
+        <lane id="AlekS_TuruAlek_0" index="0" speed="11.10" length="188.97" shape="654.28,-0.28 687.06,185.83"/>
     </edge>
-    <edge id="RiiaN_RiiaVaba" from="Riia_N_in" to="TRiia_Vaba" name="Riia mnt (from North)" priority="2">
-        <lane id="RiiaN_RiiaVaba_0" index="0" speed="13.90" length="189.61" shape="136.76,865.86 185.87,682.72"/>
-        <lane id="RiiaN_RiiaVaba_1" index="1" speed="13.90" length="189.61" shape="139.85,866.69 188.96,683.54"/>
+    <edge id="KaleviE_RiiaKalevi" from="Kalevi_E_in" to="TRiia_Kalevi" name="Kalevi tn (from East)" priority="2">
+        <lane id="KaleviE_RiiaKalevi_0" index="0" speed="13.90" length="189.50" shape="288.69,236.69 154.69,370.69"/>
+        <lane id="KaleviE_RiiaKalevi_1" index="1" speed="13.90" length="189.50" shape="286.43,234.43 152.43,368.43"/>
     </edge>
-    <edge id="RiiaS_RiiaTuru" from="Riia_S_in" to="TRiia_Turu" name="Riia mnt (from South)" priority="2">
-        <lane id="RiiaS_RiiaTuru_0" index="0" speed="13.90" length="183.72" shape="288.44,337.04 240.86,514.50"/>
-        <lane id="RiiaS_RiiaTuru_1" index="1" speed="13.90" length="183.72" shape="285.35,336.21 237.77,513.67"/>
+    <edge id="RiiaKalevi_KaleviE" from="TRiia_Kalevi" to="Kalevi_E_out" name="Kalevi tn (to East)" priority="2">
+        <lane id="RiiaKalevi_KaleviE_0" index="0" speed="13.90" length="109.46" shape="147.91,363.91 225.31,286.51"/>
+        <lane id="RiiaKalevi_KaleviE_1" index="1" speed="13.90" length="109.46" shape="150.17,366.17 227.57,288.77"/>
     </edge>
-    <edge id="RiiaTuru_RiiaS" from="TRiia_Turu" to="Riia_S_out" name="Riia mnt (to South)" priority="2">
-        <lane id="RiiaTuru_RiiaS_0" index="0" speed="13.90" length="103.70" shape="231.59,512.01 258.46,411.86"/>
-        <lane id="RiiaTuru_RiiaS_1" index="1" speed="13.90" length="103.70" shape="234.68,512.84 261.55,412.69"/>
+    <edge id="RiiaKalevi_RiiaN" from="TRiia_Kalevi" to="Riia_N_out" name="Riia tn (to South)" priority="2">
+        <lane id="RiiaKalevi_RiiaN_0" index="0" speed="13.90" length="109.50" shape="132.99,370.85 54.17,294.86"/>
+        <lane id="RiiaKalevi_RiiaN_1" index="1" speed="13.90" length="109.50" shape="135.22,368.55 56.39,292.55"/>
     </edge>
-    <edge id="RiiaTuru_RiiaVaba" from="TRiia_Turu" to="TRiia_Vaba" name="Riia maantee (northbound)" priority="2">
-        <lane id="RiiaTuru_RiiaVaba_0" index="0" speed="13.90" length="123.32" shape="232.42,545.97 200.53,665.09"/>
-        <lane id="RiiaTuru_RiiaVaba_1" index="1" speed="13.90" length="123.32" shape="229.33,545.14 197.44,664.27"/>
+    <edge id="RiiaKalevi_RiiaTuru" from="TRiia_Kalevi" to="TRiia_Turu" name="Riia tn (northbound to Kaubamaja)" priority="2">
+        <lane id="RiiaKalevi_RiiaTuru_0" index="0" speed="13.90" length="195.86" shape="154.74,378.60 294.64,515.66"/>
+        <lane id="RiiaKalevi_RiiaTuru_1" index="1" speed="13.90" length="195.86" shape="152.50,380.88 292.40,517.95"/>
+    </edge>
+    <edge id="RiiaKalevi_UlikW" from="TRiia_Kalevi" to="Ulik_W_out" name="Ülikooli tn (to West)" priority="2">
+        <lane id="RiiaKalevi_UlikW_0" index="0" speed="13.90" length="109.55" shape="139.86,385.53 62.39,462.99"/>
+        <lane id="RiiaKalevi_UlikW_1" index="1" speed="13.90" length="109.55" shape="137.59,383.27 60.13,460.73"/>
+    </edge>
+    <edge id="RiiaN_RiiaKalevi" from="Riia_N_in" to="TRiia_Kalevi" name="Riia tn (from South)" priority="2">
+        <lane id="RiiaN_RiiaKalevi_0" index="0" speed="13.90" length="189.48" shape="3.33,232.35 139.66,363.94"/>
+        <lane id="RiiaN_RiiaKalevi_1" index="1" speed="13.90" length="189.48" shape="1.11,234.65 137.44,366.24"/>
+    </edge>
+    <edge id="RiiaS_RiiaTuru" from="Riia_S_in" to="TRiia_Turu" name="Riia mnt (from North)" priority="2">
+        <lane id="RiiaS_RiiaTuru_0" index="0" speed="13.90" length="183.73" shape="244.96,720.96 292.55,543.49"/>
+        <lane id="RiiaS_RiiaTuru_1" index="1" speed="13.90" length="183.73" shape="248.05,721.79 295.64,544.32"/>
+    </edge>
+    <edge id="RiiaTuru_RiiaKalevi" from="TRiia_Turu" to="TRiia_Kalevi" name="Riia tn (southbound from Kaubamaja)" priority="2">
+        <lane id="RiiaTuru_RiiaKalevi_0" index="0" speed="13.90" length="195.86" shape="287.93,522.52 148.02,385.45"/>
+        <lane id="RiiaTuru_RiiaKalevi_1" index="1" speed="13.90" length="195.86" shape="290.17,520.23 150.26,383.17"/>
+    </edge>
+    <edge id="RiiaTuru_RiiaS" from="TRiia_Turu" to="Riia_S_out" name="Riia mnt (to North)" priority="2">
+        <lane id="RiiaTuru_RiiaS_0" index="0" speed="13.90" length="103.71" shape="301.81,545.98 274.94,646.14"/>
+        <lane id="RiiaTuru_RiiaS_1" index="1" speed="13.90" length="103.71" shape="298.72,545.15 271.85,645.31"/>
     </edge>
     <edge id="RiiaTuru_TuruVaks" from="TRiia_Turu" to="TTuru_Vaks" name="Turu tanav (eastbound)" priority="2">
-        <lane id="RiiaTuru_TuruVaks_0" index="0" speed="13.90" length="253.96" shape="245.67,518.91 484.31,432.02"/>
-        <lane id="RiiaTuru_TuruVaks_1" index="1" speed="13.90" length="253.96" shape="246.77,521.92 485.40,435.03"/>
+        <lane id="RiiaTuru_TuruVaks_0" index="0" speed="13.90" length="262.23" shape="307.30,521.74 553.71,432.02"/>
+        <lane id="RiiaTuru_TuruVaks_1" index="1" speed="13.90" length="262.23" shape="308.40,524.75 554.80,435.03"/>
     </edge>
     <edge id="RiiaTuru_TuruW" from="TRiia_Turu" to="Turu_W_out" name="Turu tanav (to West)" priority="1">
-        <lane id="RiiaTuru_TuruW_0" index="0" speed="13.90" length="103.73" shape="218.33,539.07 120.84,574.51"/>
-        <lane id="RiiaTuru_TuruW_1" index="1" speed="13.90" length="103.73" shape="217.24,536.07 119.75,571.50"/>
-    </edge>
-    <edge id="RiiaVaba_RiiaN" from="TRiia_Vaba" to="Riia_N_out" name="Riia mnt (to North)" priority="2">
-        <lane id="RiiaVaba_RiiaN_0" index="0" speed="13.90" length="109.54" shape="195.16,685.19 166.94,791.04"/>
-        <lane id="RiiaVaba_RiiaN_1" index="1" speed="13.90" length="109.54" shape="192.06,684.37 163.85,790.21"/>
-    </edge>
-    <edge id="RiiaVaba_RiiaTuru" from="TRiia_Vaba" to="TRiia_Turu" name="Riia maantee (southbound)" priority="2">
-        <lane id="RiiaVaba_RiiaTuru_0" index="0" speed="13.90" length="123.32" shape="191.25,662.61 223.15,543.49"/>
-        <lane id="RiiaVaba_RiiaTuru_1" index="1" speed="13.90" length="123.32" shape="194.35,663.44 226.24,544.32"/>
-    </edge>
-    <edge id="RiiaVaba_VabaE" from="TRiia_Vaba" to="Vaba_E_out" name="Vabaduse pst (to East)" priority="2">
-        <lane id="RiiaVaba_VabaE_0" index="0" speed="13.90" length="109.72" shape="204.54,672.02 310.37,700.97"/>
-        <lane id="RiiaVaba_VabaE_1" index="1" speed="13.90" length="109.72" shape="203.69,675.11 309.52,704.06"/>
-    </edge>
-    <edge id="RiiaVaba_VabaW" from="TRiia_Vaba" to="Vaba_W_out" name="Vabaduse pst (to West)" priority="2">
-        <lane id="RiiaVaba_VabaW_0" index="0" speed="13.90" length="109.57" shape="181.91,675.85 76.06,647.54"/>
-        <lane id="RiiaVaba_VabaW_1" index="1" speed="13.90" length="109.57" shape="182.74,672.76 76.89,644.45"/>
+        <lane id="RiiaTuru_TuruW_0" index="0" speed="13.90" length="103.73" shape="287.73,539.08 190.24,574.51"/>
+        <lane id="RiiaTuru_TuruW_1" index="1" speed="13.90" length="103.73" shape="286.64,536.07 189.15,571.50"/>
     </edge>
     <edge id="TuruAlek_AlekE" from="TTuru_Alek" to="Alek_E_out" name="Turu tanav (to East)" priority="1">
-        <lane id="TuruAlek_AlekE_0" index="0" speed="13.90" length="111.64" shape="624.23,189.63 729.16,151.49"/>
-        <lane id="TuruAlek_AlekE_1" index="1" speed="13.90" length="111.64" shape="625.33,192.63 730.25,154.50"/>
+        <lane id="TuruAlek_AlekE_0" index="0" speed="13.90" length="111.64" shape="693.63,189.63 798.56,151.49"/>
+        <lane id="TuruAlek_AlekE_1" index="1" speed="13.90" length="111.64" shape="694.73,192.63 799.65,154.50"/>
     </edge>
     <edge id="TuruAlek_AlekN" from="TTuru_Alek" to="Alek_N_out" name="Aleksandri tanav (to North)" priority="1">
-        <lane id="TuruAlek_AlekN_0" index="0" speed="11.10" length="101.32" shape="622.82,215.13 640.38,314.92"/>
+        <lane id="TuruAlek_AlekN_0" index="0" speed="11.10" length="101.32" shape="692.22,215.13 709.78,314.92"/>
     </edge>
     <edge id="TuruAlek_AlekS" from="TTuru_Alek" to="Alek_S_out" name="Aleksandri tanav (to South)" priority="1">
-        <lane id="TuruAlek_AlekS_0" index="0" speed="11.10" length="108.95" shape="614.51,186.38 595.62,79.08"/>
+        <lane id="TuruAlek_AlekS_0" index="0" speed="11.10" length="108.95" shape="683.91,186.38 665.02,79.08"/>
     </edge>
     <edge id="TuruAlek_TuruVaks" from="TTuru_Alek" to="TTuru_Vaks" name="Turu tanav (westbound)" priority="2">
-        <lane id="TuruAlek_TuruVaks_0" index="0" speed="13.90" length="225.42" shape="614.13,214.83 510.08,414.81"/>
-        <lane id="TuruAlek_TuruVaks_1" index="1" speed="13.90" length="225.42" shape="611.29,213.36 507.24,413.33"/>
+        <lane id="TuruAlek_TuruVaks_0" index="0" speed="13.90" length="225.42" shape="683.53,214.83 579.48,414.81"/>
+        <lane id="TuruAlek_TuruVaks_1" index="1" speed="13.90" length="225.42" shape="680.69,213.36 576.64,413.33"/>
     </edge>
     <edge id="TuruVaks_RiiaTuru" from="TTuru_Vaks" to="TRiia_Turu" name="Turu tanav (westbound)" priority="2">
-        <lane id="TuruVaks_RiiaTuru_0" index="0" speed="13.90" length="253.96" shape="487.59,441.04 248.96,527.93"/>
-        <lane id="TuruVaks_RiiaTuru_1" index="1" speed="13.90" length="253.96" shape="486.50,438.03 247.86,524.93"/>
+        <lane id="TuruVaks_RiiaTuru_0" index="0" speed="13.90" length="262.23" shape="556.99,441.04 310.59,530.76"/>
+        <lane id="TuruVaks_RiiaTuru_1" index="1" speed="13.90" length="262.23" shape="555.90,438.03 309.49,527.76"/>
     </edge>
     <edge id="TuruVaks_TuruAlek" from="TTuru_Vaks" to="TTuru_Alek" name="Turu tanav (eastbound)" priority="2">
-        <lane id="TuruVaks_TuruAlek_0" index="0" speed="13.90" length="225.42" shape="501.57,410.37 605.62,210.40"/>
-        <lane id="TuruVaks_TuruAlek_1" index="1" speed="13.90" length="225.42" shape="504.40,411.85 608.45,211.88"/>
+        <lane id="TuruVaks_TuruAlek_0" index="0" speed="13.90" length="225.42" shape="570.97,410.37 675.02,210.40"/>
+        <lane id="TuruVaks_TuruAlek_1" index="1" speed="13.90" length="225.42" shape="573.80,411.85 677.85,211.88"/>
     </edge>
     <edge id="TuruVaks_VaksN" from="TTuru_Vaks" to="Vaks_N_out" name="Vaksali tanav (to North)" priority="1">
-        <lane id="TuruVaks_VaksN_0" index="0" speed="11.10" length="108.02" shape="496.70,445.18 496.70,553.20"/>
+        <lane id="TuruVaks_VaksN_0" index="0" speed="11.10" length="108.02" shape="566.10,445.18 566.10,553.20"/>
     </edge>
     <edge id="TuruVaks_VaksS" from="TTuru_Vaks" to="Vaks_S_out" name="Vaksali tanav (to South)" priority="1">
-        <lane id="TuruVaks_VaksS_0" index="0" speed="11.10" length="95.98" shape="493.50,409.18 493.50,313.20"/>
+        <lane id="TuruVaks_VaksS_0" index="0" speed="11.10" length="95.98" shape="562.90,409.18 562.90,313.20"/>
     </edge>
     <edge id="TuruW_RiiaTuru" from="Turu_W_in" to="TRiia_Turu" name="Turu tanav (from West)" priority="1">
-        <lane id="TuruW_RiiaTuru_0" index="0" speed="13.90" length="183.68" shape="42.46,592.89 215.06,530.06"/>
-        <lane id="TuruW_RiiaTuru_1" index="1" speed="13.90" length="183.68" shape="43.55,595.90 216.15,533.07"/>
+        <lane id="TuruW_RiiaTuru_0" index="0" speed="13.90" length="183.67" shape="111.86,592.89 284.45,530.06"/>
+        <lane id="TuruW_RiiaTuru_1" index="1" speed="13.90" length="183.67" shape="112.95,595.90 285.55,533.07"/>
     </edge>
-    <edge id="VabaE_RiiaVaba" from="Vaba_E_in" to="TRiia_Vaba" name="Vabaduse pst (from East)" priority="2">
-        <lane id="VabaE_RiiaVaba_0" index="0" speed="13.90" length="189.60" shape="385.16,730.34 202.02,681.23"/>
-        <lane id="VabaE_RiiaVaba_1" index="1" speed="13.90" length="189.60" shape="385.99,727.25 202.86,678.15"/>
-    </edge>
-    <edge id="VabaW_RiiaVaba" from="Vaba_W_in" to="TRiia_Vaba" name="Vabaduse pst (from West)" priority="2">
-        <lane id="VabaW_RiiaVaba_0" index="0" speed="13.90" length="189.62" shape="1.24,617.46 184.39,666.57"/>
-        <lane id="VabaW_RiiaVaba_1" index="1" speed="13.90" length="189.62" shape="0.41,620.55 183.56,669.66"/>
+    <edge id="UlikW_RiiaKalevi" from="Ulik_W_in" to="TRiia_Kalevi" name="Ülikooli tn (from West)" priority="2">
+        <lane id="UlikW_RiiaKalevi_0" index="0" speed="13.90" length="189.52" shape="-0.99,512.70 133.07,378.74"/>
+        <lane id="UlikW_RiiaKalevi_1" index="1" speed="13.90" length="189.52" shape="1.27,514.97 135.33,381.00"/>
     </edge>
     <edge id="VaksN_TuruVaks" from="Vaks_N_in" to="TTuru_Vaks" name="Vaksali tanav (from North)" priority="1">
-        <lane id="VaksN_TuruVaks_0" index="0" speed="11.10" length="188.02" shape="493.50,633.20 493.50,445.18"/>
+        <lane id="VaksN_TuruVaks_0" index="0" speed="11.10" length="188.02" shape="562.90,633.20 562.90,445.18"/>
     </edge>
     <edge id="VaksS_TuruVaks" from="Vaks_S_in" to="TTuru_Vaks" name="Vaksali tanav (from South)" priority="1">
-        <lane id="VaksS_TuruVaks_0" index="0" speed="11.10" length="175.98" shape="496.70,233.20 496.70,409.18"/>
+        <lane id="VaksS_TuruVaks_0" index="0" speed="11.10" length="175.98" shape="566.10,233.20 566.10,409.18"/>
     </edge>
 
-    <tlLogic id="TRiia_Turu" type="static" programID="0" offset="0">
-        <phase duration="42" state="rrrrGGGgrrrrGGGg"/>
-        <phase duration="3"  state="rrrryyyyrrrryyyy"/>
-        <phase duration="42" state="GGGgrrrrGGGgrrrr"/>
-        <phase duration="3"  state="yyyyrrrryyyyrrrr"/>
+    <tlLogic id="TRiia_Kalevi" type="static" programID="0" offset="0">
+        <phase duration="42" state="rrrrrGGGggrrrrrGGGgg"/>
+        <phase duration="3"  state="rrrrryyyyyrrrrryyyyy"/>
+        <phase duration="42" state="GGGggrrrrrGGGggrrrrr"/>
+        <phase duration="3"  state="yyyyyrrrrryyyyyrrrrr"/>
     </tlLogic>
-    <tlLogic id="TRiia_Vaba" type="static" programID="0" offset="0">
-        <phase duration="42" state="GGGgrrrrGGGgrrrr"/>
-        <phase duration="3"  state="yyyyrrrryyyyrrrr"/>
-        <phase duration="42" state="rrrrGGGgrrrrGGGg"/>
-        <phase duration="3"  state="rrrryyyyrrrryyyy"/>
+    <tlLogic id="TRiia_Turu" type="static" programID="0" offset="0">
+        <phase duration="38" state="GGGggrrrrrGGGggrrrr"/>
+        <phase duration="3"  state="yyyyyrrrrryyyyyrrrr"/>
+        <phase duration="37" state="rrrrrGGGggrrrrrGGgg"/>
+        <phase duration="3"  state="rrrrryyyggrrrrryygg"/>
+        <phase duration="6"  state="rrrrrrrrGGrrrrrrrGG"/>
+        <phase duration="3"  state="rrrrrrrryyrrrrrrryy"/>
     </tlLogic>
     <tlLogic id="TTuru_Alek" type="static" programID="0" offset="0">
-        <phase duration="38" state="GGgrrrrGGgrrr"/>
-        <phase duration="3"  state="yyyrrrryyyrrr"/>
-        <phase duration="37" state="rrrGGGgrrrGGg"/>
-        <phase duration="3"  state="rrryyygrrryyg"/>
-        <phase duration="6"  state="rrrrrrGrrrrrG"/>
-        <phase duration="3"  state="rrrrrryrrrrry"/>
+        <phase duration="38" state="GGggrrrrrGGggrrrr"/>
+        <phase duration="3"  state="yyyyrrrrryyyyrrrr"/>
+        <phase duration="37" state="rrrrGGGggrrrrGGgg"/>
+        <phase duration="3"  state="rrrryyyggrrrryygg"/>
+        <phase duration="6"  state="rrrrrrrGGrrrrrrGG"/>
+        <phase duration="3"  state="rrrrrrryyrrrrrryy"/>
     </tlLogic>
     <tlLogic id="TTuru_Vaks" type="static" programID="0" offset="0">
-        <phase duration="37" state="rrrGGgrrrGGGg"/>
-        <phase duration="3"  state="rrryygrrryyyg"/>
-        <phase duration="6"  state="rrrrrGrrrrrrG"/>
-        <phase duration="3"  state="rrrrryrrrrrry"/>
-        <phase duration="37" state="GGgrrrGGgrrrr"/>
-        <phase duration="3"  state="yyyrrryyyrrrr"/>
-        <phase duration="1"  state="rrrrrrrrrrrrr"/>
+        <phase duration="37" state="rrrrGGggrrrrGGGgg"/>
+        <phase duration="3"  state="rrrryyggrrrryyygg"/>
+        <phase duration="6"  state="rrrrrrGGrrrrrrrGG"/>
+        <phase duration="3"  state="rrrrrryyrrrrrrryy"/>
+        <phase duration="37" state="GGggrrrrGGggrrrrr"/>
+        <phase duration="3"  state="yyyyrrrryyyyrrrrr"/>
+        <phase duration="1"  state="rrrrrrrrrrrrrrrrr"/>
     </tlLogic>
 
-    <junction id="Alek_E_in" type="dead_end" x="805.90" y="128.60" incLanes="" intLanes="" shape="805.90,128.60 808.09,134.61"/>
-    <junction id="Alek_E_out" type="dead_end" x="730.80" y="156.00" incLanes="TuruAlek_AlekE_0 TuruAlek_AlekE_1" intLanes="" shape="728.61,149.99 730.80,156.00"/>
-    <junction id="Alek_N_in" type="dead_end" x="652.70" y="394.00" incLanes="" intLanes="" shape="652.70,394.00 649.55,394.56"/>
-    <junction id="Alek_N_out" type="dead_end" x="638.80" y="315.20" incLanes="TuruAlek_AlekN_0" intLanes="" shape="641.95,314.65 638.80,315.20"/>
-    <junction id="Alek_S_in" type="dead_end" x="583.30" y="0.00" incLanes="" intLanes="" shape="583.30,-0.00 586.45,-0.56"/>
-    <junction id="Alek_S_out" type="dead_end" x="597.20" y="78.80" incLanes="TuruAlek_AlekS_0" intLanes="" shape="594.05,79.35 597.20,78.80"/>
-    <junction id="Riia_N_in" type="dead_end" x="141.40" y="867.10" incLanes="" intLanes="" shape="141.40,867.10 135.22,865.44"/>
-    <junction id="Riia_N_out" type="dead_end" x="162.30" y="789.80" incLanes="RiiaVaba_RiiaN_0 RiiaVaba_RiiaN_1" intLanes="" shape="168.48,791.45 162.30,789.80"/>
-    <junction id="Riia_S_in" type="dead_end" x="283.80" y="335.80" incLanes="" intLanes="" shape="283.80,335.80 289.98,337.46"/>
-    <junction id="Riia_S_out" type="dead_end" x="263.10" y="413.10" incLanes="RiiaTuru_RiiaS_0 RiiaTuru_RiiaS_1" intLanes="" shape="256.92,411.44 263.10,413.10"/>
-    <junction id="TRiia_Turu" type="traffic_light" x="232.00" y="529.00" incLanes="TuruVaks_RiiaTuru_0 TuruVaks_RiiaTuru_1 RiiaS_RiiaTuru_0 RiiaS_RiiaTuru_1 TuruW_RiiaTuru_0 TuruW_RiiaTuru_1 RiiaVaba_RiiaTuru_0 RiiaVaba_RiiaTuru_1" intLanes=":TRiia_Turu_0_0 :TRiia_Turu_1_0 :TRiia_Turu_1_1 :TRiia_Turu_16_0 :TRiia_Turu_4_0 :TRiia_Turu_5_0 :TRiia_Turu_5_1 :TRiia_Turu_17_0 :TRiia_Turu_8_0 :TRiia_Turu_9_0 :TRiia_Turu_9_1 :TRiia_Turu_18_0 :TRiia_Turu_12_0 :TRiia_Turu_13_0 :TRiia_Turu_13_1 :TRiia_Turu_19_0" shape="249.50,529.44 245.13,517.41 243.15,517.74 242.57,517.47 242.24,516.91 242.19,516.06 242.40,514.91 230.04,511.60 228.68,515.55 226.82,519.05 224.48,522.10 221.65,524.70 218.32,526.85 214.51,528.56 218.88,540.58 220.85,540.25 221.44,540.52 221.76,541.08 221.82,541.93 221.61,543.08 233.97,546.39 235.33,542.44 237.19,538.94 239.53,535.89 242.36,533.29 245.69,531.14">
-        <request index="0"  response="0000000001100000" foes="0000000001100000" cont="0"/>
-        <request index="1"  response="1111000011100000" foes="1111100011100000" cont="0"/>
-        <request index="2"  response="1111000011100000" foes="1111100011100000" cont="0"/>
-        <request index="3"  response="1110011011100000" foes="1110011011100000" cont="1"/>
-        <request index="4"  response="0000000000000000" foes="0000011000000000" cont="0"/>
-        <request index="5"  response="0000000000001000" foes="1000111000001111" cont="0"/>
-        <request index="6"  response="0000100000001000" foes="1000111000001111" cont="0"/>
-        <request index="7"  response="0110100000001000" foes="0110111000001110" cont="1"/>
-        <request index="8"  response="0110000000000000" foes="0110000000000000" cont="0"/>
-        <request index="9"  response="1110000011110000" foes="1110000011111000" cont="0"/>
-        <request index="10" response="1110000011110000" foes="1110000011111000" cont="0"/>
-        <request index="11" response="1110000011100110" foes="1110000011100110" cont="1"/>
-        <request index="12" response="0000000000000000" foes="0000000000000110" cont="0"/>
-        <request index="13" response="0000100000000000" foes="0000111110001110" cont="0"/>
-        <request index="14" response="0000100000001000" foes="0000111110001110" cont="0"/>
-        <request index="15" response="0000100001101000" foes="0000111001101110" cont="1"/>
+    <junction id="Alek_E_in" type="dead_end" x="875.30" y="128.60" incLanes="" intLanes="" shape="875.30,128.60 877.49,134.61"/>
+    <junction id="Alek_E_out" type="dead_end" x="800.20" y="156.00" incLanes="TuruAlek_AlekE_0 TuruAlek_AlekE_1" intLanes="" shape="798.01,149.99 800.20,156.00"/>
+    <junction id="Alek_N_in" type="dead_end" x="722.10" y="394.00" incLanes="" intLanes="" shape="722.10,394.00 718.95,394.56"/>
+    <junction id="Alek_N_out" type="dead_end" x="708.20" y="315.20" incLanes="TuruAlek_AlekN_0" intLanes="" shape="711.35,314.65 708.20,315.20"/>
+    <junction id="Alek_S_in" type="dead_end" x="652.70" y="0.00" incLanes="" intLanes="" shape="652.70,-0.00 655.85,-0.56"/>
+    <junction id="Alek_S_out" type="dead_end" x="666.60" y="78.80" incLanes="TuruAlek_AlekS_0" intLanes="" shape="663.45,79.35 666.60,78.80"/>
+    <junction id="Kalevi_E_in" type="dead_end" x="285.30" y="233.30" incLanes="" intLanes="" shape="285.30,233.30 289.83,237.83"/>
+    <junction id="Kalevi_E_out" type="dead_end" x="228.70" y="289.90" incLanes="RiiaKalevi_KaleviE_0 RiiaKalevi_KaleviE_1" intLanes="" shape="224.17,285.37 228.70,289.90"/>
+    <junction id="Riia_N_in" type="dead_end" x="0.00" y="235.80" incLanes="" intLanes="" shape="0.00,235.80 4.44,231.20"/>
+    <junction id="Riia_N_out" type="dead_end" x="57.50" y="291.40" incLanes="RiiaKalevi_RiiaN_0 RiiaKalevi_RiiaN_1" intLanes="" shape="53.06,296.01 57.50,291.40"/>
+    <junction id="Riia_S_in" type="dead_end" x="249.60" y="722.20" incLanes="" intLanes="" shape="249.60,722.20 243.42,720.54"/>
+    <junction id="Riia_S_out" type="dead_end" x="270.30" y="644.90" incLanes="RiiaTuru_RiiaS_0 RiiaTuru_RiiaS_1" intLanes="" shape="276.48,646.56 270.30,644.90"/>
+    <junction id="TRiia_Kalevi" type="traffic_light" x="143.90" y="374.70" incLanes="RiiaTuru_RiiaKalevi_0 RiiaTuru_RiiaKalevi_1 KaleviE_RiiaKalevi_0 KaleviE_RiiaKalevi_1 RiiaN_RiiaKalevi_0 RiiaN_RiiaKalevi_1 UlikW_RiiaKalevi_0 UlikW_RiiaKalevi_1" intLanes=":TRiia_Kalevi_0_0 :TRiia_Kalevi_1_0 :TRiia_Kalevi_1_1 :TRiia_Kalevi_20_0 :TRiia_Kalevi_21_0 :TRiia_Kalevi_5_0 :TRiia_Kalevi_6_0 :TRiia_Kalevi_6_1 :TRiia_Kalevi_22_0 :TRiia_Kalevi_23_0 :TRiia_Kalevi_10_0 :TRiia_Kalevi_11_0 :TRiia_Kalevi_11_1 :TRiia_Kalevi_24_0 :TRiia_Kalevi_25_0 :TRiia_Kalevi_15_0 :TRiia_Kalevi_16_0 :TRiia_Kalevi_16_1 :TRiia_Kalevi_26_0 :TRiia_Kalevi_27_0" shape="146.90,386.60 155.85,377.45 154.58,375.58 154.42,374.65 154.57,373.71 155.04,372.77 155.83,371.82 146.78,362.77 144.80,364.09 143.80,364.25 142.79,364.09 141.79,363.60 140.77,362.79 131.88,372.01 133.17,373.86 133.34,374.79 133.19,375.73 132.72,376.67 131.93,377.61 140.99,386.66 142.96,385.34 143.94,385.17 144.93,385.32 145.91,385.79">
+        <request index="0"  response="00000000000011000000" foes="00000000000011000000" cont="0"/>
+        <request index="1"  response="01111000000111000000" foes="01111110000111000000" cont="0"/>
+        <request index="2"  response="01111000000111000000" foes="01111110000111000000" cont="0"/>
+        <request index="3"  response="01110001100111000000" foes="01110001101111000000" cont="1"/>
+        <request index="4"  response="01000001100000000000" foes="01000001100000000000" cont="1"/>
+        <request index="5"  response="00000000000000000000" foes="00000001100000000000" cont="0"/>
+        <request index="6"  response="00000000000000001000" foes="11000011100000001111" cont="0"/>
+        <request index="7"  response="00000010000000001000" foes="11000011100000001111" cont="0"/>
+        <request index="8"  response="00110010000000001000" foes="00110111100000001110" cont="1"/>
+        <request index="9"  response="00110000000000001000" foes="00110000000000001000" cont="1"/>
+        <request index="10" response="00110000000000000000" foes="00110000000000000000" cont="0"/>
+        <request index="11" response="01110000000111100000" foes="01110000000111111000" cont="0"/>
+        <request index="12" response="01110000000111100000" foes="01110000000111111000" cont="0"/>
+        <request index="13" response="01110000000111000110" foes="11110000000111000110" cont="1"/>
+        <request index="14" response="00000000000100000110" foes="00000000000100000110" cont="1"/>
+        <request index="15" response="00000000000000000000" foes="00000000000000000110" cont="0"/>
+        <request index="16" response="00000010000000000000" foes="00000011111100001110" cont="0"/>
+        <request index="17" response="00000010000000001000" foes="00000011111100001110" cont="0"/>
+        <request index="18" response="00000010000011001000" foes="00000011100011011110" cont="1"/>
+        <request index="19" response="00000010000011000000" foes="00000010000011000000" cont="1"/>
     </junction>
-    <junction id="TRiia_Vaba" type="traffic_light" x="193.20" y="673.90" incLanes="VabaE_RiiaVaba_0 VabaE_RiiaVaba_1 RiiaTuru_RiiaVaba_0 RiiaTuru_RiiaVaba_1 VabaW_RiiaVaba_0 VabaW_RiiaVaba_1 RiiaN_RiiaVaba_0 RiiaN_RiiaVaba_1" intLanes=":TRiia_Vaba_0_0 :TRiia_Vaba_1_0 :TRiia_Vaba_1_1 :TRiia_Vaba_16_0 :TRiia_Vaba_4_0 :TRiia_Vaba_5_0 :TRiia_Vaba_5_1 :TRiia_Vaba_17_0 :TRiia_Vaba_8_0 :TRiia_Vaba_9_0 :TRiia_Vaba_9_1 :TRiia_Vaba_18_0 :TRiia_Vaba_12_0 :TRiia_Vaba_13_0 :TRiia_Vaba_13_1 :TRiia_Vaba_19_0" shape="201.60,682.78 204.96,670.48 202.89,669.45 202.27,668.70 201.93,667.79 201.86,666.73 202.07,665.51 189.71,662.20 188.70,664.23 187.97,664.84 187.07,665.17 186.02,665.23 184.80,665.02 181.50,677.39 183.53,678.40 184.13,679.14 184.47,680.04 184.53,681.09 184.32,682.31 196.70,685.61 197.70,683.57 198.44,682.97 199.34,682.63 200.39,682.57">
-        <request index="0"  response="0000000000000000" foes="0000000001100000" cont="0"/>
-        <request index="1"  response="1000000000000000" foes="1111100011100000" cont="0"/>
-        <request index="2"  response="1000000010000000" foes="1111100011100000" cont="0"/>
-        <request index="3"  response="1000011010000000" foes="1110011011100000" cont="1"/>
-        <request index="4"  response="0000011000000000" foes="0000011000000000" cont="0"/>
-        <request index="5"  response="0000111000001111" foes="1000111000001111" cont="0"/>
-        <request index="6"  response="0000111000001111" foes="1000111000001111" cont="0"/>
-        <request index="7"  response="0110111000001110" foes="0110111000001110" cont="1"/>
-        <request index="8"  response="0000000000000000" foes="0110000000000000" cont="0"/>
-        <request index="9"  response="0000000010000000" foes="1110000011111000" cont="0"/>
-        <request index="10" response="1000000010000000" foes="1110000011111000" cont="0"/>
-        <request index="11" response="1000000010000110" foes="1110000011100110" cont="1"/>
-        <request index="12" response="0000000000000110" foes="0000000000000110" cont="0"/>
-        <request index="13" response="0000111100001110" foes="0000111110001110" cont="0"/>
-        <request index="14" response="0000111100001110" foes="0000111110001110" cont="0"/>
-        <request index="15" response="0000111001101110" foes="0000111001101110" cont="1"/>
+    <junction id="TRiia_Turu" type="traffic_light" x="301.40" y="529.00" incLanes="TuruVaks_RiiaTuru_0 TuruVaks_RiiaTuru_1 RiiaKalevi_RiiaTuru_0 RiiaKalevi_RiiaTuru_1 TuruW_RiiaTuru_0 TuruW_RiiaTuru_1 RiiaS_RiiaTuru_0 RiiaS_RiiaTuru_1" intLanes=":TRiia_Turu_0_0 :TRiia_Turu_1_0 :TRiia_Turu_1_1 :TRiia_Turu_19_0 :TRiia_Turu_20_0 :TRiia_Turu_5_0 :TRiia_Turu_6_0 :TRiia_Turu_6_1 :TRiia_Turu_21_0 :TRiia_Turu_22_0 :TRiia_Turu_10_0 :TRiia_Turu_11_0 :TRiia_Turu_11_1 :TRiia_Turu_23_0 :TRiia_Turu_24_0 :TRiia_Turu_15_0 :TRiia_Turu_16_0 :TRiia_Turu_25_0 :TRiia_Turu_26_0" shape="311.14,532.27 306.76,520.24 303.87,520.21 302.13,519.49 300.20,518.30 298.08,516.65 295.76,514.52 286.81,523.66 287.75,525.45 287.51,526.29 286.79,527.08 285.59,527.84 283.91,528.56 288.28,540.58 290.25,540.25 290.84,540.52 291.16,541.08 291.21,541.93 291.00,543.08 303.36,546.39 304.51,542.52 305.72,539.26 306.98,536.60 308.31,534.55 309.69,533.11">
+        <request index="0"  response="0000000000000000000" foes="0000000000011000000" cont="0"/>
+        <request index="1"  response="0100000000000000000" foes="0111110000111000000" cont="0"/>
+        <request index="2"  response="0100000000100000000" foes="0111110000111000000" cont="0"/>
+        <request index="3"  response="0100001100100000000" foes="0110001101111000000" cont="1"/>
+        <request index="4"  response="0100001100000000000" foes="0100001100000000000" cont="1"/>
+        <request index="5"  response="0000001100000000000" foes="0000001100000000000" cont="0"/>
+        <request index="6"  response="0000011100000001111" foes="1100011100000001111" cont="0"/>
+        <request index="7"  response="0000011100000001111" foes="1100011100000001111" cont="0"/>
+        <request index="8"  response="0010011100000001110" foes="0010111100000001110" cont="1"/>
+        <request index="9"  response="0010000000000001000" foes="0010000000000001000" cont="1"/>
+        <request index="10" response="0000000000000000000" foes="0000000000000000000" cont="0"/>
+        <request index="11" response="0000000000100000000" foes="0110000000111111000" cont="0"/>
+        <request index="12" response="0100000000100000000" foes="0110000000111111000" cont="0"/>
+        <request index="13" response="0100000000100000110" foes="1110000000111000110" cont="1"/>
+        <request index="14" response="0000000000100000110" foes="0000000000100000110" cont="1"/>
+        <request index="15" response="0000000000000000110" foes="0000000000000000110" cont="0"/>
+        <request index="16" response="0000011100000001110" foes="0000011101100001110" cont="0"/>
+        <request index="17" response="0000011100011001110" foes="0000011100011011110" cont="1"/>
+        <request index="18" response="0000010000011000000" foes="0000010000011000000" cont="1"/>
     </junction>
-    <junction id="TTuru_Alek" type="traffic_light" x="618.00" y="197.00" incLanes="AlekN_TuruAlek_0 AlekE_TuruAlek_0 AlekE_TuruAlek_1 AlekS_TuruAlek_0 TuruVaks_TuruAlek_0 TuruVaks_TuruAlek_1" intLanes=":TTuru_Alek_0_0 :TTuru_Alek_1_0 :TTuru_Alek_13_0 :TTuru_Alek_3_0 :TTuru_Alek_4_0 :TTuru_Alek_4_1 :TTuru_Alek_14_0 :TTuru_Alek_7_0 :TTuru_Alek_8_0 :TTuru_Alek_15_0 :TTuru_Alek_10_0 :TTuru_Alek_11_0 :TTuru_Alek_16_0" shape="618.09,215.96 624.39,214.85 623.88,210.96 623.82,207.64 624.20,204.90 625.04,202.73 626.32,201.15 628.06,200.15 623.69,188.12 621.52,188.45 620.69,188.16 620.04,187.59 619.55,186.72 619.23,185.55 612.93,186.66 613.42,191.81 612.88,195.58 611.49,198.61 609.46,201.54 606.96,205.01 604.20,209.66 615.55,215.57 616.65,214.04 617.11,213.90 617.50,214.17 617.83,214.86">
-        <request index="0"  response="0000000000000" foes="0000000110000" cont="0"/>
-        <request index="1"  response="1000001000000" foes="1111001110000" cont="0"/>
-        <request index="2"  response="1000101000000" foes="1100101110000" cont="1"/>
-        <request index="3"  response="0000100000000" foes="1000100000000" cont="0"/>
-        <request index="4"  response="0001100000111" foes="1001100000111" cont="0"/>
-        <request index="5"  response="0001100000111" foes="1001100000111" cont="0"/>
-        <request index="6"  response="0111100000110" foes="0111100000110" cont="1"/>
-        <request index="7"  response="0000000000000" foes="0000000000000" cont="0"/>
-        <request index="8"  response="1000001000000" foes="1100001111100" cont="0"/>
-        <request index="9"  response="1000001000010" foes="1100001110010" cont="1"/>
-        <request index="10" response="0000000000010" foes="0000001000010" cont="0"/>
-        <request index="11" response="0001100000110" foes="0001101000110" cont="0"/>
-        <request index="12" response="0001100111110" foes="0001100111110" cont="1"/>
+    <junction id="TTuru_Alek" type="traffic_light" x="687.40" y="197.00" incLanes="AlekN_TuruAlek_0 AlekE_TuruAlek_0 AlekE_TuruAlek_1 AlekS_TuruAlek_0 TuruVaks_TuruAlek_0 TuruVaks_TuruAlek_1" intLanes=":TTuru_Alek_0_0 :TTuru_Alek_1_0 :TTuru_Alek_17_0 :TTuru_Alek_18_0 :TTuru_Alek_4_0 :TTuru_Alek_5_0 :TTuru_Alek_5_1 :TTuru_Alek_19_0 :TTuru_Alek_20_0 :TTuru_Alek_9_0 :TTuru_Alek_10_0 :TTuru_Alek_21_0 :TTuru_Alek_22_0 :TTuru_Alek_13_0 :TTuru_Alek_14_0 :TTuru_Alek_23_0 :TTuru_Alek_24_0" shape="687.49,215.96 693.79,214.85 693.28,210.96 693.22,207.64 693.60,204.90 694.44,202.73 695.72,201.15 697.46,200.15 693.09,188.12 690.92,188.45 690.09,188.16 689.44,187.59 688.95,186.72 688.63,185.55 682.33,186.66 682.82,191.81 682.28,195.58 680.89,198.61 678.86,201.54 676.36,205.01 673.60,209.66 684.95,215.57 686.05,214.04 686.51,213.90 686.90,214.17 687.23,214.86">
+        <request index="0"  response="00000000000000000" foes="00000000001100000" cont="0"/>
+        <request index="1"  response="01000000010000000" foes="01111100011100000" cont="0"/>
+        <request index="2"  response="01000010010000000" foes="01100010111100000" cont="1"/>
+        <request index="3"  response="01000010000010000" foes="01000010000010000" cont="1"/>
+        <request index="4"  response="00000010000000000" foes="01000010000001000" cont="0"/>
+        <request index="5"  response="00000110000000111" foes="11000110000000111" cont="0"/>
+        <request index="6"  response="00000110000000111" foes="11000110000000111" cont="0"/>
+        <request index="7"  response="00110110000000110" foes="00111110000000110" cont="1"/>
+        <request index="8"  response="00100000000000100" foes="00100000000000100" cont="1"/>
+        <request index="9"  response="00000000000000000" foes="00000000000000000" cont="0"/>
+        <request index="10" response="01000000010000000" foes="01100000011111100" cont="0"/>
+        <request index="11" response="01000000010000010" foes="11100000011100010" cont="1"/>
+        <request index="12" response="00010000010000010" foes="00010000010000010" cont="1"/>
+        <request index="13" response="00000000000000010" foes="00001000010000010" cont="0"/>
+        <request index="14" response="00000110000000110" foes="00000110110000110" cont="0"/>
+        <request index="15" response="00000110001110110" foes="00000110001111110" cont="1"/>
+        <request index="16" response="00000100001100000" foes="00000100001100000" cont="1"/>
     </junction>
-    <junction id="TTuru_Vaks" type="traffic_light" x="495.10" y="433.20" incLanes="VaksN_TuruVaks_0 TuruAlek_TuruVaks_0 TuruAlek_TuruVaks_1 VaksS_TuruVaks_0 RiiaTuru_TuruVaks_0 RiiaTuru_TuruVaks_1" intLanes=":TTuru_Vaks_0_0 :TTuru_Vaks_1_0 :TTuru_Vaks_13_0 :TTuru_Vaks_3_0 :TTuru_Vaks_4_0 :TTuru_Vaks_14_0 :TTuru_Vaks_6_0 :TTuru_Vaks_7_0 :TTuru_Vaks_15_0 :TTuru_Vaks_9_0 :TTuru_Vaks_10_0 :TTuru_Vaks_10_1 :TTuru_Vaks_16_0" shape="491.90,445.18 498.30,445.18 498.76,438.35 500.06,433.48 502.09,429.67 504.75,426.02 507.92,421.61 511.50,415.54 500.15,409.64 498.30,409.18 491.90,409.18 491.67,414.88 491.00,419.72 489.87,423.70 488.28,426.83 486.25,429.10 483.76,430.52 488.14,442.54 490.23,442.23 490.96,442.52 491.48,443.11 491.80,443.99">
-        <request index="0"  response="0000000000000" foes="0000000000000" cont="0"/>
-        <request index="1"  response="1111000110000" foes="1111100110000" cont="0"/>
-        <request index="2"  response="1110010110000" foes="1110010110000" cont="1"/>
-        <request index="3"  response="0000000000000" foes="1000010000000" cont="0"/>
-        <request index="4"  response="0000100000100" foes="1000110000110" cont="0"/>
-        <request index="5"  response="0111100000100" foes="0111110000110" cont="1"/>
-        <request index="6"  response="0110000000000" foes="0110000000000" cont="0"/>
-        <request index="7"  response="1110000111000" foes="1110000111100" cont="0"/>
-        <request index="8"  response="1110000110010" foes="1110000110010" cont="1"/>
-        <request index="9"  response="0000000000000" foes="0000000100010" cont="0"/>
-        <request index="10" response="0000100000000" foes="0000111100110" cont="0"/>
-        <request index="11" response="0000100000100" foes="0000111100110" cont="0"/>
-        <request index="12" response="0000100011100" foes="0000110011110" cont="1"/>
+    <junction id="TTuru_Vaks" type="traffic_light" x="564.50" y="433.20" incLanes="VaksN_TuruVaks_0 TuruAlek_TuruVaks_0 TuruAlek_TuruVaks_1 VaksS_TuruVaks_0 RiiaTuru_TuruVaks_0 RiiaTuru_TuruVaks_1" intLanes=":TTuru_Vaks_0_0 :TTuru_Vaks_1_0 :TTuru_Vaks_17_0 :TTuru_Vaks_18_0 :TTuru_Vaks_4_0 :TTuru_Vaks_5_0 :TTuru_Vaks_19_0 :TTuru_Vaks_20_0 :TTuru_Vaks_8_0 :TTuru_Vaks_9_0 :TTuru_Vaks_21_0 :TTuru_Vaks_22_0 :TTuru_Vaks_12_0 :TTuru_Vaks_13_0 :TTuru_Vaks_13_1 :TTuru_Vaks_23_0 :TTuru_Vaks_24_0" shape="561.30,445.18 567.70,445.18 568.16,438.35 569.46,433.48 571.49,429.67 574.15,426.02 577.32,421.61 580.90,415.54 569.55,409.64 567.70,409.18 561.30,409.18 561.07,414.88 560.40,419.72 559.27,423.70 557.68,426.83 555.65,429.10 553.16,430.52 557.54,442.54 559.63,442.23 560.36,442.52 560.88,443.11 561.20,443.99">
+        <request index="0"  response="00000000000000000" foes="00000000000000000" cont="0"/>
+        <request index="1"  response="01111000001100000" foes="01111110001100000" cont="0"/>
+        <request index="2"  response="01110001001100000" foes="01110001011100000" cont="1"/>
+        <request index="3"  response="01000001000010000" foes="01000001000010000" cont="1"/>
+        <request index="4"  response="00000000000000000" foes="01000001000001000" cont="0"/>
+        <request index="5"  response="00000010000000100" foes="11000011000000110" cont="0"/>
+        <request index="6"  response="00111010000000100" foes="00111111000000110" cont="1"/>
+        <request index="7"  response="00110000000000100" foes="00110000000000100" cont="1"/>
+        <request index="8"  response="00110000000000000" foes="00110000000000000" cont="0"/>
+        <request index="9"  response="01110000001110000" foes="01110000001111100" cont="0"/>
+        <request index="10" response="01110000001100010" foes="11110000001100010" cont="1"/>
+        <request index="11" response="00001000001000010" foes="00001000001000010" cont="1"/>
+        <request index="12" response="00000000000000000" foes="00000100001000010" cont="0"/>
+        <request index="13" response="00000010000000000" foes="00000011111000110" cont="0"/>
+        <request index="14" response="00000010000000100" foes="00000011111000110" cont="0"/>
+        <request index="15" response="00000010000110100" foes="00000011000111110" cont="1"/>
+        <request index="16" response="00000010000100000" foes="00000010000100000" cont="1"/>
     </junction>
-    <junction id="Turu_W_in" type="dead_end" x="44.10" y="597.40" incLanes="" intLanes="" shape="44.10,597.40 41.91,591.39"/>
-    <junction id="Turu_W_out" type="dead_end" x="119.20" y="570.00" incLanes="RiiaTuru_TuruW_0 RiiaTuru_TuruW_1" intLanes="" shape="121.39,576.01 119.20,570.00"/>
-    <junction id="Vaba_E_in" type="dead_end" x="386.40" y="725.70" incLanes="" intLanes="" shape="386.40,725.70 384.74,731.88"/>
-    <junction id="Vaba_E_out" type="dead_end" x="309.10" y="705.60" incLanes="RiiaVaba_VabaE_0 RiiaVaba_VabaE_1" intLanes="" shape="310.79,699.43 309.10,705.60"/>
-    <junction id="Vaba_W_in" type="dead_end" x="0.00" y="622.10" incLanes="" intLanes="" shape="0.00,622.10 1.66,615.92"/>
-    <junction id="Vaba_W_out" type="dead_end" x="77.30" y="642.90" incLanes="RiiaVaba_VabaW_0 RiiaVaba_VabaW_1" intLanes="" shape="75.65,649.08 77.30,642.90"/>
-    <junction id="Vaks_N_in" type="dead_end" x="495.10" y="633.20" incLanes="" intLanes="" shape="495.10,633.20 491.90,633.20"/>
-    <junction id="Vaks_N_out" type="dead_end" x="495.10" y="553.20" incLanes="TuruVaks_VaksN_0" intLanes="" shape="498.30,553.20 495.10,553.20"/>
-    <junction id="Vaks_S_in" type="dead_end" x="495.10" y="233.20" incLanes="" intLanes="" shape="495.10,233.20 498.30,233.20"/>
-    <junction id="Vaks_S_out" type="dead_end" x="495.10" y="313.20" incLanes="TuruVaks_VaksS_0" intLanes="" shape="491.90,313.20 495.10,313.20"/>
+    <junction id="Turu_W_in" type="dead_end" x="113.50" y="597.40" incLanes="" intLanes="" shape="113.50,597.40 111.31,591.39"/>
+    <junction id="Turu_W_out" type="dead_end" x="188.60" y="570.00" incLanes="RiiaTuru_TuruW_0 RiiaTuru_TuruW_1" intLanes="" shape="190.79,576.01 188.60,570.00"/>
+    <junction id="Ulik_W_in" type="dead_end" x="2.40" y="516.10" incLanes="" intLanes="" shape="2.40,516.10 -2.12,511.57"/>
+    <junction id="Ulik_W_out" type="dead_end" x="59.00" y="459.60" incLanes="RiiaKalevi_UlikW_0 RiiaKalevi_UlikW_1" intLanes="" shape="63.53,464.13 59.00,459.60"/>
+    <junction id="Vaks_N_in" type="dead_end" x="564.50" y="633.20" incLanes="" intLanes="" shape="564.50,633.20 561.30,633.20"/>
+    <junction id="Vaks_N_out" type="dead_end" x="564.50" y="553.20" incLanes="TuruVaks_VaksN_0" intLanes="" shape="567.70,553.20 564.50,553.20"/>
+    <junction id="Vaks_S_in" type="dead_end" x="564.50" y="233.20" incLanes="" intLanes="" shape="564.50,233.20 567.70,233.20"/>
+    <junction id="Vaks_S_out" type="dead_end" x="564.50" y="313.20" incLanes="TuruVaks_VaksS_0" intLanes="" shape="561.30,313.20 564.50,313.20"/>
 
-    <junction id=":TRiia_Turu_16_0" type="internal" x="242.40" y="526.16" incLanes=":TRiia_Turu_3_0 TuruW_RiiaTuru_0 TuruW_RiiaTuru_1" intLanes=":TRiia_Turu_5_0 :TRiia_Turu_5_1 :TRiia_Turu_7_0 :TRiia_Turu_8_0 :TRiia_Turu_9_0 :TRiia_Turu_9_1 :TRiia_Turu_13_0 :TRiia_Turu_13_1 :TRiia_Turu_15_0"/>
-    <junction id=":TRiia_Turu_17_0" type="internal" x="235.41" y="519.76" incLanes=":TRiia_Turu_7_0 RiiaVaba_RiiaTuru_0 RiiaVaba_RiiaTuru_1" intLanes=":TRiia_Turu_1_0 :TRiia_Turu_1_1 :TRiia_Turu_3_0 :TRiia_Turu_9_0 :TRiia_Turu_9_1 :TRiia_Turu_11_0 :TRiia_Turu_12_0 :TRiia_Turu_13_0 :TRiia_Turu_13_1"/>
-    <junction id=":TRiia_Turu_18_0" type="internal" x="221.55" y="531.85" incLanes=":TRiia_Turu_11_0 TuruVaks_RiiaTuru_0 TuruVaks_RiiaTuru_1" intLanes=":TRiia_Turu_0_0 :TRiia_Turu_1_0 :TRiia_Turu_1_1 :TRiia_Turu_5_0 :TRiia_Turu_5_1 :TRiia_Turu_7_0 :TRiia_Turu_13_0 :TRiia_Turu_13_1 :TRiia_Turu_15_0"/>
-    <junction id=":TRiia_Turu_19_0" type="internal" x="228.61" y="538.20" incLanes=":TRiia_Turu_15_0 RiiaS_RiiaTuru_0 RiiaS_RiiaTuru_1" intLanes=":TRiia_Turu_1_0 :TRiia_Turu_1_1 :TRiia_Turu_3_0 :TRiia_Turu_4_0 :TRiia_Turu_5_0 :TRiia_Turu_5_1 :TRiia_Turu_9_0 :TRiia_Turu_9_1 :TRiia_Turu_11_0"/>
-    <junction id=":TRiia_Vaba_16_0" type="internal" x="198.51" y="676.29" incLanes=":TRiia_Vaba_3_0 VabaW_RiiaVaba_0 VabaW_RiiaVaba_1" intLanes=":TRiia_Vaba_5_0 :TRiia_Vaba_5_1 :TRiia_Vaba_7_0 :TRiia_Vaba_8_0 :TRiia_Vaba_9_0 :TRiia_Vaba_9_1 :TRiia_Vaba_13_0 :TRiia_Vaba_13_1 :TRiia_Vaba_15_0"/>
-    <junction id=":TRiia_Vaba_17_0" type="internal" x="195.47" y="668.88" incLanes=":TRiia_Vaba_7_0 RiiaN_RiiaVaba_0 RiiaN_RiiaVaba_1" intLanes=":TRiia_Vaba_1_0 :TRiia_Vaba_1_1 :TRiia_Vaba_3_0 :TRiia_Vaba_9_0 :TRiia_Vaba_9_1 :TRiia_Vaba_11_0 :TRiia_Vaba_12_0 :TRiia_Vaba_13_0 :TRiia_Vaba_13_1"/>
-    <junction id=":TRiia_Vaba_18_0" type="internal" x="188.21" y="671.64" incLanes=":TRiia_Vaba_11_0 VabaE_RiiaVaba_0 VabaE_RiiaVaba_1" intLanes=":TRiia_Vaba_0_0 :TRiia_Vaba_1_0 :TRiia_Vaba_1_1 :TRiia_Vaba_5_0 :TRiia_Vaba_5_1 :TRiia_Vaba_7_0 :TRiia_Vaba_13_0 :TRiia_Vaba_13_1 :TRiia_Vaba_15_0"/>
-    <junction id=":TRiia_Vaba_19_0" type="internal" x="190.95" y="678.88" incLanes=":TRiia_Vaba_15_0 RiiaTuru_RiiaVaba_0 RiiaTuru_RiiaVaba_1" intLanes=":TRiia_Vaba_1_0 :TRiia_Vaba_1_1 :TRiia_Vaba_3_0 :TRiia_Vaba_4_0 :TRiia_Vaba_5_0 :TRiia_Vaba_5_1 :TRiia_Vaba_9_0 :TRiia_Vaba_9_1 :TRiia_Vaba_11_0"/>
-    <junction id=":TTuru_Alek_13_0" type="internal" x="618.75" y="206.53" incLanes=":TTuru_Alek_2_0 AlekS_TuruAlek_0" intLanes=":TTuru_Alek_4_0 :TTuru_Alek_4_1 :TTuru_Alek_6_0 :TTuru_Alek_7_0 :TTuru_Alek_8_0 :TTuru_Alek_11_0 :TTuru_Alek_12_0"/>
-    <junction id=":TTuru_Alek_14_0" type="internal" x="624.23" y="196.01" incLanes=":TTuru_Alek_6_0 TuruVaks_TuruAlek_0 TuruVaks_TuruAlek_1" intLanes=":TTuru_Alek_1_0 :TTuru_Alek_2_0 :TTuru_Alek_8_0 :TTuru_Alek_9_0 :TTuru_Alek_10_0 :TTuru_Alek_11_0"/>
-    <junction id=":TTuru_Alek_15_0" type="internal" x="617.67" y="190.03" incLanes=":TTuru_Alek_9_0 AlekN_TuruAlek_0" intLanes=":TTuru_Alek_0_0 :TTuru_Alek_1_0 :TTuru_Alek_4_0 :TTuru_Alek_4_1 :TTuru_Alek_6_0 :TTuru_Alek_11_0 :TTuru_Alek_12_0"/>
-    <junction id=":TTuru_Alek_16_0" type="internal" x="610.12" y="210.19" incLanes=":TTuru_Alek_12_0 AlekE_TuruAlek_0 AlekE_TuruAlek_1" intLanes=":TTuru_Alek_1_0 :TTuru_Alek_2_0 :TTuru_Alek_3_0 :TTuru_Alek_4_0 :TTuru_Alek_4_1 :TTuru_Alek_8_0 :TTuru_Alek_9_0"/>
-    <junction id=":TTuru_Vaks_13_0" type="internal" x="494.21" y="441.07" incLanes=":TTuru_Vaks_2_0 VaksS_TuruVaks_0" intLanes=":TTuru_Vaks_4_0 :TTuru_Vaks_5_0 :TTuru_Vaks_6_0 :TTuru_Vaks_7_0 :TTuru_Vaks_10_0 :TTuru_Vaks_10_1 :TTuru_Vaks_12_0"/>
-    <junction id=":TTuru_Vaks_14_0" type="internal" x="505.59" y="414.88" incLanes=":TTuru_Vaks_5_0 RiiaTuru_TuruVaks_0 RiiaTuru_TuruVaks_1" intLanes=":TTuru_Vaks_1_0 :TTuru_Vaks_2_0 :TTuru_Vaks_7_0 :TTuru_Vaks_8_0 :TTuru_Vaks_9_0 :TTuru_Vaks_10_0 :TTuru_Vaks_10_1"/>
-    <junction id=":TTuru_Vaks_15_0" type="internal" x="496.01" y="420.65" incLanes=":TTuru_Vaks_8_0 VaksN_TuruVaks_0" intLanes=":TTuru_Vaks_0_0 :TTuru_Vaks_1_0 :TTuru_Vaks_4_0 :TTuru_Vaks_5_0 :TTuru_Vaks_10_0 :TTuru_Vaks_10_1 :TTuru_Vaks_12_0"/>
-    <junction id=":TTuru_Vaks_16_0" type="internal" x="487.28" y="434.68" incLanes=":TTuru_Vaks_12_0 TuruAlek_TuruVaks_0 TuruAlek_TuruVaks_1" intLanes=":TTuru_Vaks_1_0 :TTuru_Vaks_2_0 :TTuru_Vaks_3_0 :TTuru_Vaks_4_0 :TTuru_Vaks_7_0 :TTuru_Vaks_8_0"/>
+    <junction id=":TRiia_Kalevi_20_0" type="internal" x="147.29" y="379.29" incLanes=":TRiia_Kalevi_3_0 RiiaN_RiiaKalevi_0 RiiaN_RiiaKalevi_1" intLanes=":TRiia_Kalevi_6_0 :TRiia_Kalevi_6_1 :TRiia_Kalevi_8_0 :TRiia_Kalevi_9_0 :TRiia_Kalevi_10_0 :TRiia_Kalevi_11_0 :TRiia_Kalevi_11_1 :TRiia_Kalevi_16_0 :TRiia_Kalevi_16_1 :TRiia_Kalevi_18_0"/>
+    <junction id=":TRiia_Kalevi_21_0" type="internal" x="149.96" y="381.76" incLanes=":TRiia_Kalevi_4_0 KaleviE_RiiaKalevi_0 RiiaN_RiiaKalevi_0 RiiaN_RiiaKalevi_1 UlikW_RiiaKalevi_1" intLanes=":TRiia_Kalevi_5_0 :TRiia_Kalevi_11_0 :TRiia_Kalevi_11_1 :TRiia_Kalevi_18_0"/>
+    <junction id=":TRiia_Kalevi_22_0" type="internal" x="148.42" y="371.44" incLanes=":TRiia_Kalevi_8_0 UlikW_RiiaKalevi_0 UlikW_RiiaKalevi_1" intLanes=":TRiia_Kalevi_1_0 :TRiia_Kalevi_1_1 :TRiia_Kalevi_3_0 :TRiia_Kalevi_11_0 :TRiia_Kalevi_11_1 :TRiia_Kalevi_13_0 :TRiia_Kalevi_14_0 :TRiia_Kalevi_15_0 :TRiia_Kalevi_16_0 :TRiia_Kalevi_16_1"/>
+    <junction id=":TRiia_Kalevi_23_0" type="internal" x="151.02" y="368.71" incLanes=":TRiia_Kalevi_9_0 RiiaN_RiiaKalevi_0 RiiaTuru_RiiaKalevi_1 UlikW_RiiaKalevi_0 UlikW_RiiaKalevi_1" intLanes=":TRiia_Kalevi_3_0 :TRiia_Kalevi_10_0 :TRiia_Kalevi_16_0 :TRiia_Kalevi_16_1"/>
+    <junction id=":TRiia_Kalevi_24_0" type="internal" x="140.61" y="370.32" incLanes=":TRiia_Kalevi_13_0 RiiaTuru_RiiaKalevi_0 RiiaTuru_RiiaKalevi_1" intLanes=":TRiia_Kalevi_0_0 :TRiia_Kalevi_1_0 :TRiia_Kalevi_1_1 :TRiia_Kalevi_6_0 :TRiia_Kalevi_6_1 :TRiia_Kalevi_8_0 :TRiia_Kalevi_16_0 :TRiia_Kalevi_16_1 :TRiia_Kalevi_18_0 :TRiia_Kalevi_19_0"/>
+    <junction id=":TRiia_Kalevi_25_0" type="internal" x="137.75" y="367.65" incLanes=":TRiia_Kalevi_14_0 KaleviE_RiiaKalevi_1 RiiaTuru_RiiaKalevi_0 RiiaTuru_RiiaKalevi_1 UlikW_RiiaKalevi_0" intLanes=":TRiia_Kalevi_1_0 :TRiia_Kalevi_1_1 :TRiia_Kalevi_8_0 :TRiia_Kalevi_15_0"/>
+    <junction id=":TRiia_Kalevi_26_0" type="internal" x="139.37" y="377.97" incLanes=":TRiia_Kalevi_18_0 KaleviE_RiiaKalevi_0 KaleviE_RiiaKalevi_1" intLanes=":TRiia_Kalevi_1_0 :TRiia_Kalevi_1_1 :TRiia_Kalevi_3_0 :TRiia_Kalevi_4_0 :TRiia_Kalevi_5_0 :TRiia_Kalevi_6_0 :TRiia_Kalevi_6_1 :TRiia_Kalevi_11_0 :TRiia_Kalevi_11_1 :TRiia_Kalevi_13_0"/>
+    <junction id=":TRiia_Kalevi_27_0" type="internal" x="136.74" y="380.72" incLanes=":TRiia_Kalevi_19_0 KaleviE_RiiaKalevi_0 KaleviE_RiiaKalevi_1 RiiaN_RiiaKalevi_1 RiiaTuru_RiiaKalevi_0" intLanes=":TRiia_Kalevi_0_0 :TRiia_Kalevi_6_0 :TRiia_Kalevi_6_1 :TRiia_Kalevi_13_0"/>
+    <junction id=":TRiia_Turu_19_0" type="internal" x="305.81" y="528.33" incLanes=":TRiia_Turu_3_0 TuruW_RiiaTuru_0 TuruW_RiiaTuru_1" intLanes=":TRiia_Turu_6_0 :TRiia_Turu_6_1 :TRiia_Turu_8_0 :TRiia_Turu_9_0 :TRiia_Turu_10_0 :TRiia_Turu_11_0 :TRiia_Turu_11_1 :TRiia_Turu_16_0 :TRiia_Turu_17_0"/>
+    <junction id=":TRiia_Turu_20_0" type="internal" x="308.09" y="527.41" incLanes=":TRiia_Turu_4_0 RiiaKalevi_RiiaTuru_0 RiiaS_RiiaTuru_1 TuruW_RiiaTuru_0 TuruW_RiiaTuru_1" intLanes=":TRiia_Turu_5_0 :TRiia_Turu_11_0 :TRiia_Turu_11_1 :TRiia_Turu_17_0"/>
+    <junction id=":TRiia_Turu_21_0" type="internal" x="296.91" y="528.09" incLanes=":TRiia_Turu_8_0 RiiaS_RiiaTuru_0" intLanes=":TRiia_Turu_1_0 :TRiia_Turu_1_1 :TRiia_Turu_3_0 :TRiia_Turu_11_0 :TRiia_Turu_11_1 :TRiia_Turu_13_0 :TRiia_Turu_14_0 :TRiia_Turu_15_0 :TRiia_Turu_16_0"/>
+    <junction id=":TRiia_Turu_22_0" type="internal" x="292.70" y="519.36" incLanes=":TRiia_Turu_9_0 RiiaS_RiiaTuru_0 TuruVaks_RiiaTuru_1 TuruW_RiiaTuru_0" intLanes=":TRiia_Turu_3_0 :TRiia_Turu_10_0 :TRiia_Turu_16_0"/>
+    <junction id=":TRiia_Turu_23_0" type="internal" x="290.95" y="531.85" incLanes=":TRiia_Turu_13_0 TuruVaks_RiiaTuru_0 TuruVaks_RiiaTuru_1" intLanes=":TRiia_Turu_0_0 :TRiia_Turu_1_0 :TRiia_Turu_1_1 :TRiia_Turu_6_0 :TRiia_Turu_6_1 :TRiia_Turu_8_0 :TRiia_Turu_16_0 :TRiia_Turu_17_0 :TRiia_Turu_18_0"/>
+    <junction id=":TRiia_Turu_24_0" type="internal" x="286.94" y="533.41" incLanes=":TRiia_Turu_14_0 RiiaKalevi_RiiaTuru_1 RiiaS_RiiaTuru_0 TuruVaks_RiiaTuru_0 TuruVaks_RiiaTuru_1" intLanes=":TRiia_Turu_1_0 :TRiia_Turu_1_1 :TRiia_Turu_8_0 :TRiia_Turu_15_0"/>
+    <junction id=":TRiia_Turu_25_0" type="internal" x="297.00" y="540.21" incLanes=":TRiia_Turu_17_0 RiiaKalevi_RiiaTuru_0 RiiaKalevi_RiiaTuru_1" intLanes=":TRiia_Turu_1_0 :TRiia_Turu_1_1 :TRiia_Turu_3_0 :TRiia_Turu_4_0 :TRiia_Turu_5_0 :TRiia_Turu_6_0 :TRiia_Turu_6_1 :TRiia_Turu_11_0 :TRiia_Turu_11_1 :TRiia_Turu_13_0"/>
+    <junction id=":TRiia_Turu_26_0" type="internal" x="296.64" y="543.44" incLanes=":TRiia_Turu_18_0 RiiaKalevi_RiiaTuru_0 RiiaKalevi_RiiaTuru_1 TuruVaks_RiiaTuru_0 TuruW_RiiaTuru_1" intLanes=":TRiia_Turu_0_0 :TRiia_Turu_6_0 :TRiia_Turu_6_1 :TRiia_Turu_13_0"/>
+    <junction id=":TTuru_Alek_17_0" type="internal" x="688.15" y="206.53" incLanes=":TTuru_Alek_2_0 AlekS_TuruAlek_0" intLanes=":TTuru_Alek_5_0 :TTuru_Alek_5_1 :TTuru_Alek_7_0 :TTuru_Alek_8_0 :TTuru_Alek_9_0 :TTuru_Alek_10_0 :TTuru_Alek_14_0 :TTuru_Alek_15_0"/>
+    <junction id=":TTuru_Alek_18_0" type="internal" x="689.65" y="214.37" incLanes=":TTuru_Alek_3_0 AlekE_TuruAlek_0 AlekS_TuruAlek_0 TuruVaks_TuruAlek_1" intLanes=":TTuru_Alek_4_0 :TTuru_Alek_10_0 :TTuru_Alek_15_0"/>
+    <junction id=":TTuru_Alek_19_0" type="internal" x="693.63" y="196.01" incLanes=":TTuru_Alek_7_0 TuruVaks_TuruAlek_0 TuruVaks_TuruAlek_1" intLanes=":TTuru_Alek_1_0 :TTuru_Alek_2_0 :TTuru_Alek_10_0 :TTuru_Alek_11_0 :TTuru_Alek_12_0 :TTuru_Alek_13_0 :TTuru_Alek_14_0"/>
+    <junction id=":TTuru_Alek_20_0" type="internal" x="694.56" y="195.33" incLanes=":TTuru_Alek_8_0 AlekN_TuruAlek_0 AlekS_TuruAlek_0 TuruVaks_TuruAlek_1" intLanes=":TTuru_Alek_2_0 :TTuru_Alek_9_0 :TTuru_Alek_14_0"/>
+    <junction id=":TTuru_Alek_21_0" type="internal" x="687.07" y="190.03" incLanes=":TTuru_Alek_11_0 AlekN_TuruAlek_0" intLanes=":TTuru_Alek_0_0 :TTuru_Alek_1_0 :TTuru_Alek_5_0 :TTuru_Alek_5_1 :TTuru_Alek_7_0 :TTuru_Alek_14_0 :TTuru_Alek_15_0 :TTuru_Alek_16_0"/>
+    <junction id=":TTuru_Alek_22_0" type="internal" x="686.48" y="187.15" incLanes=":TTuru_Alek_12_0 AlekE_TuruAlek_1 AlekN_TuruAlek_0 TuruVaks_TuruAlek_0" intLanes=":TTuru_Alek_1_0 :TTuru_Alek_7_0 :TTuru_Alek_13_0"/>
+    <junction id=":TTuru_Alek_23_0" type="internal" x="679.52" y="210.19" incLanes=":TTuru_Alek_15_0 AlekE_TuruAlek_0 AlekE_TuruAlek_1" intLanes=":TTuru_Alek_1_0 :TTuru_Alek_2_0 :TTuru_Alek_3_0 :TTuru_Alek_4_0 :TTuru_Alek_5_0 :TTuru_Alek_5_1 :TTuru_Alek_10_0 :TTuru_Alek_11_0"/>
+    <junction id=":TTuru_Alek_24_0" type="internal" x="679.12" y="211.18" incLanes=":TTuru_Alek_16_0 AlekE_TuruAlek_0 AlekE_TuruAlek_1 AlekN_TuruAlek_0 AlekS_TuruAlek_0" intLanes=":TTuru_Alek_0_0 :TTuru_Alek_5_0 :TTuru_Alek_5_1 :TTuru_Alek_11_0"/>
+    <junction id=":TTuru_Vaks_17_0" type="internal" x="563.61" y="441.07" incLanes=":TTuru_Vaks_2_0 VaksS_TuruVaks_0" intLanes=":TTuru_Vaks_5_0 :TTuru_Vaks_6_0 :TTuru_Vaks_7_0 :TTuru_Vaks_8_0 :TTuru_Vaks_9_0 :TTuru_Vaks_13_0 :TTuru_Vaks_13_1 :TTuru_Vaks_15_0"/>
+    <junction id=":TTuru_Vaks_18_0" type="internal" x="563.70" y="443.98" incLanes=":TTuru_Vaks_3_0 RiiaTuru_TuruVaks_1 TuruAlek_TuruVaks_0 VaksS_TuruVaks_0" intLanes=":TTuru_Vaks_4_0 :TTuru_Vaks_9_0 :TTuru_Vaks_15_0"/>
+    <junction id=":TTuru_Vaks_19_0" type="internal" x="574.99" y="414.88" incLanes=":TTuru_Vaks_6_0 RiiaTuru_TuruVaks_0 RiiaTuru_TuruVaks_1" intLanes=":TTuru_Vaks_1_0 :TTuru_Vaks_2_0 :TTuru_Vaks_9_0 :TTuru_Vaks_10_0 :TTuru_Vaks_11_0 :TTuru_Vaks_12_0 :TTuru_Vaks_13_0 :TTuru_Vaks_13_1"/>
+    <junction id=":TTuru_Vaks_20_0" type="internal" x="575.38" y="414.02" incLanes=":TTuru_Vaks_7_0 RiiaTuru_TuruVaks_0 RiiaTuru_TuruVaks_1 VaksN_TuruVaks_0 VaksS_TuruVaks_0" intLanes=":TTuru_Vaks_2_0 :TTuru_Vaks_8_0 :TTuru_Vaks_13_0 :TTuru_Vaks_13_1"/>
+    <junction id=":TTuru_Vaks_21_0" type="internal" x="565.41" y="420.65" incLanes=":TTuru_Vaks_10_0 VaksN_TuruVaks_0" intLanes=":TTuru_Vaks_0_0 :TTuru_Vaks_1_0 :TTuru_Vaks_5_0 :TTuru_Vaks_6_0 :TTuru_Vaks_13_0 :TTuru_Vaks_13_1 :TTuru_Vaks_15_0 :TTuru_Vaks_16_0"/>
+    <junction id=":TTuru_Vaks_22_0" type="internal" x="565.30" y="410.38" incLanes=":TTuru_Vaks_11_0 RiiaTuru_TuruVaks_0 TuruAlek_TuruVaks_1 VaksN_TuruVaks_0" intLanes=":TTuru_Vaks_1_0 :TTuru_Vaks_6_0 :TTuru_Vaks_12_0"/>
+    <junction id=":TTuru_Vaks_23_0" type="internal" x="556.68" y="434.68" incLanes=":TTuru_Vaks_15_0 TuruAlek_TuruVaks_0 TuruAlek_TuruVaks_1" intLanes=":TTuru_Vaks_1_0 :TTuru_Vaks_2_0 :TTuru_Vaks_3_0 :TTuru_Vaks_4_0 :TTuru_Vaks_5_0 :TTuru_Vaks_9_0 :TTuru_Vaks_10_0"/>
+    <junction id=":TTuru_Vaks_24_0" type="internal" x="556.02" y="435.32" incLanes=":TTuru_Vaks_16_0 TuruAlek_TuruVaks_1 VaksN_TuruVaks_0 VaksS_TuruVaks_0" intLanes=":TTuru_Vaks_0_0 :TTuru_Vaks_5_0 :TTuru_Vaks_10_0"/>
 
-    <connection from="AlekE_TuruAlek" to="TuruAlek_AlekN" fromLane="0" toLane="0" via=":TTuru_Alek_3_0" tl="TTuru_Alek" linkIndex="3" dir="r" state="o"/>
-    <connection from="AlekE_TuruAlek" to="TuruAlek_TuruVaks" fromLane="0" toLane="0" via=":TTuru_Alek_4_0" tl="TTuru_Alek" linkIndex="4" dir="s" state="o"/>
-    <connection from="AlekE_TuruAlek" to="TuruAlek_TuruVaks" fromLane="1" toLane="1" via=":TTuru_Alek_4_1" tl="TTuru_Alek" linkIndex="5" dir="s" state="o"/>
-    <connection from="AlekE_TuruAlek" to="TuruAlek_AlekS" fromLane="1" toLane="0" via=":TTuru_Alek_6_0" tl="TTuru_Alek" linkIndex="6" dir="l" state="o"/>
+    <connection from="AlekE_TuruAlek" to="TuruAlek_AlekN" fromLane="0" toLane="0" via=":TTuru_Alek_4_0" tl="TTuru_Alek" linkIndex="4" dir="r" state="o"/>
+    <connection from="AlekE_TuruAlek" to="TuruAlek_TuruVaks" fromLane="0" toLane="0" via=":TTuru_Alek_5_0" tl="TTuru_Alek" linkIndex="5" dir="s" state="o"/>
+    <connection from="AlekE_TuruAlek" to="TuruAlek_TuruVaks" fromLane="1" toLane="1" via=":TTuru_Alek_5_1" tl="TTuru_Alek" linkIndex="6" dir="s" state="o"/>
+    <connection from="AlekE_TuruAlek" to="TuruAlek_AlekS" fromLane="1" toLane="0" via=":TTuru_Alek_7_0" tl="TTuru_Alek" linkIndex="7" dir="l" state="o"/>
+    <connection from="AlekE_TuruAlek" to="TuruAlek_AlekE" fromLane="1" toLane="1" via=":TTuru_Alek_8_0" tl="TTuru_Alek" linkIndex="8" dir="t" state="o"/>
     <connection from="AlekN_TuruAlek" to="TuruAlek_TuruVaks" fromLane="0" toLane="0" via=":TTuru_Alek_0_0" tl="TTuru_Alek" linkIndex="0" dir="r" state="O"/>
     <connection from="AlekN_TuruAlek" to="TuruAlek_AlekS" fromLane="0" toLane="0" via=":TTuru_Alek_1_0" tl="TTuru_Alek" linkIndex="1" dir="s" state="O"/>
     <connection from="AlekN_TuruAlek" to="TuruAlek_AlekE" fromLane="0" toLane="1" via=":TTuru_Alek_2_0" tl="TTuru_Alek" linkIndex="2" dir="l" state="o"/>
-    <connection from="AlekS_TuruAlek" to="TuruAlek_AlekE" fromLane="0" toLane="0" via=":TTuru_Alek_7_0" tl="TTuru_Alek" linkIndex="7" dir="r" state="O"/>
-    <connection from="AlekS_TuruAlek" to="TuruAlek_AlekN" fromLane="0" toLane="0" via=":TTuru_Alek_8_0" tl="TTuru_Alek" linkIndex="8" dir="s" state="O"/>
-    <connection from="AlekS_TuruAlek" to="TuruAlek_TuruVaks" fromLane="0" toLane="1" via=":TTuru_Alek_9_0" tl="TTuru_Alek" linkIndex="9" dir="L" state="o"/>
-    <connection from="RiiaN_RiiaVaba" to="RiiaVaba_VabaW" fromLane="0" toLane="0" via=":TRiia_Vaba_12_0" tl="TRiia_Vaba" linkIndex="12" dir="r" state="o"/>
-    <connection from="RiiaN_RiiaVaba" to="RiiaVaba_RiiaTuru" fromLane="0" toLane="0" via=":TRiia_Vaba_13_0" tl="TRiia_Vaba" linkIndex="13" dir="s" state="o"/>
-    <connection from="RiiaN_RiiaVaba" to="RiiaVaba_RiiaTuru" fromLane="1" toLane="1" via=":TRiia_Vaba_13_1" tl="TRiia_Vaba" linkIndex="14" dir="s" state="o"/>
-    <connection from="RiiaN_RiiaVaba" to="RiiaVaba_VabaE" fromLane="1" toLane="1" via=":TRiia_Vaba_15_0" tl="TRiia_Vaba" linkIndex="15" dir="l" state="o"/>
-    <connection from="RiiaS_RiiaTuru" to="RiiaTuru_TuruVaks" fromLane="0" toLane="0" via=":TRiia_Turu_4_0" tl="TRiia_Turu" linkIndex="4" dir="r" state="O"/>
-    <connection from="RiiaS_RiiaTuru" to="RiiaTuru_RiiaVaba" fromLane="0" toLane="0" via=":TRiia_Turu_5_0" tl="TRiia_Turu" linkIndex="5" dir="s" state="O"/>
-    <connection from="RiiaS_RiiaTuru" to="RiiaTuru_RiiaVaba" fromLane="1" toLane="1" via=":TRiia_Turu_5_1" tl="TRiia_Turu" linkIndex="6" dir="s" state="O"/>
-    <connection from="RiiaS_RiiaTuru" to="RiiaTuru_TuruW" fromLane="1" toLane="1" via=":TRiia_Turu_7_0" tl="TRiia_Turu" linkIndex="7" dir="l" state="o"/>
-    <connection from="RiiaTuru_RiiaVaba" to="RiiaVaba_VabaE" fromLane="0" toLane="0" via=":TRiia_Vaba_4_0" tl="TRiia_Vaba" linkIndex="4" dir="r" state="o"/>
-    <connection from="RiiaTuru_RiiaVaba" to="RiiaVaba_RiiaN" fromLane="0" toLane="0" via=":TRiia_Vaba_5_0" tl="TRiia_Vaba" linkIndex="5" dir="s" state="o"/>
-    <connection from="RiiaTuru_RiiaVaba" to="RiiaVaba_RiiaN" fromLane="1" toLane="1" via=":TRiia_Vaba_5_1" tl="TRiia_Vaba" linkIndex="6" dir="s" state="o"/>
-    <connection from="RiiaTuru_RiiaVaba" to="RiiaVaba_VabaW" fromLane="1" toLane="1" via=":TRiia_Vaba_7_0" tl="TRiia_Vaba" linkIndex="7" dir="l" state="o"/>
-    <connection from="RiiaTuru_TuruVaks" to="TuruVaks_VaksS" fromLane="0" toLane="0" via=":TTuru_Vaks_9_0" tl="TTuru_Vaks" linkIndex="9" dir="r" state="O"/>
-    <connection from="RiiaTuru_TuruVaks" to="TuruVaks_TuruAlek" fromLane="0" toLane="0" via=":TTuru_Vaks_10_0" tl="TTuru_Vaks" linkIndex="10" dir="s" state="O"/>
-    <connection from="RiiaTuru_TuruVaks" to="TuruVaks_TuruAlek" fromLane="1" toLane="1" via=":TTuru_Vaks_10_1" tl="TTuru_Vaks" linkIndex="11" dir="s" state="O"/>
-    <connection from="RiiaTuru_TuruVaks" to="TuruVaks_VaksN" fromLane="1" toLane="0" via=":TTuru_Vaks_12_0" tl="TTuru_Vaks" linkIndex="12" dir="l" state="o"/>
-    <connection from="RiiaVaba_RiiaTuru" to="RiiaTuru_TuruW" fromLane="0" toLane="0" via=":TRiia_Turu_12_0" tl="TRiia_Turu" linkIndex="12" dir="r" state="O"/>
-    <connection from="RiiaVaba_RiiaTuru" to="RiiaTuru_RiiaS" fromLane="0" toLane="0" via=":TRiia_Turu_13_0" tl="TRiia_Turu" linkIndex="13" dir="s" state="O"/>
-    <connection from="RiiaVaba_RiiaTuru" to="RiiaTuru_RiiaS" fromLane="1" toLane="1" via=":TRiia_Turu_13_1" tl="TRiia_Turu" linkIndex="14" dir="s" state="O"/>
-    <connection from="RiiaVaba_RiiaTuru" to="RiiaTuru_TuruVaks" fromLane="1" toLane="1" via=":TRiia_Turu_15_0" tl="TRiia_Turu" linkIndex="15" dir="l" state="o"/>
-    <connection from="TuruAlek_TuruVaks" to="TuruVaks_VaksN" fromLane="0" toLane="0" via=":TTuru_Vaks_3_0" tl="TTuru_Vaks" linkIndex="3" dir="s" state="O"/>
-    <connection from="TuruAlek_TuruVaks" to="TuruVaks_RiiaTuru" fromLane="1" toLane="1" via=":TTuru_Vaks_4_0" tl="TTuru_Vaks" linkIndex="4" dir="L" state="O"/>
-    <connection from="TuruAlek_TuruVaks" to="TuruVaks_VaksS" fromLane="1" toLane="0" via=":TTuru_Vaks_5_0" tl="TTuru_Vaks" linkIndex="5" dir="l" state="o"/>
-    <connection from="TuruVaks_RiiaTuru" to="RiiaTuru_RiiaVaba" fromLane="0" toLane="0" via=":TRiia_Turu_0_0" tl="TRiia_Turu" linkIndex="0" dir="r" state="o"/>
-    <connection from="TuruVaks_RiiaTuru" to="RiiaTuru_TuruW" fromLane="0" toLane="0" via=":TRiia_Turu_1_0" tl="TRiia_Turu" linkIndex="1" dir="s" state="o"/>
-    <connection from="TuruVaks_RiiaTuru" to="RiiaTuru_TuruW" fromLane="1" toLane="1" via=":TRiia_Turu_1_1" tl="TRiia_Turu" linkIndex="2" dir="s" state="o"/>
-    <connection from="TuruVaks_RiiaTuru" to="RiiaTuru_RiiaS" fromLane="1" toLane="1" via=":TRiia_Turu_3_0" tl="TRiia_Turu" linkIndex="3" dir="l" state="o"/>
-    <connection from="TuruVaks_TuruAlek" to="TuruAlek_AlekS" fromLane="0" toLane="0" via=":TTuru_Alek_10_0" tl="TTuru_Alek" linkIndex="10" dir="s" state="o"/>
-    <connection from="TuruVaks_TuruAlek" to="TuruAlek_AlekE" fromLane="1" toLane="1" via=":TTuru_Alek_11_0" tl="TTuru_Alek" linkIndex="11" dir="L" state="o"/>
-    <connection from="TuruVaks_TuruAlek" to="TuruAlek_AlekN" fromLane="1" toLane="0" via=":TTuru_Alek_12_0" tl="TTuru_Alek" linkIndex="12" dir="l" state="o"/>
-    <connection from="TuruW_RiiaTuru" to="RiiaTuru_RiiaS" fromLane="0" toLane="0" via=":TRiia_Turu_8_0" tl="TRiia_Turu" linkIndex="8" dir="r" state="o"/>
-    <connection from="TuruW_RiiaTuru" to="RiiaTuru_TuruVaks" fromLane="0" toLane="0" via=":TRiia_Turu_9_0" tl="TRiia_Turu" linkIndex="9" dir="s" state="o"/>
-    <connection from="TuruW_RiiaTuru" to="RiiaTuru_TuruVaks" fromLane="1" toLane="1" via=":TRiia_Turu_9_1" tl="TRiia_Turu" linkIndex="10" dir="s" state="o"/>
-    <connection from="TuruW_RiiaTuru" to="RiiaTuru_RiiaVaba" fromLane="1" toLane="1" via=":TRiia_Turu_11_0" tl="TRiia_Turu" linkIndex="11" dir="l" state="o"/>
-    <connection from="VabaE_RiiaVaba" to="RiiaVaba_RiiaN" fromLane="0" toLane="0" via=":TRiia_Vaba_0_0" tl="TRiia_Vaba" linkIndex="0" dir="r" state="O"/>
-    <connection from="VabaE_RiiaVaba" to="RiiaVaba_VabaW" fromLane="0" toLane="0" via=":TRiia_Vaba_1_0" tl="TRiia_Vaba" linkIndex="1" dir="s" state="O"/>
-    <connection from="VabaE_RiiaVaba" to="RiiaVaba_VabaW" fromLane="1" toLane="1" via=":TRiia_Vaba_1_1" tl="TRiia_Vaba" linkIndex="2" dir="s" state="O"/>
-    <connection from="VabaE_RiiaVaba" to="RiiaVaba_RiiaTuru" fromLane="1" toLane="1" via=":TRiia_Vaba_3_0" tl="TRiia_Vaba" linkIndex="3" dir="l" state="o"/>
-    <connection from="VabaW_RiiaVaba" to="RiiaVaba_RiiaTuru" fromLane="0" toLane="0" via=":TRiia_Vaba_8_0" tl="TRiia_Vaba" linkIndex="8" dir="r" state="O"/>
-    <connection from="VabaW_RiiaVaba" to="RiiaVaba_VabaE" fromLane="0" toLane="0" via=":TRiia_Vaba_9_0" tl="TRiia_Vaba" linkIndex="9" dir="s" state="O"/>
-    <connection from="VabaW_RiiaVaba" to="RiiaVaba_VabaE" fromLane="1" toLane="1" via=":TRiia_Vaba_9_1" tl="TRiia_Vaba" linkIndex="10" dir="s" state="O"/>
-    <connection from="VabaW_RiiaVaba" to="RiiaVaba_RiiaN" fromLane="1" toLane="1" via=":TRiia_Vaba_11_0" tl="TRiia_Vaba" linkIndex="11" dir="l" state="o"/>
+    <connection from="AlekN_TuruAlek" to="TuruAlek_AlekN" fromLane="0" toLane="0" via=":TTuru_Alek_3_0" tl="TTuru_Alek" linkIndex="3" dir="t" state="o"/>
+    <connection from="AlekS_TuruAlek" to="TuruAlek_AlekE" fromLane="0" toLane="0" via=":TTuru_Alek_9_0" tl="TTuru_Alek" linkIndex="9" dir="r" state="O"/>
+    <connection from="AlekS_TuruAlek" to="TuruAlek_AlekN" fromLane="0" toLane="0" via=":TTuru_Alek_10_0" tl="TTuru_Alek" linkIndex="10" dir="s" state="O"/>
+    <connection from="AlekS_TuruAlek" to="TuruAlek_TuruVaks" fromLane="0" toLane="1" via=":TTuru_Alek_11_0" tl="TTuru_Alek" linkIndex="11" dir="L" state="o"/>
+    <connection from="AlekS_TuruAlek" to="TuruAlek_AlekS" fromLane="0" toLane="0" via=":TTuru_Alek_12_0" tl="TTuru_Alek" linkIndex="12" dir="t" state="o"/>
+    <connection from="KaleviE_RiiaKalevi" to="RiiaKalevi_RiiaTuru" fromLane="0" toLane="0" via=":TRiia_Kalevi_5_0" tl="TRiia_Kalevi" linkIndex="5" dir="r" state="O"/>
+    <connection from="KaleviE_RiiaKalevi" to="RiiaKalevi_UlikW" fromLane="0" toLane="0" via=":TRiia_Kalevi_6_0" tl="TRiia_Kalevi" linkIndex="6" dir="s" state="O"/>
+    <connection from="KaleviE_RiiaKalevi" to="RiiaKalevi_UlikW" fromLane="1" toLane="1" via=":TRiia_Kalevi_6_1" tl="TRiia_Kalevi" linkIndex="7" dir="s" state="O"/>
+    <connection from="KaleviE_RiiaKalevi" to="RiiaKalevi_RiiaN" fromLane="1" toLane="1" via=":TRiia_Kalevi_8_0" tl="TRiia_Kalevi" linkIndex="8" dir="l" state="o"/>
+    <connection from="KaleviE_RiiaKalevi" to="RiiaKalevi_KaleviE" fromLane="1" toLane="1" via=":TRiia_Kalevi_9_0" tl="TRiia_Kalevi" linkIndex="9" dir="t" state="o"/>
+    <connection from="RiiaKalevi_RiiaTuru" to="RiiaTuru_TuruVaks" fromLane="0" toLane="0" via=":TRiia_Turu_5_0" tl="TRiia_Turu" linkIndex="5" dir="r" state="o"/>
+    <connection from="RiiaKalevi_RiiaTuru" to="RiiaTuru_RiiaS" fromLane="0" toLane="0" via=":TRiia_Turu_6_0" tl="TRiia_Turu" linkIndex="6" dir="L" state="o"/>
+    <connection from="RiiaKalevi_RiiaTuru" to="RiiaTuru_RiiaS" fromLane="1" toLane="1" via=":TRiia_Turu_6_1" tl="TRiia_Turu" linkIndex="7" dir="L" state="o"/>
+    <connection from="RiiaKalevi_RiiaTuru" to="RiiaTuru_TuruW" fromLane="1" toLane="1" via=":TRiia_Turu_8_0" tl="TRiia_Turu" linkIndex="8" dir="l" state="o"/>
+    <connection from="RiiaKalevi_RiiaTuru" to="RiiaTuru_RiiaKalevi" fromLane="1" toLane="1" via=":TRiia_Turu_9_0" tl="TRiia_Turu" linkIndex="9" dir="t" state="o"/>
+    <connection from="RiiaN_RiiaKalevi" to="RiiaKalevi_KaleviE" fromLane="0" toLane="0" via=":TRiia_Kalevi_10_0" tl="TRiia_Kalevi" linkIndex="10" dir="r" state="o"/>
+    <connection from="RiiaN_RiiaKalevi" to="RiiaKalevi_RiiaTuru" fromLane="0" toLane="0" via=":TRiia_Kalevi_11_0" tl="TRiia_Kalevi" linkIndex="11" dir="s" state="o"/>
+    <connection from="RiiaN_RiiaKalevi" to="RiiaKalevi_RiiaTuru" fromLane="1" toLane="1" via=":TRiia_Kalevi_11_1" tl="TRiia_Kalevi" linkIndex="12" dir="s" state="o"/>
+    <connection from="RiiaN_RiiaKalevi" to="RiiaKalevi_UlikW" fromLane="1" toLane="1" via=":TRiia_Kalevi_13_0" tl="TRiia_Kalevi" linkIndex="13" dir="l" state="o"/>
+    <connection from="RiiaN_RiiaKalevi" to="RiiaKalevi_RiiaN" fromLane="1" toLane="1" via=":TRiia_Kalevi_14_0" tl="TRiia_Kalevi" linkIndex="14" dir="t" state="o"/>
+    <connection from="RiiaS_RiiaTuru" to="RiiaTuru_TuruW" fromLane="0" toLane="0" via=":TRiia_Turu_15_0" tl="TRiia_Turu" linkIndex="15" dir="r" state="o"/>
+    <connection from="RiiaS_RiiaTuru" to="RiiaTuru_RiiaKalevi" fromLane="0" toLane="1" via=":TRiia_Turu_16_0" tl="TRiia_Turu" linkIndex="16" dir="R" state="o"/>
+    <connection from="RiiaS_RiiaTuru" to="RiiaTuru_TuruVaks" fromLane="1" toLane="1" via=":TRiia_Turu_17_0" tl="TRiia_Turu" linkIndex="17" dir="l" state="o"/>
+    <connection from="RiiaS_RiiaTuru" to="RiiaTuru_RiiaS" fromLane="1" toLane="1" via=":TRiia_Turu_18_0" tl="TRiia_Turu" linkIndex="18" dir="t" state="o"/>
+    <connection from="RiiaTuru_RiiaKalevi" to="RiiaKalevi_UlikW" fromLane="0" toLane="0" via=":TRiia_Kalevi_0_0" tl="TRiia_Kalevi" linkIndex="0" dir="r" state="o"/>
+    <connection from="RiiaTuru_RiiaKalevi" to="RiiaKalevi_RiiaN" fromLane="0" toLane="0" via=":TRiia_Kalevi_1_0" tl="TRiia_Kalevi" linkIndex="1" dir="s" state="o"/>
+    <connection from="RiiaTuru_RiiaKalevi" to="RiiaKalevi_RiiaN" fromLane="1" toLane="1" via=":TRiia_Kalevi_1_1" tl="TRiia_Kalevi" linkIndex="2" dir="s" state="o"/>
+    <connection from="RiiaTuru_RiiaKalevi" to="RiiaKalevi_KaleviE" fromLane="1" toLane="1" via=":TRiia_Kalevi_3_0" tl="TRiia_Kalevi" linkIndex="3" dir="l" state="o"/>
+    <connection from="RiiaTuru_RiiaKalevi" to="RiiaKalevi_RiiaTuru" fromLane="1" toLane="1" via=":TRiia_Kalevi_4_0" tl="TRiia_Kalevi" linkIndex="4" dir="t" state="o"/>
+    <connection from="RiiaTuru_TuruVaks" to="TuruVaks_VaksS" fromLane="0" toLane="0" via=":TTuru_Vaks_12_0" tl="TTuru_Vaks" linkIndex="12" dir="r" state="O"/>
+    <connection from="RiiaTuru_TuruVaks" to="TuruVaks_TuruAlek" fromLane="0" toLane="0" via=":TTuru_Vaks_13_0" tl="TTuru_Vaks" linkIndex="13" dir="s" state="O"/>
+    <connection from="RiiaTuru_TuruVaks" to="TuruVaks_TuruAlek" fromLane="1" toLane="1" via=":TTuru_Vaks_13_1" tl="TTuru_Vaks" linkIndex="14" dir="s" state="O"/>
+    <connection from="RiiaTuru_TuruVaks" to="TuruVaks_VaksN" fromLane="1" toLane="0" via=":TTuru_Vaks_15_0" tl="TTuru_Vaks" linkIndex="15" dir="l" state="o"/>
+    <connection from="RiiaTuru_TuruVaks" to="TuruVaks_RiiaTuru" fromLane="1" toLane="1" via=":TTuru_Vaks_16_0" tl="TTuru_Vaks" linkIndex="16" dir="t" state="o"/>
+    <connection from="TuruAlek_TuruVaks" to="TuruVaks_VaksN" fromLane="0" toLane="0" via=":TTuru_Vaks_4_0" tl="TTuru_Vaks" linkIndex="4" dir="s" state="O"/>
+    <connection from="TuruAlek_TuruVaks" to="TuruVaks_RiiaTuru" fromLane="1" toLane="1" via=":TTuru_Vaks_5_0" tl="TTuru_Vaks" linkIndex="5" dir="L" state="O"/>
+    <connection from="TuruAlek_TuruVaks" to="TuruVaks_VaksS" fromLane="1" toLane="0" via=":TTuru_Vaks_6_0" tl="TTuru_Vaks" linkIndex="6" dir="l" state="o"/>
+    <connection from="TuruAlek_TuruVaks" to="TuruVaks_TuruAlek" fromLane="1" toLane="1" via=":TTuru_Vaks_7_0" tl="TTuru_Vaks" linkIndex="7" dir="t" state="o"/>
+    <connection from="TuruVaks_RiiaTuru" to="RiiaTuru_RiiaS" fromLane="0" toLane="0" via=":TRiia_Turu_0_0" tl="TRiia_Turu" linkIndex="0" dir="r" state="O"/>
+    <connection from="TuruVaks_RiiaTuru" to="RiiaTuru_TuruW" fromLane="0" toLane="0" via=":TRiia_Turu_1_0" tl="TRiia_Turu" linkIndex="1" dir="s" state="O"/>
+    <connection from="TuruVaks_RiiaTuru" to="RiiaTuru_TuruW" fromLane="1" toLane="1" via=":TRiia_Turu_1_1" tl="TRiia_Turu" linkIndex="2" dir="s" state="O"/>
+    <connection from="TuruVaks_RiiaTuru" to="RiiaTuru_RiiaKalevi" fromLane="1" toLane="1" via=":TRiia_Turu_3_0" tl="TRiia_Turu" linkIndex="3" dir="l" state="o"/>
+    <connection from="TuruVaks_RiiaTuru" to="RiiaTuru_TuruVaks" fromLane="1" toLane="1" via=":TRiia_Turu_4_0" tl="TRiia_Turu" linkIndex="4" dir="t" state="o"/>
+    <connection from="TuruVaks_TuruAlek" to="TuruAlek_AlekS" fromLane="0" toLane="0" via=":TTuru_Alek_13_0" tl="TTuru_Alek" linkIndex="13" dir="s" state="o"/>
+    <connection from="TuruVaks_TuruAlek" to="TuruAlek_AlekE" fromLane="1" toLane="1" via=":TTuru_Alek_14_0" tl="TTuru_Alek" linkIndex="14" dir="L" state="o"/>
+    <connection from="TuruVaks_TuruAlek" to="TuruAlek_AlekN" fromLane="1" toLane="0" via=":TTuru_Alek_15_0" tl="TTuru_Alek" linkIndex="15" dir="l" state="o"/>
+    <connection from="TuruVaks_TuruAlek" to="TuruAlek_TuruVaks" fromLane="1" toLane="1" via=":TTuru_Alek_16_0" tl="TTuru_Alek" linkIndex="16" dir="t" state="o"/>
+    <connection from="TuruW_RiiaTuru" to="RiiaTuru_RiiaKalevi" fromLane="0" toLane="0" via=":TRiia_Turu_10_0" tl="TRiia_Turu" linkIndex="10" dir="r" state="O"/>
+    <connection from="TuruW_RiiaTuru" to="RiiaTuru_TuruVaks" fromLane="0" toLane="0" via=":TRiia_Turu_11_0" tl="TRiia_Turu" linkIndex="11" dir="s" state="O"/>
+    <connection from="TuruW_RiiaTuru" to="RiiaTuru_TuruVaks" fromLane="1" toLane="1" via=":TRiia_Turu_11_1" tl="TRiia_Turu" linkIndex="12" dir="s" state="O"/>
+    <connection from="TuruW_RiiaTuru" to="RiiaTuru_RiiaS" fromLane="1" toLane="1" via=":TRiia_Turu_13_0" tl="TRiia_Turu" linkIndex="13" dir="l" state="o"/>
+    <connection from="TuruW_RiiaTuru" to="RiiaTuru_TuruW" fromLane="1" toLane="1" via=":TRiia_Turu_14_0" tl="TRiia_Turu" linkIndex="14" dir="t" state="o"/>
+    <connection from="UlikW_RiiaKalevi" to="RiiaKalevi_RiiaN" fromLane="0" toLane="0" via=":TRiia_Kalevi_15_0" tl="TRiia_Kalevi" linkIndex="15" dir="r" state="O"/>
+    <connection from="UlikW_RiiaKalevi" to="RiiaKalevi_KaleviE" fromLane="0" toLane="0" via=":TRiia_Kalevi_16_0" tl="TRiia_Kalevi" linkIndex="16" dir="s" state="O"/>
+    <connection from="UlikW_RiiaKalevi" to="RiiaKalevi_KaleviE" fromLane="1" toLane="1" via=":TRiia_Kalevi_16_1" tl="TRiia_Kalevi" linkIndex="17" dir="s" state="O"/>
+    <connection from="UlikW_RiiaKalevi" to="RiiaKalevi_RiiaTuru" fromLane="1" toLane="1" via=":TRiia_Kalevi_18_0" tl="TRiia_Kalevi" linkIndex="18" dir="l" state="o"/>
+    <connection from="UlikW_RiiaKalevi" to="RiiaKalevi_UlikW" fromLane="1" toLane="1" via=":TRiia_Kalevi_19_0" tl="TRiia_Kalevi" linkIndex="19" dir="t" state="o"/>
     <connection from="VaksN_TuruVaks" to="TuruVaks_RiiaTuru" fromLane="0" toLane="0" via=":TTuru_Vaks_0_0" tl="TTuru_Vaks" linkIndex="0" dir="r" state="O"/>
     <connection from="VaksN_TuruVaks" to="TuruVaks_VaksS" fromLane="0" toLane="0" via=":TTuru_Vaks_1_0" tl="TTuru_Vaks" linkIndex="1" dir="s" state="o"/>
     <connection from="VaksN_TuruVaks" to="TuruVaks_TuruAlek" fromLane="0" toLane="1" via=":TTuru_Vaks_2_0" tl="TTuru_Vaks" linkIndex="2" dir="L" state="o"/>
-    <connection from="VaksS_TuruVaks" to="TuruVaks_TuruAlek" fromLane="0" toLane="0" via=":TTuru_Vaks_6_0" tl="TTuru_Vaks" linkIndex="6" dir="r" state="o"/>
-    <connection from="VaksS_TuruVaks" to="TuruVaks_VaksN" fromLane="0" toLane="0" via=":TTuru_Vaks_7_0" tl="TTuru_Vaks" linkIndex="7" dir="s" state="o"/>
-    <connection from="VaksS_TuruVaks" to="TuruVaks_RiiaTuru" fromLane="0" toLane="1" via=":TTuru_Vaks_8_0" tl="TTuru_Vaks" linkIndex="8" dir="l" state="o"/>
+    <connection from="VaksN_TuruVaks" to="TuruVaks_VaksN" fromLane="0" toLane="0" via=":TTuru_Vaks_3_0" tl="TTuru_Vaks" linkIndex="3" dir="t" state="o"/>
+    <connection from="VaksS_TuruVaks" to="TuruVaks_TuruAlek" fromLane="0" toLane="0" via=":TTuru_Vaks_8_0" tl="TTuru_Vaks" linkIndex="8" dir="r" state="o"/>
+    <connection from="VaksS_TuruVaks" to="TuruVaks_VaksN" fromLane="0" toLane="0" via=":TTuru_Vaks_9_0" tl="TTuru_Vaks" linkIndex="9" dir="s" state="o"/>
+    <connection from="VaksS_TuruVaks" to="TuruVaks_RiiaTuru" fromLane="0" toLane="1" via=":TTuru_Vaks_10_0" tl="TTuru_Vaks" linkIndex="10" dir="l" state="o"/>
+    <connection from="VaksS_TuruVaks" to="TuruVaks_VaksS" fromLane="0" toLane="0" via=":TTuru_Vaks_11_0" tl="TTuru_Vaks" linkIndex="11" dir="t" state="o"/>
 
-    <connection from=":TRiia_Turu_0" to="RiiaTuru_RiiaVaba" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":TRiia_Kalevi_0" to="RiiaKalevi_UlikW" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":TRiia_Kalevi_1" to="RiiaKalevi_RiiaN" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":TRiia_Kalevi_1" to="RiiaKalevi_RiiaN" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":TRiia_Kalevi_3" to="RiiaKalevi_KaleviE" fromLane="0" toLane="1" via=":TRiia_Kalevi_20_0" dir="l" state="m"/>
+    <connection from=":TRiia_Kalevi_20" to="RiiaKalevi_KaleviE" fromLane="0" toLane="1" dir="l" state="M"/>
+    <connection from=":TRiia_Kalevi_4" to="RiiaKalevi_RiiaTuru" fromLane="0" toLane="1" via=":TRiia_Kalevi_21_0" dir="t" state="m"/>
+    <connection from=":TRiia_Kalevi_21" to="RiiaKalevi_RiiaTuru" fromLane="0" toLane="1" dir="t" state="M"/>
+    <connection from=":TRiia_Kalevi_5" to="RiiaKalevi_RiiaTuru" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":TRiia_Kalevi_6" to="RiiaKalevi_UlikW" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":TRiia_Kalevi_6" to="RiiaKalevi_UlikW" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":TRiia_Kalevi_8" to="RiiaKalevi_RiiaN" fromLane="0" toLane="1" via=":TRiia_Kalevi_22_0" dir="l" state="m"/>
+    <connection from=":TRiia_Kalevi_22" to="RiiaKalevi_RiiaN" fromLane="0" toLane="1" dir="l" state="M"/>
+    <connection from=":TRiia_Kalevi_9" to="RiiaKalevi_KaleviE" fromLane="0" toLane="1" via=":TRiia_Kalevi_23_0" dir="t" state="m"/>
+    <connection from=":TRiia_Kalevi_23" to="RiiaKalevi_KaleviE" fromLane="0" toLane="1" dir="t" state="M"/>
+    <connection from=":TRiia_Kalevi_10" to="RiiaKalevi_KaleviE" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":TRiia_Kalevi_11" to="RiiaKalevi_RiiaTuru" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":TRiia_Kalevi_11" to="RiiaKalevi_RiiaTuru" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":TRiia_Kalevi_13" to="RiiaKalevi_UlikW" fromLane="0" toLane="1" via=":TRiia_Kalevi_24_0" dir="l" state="m"/>
+    <connection from=":TRiia_Kalevi_24" to="RiiaKalevi_UlikW" fromLane="0" toLane="1" dir="l" state="M"/>
+    <connection from=":TRiia_Kalevi_14" to="RiiaKalevi_RiiaN" fromLane="0" toLane="1" via=":TRiia_Kalevi_25_0" dir="t" state="m"/>
+    <connection from=":TRiia_Kalevi_25" to="RiiaKalevi_RiiaN" fromLane="0" toLane="1" dir="t" state="M"/>
+    <connection from=":TRiia_Kalevi_15" to="RiiaKalevi_RiiaN" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":TRiia_Kalevi_16" to="RiiaKalevi_KaleviE" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":TRiia_Kalevi_16" to="RiiaKalevi_KaleviE" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":TRiia_Kalevi_18" to="RiiaKalevi_RiiaTuru" fromLane="0" toLane="1" via=":TRiia_Kalevi_26_0" dir="l" state="m"/>
+    <connection from=":TRiia_Kalevi_26" to="RiiaKalevi_RiiaTuru" fromLane="0" toLane="1" dir="l" state="M"/>
+    <connection from=":TRiia_Kalevi_19" to="RiiaKalevi_UlikW" fromLane="0" toLane="1" via=":TRiia_Kalevi_27_0" dir="t" state="m"/>
+    <connection from=":TRiia_Kalevi_27" to="RiiaKalevi_UlikW" fromLane="0" toLane="1" dir="t" state="M"/>
+    <connection from=":TRiia_Turu_0" to="RiiaTuru_RiiaS" fromLane="0" toLane="0" dir="r" state="M"/>
     <connection from=":TRiia_Turu_1" to="RiiaTuru_TuruW" fromLane="0" toLane="0" dir="s" state="M"/>
     <connection from=":TRiia_Turu_1" to="RiiaTuru_TuruW" fromLane="1" toLane="1" dir="s" state="M"/>
-    <connection from=":TRiia_Turu_3" to="RiiaTuru_RiiaS" fromLane="0" toLane="1" via=":TRiia_Turu_16_0" dir="l" state="m"/>
-    <connection from=":TRiia_Turu_16" to="RiiaTuru_RiiaS" fromLane="0" toLane="1" dir="l" state="M"/>
-    <connection from=":TRiia_Turu_4" to="RiiaTuru_TuruVaks" fromLane="0" toLane="0" dir="r" state="M"/>
-    <connection from=":TRiia_Turu_5" to="RiiaTuru_RiiaVaba" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":TRiia_Turu_5" to="RiiaTuru_RiiaVaba" fromLane="1" toLane="1" dir="s" state="M"/>
-    <connection from=":TRiia_Turu_7" to="RiiaTuru_TuruW" fromLane="0" toLane="1" via=":TRiia_Turu_17_0" dir="l" state="m"/>
-    <connection from=":TRiia_Turu_17" to="RiiaTuru_TuruW" fromLane="0" toLane="1" dir="l" state="M"/>
-    <connection from=":TRiia_Turu_8" to="RiiaTuru_RiiaS" fromLane="0" toLane="0" dir="r" state="M"/>
-    <connection from=":TRiia_Turu_9" to="RiiaTuru_TuruVaks" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":TRiia_Turu_9" to="RiiaTuru_TuruVaks" fromLane="1" toLane="1" dir="s" state="M"/>
-    <connection from=":TRiia_Turu_11" to="RiiaTuru_RiiaVaba" fromLane="0" toLane="1" via=":TRiia_Turu_18_0" dir="l" state="m"/>
-    <connection from=":TRiia_Turu_18" to="RiiaTuru_RiiaVaba" fromLane="0" toLane="1" dir="l" state="M"/>
-    <connection from=":TRiia_Turu_12" to="RiiaTuru_TuruW" fromLane="0" toLane="0" dir="r" state="M"/>
-    <connection from=":TRiia_Turu_13" to="RiiaTuru_RiiaS" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":TRiia_Turu_13" to="RiiaTuru_RiiaS" fromLane="1" toLane="1" dir="s" state="M"/>
-    <connection from=":TRiia_Turu_15" to="RiiaTuru_TuruVaks" fromLane="0" toLane="1" via=":TRiia_Turu_19_0" dir="l" state="m"/>
-    <connection from=":TRiia_Turu_19" to="RiiaTuru_TuruVaks" fromLane="0" toLane="1" dir="l" state="M"/>
-    <connection from=":TRiia_Vaba_0" to="RiiaVaba_RiiaN" fromLane="0" toLane="0" dir="r" state="M"/>
-    <connection from=":TRiia_Vaba_1" to="RiiaVaba_VabaW" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":TRiia_Vaba_1" to="RiiaVaba_VabaW" fromLane="1" toLane="1" dir="s" state="M"/>
-    <connection from=":TRiia_Vaba_3" to="RiiaVaba_RiiaTuru" fromLane="0" toLane="1" via=":TRiia_Vaba_16_0" dir="l" state="m"/>
-    <connection from=":TRiia_Vaba_16" to="RiiaVaba_RiiaTuru" fromLane="0" toLane="1" dir="l" state="M"/>
-    <connection from=":TRiia_Vaba_4" to="RiiaVaba_VabaE" fromLane="0" toLane="0" dir="r" state="M"/>
-    <connection from=":TRiia_Vaba_5" to="RiiaVaba_RiiaN" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":TRiia_Vaba_5" to="RiiaVaba_RiiaN" fromLane="1" toLane="1" dir="s" state="M"/>
-    <connection from=":TRiia_Vaba_7" to="RiiaVaba_VabaW" fromLane="0" toLane="1" via=":TRiia_Vaba_17_0" dir="l" state="m"/>
-    <connection from=":TRiia_Vaba_17" to="RiiaVaba_VabaW" fromLane="0" toLane="1" dir="l" state="M"/>
-    <connection from=":TRiia_Vaba_8" to="RiiaVaba_RiiaTuru" fromLane="0" toLane="0" dir="r" state="M"/>
-    <connection from=":TRiia_Vaba_9" to="RiiaVaba_VabaE" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":TRiia_Vaba_9" to="RiiaVaba_VabaE" fromLane="1" toLane="1" dir="s" state="M"/>
-    <connection from=":TRiia_Vaba_11" to="RiiaVaba_RiiaN" fromLane="0" toLane="1" via=":TRiia_Vaba_18_0" dir="l" state="m"/>
-    <connection from=":TRiia_Vaba_18" to="RiiaVaba_RiiaN" fromLane="0" toLane="1" dir="l" state="M"/>
-    <connection from=":TRiia_Vaba_12" to="RiiaVaba_VabaW" fromLane="0" toLane="0" dir="r" state="M"/>
-    <connection from=":TRiia_Vaba_13" to="RiiaVaba_RiiaTuru" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":TRiia_Vaba_13" to="RiiaVaba_RiiaTuru" fromLane="1" toLane="1" dir="s" state="M"/>
-    <connection from=":TRiia_Vaba_15" to="RiiaVaba_VabaE" fromLane="0" toLane="1" via=":TRiia_Vaba_19_0" dir="l" state="m"/>
-    <connection from=":TRiia_Vaba_19" to="RiiaVaba_VabaE" fromLane="0" toLane="1" dir="l" state="M"/>
+    <connection from=":TRiia_Turu_3" to="RiiaTuru_RiiaKalevi" fromLane="0" toLane="1" via=":TRiia_Turu_19_0" dir="l" state="m"/>
+    <connection from=":TRiia_Turu_19" to="RiiaTuru_RiiaKalevi" fromLane="0" toLane="1" dir="l" state="M"/>
+    <connection from=":TRiia_Turu_4" to="RiiaTuru_TuruVaks" fromLane="0" toLane="1" via=":TRiia_Turu_20_0" dir="t" state="m"/>
+    <connection from=":TRiia_Turu_20" to="RiiaTuru_TuruVaks" fromLane="0" toLane="1" dir="t" state="M"/>
+    <connection from=":TRiia_Turu_5" to="RiiaTuru_TuruVaks" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":TRiia_Turu_6" to="RiiaTuru_RiiaS" fromLane="0" toLane="0" dir="L" state="M"/>
+    <connection from=":TRiia_Turu_6" to="RiiaTuru_RiiaS" fromLane="1" toLane="1" dir="L" state="M"/>
+    <connection from=":TRiia_Turu_8" to="RiiaTuru_TuruW" fromLane="0" toLane="1" via=":TRiia_Turu_21_0" dir="l" state="m"/>
+    <connection from=":TRiia_Turu_21" to="RiiaTuru_TuruW" fromLane="0" toLane="1" dir="l" state="M"/>
+    <connection from=":TRiia_Turu_9" to="RiiaTuru_RiiaKalevi" fromLane="0" toLane="1" via=":TRiia_Turu_22_0" dir="t" state="m"/>
+    <connection from=":TRiia_Turu_22" to="RiiaTuru_RiiaKalevi" fromLane="0" toLane="1" dir="t" state="M"/>
+    <connection from=":TRiia_Turu_10" to="RiiaTuru_RiiaKalevi" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":TRiia_Turu_11" to="RiiaTuru_TuruVaks" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":TRiia_Turu_11" to="RiiaTuru_TuruVaks" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":TRiia_Turu_13" to="RiiaTuru_RiiaS" fromLane="0" toLane="1" via=":TRiia_Turu_23_0" dir="l" state="m"/>
+    <connection from=":TRiia_Turu_23" to="RiiaTuru_RiiaS" fromLane="0" toLane="1" dir="l" state="M"/>
+    <connection from=":TRiia_Turu_14" to="RiiaTuru_TuruW" fromLane="0" toLane="1" via=":TRiia_Turu_24_0" dir="t" state="m"/>
+    <connection from=":TRiia_Turu_24" to="RiiaTuru_TuruW" fromLane="0" toLane="1" dir="t" state="M"/>
+    <connection from=":TRiia_Turu_15" to="RiiaTuru_TuruW" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":TRiia_Turu_16" to="RiiaTuru_RiiaKalevi" fromLane="0" toLane="1" dir="R" state="M"/>
+    <connection from=":TRiia_Turu_17" to="RiiaTuru_TuruVaks" fromLane="0" toLane="1" via=":TRiia_Turu_25_0" dir="l" state="m"/>
+    <connection from=":TRiia_Turu_25" to="RiiaTuru_TuruVaks" fromLane="0" toLane="1" dir="l" state="M"/>
+    <connection from=":TRiia_Turu_18" to="RiiaTuru_RiiaS" fromLane="0" toLane="1" via=":TRiia_Turu_26_0" dir="t" state="m"/>
+    <connection from=":TRiia_Turu_26" to="RiiaTuru_RiiaS" fromLane="0" toLane="1" dir="t" state="M"/>
     <connection from=":TTuru_Alek_0" to="TuruAlek_TuruVaks" fromLane="0" toLane="0" dir="r" state="M"/>
     <connection from=":TTuru_Alek_1" to="TuruAlek_AlekS" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":TTuru_Alek_2" to="TuruAlek_AlekE" fromLane="0" toLane="1" via=":TTuru_Alek_13_0" dir="l" state="m"/>
-    <connection from=":TTuru_Alek_13" to="TuruAlek_AlekE" fromLane="0" toLane="1" dir="l" state="M"/>
-    <connection from=":TTuru_Alek_3" to="TuruAlek_AlekN" fromLane="0" toLane="0" dir="r" state="M"/>
-    <connection from=":TTuru_Alek_4" to="TuruAlek_TuruVaks" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":TTuru_Alek_4" to="TuruAlek_TuruVaks" fromLane="1" toLane="1" dir="s" state="M"/>
-    <connection from=":TTuru_Alek_6" to="TuruAlek_AlekS" fromLane="0" toLane="0" via=":TTuru_Alek_14_0" dir="l" state="m"/>
-    <connection from=":TTuru_Alek_14" to="TuruAlek_AlekS" fromLane="0" toLane="0" dir="l" state="M"/>
-    <connection from=":TTuru_Alek_7" to="TuruAlek_AlekE" fromLane="0" toLane="0" dir="r" state="M"/>
-    <connection from=":TTuru_Alek_8" to="TuruAlek_AlekN" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":TTuru_Alek_9" to="TuruAlek_TuruVaks" fromLane="0" toLane="1" via=":TTuru_Alek_15_0" dir="L" state="m"/>
-    <connection from=":TTuru_Alek_15" to="TuruAlek_TuruVaks" fromLane="0" toLane="1" dir="L" state="M"/>
-    <connection from=":TTuru_Alek_10" to="TuruAlek_AlekS" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":TTuru_Alek_11" to="TuruAlek_AlekE" fromLane="0" toLane="1" dir="L" state="M"/>
-    <connection from=":TTuru_Alek_12" to="TuruAlek_AlekN" fromLane="0" toLane="0" via=":TTuru_Alek_16_0" dir="l" state="m"/>
-    <connection from=":TTuru_Alek_16" to="TuruAlek_AlekN" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":TTuru_Alek_2" to="TuruAlek_AlekE" fromLane="0" toLane="1" via=":TTuru_Alek_17_0" dir="l" state="m"/>
+    <connection from=":TTuru_Alek_17" to="TuruAlek_AlekE" fromLane="0" toLane="1" dir="l" state="M"/>
+    <connection from=":TTuru_Alek_3" to="TuruAlek_AlekN" fromLane="0" toLane="0" via=":TTuru_Alek_18_0" dir="t" state="m"/>
+    <connection from=":TTuru_Alek_18" to="TuruAlek_AlekN" fromLane="0" toLane="0" dir="t" state="M"/>
+    <connection from=":TTuru_Alek_4" to="TuruAlek_AlekN" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":TTuru_Alek_5" to="TuruAlek_TuruVaks" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":TTuru_Alek_5" to="TuruAlek_TuruVaks" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":TTuru_Alek_7" to="TuruAlek_AlekS" fromLane="0" toLane="0" via=":TTuru_Alek_19_0" dir="l" state="m"/>
+    <connection from=":TTuru_Alek_19" to="TuruAlek_AlekS" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":TTuru_Alek_8" to="TuruAlek_AlekE" fromLane="0" toLane="1" via=":TTuru_Alek_20_0" dir="t" state="m"/>
+    <connection from=":TTuru_Alek_20" to="TuruAlek_AlekE" fromLane="0" toLane="1" dir="t" state="M"/>
+    <connection from=":TTuru_Alek_9" to="TuruAlek_AlekE" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":TTuru_Alek_10" to="TuruAlek_AlekN" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":TTuru_Alek_11" to="TuruAlek_TuruVaks" fromLane="0" toLane="1" via=":TTuru_Alek_21_0" dir="L" state="m"/>
+    <connection from=":TTuru_Alek_21" to="TuruAlek_TuruVaks" fromLane="0" toLane="1" dir="L" state="M"/>
+    <connection from=":TTuru_Alek_12" to="TuruAlek_AlekS" fromLane="0" toLane="0" via=":TTuru_Alek_22_0" dir="t" state="m"/>
+    <connection from=":TTuru_Alek_22" to="TuruAlek_AlekS" fromLane="0" toLane="0" dir="t" state="M"/>
+    <connection from=":TTuru_Alek_13" to="TuruAlek_AlekS" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":TTuru_Alek_14" to="TuruAlek_AlekE" fromLane="0" toLane="1" dir="L" state="M"/>
+    <connection from=":TTuru_Alek_15" to="TuruAlek_AlekN" fromLane="0" toLane="0" via=":TTuru_Alek_23_0" dir="l" state="m"/>
+    <connection from=":TTuru_Alek_23" to="TuruAlek_AlekN" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":TTuru_Alek_16" to="TuruAlek_TuruVaks" fromLane="0" toLane="1" via=":TTuru_Alek_24_0" dir="t" state="m"/>
+    <connection from=":TTuru_Alek_24" to="TuruAlek_TuruVaks" fromLane="0" toLane="1" dir="t" state="M"/>
     <connection from=":TTuru_Vaks_0" to="TuruVaks_RiiaTuru" fromLane="0" toLane="0" dir="r" state="M"/>
     <connection from=":TTuru_Vaks_1" to="TuruVaks_VaksS" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":TTuru_Vaks_2" to="TuruVaks_TuruAlek" fromLane="0" toLane="1" via=":TTuru_Vaks_13_0" dir="L" state="m"/>
-    <connection from=":TTuru_Vaks_13" to="TuruVaks_TuruAlek" fromLane="0" toLane="1" dir="L" state="M"/>
-    <connection from=":TTuru_Vaks_3" to="TuruVaks_VaksN" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":TTuru_Vaks_4" to="TuruVaks_RiiaTuru" fromLane="0" toLane="1" dir="L" state="M"/>
-    <connection from=":TTuru_Vaks_5" to="TuruVaks_VaksS" fromLane="0" toLane="0" via=":TTuru_Vaks_14_0" dir="l" state="m"/>
-    <connection from=":TTuru_Vaks_14" to="TuruVaks_VaksS" fromLane="0" toLane="0" dir="l" state="M"/>
-    <connection from=":TTuru_Vaks_6" to="TuruVaks_TuruAlek" fromLane="0" toLane="0" dir="r" state="M"/>
-    <connection from=":TTuru_Vaks_7" to="TuruVaks_VaksN" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":TTuru_Vaks_8" to="TuruVaks_RiiaTuru" fromLane="0" toLane="1" via=":TTuru_Vaks_15_0" dir="l" state="m"/>
-    <connection from=":TTuru_Vaks_15" to="TuruVaks_RiiaTuru" fromLane="0" toLane="1" dir="l" state="M"/>
-    <connection from=":TTuru_Vaks_9" to="TuruVaks_VaksS" fromLane="0" toLane="0" dir="r" state="M"/>
-    <connection from=":TTuru_Vaks_10" to="TuruVaks_TuruAlek" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":TTuru_Vaks_10" to="TuruVaks_TuruAlek" fromLane="1" toLane="1" dir="s" state="M"/>
-    <connection from=":TTuru_Vaks_12" to="TuruVaks_VaksN" fromLane="0" toLane="0" via=":TTuru_Vaks_16_0" dir="l" state="m"/>
-    <connection from=":TTuru_Vaks_16" to="TuruVaks_VaksN" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":TTuru_Vaks_2" to="TuruVaks_TuruAlek" fromLane="0" toLane="1" via=":TTuru_Vaks_17_0" dir="L" state="m"/>
+    <connection from=":TTuru_Vaks_17" to="TuruVaks_TuruAlek" fromLane="0" toLane="1" dir="L" state="M"/>
+    <connection from=":TTuru_Vaks_3" to="TuruVaks_VaksN" fromLane="0" toLane="0" via=":TTuru_Vaks_18_0" dir="t" state="m"/>
+    <connection from=":TTuru_Vaks_18" to="TuruVaks_VaksN" fromLane="0" toLane="0" dir="t" state="M"/>
+    <connection from=":TTuru_Vaks_4" to="TuruVaks_VaksN" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":TTuru_Vaks_5" to="TuruVaks_RiiaTuru" fromLane="0" toLane="1" dir="L" state="M"/>
+    <connection from=":TTuru_Vaks_6" to="TuruVaks_VaksS" fromLane="0" toLane="0" via=":TTuru_Vaks_19_0" dir="l" state="m"/>
+    <connection from=":TTuru_Vaks_19" to="TuruVaks_VaksS" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":TTuru_Vaks_7" to="TuruVaks_TuruAlek" fromLane="0" toLane="1" via=":TTuru_Vaks_20_0" dir="t" state="m"/>
+    <connection from=":TTuru_Vaks_20" to="TuruVaks_TuruAlek" fromLane="0" toLane="1" dir="t" state="M"/>
+    <connection from=":TTuru_Vaks_8" to="TuruVaks_TuruAlek" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":TTuru_Vaks_9" to="TuruVaks_VaksN" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":TTuru_Vaks_10" to="TuruVaks_RiiaTuru" fromLane="0" toLane="1" via=":TTuru_Vaks_21_0" dir="l" state="m"/>
+    <connection from=":TTuru_Vaks_21" to="TuruVaks_RiiaTuru" fromLane="0" toLane="1" dir="l" state="M"/>
+    <connection from=":TTuru_Vaks_11" to="TuruVaks_VaksS" fromLane="0" toLane="0" via=":TTuru_Vaks_22_0" dir="t" state="m"/>
+    <connection from=":TTuru_Vaks_22" to="TuruVaks_VaksS" fromLane="0" toLane="0" dir="t" state="M"/>
+    <connection from=":TTuru_Vaks_12" to="TuruVaks_VaksS" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":TTuru_Vaks_13" to="TuruVaks_TuruAlek" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":TTuru_Vaks_13" to="TuruVaks_TuruAlek" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":TTuru_Vaks_15" to="TuruVaks_VaksN" fromLane="0" toLane="0" via=":TTuru_Vaks_23_0" dir="l" state="m"/>
+    <connection from=":TTuru_Vaks_23" to="TuruVaks_VaksN" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":TTuru_Vaks_16" to="TuruVaks_RiiaTuru" fromLane="0" toLane="1" via=":TTuru_Vaks_24_0" dir="t" state="m"/>
+    <connection from=":TTuru_Vaks_24" to="TuruVaks_RiiaTuru" fromLane="0" toLane="1" dir="t" state="M"/>
 
 </net>

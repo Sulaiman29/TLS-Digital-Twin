@@ -1,65 +1,58 @@
 <additional>
-  <!-- ========== INTERSECTION TRiia_Vaba (4 approaches) ========== -->
-  <tlLogic id="TRiia_Vaba" type="static" programID="1" offset="0">
-    <!-- Phase 0: Riia North green -->
-    <phase duration="20" state="ggggrrrrrrrrrrrr"/>
-    <phase duration="4"  state="yyyyrrrrrrrrrrrr"/>
-    <!-- Phase 2: Vabaduse West green -->
-    <phase duration="20" state="rrrrggggrrrrrrrr"/>
-    <phase duration="4"  state="rrrryyyyrrrrrrrr"/>
-    <!-- Phase 4: Vabaduse East green -->
-    <phase duration="20" state="rrrrrrrrggggrrrr"/>
-    <phase duration="4"  state="rrrrrrrryyyyrrrr"/>
-    <!-- Phase 6: Corridor from Riia_Turu (south) green -->
-    <phase duration="20" state="rrrrrrrrrrrrgggg"/>
-    <phase duration="4"  state="rrrrrrrrrrrryyyy"/>
+  <!-- ========== Riia × Ülikooli/Kalevi (ID: TRiia_Kalevi) — 20 signal groups ========== -->
+  <tlLogic id="TRiia_Kalevi" type="static" programID="1" offset="0">
+    <!-- Phase 0: Riia (south approach) + corridor green -->
+    <phase duration="20" state="GGGggrrrrrrrrrrrrrrr"/>
+    <phase duration="4"  state="yyyyyrrrrrrrrrrrrrrr"/>
+    <!-- Phase 2: Ülikooli/Kalevi green -->
+    <phase duration="20" state="rrrrrGGGggrrrrrrrrrr"/>
+    <phase duration="4"  state="rrrrryyyyyrrrrrrrrrr"/>
+    <!-- Phase 4: Corridor from Kaubamaja green -->
+    <phase duration="20" state="rrrrrrrrrrGGGggrrrrr"/>
+    <phase duration="4"  state="rrrrrrrrrryyyyyrrrrr"/>
+    <!-- Phase 6: Kalevi green -->
+    <phase duration="20" state="rrrrrrrrrrrrrrrGGGgg"/>
+    <phase duration="4"  state="rrrrrrrrrrrrrrryyyyy"/>
   </tlLogic>
 
-  <!-- ========== INTERSECTION TRiia_Turu — Kaubamaja (4 approaches) ========== -->
+  <!-- ========== Riia × Turu Kaubamaja (ID: TRiia_Turu) — 19 signal groups ========== -->
   <tlLogic id="TRiia_Turu" type="static" programID="1" offset="0">
-    <!-- Phase 0: Corridor from Riia_Vaba (north) green -->
-    <phase duration="20" state="ggggrrrrrrrrrrrr"/>
-    <phase duration="4"  state="yyyyrrrrrrrrrrrr"/>
-    <!-- Phase 2: Riia South green -->
-    <phase duration="20" state="rrrrggggrrrrrrrr"/>
-    <phase duration="4"  state="rrrryyyyrrrrrrrr"/>
-    <!-- Phase 4: Turu West green -->
-    <phase duration="20" state="rrrrrrrrggggrrrr"/>
-    <phase duration="4"  state="rrrrrrrryyyyrrrr"/>
-    <!-- Phase 6: Corridor from Turu_Vaks (east) green -->
-    <phase duration="20" state="rrrrrrrrrrrrgggg"/>
-    <phase duration="4"  state="rrrrrrrrrrrryyyy"/>
+    <!-- Phase 0: Corridor from south + Riia north green -->
+    <phase duration="20" state="GGGggrrrrrGGGggrrrr"/>
+    <phase duration="4"  state="yyyyyrrrrryyyyyrrrr"/>
+    <!-- Phase 2: Turu west + corridor east green -->
+    <phase duration="20" state="rrrrrGGGggrrrrrGGgg"/>
+    <phase duration="4"  state="rrrrryyyyyrrrrryygg"/>
+    <!-- Phase 4: Right-turn clearance -->
+    <phase duration="6"  state="rrrrrrrrGGrrrrrrrGG"/>
+    <phase duration="3"  state="rrrrrrrryyrrrrrrryy"/>
   </tlLogic>
 
-  <!-- ========== INTERSECTION TTuru_Vaks (4 approaches) ========== -->
+  <!-- ========== Turu × Vaksali (ID: TTuru_Vaks) — 17 signal groups ========== -->
   <tlLogic id="TTuru_Vaks" type="static" programID="1" offset="0">
-    <!-- Phase 0: Corridor from Riia_Turu (west) green -->
-    <phase duration="20" state="ggggrrrrrrrrrrrr"/>
-    <phase duration="4"  state="yyyyrrrrrrrrrrrr"/>
-    <!-- Phase 2: Vaksali North green -->
-    <phase duration="20" state="rrrrggggrrrrrrrr"/>
-    <phase duration="4"  state="rrrryyyyrrrrrrrr"/>
-    <!-- Phase 4: Vaksali South green -->
-    <phase duration="20" state="rrrrrrrrggggrrrr"/>
-    <phase duration="4"  state="rrrrrrrryyyyrrrr"/>
-    <!-- Phase 6: Corridor from Turu_Alek (east) green -->
-    <phase duration="20" state="rrrrrrrrrrrrgggg"/>
-    <phase duration="4"  state="rrrrrrrrrrrryyyy"/>
+    <!-- Phase 0: Vaksali N/S green -->
+    <phase duration="20" state="rrrrGGggrrrrGGGgg"/>
+    <phase duration="4"  state="rrrryyggrrrryyygg"/>
+    <!-- Phase 2: Right-turn clearance -->
+    <phase duration="6"  state="rrrrrrGGrrrrrrrGG"/>
+    <phase duration="3"  state="rrrrrryyrrrrrrryy"/>
+    <!-- Phase 4: Turu corridor green -->
+    <phase duration="20" state="GGggrrrrGGggrrrrr"/>
+    <phase duration="4"  state="yyyyrrrryyyyrrrrr"/>
+    <!-- All red clearance -->
+    <phase duration="1"  state="rrrrrrrrrrrrrrrrr"/>
   </tlLogic>
 
-  <!-- ========== INTERSECTION TTuru_Alek (4 approaches) ========== -->
+  <!-- ========== Turu × Aleksandri (ID: TTuru_Alek) — 17 signal groups ========== -->
   <tlLogic id="TTuru_Alek" type="static" programID="1" offset="0">
-    <!-- Phase 0: Corridor from Turu_Vaks (west) green -->
-    <phase duration="20" state="ggggrrrrrrrrrrrr"/>
-    <phase duration="4"  state="yyyyrrrrrrrrrrrr"/>
-    <!-- Phase 2: Aleksandri East green -->
-    <phase duration="20" state="rrrrggggrrrrrrrr"/>
-    <phase duration="4"  state="rrrryyyyrrrrrrrr"/>
-    <!-- Phase 4: Aleksandri North green -->
-    <phase duration="20" state="rrrrrrrrggggrrrr"/>
-    <phase duration="4"  state="rrrrrrrryyyyrrrr"/>
-    <!-- Phase 6: Aleksandri South green -->
-    <phase duration="20" state="rrrrrrrrrrrrgggg"/>
-    <phase duration="4"  state="rrrrrrrrrrrryyyy"/>
+    <!-- Phase 0: Turu corridor green -->
+    <phase duration="20" state="GGggrrrrrGGggrrrr"/>
+    <phase duration="4"  state="yyyyrrrrryyyyrrrr"/>
+    <!-- Phase 2: Aleksandri N/S green -->
+    <phase duration="20" state="rrrrGGGggrrrrGGgg"/>
+    <phase duration="4"  state="rrrryyyggrrrryygg"/>
+    <!-- Phase 4: Right-turn clearance -->
+    <phase duration="6"  state="rrrrrrrGGrrrrrrGG"/>
+    <phase duration="3"  state="rrrrrrryyrrrrrryy"/>
   </tlLogic>
 </additional>

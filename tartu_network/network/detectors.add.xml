@@ -1,32 +1,32 @@
 <additional>
 
-  <!-- ========== INTERSECTION TRiia_Vaba DETECTORS ========== -->
+  <!-- ========== INTERSECTION TRiia_Kalevi DETECTORS ========== -->
   <!-- Riia North approach -->
-  <inductionLoop id="loop_RiiaVaba_RiiaN_0" lane="RiiaN_RiiaVaba_0" pos="15" freq="60" friendlyPos="true"
-                 file="../outputs/raw/loop_RiiaVaba_RiiaN_0.xml"/>
-  <inductionLoop id="loop_RiiaVaba_RiiaN_1" lane="RiiaN_RiiaVaba_1" pos="15" freq="60" friendlyPos="true"
-                 file="../outputs/raw/loop_RiiaVaba_RiiaN_1.xml"/>
+  <inductionLoop id="loop_RiiaKalevi_RiiaN_0" lane="RiiaN_RiiaKalevi_0" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_RiiaKalevi_RiiaN_0.xml"/>
+  <inductionLoop id="loop_RiiaKalevi_RiiaN_1" lane="RiiaN_RiiaKalevi_1" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_RiiaKalevi_RiiaN_1.xml"/>
   <!-- Vabaduse West approach -->
-  <inductionLoop id="loop_RiiaVaba_VabaW_0" lane="VabaW_RiiaVaba_0" pos="15" freq="60" friendlyPos="true"
-                 file="../outputs/raw/loop_RiiaVaba_VabaW_0.xml"/>
-  <inductionLoop id="loop_RiiaVaba_VabaW_1" lane="VabaW_RiiaVaba_1" pos="15" freq="60" friendlyPos="true"
-                 file="../outputs/raw/loop_RiiaVaba_VabaW_1.xml"/>
+  <inductionLoop id="loop_RiiaKalevi_UlikW_0" lane="UlikW_RiiaKalevi_0" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_RiiaKalevi_UlikW_0.xml"/>
+  <inductionLoop id="loop_RiiaKalevi_UlikW_1" lane="UlikW_RiiaKalevi_1" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_RiiaKalevi_UlikW_1.xml"/>
   <!-- Vabaduse East approach -->
-  <inductionLoop id="loop_RiiaVaba_VabaE_0" lane="VabaE_RiiaVaba_0" pos="15" freq="60" friendlyPos="true"
-                 file="../outputs/raw/loop_RiiaVaba_VabaE_0.xml"/>
-  <inductionLoop id="loop_RiiaVaba_VabaE_1" lane="VabaE_RiiaVaba_1" pos="15" freq="60" friendlyPos="true"
-                 file="../outputs/raw/loop_RiiaVaba_VabaE_1.xml"/>
+  <inductionLoop id="loop_RiiaKalevi_KaleviE_0" lane="KaleviE_RiiaKalevi_0" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_RiiaKalevi_KaleviE_0.xml"/>
+  <inductionLoop id="loop_RiiaKalevi_KaleviE_1" lane="KaleviE_RiiaKalevi_1" pos="15" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_RiiaKalevi_KaleviE_1.xml"/>
   <!-- Corridor from Riia_Turu (south) -->
-  <inductionLoop id="loop_RiiaVaba_corr_0" lane="RiiaTuru_RiiaVaba_0" pos="250" freq="60" friendlyPos="true"
-                 file="../outputs/raw/loop_RiiaVaba_corr_0.xml"/>
-  <inductionLoop id="loop_RiiaVaba_corr_1" lane="RiiaTuru_RiiaVaba_1" pos="250" freq="60" friendlyPos="true"
-                 file="../outputs/raw/loop_RiiaVaba_corr_1.xml"/>
+  <inductionLoop id="loop_RiiaKalevi_corr_0" lane="RiiaTuru_RiiaKalevi_0" pos="250" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_RiiaKalevi_corr_0.xml"/>
+  <inductionLoop id="loop_RiiaKalevi_corr_1" lane="RiiaTuru_RiiaKalevi_1" pos="250" freq="60" friendlyPos="true"
+                 file="../outputs/raw/loop_RiiaKalevi_corr_1.xml"/>
 
   <!-- ========== INTERSECTION TRiia_Turu DETECTORS ========== -->
   <!-- Corridor from Riia_Vaba (north) -->
-  <inductionLoop id="loop_RiiaTuru_corrN_0" lane="RiiaVaba_RiiaTuru_0" pos="250" freq="60" friendlyPos="true"
+  <inductionLoop id="loop_RiiaTuru_corrN_0" lane="RiiaKalevi_RiiaTuru_0" pos="250" freq="60" friendlyPos="true"
                  file="../outputs/raw/loop_RiiaTuru_corrN_0.xml"/>
-  <inductionLoop id="loop_RiiaTuru_corrN_1" lane="RiiaVaba_RiiaTuru_1" pos="250" freq="60" friendlyPos="true"
+  <inductionLoop id="loop_RiiaTuru_corrN_1" lane="RiiaKalevi_RiiaTuru_1" pos="250" freq="60" friendlyPos="true"
                  file="../outputs/raw/loop_RiiaTuru_corrN_1.xml"/>
   <!-- Riia South approach -->
   <inductionLoop id="loop_RiiaTuru_RiiaS_0" lane="RiiaS_RiiaTuru_0" pos="15" freq="60" friendlyPos="true"

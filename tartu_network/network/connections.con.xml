@@ -1,44 +1,44 @@
 <connections>
-  <!-- ========== INTERSECTION TRiia_Vaba (Riia × Vabaduse) ========== -->
+  <!-- ========== INTERSECTION TRiia_Kalevi (Riia × Vabaduse) ========== -->
   <!-- From Riia North -->
-  <connection from="RiiaN_RiiaVaba" to="RiiaVaba_RiiaTuru" via=""/>
-  <connection from="RiiaN_RiiaVaba" to="RiiaVaba_VabaE"    via=""/>
-  <connection from="RiiaN_RiiaVaba" to="RiiaVaba_VabaW"    via=""/>
+  <connection from="RiiaN_RiiaKalevi" to="RiiaKalevi_RiiaTuru" via=""/>
+  <connection from="RiiaN_RiiaKalevi" to="RiiaKalevi_KaleviE"    via=""/>
+  <connection from="RiiaN_RiiaKalevi" to="RiiaKalevi_UlikW"    via=""/>
 
   <!-- From Vabaduse West -->
-  <connection from="VabaW_RiiaVaba" to="RiiaVaba_RiiaTuru" via=""/>
-  <connection from="VabaW_RiiaVaba" to="RiiaVaba_RiiaN"    via=""/>
-  <connection from="VabaW_RiiaVaba" to="RiiaVaba_VabaE"    via=""/>
+  <connection from="UlikW_RiiaKalevi" to="RiiaKalevi_RiiaTuru" via=""/>
+  <connection from="UlikW_RiiaKalevi" to="RiiaKalevi_RiiaN"    via=""/>
+  <connection from="UlikW_RiiaKalevi" to="RiiaKalevi_KaleviE"    via=""/>
 
   <!-- From Vabaduse East -->
-  <connection from="VabaE_RiiaVaba" to="RiiaVaba_VabaW"    via=""/>
-  <connection from="VabaE_RiiaVaba" to="RiiaVaba_RiiaTuru" via=""/>
-  <connection from="VabaE_RiiaVaba" to="RiiaVaba_RiiaN"    via=""/>
+  <connection from="KaleviE_RiiaKalevi" to="RiiaKalevi_UlikW"    via=""/>
+  <connection from="KaleviE_RiiaKalevi" to="RiiaKalevi_RiiaTuru" via=""/>
+  <connection from="KaleviE_RiiaKalevi" to="RiiaKalevi_RiiaN"    via=""/>
 
   <!-- From corridor (Riia_Turu heading north) -->
-  <connection from="RiiaTuru_RiiaVaba" to="RiiaVaba_RiiaN" via=""/>
-  <connection from="RiiaTuru_RiiaVaba" to="RiiaVaba_VabaW" via=""/>
-  <connection from="RiiaTuru_RiiaVaba" to="RiiaVaba_VabaE" via=""/>
+  <connection from="RiiaTuru_RiiaKalevi" to="RiiaKalevi_RiiaN" via=""/>
+  <connection from="RiiaTuru_RiiaKalevi" to="RiiaKalevi_UlikW" via=""/>
+  <connection from="RiiaTuru_RiiaKalevi" to="RiiaKalevi_KaleviE" via=""/>
 
   <!-- ========== INTERSECTION TRiia_Turu (Riia × Turu — Kaubamaja) ========== -->
   <!-- From corridor (Riia_Vaba heading south) -->
-  <connection from="RiiaVaba_RiiaTuru" to="RiiaTuru_RiiaS"    via=""/>
-  <connection from="RiiaVaba_RiiaTuru" to="RiiaTuru_TuruVaks" via=""/>
-  <connection from="RiiaVaba_RiiaTuru" to="RiiaTuru_TuruW"    via=""/>
+  <connection from="RiiaKalevi_RiiaTuru" to="RiiaTuru_RiiaS"    via=""/>
+  <connection from="RiiaKalevi_RiiaTuru" to="RiiaTuru_TuruVaks" via=""/>
+  <connection from="RiiaKalevi_RiiaTuru" to="RiiaTuru_TuruW"    via=""/>
 
   <!-- From Riia South -->
-  <connection from="RiiaS_RiiaTuru" to="RiiaTuru_RiiaVaba" via=""/>
+  <connection from="RiiaS_RiiaTuru" to="RiiaTuru_RiiaKalevi" via=""/>
   <connection from="RiiaS_RiiaTuru" to="RiiaTuru_TuruW"    via=""/>
   <connection from="RiiaS_RiiaTuru" to="RiiaTuru_TuruVaks" via=""/>
 
   <!-- From Turu West -->
   <connection from="TuruW_RiiaTuru" to="RiiaTuru_TuruVaks" via=""/>
-  <connection from="TuruW_RiiaTuru" to="RiiaTuru_RiiaVaba" via=""/>
+  <connection from="TuruW_RiiaTuru" to="RiiaTuru_RiiaKalevi" via=""/>
   <connection from="TuruW_RiiaTuru" to="RiiaTuru_RiiaS"    via=""/>
 
   <!-- From corridor (Turu_Vaks heading west) -->
   <connection from="TuruVaks_RiiaTuru" to="RiiaTuru_TuruW"    via=""/>
-  <connection from="TuruVaks_RiiaTuru" to="RiiaTuru_RiiaVaba" via=""/>
+  <connection from="TuruVaks_RiiaTuru" to="RiiaTuru_RiiaKalevi" via=""/>
   <connection from="TuruVaks_RiiaTuru" to="RiiaTuru_RiiaS"    via=""/>
 
   <!-- ========== INTERSECTION TTuru_Vaks (Turu × Vaksali) ========== -->

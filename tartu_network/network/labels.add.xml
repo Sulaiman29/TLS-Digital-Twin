@@ -6,7 +6,7 @@
   <poi id="EAST"  type="compass" color="0,150,255" x="860.0" y="0.0" layer="10"/>
 
   <!-- ========== INTERSECTION NAME LABELS ========== -->
-  <poi id="Riia_x_Vabaduse__TRiia_Vaba"         type="intersection" color="255,80,80" x="55.0" y="325.0" layer="10"/>
+  <poi id="Riia_x_Vabaduse__TRiia_Kalevi"         type="intersection" color="255,80,80" x="55.0" y="325.0" layer="10"/>
   <poi id="Riia_x_Turu_Kaubamaja__TRiia_Turu"    type="intersection" color="255,80,80" x="55.0" y="25.0" layer="10"/>
   <poi id="Turu_x_Vaksali__TTuru_Vaks"            type="intersection" color="255,80,80" x="355.0" y="25.0" layer="10"/>
   <poi id="Turu_x_Aleksandri__TTuru_Alek"         type="intersection" color="255,80,80" x="655.0" y="25.0" layer="10"/>

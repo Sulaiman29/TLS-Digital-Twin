@@ -15,7 +15,7 @@
 const INTERSECTIONS = [
   { id: "TRiia_Kalevi", x: 143.9, y: 374.7, label: "Riia × Ülikooli/Kalevi" },
   { id: "TRiia_Turu", x: 301.4, y: 529.0, label: "Riia × Turu (Kaubamaja)" },
-  { id: "TTuru_Vaks", x: 564.5, y: 433.2, label: "Turu × Vaksali" },
+  { id: "TTuru_Vaks", x: 394.7, y: 428.9, label: "Turu × Vaksali" },
   { id: "TTuru_Alek", x: 687.4, y: 197.0, label: "Turu × Aleksandri" },
 ];
 

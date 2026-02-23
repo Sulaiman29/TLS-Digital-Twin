@@ -2,7 +2,7 @@
 Tartu Multi-Agent Agentic Brain for 4-Intersection Traffic Control
 ===================================================================
 Architecture: FOUR independent LLM agents, one per intersection.
-  - Agent TRiia_Vaba : Controls Riia x Vabaduse
+  - Agent TRiia_Kalevi : Controls Riia x Vabaduse
   - Agent TRiia_Turu : Controls Riia x Turu (Kaubamaja)
   - Agent TTuru_Vaks : Controls Turu x Vaksali
   - Agent TTuru_Alek : Controls Turu x Aleksandri
@@ -12,7 +12,7 @@ NEIGHBOR intersections' queue counts and current phases. This enables
 each agent to anticipate incoming corridor traffic and coordinate timing.
 
 Network Topology (Inverted-T):
-  TRiia_Vaba (north) ←300m→ TRiia_Turu (center) ←300m→ TTuru_Vaks ←300m→ TTuru_Alek (east)
+  TRiia_Kalevi (north) ←300m→ TRiia_Turu (center) ←300m→ TTuru_Vaks ←300m→ TTuru_Alek (east)
 """
 
 import os
@@ -42,7 +42,7 @@ HISTORY_SIZE = 5            # Number of recent decisions to remember
 # INTERSECTION CONFIGS — data-driven, same structure for all 4
 # =====================================================================
 INTERSECTION_CONFIG = {
-    "TRiia_Vaba": {
+    "TRiia_Kalevi": {
         "directions": ["Riia_North", "Vabaduse_West", "Vabaduse_East", "Corridor_South"],
         "green_phases": {0: "Riia_North", 2: "Vabaduse_West", 4: "Vabaduse_East", 6: "Corridor_South"},
         "phase_names": {
@@ -63,8 +63,8 @@ INTERSECTION_CONFIG = {
             4: "Turu_West", 5: "Turu_West(yellow)",
             6: "Corridor_East", 7: "Corridor_East(yellow)",
         },
-        "neighbors": ["TRiia_Vaba", "TTuru_Vaks"],
-        "corridor_from": {"TRiia_Vaba": "Corridor_North", "TTuru_Vaks": "Corridor_East"},
+        "neighbors": ["TRiia_Kalevi", "TTuru_Vaks"],
+        "corridor_from": {"TRiia_Kalevi": "Corridor_North", "TTuru_Vaks": "Corridor_East"},
     },
     "TTuru_Vaks": {
         "directions": ["Corridor_West", "Vaksali_North", "Vaksali_South", "Corridor_East"],
@@ -94,11 +94,11 @@ INTERSECTION_CONFIG = {
 
 # Lane substrings → (intersection_id, direction)
 LANE_MAP = [
-    ("RiiaN_RiiaVaba",       "TRiia_Vaba", "Riia_North"),
-    ("VabaW_RiiaVaba",       "TRiia_Vaba", "Vabaduse_West"),
-    ("VabaE_RiiaVaba",       "TRiia_Vaba", "Vabaduse_East"),
-    ("RiiaTuru_RiiaVaba",    "TRiia_Vaba", "Corridor_South"),
-    ("RiiaVaba_RiiaTuru",    "TRiia_Turu", "Corridor_North"),
+    ("RiiaN_RiiaKalevi",       "TRiia_Kalevi", "Riia_North"),
+    ("UlikW_RiiaKalevi",       "TRiia_Kalevi", "Vabaduse_West"),
+    ("KaleviE_RiiaKalevi",       "TRiia_Kalevi", "Vabaduse_East"),
+    ("RiiaTuru_RiiaKalevi",    "TRiia_Kalevi", "Corridor_South"),
+    ("RiiaKalevi_RiiaTuru",    "TRiia_Turu", "Corridor_North"),
     ("RiiaS_RiiaTuru",       "TRiia_Turu", "Riia_South"),
     ("TuruW_RiiaTuru",       "TRiia_Turu", "Turu_West"),
     ("TuruVaks_RiiaTuru",    "TRiia_Turu", "Corridor_East"),
@@ -157,7 +157,7 @@ INTERSECTION LAYOUT:
 - {phase_desc}
 
 NETWORK CONTEXT:
-- You are part of a 4-intersection corridor: TRiia_Vaba ↔ TRiia_Turu ↔ TTuru_Vaks ↔ TTuru_Alek
+- You are part of a 4-intersection corridor: TRiia_Kalevi ↔ TRiia_Turu ↔ TTuru_Vaks ↔ TTuru_Alek
 - Your direct neighbors: {neighbor_desc}
 - Corridor connections:
 {corridor_desc}
@@ -459,7 +459,7 @@ def main():
 
     print("=" * 65)
     print("  TARTU 4-AGENT TRAFFIC CONTROL — Autonomous AI Agents")
-    print("  Intersections: TRiia_Vaba | TRiia_Turu | TTuru_Vaks | TTuru_Alek")
+    print("  Intersections: TRiia_Kalevi | TRiia_Turu | TTuru_Vaks | TTuru_Alek")
     print("  Model: GPT-4o-mini | Decision interval: 3s")
     print("  Features: System prompt, Decision history, Phase timing")
     print("=" * 65)

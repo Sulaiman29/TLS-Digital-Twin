@@ -1,7 +1,7 @@
 """
 Rule-Based Traffic Agent for Tartu 4-Intersection Network
 ==========================================================
-Controls all 4 intersections: TRiia_Vaba, TRiia_Turu, TTuru_Vaks, TTuru_Alek.
+Controls all 4 intersections: TRiia_Kalevi, TRiia_Turu, TTuru_Vaks, TTuru_Alek.
 Uses a simple hysteresis-based approach: switch to the direction with the
 most waiting vehicles, but only if it exceeds the current direction by >2.
 """
@@ -19,7 +19,7 @@ TOPIC_COMMANDS = "simulation/tartu/commands"
 # --- INTERSECTION DEFINITIONS ---
 # Each intersection has: phase_map (direction -> phase index), and its state
 INTERSECTIONS = {
-    "TRiia_Vaba": {
+    "TRiia_Kalevi": {
         "directions": ["Riia_North", "Vabaduse_West", "Vabaduse_East", "Corridor_South"],
         "phase_map": {"Riia_North": 0, "Vabaduse_West": 2, "Vabaduse_East": 4, "Corridor_South": 6},
         "phase_names": {0: "Riia_North", 2: "Vabaduse_West", 4: "Vabaduse_East", 6: "Corridor_South"},
@@ -49,13 +49,13 @@ for tls_id, info in INTERSECTIONS.items():
 # --- LANE → DIRECTION MAPPING ---
 # Maps lane substrings to (intersection_id, direction)
 LANE_MAP = [
-    # TRiia_Vaba approaches
-    ("RiiaN_RiiaVaba",       "TRiia_Vaba", "Riia_North"),
-    ("VabaW_RiiaVaba",       "TRiia_Vaba", "Vabaduse_West"),
-    ("VabaE_RiiaVaba",       "TRiia_Vaba", "Vabaduse_East"),
-    ("RiiaTuru_RiiaVaba",    "TRiia_Vaba", "Corridor_South"),
+    # TRiia_Kalevi approaches
+    ("RiiaN_RiiaKalevi",       "TRiia_Kalevi", "Riia_North"),
+    ("UlikW_RiiaKalevi",       "TRiia_Kalevi", "Vabaduse_West"),
+    ("KaleviE_RiiaKalevi",       "TRiia_Kalevi", "Vabaduse_East"),
+    ("RiiaTuru_RiiaKalevi",    "TRiia_Kalevi", "Corridor_South"),
     # TRiia_Turu approaches
-    ("RiiaVaba_RiiaTuru",    "TRiia_Turu", "Corridor_North"),
+    ("RiiaKalevi_RiiaTuru",    "TRiia_Turu", "Corridor_North"),
     ("RiiaS_RiiaTuru",       "TRiia_Turu", "Riia_South"),
     ("TuruW_RiiaTuru",       "TRiia_Turu", "Turu_West"),
     ("TuruVaks_RiiaTuru",    "TRiia_Turu", "Corridor_East"),

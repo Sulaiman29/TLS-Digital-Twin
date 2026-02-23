@@ -10,20 +10,20 @@
  *   lon = 26.72738 + (sumo_x - 232) / 58367
  */
 
-// Intersection positions (from rebuilt SUMO .net.xml with geo-referenced nodes)
-// netOffset = 232.00, 529.00
+// Intersection positions (from rebuilt SUMO .net.xml)
+// netOffset = 301.40, 529.00
 const INTERSECTIONS = [
-  { id: "TRiia_Vaba", x: 193.2, y: 673.9, label: "Riia × Vabaduse" },
-  { id: "TRiia_Turu", x: 232.0, y: 529.0, label: "Riia × Turu (Kaubamaja)" },
-  { id: "TTuru_Vaks", x: 495.1, y: 433.2, label: "Turu × Vaksali" },
-  { id: "TTuru_Alek", x: 618.0, y: 197.0, label: "Turu × Aleksandri" },
+  { id: "TRiia_Kalevi", x: 143.9, y: 374.7, label: "Riia × Ülikooli/Kalevi" },
+  { id: "TRiia_Turu", x: 301.4, y: 529.0, label: "Riia × Turu (Kaubamaja)" },
+  { id: "TTuru_Vaks", x: 564.5, y: 433.2, label: "Turu × Vaksali" },
+  { id: "TTuru_Alek", x: 687.4, y: 197.0, label: "Turu × Aleksandri" },
 ];
 
 // SUMO XY → Leaflet LatLng (anchor-based transform)
-const ANCHOR_SUMO_X = 232.0;   // TRiia_Turu x in .net.xml
+const ANCHOR_SUMO_X = 301.4;   // TRiia_Turu x in .net.xml
 const ANCHOR_SUMO_Y = 529.0;   // TRiia_Turu y in .net.xml
-const ANCHOR_LAT = 58.37798;   // Kaubamaja GPS latitude
-const ANCHOR_LON = 26.72738;   // Kaubamaja GPS longitude
+const ANCHOR_LAT = 58.37798;   // Riia × Turu intersection latitude
+const ANCHOR_LON = 26.72892;   // Riia × Turu intersection longitude (road center, not Kaubamaja building)
 const M_PER_DEG_LAT = 111320;  // meters per degree latitude
 const M_PER_DEG_LON = 58367;   // meters per degree longitude at ~58.4°N
 

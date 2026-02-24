@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2026-02-24T00:59:39.843329+05:00 by Eclipse SUMO GUI 1.25.0
+<sumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="D:\MS Thesis Imp\basic\tartu_network\cfg\../network/tartu.net.xml"/>
+        <route-files value="D:\MS Thesis Imp\basic\tartu_network\cfg\../routes/random.rou.xml"/>
+        <additional-files value="D:\MS Thesis Imp\basic\tartu_network\cfg\../network/tartu_tls.add.xml,D:\MS Thesis Imp\basic\tartu_network\cfg\ ../network/detectors.add.xml,D:\MS Thesis Imp\basic\tartu_network\cfg\ ../network/labels.add.xml"/>
+    </input>
+
+    <output>
+        <summary-output value="D:\MS Thesis Imp\basic\tartu_network\scripts\realtime\../../outputs/raw\summary.xml"/>
+        <tripinfo-output value="D:\MS Thesis Imp\basic\tartu_network\scripts\realtime\../../outputs/raw\tripinfo.xml"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+        <end value="3600"/>
+        <step-length value="1"/>
+    </time>
+
+    <report>
+        <verbose value="true"/>
+        <no-warnings value="true"/>
+        <no-step-log value="true"/>
+    </report>
+
+    <traci_server>
+        <remote-port value="56776"/>
+    </traci_server>
+
+    <gui_only>
+        <gui-settings-file value="D:\MS Thesis Imp\basic\tartu_network\cfg\tartu.view.xml"/>
+        <quit-on-end value="true"/>
+        <start value="true"/>
+    </gui_only>
+
+</sumoConfiguration>
+-->
+
+<detector xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/det_e1_file.xsd">
+    <interval begin="0.00" end="60.00" id="loop_TuruAida_corrW_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="60.00" end="120.00" id="loop_TuruAida_corrW_1" nVehContrib="1" flow="60.00" occupancy="0.59" speed="14.03" harmonicMeanSpeed="14.03" length="5.00" nVehEntered="1"/>
+    <interval begin="120.00" end="180.00" id="loop_TuruAida_corrW_1" nVehContrib="1" flow="60.00" occupancy="0.56" speed="14.91" harmonicMeanSpeed="14.91" length="5.00" nVehEntered="1"/>
+    <interval begin="180.00" end="240.00" id="loop_TuruAida_corrW_1" nVehContrib="2" flow="120.00" occupancy="1.36" speed="12.29" harmonicMeanSpeed="12.21" length="5.00" nVehEntered="2"/>
+    <interval begin="240.00" end="300.00" id="loop_TuruAida_corrW_1" nVehContrib="1" flow="60.00" occupancy="0.64" speed="12.99" harmonicMeanSpeed="12.99" length="5.00" nVehEntered="1"/>
+    <interval begin="300.00" end="360.00" id="loop_TuruAida_corrW_1" nVehContrib="3" flow="180.00" occupancy="1.71" speed="14.70" harmonicMeanSpeed="14.62" length="5.00" nVehEntered="3"/>
+    <interval begin="360.00" end="420.00" id="loop_TuruAida_corrW_1" nVehContrib="5" flow="300.00" occupancy="3.07" speed="13.64" harmonicMeanSpeed="13.59" length="5.00" nVehEntered="5"/>
+    <interval begin="420.00" end="480.00" id="loop_TuruAida_corrW_1" nVehContrib="2" flow="120.00" occupancy="1.27" speed="13.14" harmonicMeanSpeed="13.12" length="5.00" nVehEntered="2"/>
+    <interval begin="480.00" end="540.00" id="loop_TuruAida_corrW_1" nVehContrib="1" flow="60.00" occupancy="0.61" speed="13.77" harmonicMeanSpeed="13.77" length="5.00" nVehEntered="1"/>
+    <interval begin="540.00" end="600.00" id="loop_TuruAida_corrW_1" nVehContrib="3" flow="180.00" occupancy="2.02" speed="12.42" harmonicMeanSpeed="12.40" length="5.00" nVehEntered="3"/>
+    <interval begin="600.00" end="660.00" id="loop_TuruAida_corrW_1" nVehContrib="2" flow="120.00" occupancy="1.39" speed="11.98" harmonicMeanSpeed="11.98" length="5.00" nVehEntered="2"/>
+    <interval begin="660.00" end="720.00" id="loop_TuruAida_corrW_1" nVehContrib="1" flow="60.00" occupancy="0.64" speed="13.05" harmonicMeanSpeed="13.05" length="5.00" nVehEntered="1"/>
+    <interval begin="720.00" end="780.00" id="loop_TuruAida_corrW_1" nVehContrib="2" flow="120.00" occupancy="1.27" speed="13.12" harmonicMeanSpeed="13.11" length="5.00" nVehEntered="2"/>
+    <interval begin="780.00" end="840.00" id="loop_TuruAida_corrW_1" nVehContrib="3" flow="180.00" occupancy="1.98" speed="12.70" harmonicMeanSpeed="12.65" length="5.00" nVehEntered="3"/>
+    <interval begin="840.00" end="900.00" id="loop_TuruAida_corrW_1" nVehContrib="6" flow="360.00" occupancy="3.58" speed="14.15" harmonicMeanSpeed="13.97" length="5.00" nVehEntered="6"/>
+    <interval begin="900.00" end="960.00" id="loop_TuruAida_corrW_1" nVehContrib="3" flow="180.00" occupancy="1.76" speed="14.30" harmonicMeanSpeed="14.23" length="5.00" nVehEntered="3"/>
+    <interval begin="960.00" end="1020.00" id="loop_TuruAida_corrW_1" nVehContrib="5" flow="300.00" occupancy="3.26" speed="12.87" harmonicMeanSpeed="12.76" length="5.00" nVehEntered="5"/>
+    <interval begin="1020.00" end="1080.00" id="loop_TuruAida_corrW_1" nVehContrib="4" flow="240.00" occupancy="2.32" speed="14.40" harmonicMeanSpeed="14.36" length="5.00" nVehEntered="4"/>
+    <interval begin="1080.00" end="1140.00" id="loop_TuruAida_corrW_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1140.00" end="1192.00" id="loop_TuruAida_corrW_1" nVehContrib="2" flow="138.46" occupancy="1.47" speed="13.08" harmonicMeanSpeed="13.08" length="5.00" nVehEntered="2"/>
+</detector>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-02-20T00:10:45.333412+05:00 by Eclipse SUMO GUI 1.25.0
+<!-- generated on 2026-02-24T00:12:35.716006+05:00 by Eclipse SUMO GUI 1.25.0
 <sumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
 
     <input>
@@ -27,7 +27,7 @@
     </report>
 
     <traci_server>
-        <remote-port value="65482"/>
+        <remote-port value="50961"/>
     </traci_server>
 
     <gui_only>
@@ -41,29 +41,9 @@
 
 <detector xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/det_e1_file.xsd">
     <interval begin="0.00" end="60.00" id="loop_TuruAlek_corrW_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
-    <interval begin="60.00" end="120.00" id="loop_TuruAlek_corrW_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
-    <interval begin="120.00" end="180.00" id="loop_TuruAlek_corrW_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
-    <interval begin="180.00" end="240.00" id="loop_TuruAlek_corrW_1" nVehContrib="1" flow="60.00" occupancy="0.70" speed="11.90" harmonicMeanSpeed="11.90" length="5.00" nVehEntered="1"/>
-    <interval begin="240.00" end="300.00" id="loop_TuruAlek_corrW_1" nVehContrib="3" flow="180.00" occupancy="1.95" speed="13.02" harmonicMeanSpeed="12.82" length="5.00" nVehEntered="3"/>
-    <interval begin="300.00" end="360.00" id="loop_TuruAlek_corrW_1" nVehContrib="2" flow="120.00" occupancy="3.10" speed="11.74" harmonicMeanSpeed="11.61" length="5.00" nVehEntered="3"/>
-    <interval begin="360.00" end="420.00" id="loop_TuruAlek_corrW_1" nVehContrib="6" flow="360.00" occupancy="24.66" speed="8.36" harmonicMeanSpeed="6.31" length="5.00" nVehEntered="6"/>
-    <interval begin="420.00" end="480.00" id="loop_TuruAlek_corrW_1" nVehContrib="2" flow="120.00" occupancy="66.15" speed="1.75" harmonicMeanSpeed="0.20" length="5.00" nVehEntered="1"/>
-    <interval begin="480.00" end="540.00" id="loop_TuruAlek_corrW_1" nVehContrib="4" flow="240.00" occupancy="2.63" speed="12.78" harmonicMeanSpeed="12.66" length="5.00" nVehEntered="4"/>
-    <interval begin="540.00" end="600.00" id="loop_TuruAlek_corrW_1" nVehContrib="4" flow="240.00" occupancy="3.59" speed="10.27" harmonicMeanSpeed="9.30" length="5.00" nVehEntered="4"/>
-    <interval begin="600.00" end="660.00" id="loop_TuruAlek_corrW_1" nVehContrib="1" flow="60.00" occupancy="26.08" speed="0.32" harmonicMeanSpeed="0.32" length="5.00" nVehEntered="1"/>
-    <interval begin="660.00" end="720.00" id="loop_TuruAlek_corrW_1" nVehContrib="5" flow="300.00" occupancy="3.83" speed="11.28" harmonicMeanSpeed="10.87" length="5.00" nVehEntered="5"/>
-    <interval begin="720.00" end="780.00" id="loop_TuruAlek_corrW_1" nVehContrib="4" flow="240.00" occupancy="3.70" speed="9.76" harmonicMeanSpeed="9.00" length="5.00" nVehEntered="4"/>
-    <interval begin="780.00" end="840.00" id="loop_TuruAlek_corrW_1" nVehContrib="2" flow="120.00" occupancy="42.78" speed="8.33" harmonicMeanSpeed="8.31" length="5.00" nVehEntered="3"/>
-    <interval begin="840.00" end="900.00" id="loop_TuruAlek_corrW_1" nVehContrib="7" flow="420.00" occupancy="47.13" speed="7.19" harmonicMeanSpeed="1.04" length="5.00" nVehEntered="7"/>
-    <interval begin="900.00" end="960.00" id="loop_TuruAlek_corrW_1" nVehContrib="4" flow="240.00" occupancy="61.20" speed="8.83" harmonicMeanSpeed="0.36" length="5.00" nVehEntered="3"/>
-    <interval begin="960.00" end="1020.00" id="loop_TuruAlek_corrW_1" nVehContrib="2" flow="120.00" occupancy="80.24" speed="9.34" harmonicMeanSpeed="8.91" length="5.00" nVehEntered="3"/>
-    <interval begin="1020.00" end="1080.00" id="loop_TuruAlek_corrW_1" nVehContrib="4" flow="240.00" occupancy="2.22" speed="9.82" harmonicMeanSpeed="0.41" length="5.00" nVehEntered="3"/>
-    <interval begin="1080.00" end="1140.00" id="loop_TuruAlek_corrW_1" nVehContrib="1" flow="60.00" occupancy="0.60" speed="13.83" harmonicMeanSpeed="13.83" length="5.00" nVehEntered="1"/>
-    <interval begin="1140.00" end="1200.00" id="loop_TuruAlek_corrW_1" nVehContrib="4" flow="240.00" occupancy="63.37" speed="10.25" harmonicMeanSpeed="8.74" length="5.00" nVehEntered="5"/>
-    <interval begin="1200.00" end="1260.00" id="loop_TuruAlek_corrW_1" nVehContrib="6" flow="360.00" occupancy="37.22" speed="9.24" harmonicMeanSpeed="0.54" length="5.00" nVehEntered="6"/>
-    <interval begin="1260.00" end="1320.00" id="loop_TuruAlek_corrW_1" nVehContrib="1" flow="60.00" occupancy="95.43" speed="7.27" harmonicMeanSpeed="7.27" length="5.00" nVehEntered="2"/>
-    <interval begin="1320.00" end="1380.00" id="loop_TuruAlek_corrW_1" nVehContrib="7" flow="420.00" occupancy="70.18" speed="5.10" harmonicMeanSpeed="0.52" length="5.00" nVehEntered="7"/>
-    <interval begin="1380.00" end="1440.00" id="loop_TuruAlek_corrW_1" nVehContrib="3" flow="180.00" occupancy="46.91" speed="5.63" harmonicMeanSpeed="0.25" length="5.00" nVehEntered="2"/>
-    <interval begin="1440.00" end="1500.00" id="loop_TuruAlek_corrW_1" nVehContrib="3" flow="180.00" occupancy="82.96" speed="10.66" harmonicMeanSpeed="10.34" length="5.00" nVehEntered="4"/>
-    <interval begin="1500.00" end="1551.00" id="loop_TuruAlek_corrW_1" nVehContrib="6" flow="423.53" occupancy="37.29" speed="9.03" harmonicMeanSpeed="0.45" length="5.00" nVehEntered="5"/>
+    <interval begin="60.00" end="120.00" id="loop_TuruAlek_corrW_1" nVehContrib="2" flow="120.00" occupancy="1.13" speed="14.79" harmonicMeanSpeed="14.76" length="5.00" nVehEntered="2"/>
+    <interval begin="120.00" end="180.00" id="loop_TuruAlek_corrW_1" nVehContrib="1" flow="60.00" occupancy="0.58" speed="14.40" harmonicMeanSpeed="14.40" length="5.00" nVehEntered="1"/>
+    <interval begin="180.00" end="240.00" id="loop_TuruAlek_corrW_1" nVehContrib="4" flow="240.00" occupancy="2.72" speed="12.31" harmonicMeanSpeed="12.24" length="5.00" nVehEntered="4"/>
+    <interval begin="240.00" end="300.00" id="loop_TuruAlek_corrW_1" nVehContrib="1" flow="60.00" occupancy="0.64" speed="12.94" harmonicMeanSpeed="12.94" length="5.00" nVehEntered="1"/>
+    <interval begin="300.00" end="347.00" id="loop_TuruAlek_corrW_1" nVehContrib="3" flow="229.79" occupancy="2.21" speed="14.47" harmonicMeanSpeed="14.47" length="5.00" nVehEntered="3"/>
 </detector>

@@ -33,7 +33,7 @@ SUMO_CFG = os.path.normpath(SUMO_CFG)
 CMD_QUEUE = queue.Queue()
 
 # Tartu network traffic light IDs
-TARTU_TLS_IDS = ["TRiia_Vaba", "TRiia_Turu", "TTuru_Vaks", "TTuru_Alek"]
+TARTU_TLS_IDS = ["TRiia_Kalevi", "TRiia_Turu", "TTuru_Soola", "TTuru_Aida"]
 
 # --- 3. MQTT CLIENT ---
 def on_connect(client, userdata, flags, rc, properties=None):

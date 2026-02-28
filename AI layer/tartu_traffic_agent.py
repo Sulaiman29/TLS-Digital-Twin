@@ -1,7 +1,7 @@
 """
 Rule-Based Traffic Agent for Tartu 4-Intersection Network
 ==========================================================
-Controls all 4 intersections: TRiia_Vaba, TRiia_Turu, TTuru_Vaks, TTuru_Alek.
+Controls all 4 intersections: TRiia_Kalevi, TRiia_Turu, TTuru_Soola, TTuru_Aida.
 Uses a simple hysteresis-based approach: switch to the direction with the
 most waiting vehicles, but only if it exceeds the current direction by >2.
 """
@@ -19,7 +19,7 @@ TOPIC_COMMANDS = "simulation/tartu/commands"
 # --- INTERSECTION DEFINITIONS ---
 # Each intersection has: phase_map (direction -> phase index), and its state
 INTERSECTIONS = {
-    "TRiia_Vaba": {
+    "TRiia_Kalevi": {
         "directions": ["Riia_North", "Vabaduse_West", "Vabaduse_East", "Corridor_South"],
         "phase_map": {"Riia_North": 0, "Vabaduse_West": 2, "Vabaduse_East": 4, "Corridor_South": 6},
         "phase_names": {0: "Riia_North", 2: "Vabaduse_West", 4: "Vabaduse_East", 6: "Corridor_South"},
@@ -29,15 +29,15 @@ INTERSECTIONS = {
         "phase_map": {"Corridor_North": 0, "Riia_South": 2, "Turu_West": 4, "Corridor_East": 6},
         "phase_names": {0: "Corridor_North", 2: "Riia_South", 4: "Turu_West", 6: "Corridor_East"},
     },
-    "TTuru_Vaks": {
-        "directions": ["Corridor_West", "Vaksali_North", "Vaksali_South", "Corridor_East"],
-        "phase_map": {"Corridor_West": 0, "Vaksali_North": 2, "Vaksali_South": 4, "Corridor_East": 6},
-        "phase_names": {0: "Corridor_West", 2: "Vaksali_North", 4: "Vaksali_South", 6: "Corridor_East"},
+    "TTuru_Soola": {
+        "directions": ["Corridor_West", "Soola_North", "Soola_South", "Corridor_East"],
+        "phase_map": {"Corridor_West": 0, "Soola_North": 2, "Soola_South": 4, "Corridor_East": 6},
+        "phase_names": {0: "Corridor_West", 2: "Soola_North", 4: "Soola_South", 6: "Corridor_East"},
     },
-    "TTuru_Alek": {
-        "directions": ["Corridor_West", "Aleksandri_East", "Aleksandri_North", "Aleksandri_South"],
-        "phase_map": {"Corridor_West": 0, "Aleksandri_East": 2, "Aleksandri_North": 4, "Aleksandri_South": 6},
-        "phase_names": {0: "Corridor_West", 2: "Aleksandri_East", 4: "Aleksandri_North", 6: "Aleksandri_South"},
+    "TTuru_Aida": {
+        "directions": ["Corridor_West", "AidaSandri_East", "AidaSandri_North", "AidaSandri_South"],
+        "phase_map": {"Corridor_West": 0, "AidaSandri_East": 2, "AidaSandri_North": 4, "AidaSandri_South": 6},
+        "phase_names": {0: "Corridor_West", 2: "AidaSandri_East", 4: "AidaSandri_North", 6: "AidaSandri_South"},
     },
 }
 
@@ -49,26 +49,26 @@ for tls_id, info in INTERSECTIONS.items():
 # --- LANE → DIRECTION MAPPING ---
 # Maps lane substrings to (intersection_id, direction)
 LANE_MAP = [
-    # TRiia_Vaba approaches
-    ("RiiaN_RiiaVaba",       "TRiia_Vaba", "Riia_North"),
-    ("VabaW_RiiaVaba",       "TRiia_Vaba", "Vabaduse_West"),
-    ("VabaE_RiiaVaba",       "TRiia_Vaba", "Vabaduse_East"),
-    ("RiiaTuru_RiiaVaba",    "TRiia_Vaba", "Corridor_South"),
+    # TRiia_Kalevi approaches
+    ("RiiaN_RiiaKalevi",       "TRiia_Kalevi", "Riia_North"),
+    ("UlikW_RiiaKalevi",       "TRiia_Kalevi", "Vabaduse_West"),
+    ("KaleviE_RiiaKalevi",       "TRiia_Kalevi", "Vabaduse_East"),
+    ("RiiaTuru_RiiaKalevi",    "TRiia_Kalevi", "Corridor_South"),
     # TRiia_Turu approaches
-    ("RiiaVaba_RiiaTuru",    "TRiia_Turu", "Corridor_North"),
+    ("RiiaKalevi_RiiaTuru",    "TRiia_Turu", "Corridor_North"),
     ("RiiaS_RiiaTuru",       "TRiia_Turu", "Riia_South"),
     ("TuruW_RiiaTuru",       "TRiia_Turu", "Turu_West"),
-    ("TuruVaks_RiiaTuru",    "TRiia_Turu", "Corridor_East"),
-    # TTuru_Vaks approaches
-    ("RiiaTuru_TuruVaks",    "TTuru_Vaks", "Corridor_West"),
-    ("VaksN_TuruVaks",       "TTuru_Vaks", "Vaksali_North"),
-    ("VaksS_TuruVaks",       "TTuru_Vaks", "Vaksali_South"),
-    ("TuruAlek_TuruVaks",    "TTuru_Vaks", "Corridor_East"),
-    # TTuru_Alek approaches
-    ("TuruVaks_TuruAlek",    "TTuru_Alek", "Corridor_West"),
-    ("AlekE_TuruAlek",       "TTuru_Alek", "Aleksandri_East"),
-    ("AlekN_TuruAlek",       "TTuru_Alek", "Aleksandri_North"),
-    ("AlekS_TuruAlek",       "TTuru_Alek", "Aleksandri_South"),
+    ("TuruSoola_RiiaTuru",    "TRiia_Turu", "Corridor_East"),
+    # TTuru_Soola approaches
+    ("RiiaTuru_TuruSoola",    "TTuru_Soola", "Corridor_West"),
+    ("SoolaN_TuruSoola",       "TTuru_Soola", "Soola_North"),
+    ("SoolaS_TuruSoola",       "TTuru_Soola", "Soola_South"),
+    ("TuruAida_TuruSoola",    "TTuru_Soola", "Corridor_East"),
+    # TTuru_Aida approaches
+    ("TuruSoola_TuruAida",    "TTuru_Aida", "Corridor_West"),
+    ("AidaE_TuruAida",       "TTuru_Aida", "AidaSandri_East"),
+    ("AidaN_TuruAida",       "TTuru_Aida", "AidaSandri_North"),
+    ("AidaS_TuruAida",       "TTuru_Aida", "AidaSandri_South"),
 ]
 
 

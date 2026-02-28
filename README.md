@@ -1,6 +1,6 @@
 # Digital Twin for Smart Traffic Signal
 
-This repository contains a traffic simulation project for Tartu, Estonia, implementing various traffic control strategies using SUMO (Simulation of Urban MObility) and Python. The project explores rule-based and LLM-driven agentic approaches to optimize traffic flow, with a real-time Digital Twin dashboard built using Elixir/Phoenix LiveView.
+This repository contains a traffic simulation project for Tartu, Estonia, implementing various traffic control strategies using SUMO (Simulation of Urban MObility) and Python. The project explores rule-based and LLM-driven agentic approaches to optimize traffic flow, with a real-time Digital Twin dashboard built using Elixir/Phoenix LiveView. Blockchain will now be added as an additional layer for security purposes of the twin.
 
 ## Architecture
 

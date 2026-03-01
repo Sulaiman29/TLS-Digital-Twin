@@ -1,0 +1,13 @@
+{
+    "name": "digital-twin-blockchain",
+    "version": "1.0.0",
+    "description": "Smart contracts for Digital Twin security layer",
+    "scripts": {
+        "compile": "hardhat compile",
+        "test": "hardhat test"
+    },
+    "devDependencies": {
+        "hardhat": "^2.22.0",
+        "@nomicfoundation/hardhat-toolbox": "^5.0.0"
+    }
+}

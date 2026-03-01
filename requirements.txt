@@ -1,0 +1,11 @@
+# Blockchain Security Layer
+web3>=6.0.0
+py-solc-x>=2.0.0
+
+# MQTT Communication
+paho-mqtt>=2.0.0
+
+# AI Agent
+openai>=1.0.0
+langchain>=0.1.0
+langchain-openai>=0.0.5

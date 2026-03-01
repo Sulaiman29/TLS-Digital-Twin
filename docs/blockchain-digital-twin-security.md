@@ -355,7 +355,7 @@ contract TLSDecisionLog {
 ## 10. Next Steps
 
 - [x] Set up Ganache locally
-- [ ] Write `TLSDecisionLog.sol` smart contract
+- [x] Write `TLSDecisionLog.sol` smart contract
 - [x] Add `anchor_data()` to `realtime_publisher.py`
 - [ ] Add `verify_data()` to `tartu_agentic_brain.py`
 - [ ] Add blockchain verification badge to Phoenix dashboard

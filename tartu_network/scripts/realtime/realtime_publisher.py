@@ -3,6 +3,7 @@ import sys
 import time
 import json
 import queue
+import logging
 import paho.mqtt.client as mqtt
 
 # --- 1. SETUP SUMO PATHS ---
@@ -18,6 +19,14 @@ try:
 except ImportError:
     def xy_to_latlon(x, y): return None, None
 
+# --- 1b. BLOCKCHAIN MODULE PATH ---
+# Add project root so we can import the blockchain package
+project_root = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../.."))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+from blockchain import BlockchainClient
+
 # --- 2. CONFIGURATION ---
 MQTT_BROKER = "localhost"
 MQTT_PORT = 1883
@@ -25,6 +34,10 @@ TOPIC_METRICS = "simulation/tartu/metrics/live"
 TOPIC_VEHICLES = "simulation/tartu/vehicles/live"
 TOPIC_TL = "simulation/tartu/tl/live"
 TOPIC_COMMANDS = "simulation/tartu/commands"
+
+# Blockchain toggle (set env BLOCKCHAIN_ENABLED=false to disable)
+BLOCKCHAIN_ENABLED = os.getenv("BLOCKCHAIN_ENABLED", "true").lower() != "false"
+BLOCKCHAIN_ANCHOR_INTERVAL = int(os.getenv("BLOCKCHAIN_ANCHOR_INTERVAL", "5"))  # batch vehicles every N steps
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 SUMO_CFG = os.path.join(script_dir, "../../cfg/tartu.sumocfg")
@@ -94,6 +107,19 @@ def get_traffic_light_states():
 
 # --- 5. MAIN LOOP ---
 def run_simulation():
+    # --- BLOCKCHAIN SETUP ---
+    bc = None
+    if BLOCKCHAIN_ENABLED:
+        logging.basicConfig(level=logging.INFO, format="%(name)s | %(message)s")
+        bc = BlockchainClient()
+        if bc.is_connected:
+            print(f"[Blockchain] Connected  ✔  (block #{bc.get_block_number()})")
+        else:
+            print("[Blockchain] Not connected — anchoring disabled for this run.")
+            bc = None
+    else:
+        print("[Blockchain] Disabled via BLOCKCHAIN_ENABLED=false")
+
     print(f"Starting SUMO: {SUMO_CFG}")
 
     # output directory for raw files
@@ -145,12 +171,27 @@ def run_simulation():
             # --- OBSERVATION: PUBLISH DATA ---
             vehicle_ids = traci.vehicle.getIDList()
             
-            client.publish(TOPIC_METRICS, json.dumps(get_aggregated_metrics(step, vehicle_ids)))
-            client.publish(TOPIC_VEHICLES, json.dumps({"time": step, "vehicles": get_vehicle_states(vehicle_ids)}))
-            client.publish(TOPIC_TL, json.dumps({"time": step, "lights": get_traffic_light_states(), "sim_speed": 1.0}))
+            metrics_data = get_aggregated_metrics(step, vehicle_ids)
+            vehicles_data = {"time": step, "vehicles": get_vehicle_states(vehicle_ids)}
+            tl_data = {"time": step, "lights": get_traffic_light_states(), "sim_speed": 1.0}
+
+            client.publish(TOPIC_METRICS, json.dumps(metrics_data))
+            client.publish(TOPIC_VEHICLES, json.dumps(vehicles_data))
+            client.publish(TOPIC_TL, json.dumps(tl_data))
+
+            # --- BLOCKCHAIN: ANCHOR DATA ---
+            if bc:
+                # Anchor metrics & TL state every step (low volume)
+                bc.anchor_data(metrics_data)
+                bc.anchor_data(tl_data)
+
+                # Batch-anchor vehicle positions at configured interval
+                if step % BLOCKCHAIN_ANCHOR_INTERVAL == 0 and vehicles_data["vehicles"]:
+                    bc.anchor_batch(vehicles_data["vehicles"])
             
             if step % 50 == 0:
-                print(f"[Step {step}] Active Vehicles: {len(vehicle_ids)}")
+                bc_info = f"  |  Chain block #{bc.get_block_number()}" if bc else ""
+                print(f"[Step {step}] Active Vehicles: {len(vehicle_ids)}{bc_info}")
                 
             step += 1
 

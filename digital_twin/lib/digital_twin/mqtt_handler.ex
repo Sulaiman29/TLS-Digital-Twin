@@ -85,6 +85,17 @@ defmodule DigitalTwin.MqttHandler do
     end
   end
 
+  def handle_message(["simulation", "tartu", "blockchain", "live"], payload, state) do
+    case Jason.decode(payload) do
+      {:ok, data} ->
+        TrafficState.update_blockchain(data)
+        {:ok, state}
+
+      {:error, _reason} ->
+        {:ok, state}
+    end
+  end
+
   def handle_message(topic, _payload, state) do
     Logger.debug("[MqttHandler] Unhandled topic: #{Enum.join(topic, "/")}")
     {:ok, state}

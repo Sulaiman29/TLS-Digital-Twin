@@ -31,6 +31,10 @@ defmodule DigitalTwin.TrafficState do
     GenServer.cast(__MODULE__, {:traffic_lights, tl_payload})
   end
 
+  def update_blockchain(bc_payload) do
+    GenServer.cast(__MODULE__, {:blockchain, bc_payload})
+  end
+
   @doc "Subscribe to real-time traffic updates"
   def subscribe do
     Phoenix.PubSub.subscribe(@pubsub, @topic)
@@ -50,6 +54,14 @@ defmodule DigitalTwin.TrafficState do
       },
       vehicles: [],
       traffic_lights: [],
+      blockchain: %{
+        "connected" => false,
+        "data_anchored" => false,
+        "anchor_count" => 0,
+        "block_number" => 0,
+        "last_tx_hash" => nil,
+        "access_control_active" => false
+      },
       last_update: nil
     }
 
@@ -80,6 +92,13 @@ defmodule DigitalTwin.TrafficState do
   def handle_cast({:traffic_lights, payload}, state) do
     lights = Map.get(payload, "lights", [])
     new_state = %{state | traffic_lights: lights, last_update: DateTime.utc_now()}
+    broadcast(new_state)
+    {:noreply, new_state}
+  end
+
+  @impl true
+  def handle_cast({:blockchain, payload}, state) do
+    new_state = %{state | blockchain: payload, last_update: DateTime.utc_now()}
     broadcast(new_state)
     {:noreply, new_state}
   end

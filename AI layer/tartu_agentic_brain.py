@@ -16,14 +16,26 @@ Network Topology (Inverted-T):
 """
 
 import os
+import sys
 import json
 import time
+import logging
 import threading
 import collections
 import paho.mqtt.client as mqtt
 from langchain_openai import ChatOpenAI
 from langchain_core.tools import tool
 from langgraph.prebuilt import create_react_agent
+
+# --- Blockchain module path ---
+project_root = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+from blockchain import BlockchainClient, TLSDecisionContract, AccessControlContract
+
+# Blockchain toggle
+BLOCKCHAIN_ENABLED = os.getenv("BLOCKCHAIN_ENABLED", "true").lower() != "false"
 
 # --- CONFIGURATION ---
 BROKER = "localhost"
@@ -127,6 +139,8 @@ for tls_id, cfg in INTERSECTION_CONFIG.items():
     }
 state_lock = threading.Lock()
 mqtt_client = None
+tls_contract = None  # TLSDecisionContract instance (set in main)
+access_control = None  # AccessControlContract instance (set in main)
 
 # Decision history buffers (per agent)
 decision_history = {tls_id: collections.deque(maxlen=HISTORY_SIZE) for tls_id in INTERSECTION_CONFIG}
@@ -210,6 +224,25 @@ def make_set_phase_tool(tls_id):
                 "duration": duration,
                 "queues_at_decision": old_queues,
             })
+
+        # --- BLOCKCHAIN: Validate command via access control ---
+        if access_control:
+            try:
+                allowed = access_control.validate_command(access_control.account, tls_id)
+                if not allowed:
+                    return f"Access denied: agent not authorized for {tls_id}"
+            except Exception as ac_err:
+                print(f"    [AccessControl] Validation error: {ac_err}")
+
+        # --- BLOCKCHAIN: Log decision on-chain ---
+        if tls_contract:
+            try:
+                input_hash = BlockchainClient.hash_data(old_queues)
+                action_str = f"Phase {target_phase} ({direction}) for {duration}s"
+                tls_contract.log_decision(tls_id, action_str, input_hash)
+                print(f"    [Blockchain] Decision logged on-chain  ✔")
+            except Exception as bc_err:
+                print(f"    [Blockchain] Log failed: {bc_err}")
 
         print(f"\n>>> [AGENT {tls_id}] TOOL: {direction} (Phase {target_phase}) for {duration}s")
 
@@ -447,7 +480,7 @@ def agent_loop(agent_name, agent_id, agent_executor, system_prompt):
 # MAIN — Start MQTT + four agent threads
 # =====================================================================
 def main():
-    global mqtt_client
+    global mqtt_client, tls_contract, access_control
 
     # --- MQTT Setup ---
     mqtt_client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
@@ -457,11 +490,34 @@ def main():
     mqtt_client.subscribe(TOPIC_TL)
     mqtt_client.loop_start()
 
+    # --- Blockchain Setup ---
+    if BLOCKCHAIN_ENABLED:
+        logging.basicConfig(level=logging.INFO, format="%(name)s | %(message)s")
+        bc = BlockchainClient()
+        if bc.is_connected:
+            # Deploy TLS Decision Logger
+            tls_contract = TLSDecisionContract.deploy(bc)
+            tls_contract.register_agent(bc.account)
+            print(f"[Blockchain] TLSDecisionLog deployed  ✔  {tls_contract.address}")
+
+            # Deploy Access Control
+            access_control = AccessControlContract.deploy(bc)
+            access_control.grant_role(bc.account, "AI_AGENT")
+            for tls_id in INTERSECTION_CONFIG:
+                access_control.register_intersection(tls_id)
+            print(f"[Blockchain] AccessControl deployed  ✔  {access_control.address}")
+            print(f"[Blockchain] Registered {len(INTERSECTION_CONFIG)} intersections, agent authorized")
+        else:
+            print("[Blockchain] Not connected — decision logging disabled.")
+    else:
+        print("[Blockchain] Disabled via BLOCKCHAIN_ENABLED=false")
+
     print("=" * 65)
     print("  TARTU 4-AGENT TRAFFIC CONTROL — Autonomous AI Agents")
     print("  Intersections: TRiia_Kalevi | TRiia_Turu | TTuru_Soola | TTuru_Aida")
     print("  Model: GPT-4o-mini | Decision interval: 3s")
     print("  Features: System prompt, Decision history, Phase timing")
+    print("  Blockchain: " + (f"ON — {tls_contract.address}" if tls_contract else "OFF"))
     print("=" * 65)
 
     # --- Create 4 separate LLM agents ---

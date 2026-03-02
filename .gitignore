@@ -12,7 +12,14 @@ build/
 # Virtual environments
 venv/
 env/
+.venv/
 .env
+
+# Node / Hardhat / Blockchain
+node_modules/
+blockchain/artifacts/
+blockchain/cache/
+blockchain/typechain-types/
 
 # SUMO intermediate files
 trips.trips.xml

@@ -16,15 +16,16 @@ This repository contains a traffic simulation project for Tartu, Estonia, implem
 │  tartu_traffic_agent.py  (rule-based)    │
 │  tartu_agentic_brain.py  (GPT-4o-mini)   │
 │  Subscribes + publishes phase commands   │
-└──────────────┬───────────────────────────┘
-               │ MQTT (JSON)
-               ▼
-┌──────────────────────────────────────────┐
-│  Digital Twin Dashboard (Elixir/Phoenix) │
-│  Tortoise MQTT → GenServer → PubSub      │
-│  LiveView → LeafletJS (browser)          │
-│  http://localhost:4000                   │
-└──────────────────────────────────────────┘
+└──────┬───────────────────────────────────┘
+       │ MQTT (JSON)
+       ▼
+┌──────────────────────────────────────────┐      ┌─────────────────────┐
+│  Digital Twin Dashboard (Elixir/Phoenix) │      │  Blockchain (Ganache)│
+│  Tortoise MQTT → GenServer → PubSub      │◄────►│  TLSDecisionLog.sol  │
+│  LiveView → LeafletJS (browser)          │      │  AccessControl.sol   │
+│  Blockchain Security Panel               │      │  Data anchoring (tx) │
+│  http://localhost:4000                   │      │  http://127.0.0.1:8545│
+└──────────────────────────────────────────┘      └─────────────────────┘
 ```
 
 ## Project Structure
@@ -46,9 +47,19 @@ This repository contains a traffic simulation project for Tartu, Estonia, implem
   - `network/` — Network topology, traffic lights, detectors, labels
   - `scripts/` — Realtime publisher, offline metrics computation
 
+- **`blockchain/`** — Blockchain security layer
+  - `contracts/TLSDecisionLog.sol` — Solidity smart contract for immutable AI decision logging
+  - `contracts/AccessControl.sol` — RBAC (Admin, AI Agent, Publisher, Auditor)
+  - `blockchain_client.py` — Hash-and-anchor data integrity via Ganache
+  - `contract_interface.py` — Python wrapper for TLSDecisionLog contract
+  - `access_control.py` — Python wrapper for AccessControl contract
+  - `test_blockchain.py` / `test_contract.py` / `test_access_control.py` — 61 tests total
+
 - **`multi_intersection/`** — Two-intersection corridor scenarios
 
 - **`single_intersection/`** — Baseline single-intersection scenarios
+
+- **`docs/`** — Documentation and design docs
 
 - **`SLR/`** — Systematic Literature Review documents
 
@@ -70,6 +81,11 @@ This repository contains a traffic simulation project for Tartu, Estonia, implem
 ### Infrastructure
 - Mosquitto MQTT broker (or any MQTT broker on `localhost:1883`)
 
+### Blockchain (optional, for security layer)
+- Node.js 18+ (for Hardhat and Ganache)
+- Ganache (`npm install -g ganache`) — local Ethereum blockchain
+- `web3` (Python) — Ethereum interaction
+
 ## Installation
 
 ```bash
@@ -85,6 +101,12 @@ cd digital_twin
 mix deps.get
 mix compile
 cd ..
+
+# 4. Blockchain dependencies (optional)
+cd blockchain
+npm install
+npx hardhat compile
+cd ..
 ```
 
 ## Usage
@@ -92,6 +114,11 @@ cd ..
 ### 1. Start MQTT Broker
 ```bash
 mosquitto
+```
+
+### 1b. Start Ganache (optional, enables blockchain security)
+```bash
+ganache --deterministic --port 8545
 ```
 
 ### 2. Run SUMO Simulation with MQTT Publisher
@@ -120,6 +147,16 @@ Open **http://localhost:4000** to see the live dashboard with:
 - 🗺️ LeafletJS map with real-time vehicle markers on Tartu streets
 - 📊 Live metrics (vehicle count, speed, congestion index)
 - 🚦 Traffic light state visualization for all 4 intersections
+- 🔗 Blockchain security panel (data integrity, decision audit, access control)
+
+### Environment Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `OPENAI_API_KEY` | — | Required for LLM agents |
+| `BLOCKCHAIN_ENABLED` | `true` | Set to `false` to disable blockchain |
+| `BLOCKCHAIN_RPC_URL` | `http://127.0.0.1:8545` | Ganache/Ethereum RPC endpoint |
+| `BLOCKCHAIN_ANCHOR_INTERVAL` | `5` | Batch-anchor vehicles every N steps |
 
 ## Contributing
 Personal thesis implementation.

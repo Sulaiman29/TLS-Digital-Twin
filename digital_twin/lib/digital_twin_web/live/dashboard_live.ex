@@ -16,6 +16,7 @@ defmodule DigitalTwinWeb.DashboardLive do
      |> assign(:metrics, state.metrics)
      |> assign(:vehicles, state.vehicles)
      |> assign(:traffic_lights, state.traffic_lights)
+     |> assign(:blockchain, state.blockchain)
      |> assign(:vehicle_count, length(state.vehicles))
      |> assign(:sim_time, state.metrics["time"] || 0)}
   end
@@ -28,6 +29,7 @@ defmodule DigitalTwinWeb.DashboardLive do
       |> assign(:metrics, state.metrics)
       |> assign(:vehicles, state.vehicles)
       |> assign(:traffic_lights, state.traffic_lights)
+      |> assign(:blockchain, state.blockchain)
       |> assign(:vehicle_count, length(state.vehicles))
       |> assign(:sim_time, state.metrics["time"] || 0)
       |> push_event("traffic_update", %{
@@ -89,6 +91,52 @@ defmodule DigitalTwinWeb.DashboardLive do
         </div>
       </div>
 
+      <!-- Blockchain Security Panel -->
+      <div class="blockchain-panel">
+        <div class="bc-header">
+          <span class="bc-title">🔗 Blockchain Security</span>
+          <span class={"bc-badge #{if @blockchain["connected"], do: "bc-active", else: "bc-inactive"}"}>
+            <%= if @blockchain["connected"], do: "● LIVE", else: "○ OFFLINE" %>
+          </span>
+        </div>
+        <div class="bc-cards">
+          <div class={"bc-status-card #{if @blockchain["data_anchored"], do: "bc-ok", else: "bc-warn"}"}>
+            <span class="bc-icon"><%= if @blockchain["data_anchored"], do: "✅", else: "❌" %></span>
+            <div class="bc-info">
+              <span class="bc-label">Data Integrity</span>
+              <span class="bc-value"><%= if @blockchain["data_anchored"], do: "Verified on-chain", else: "Not anchored" %></span>
+            </div>
+          </div>
+          <div class="bc-status-card">
+            <span class="bc-icon">⛓️</span>
+            <div class="bc-info">
+              <span class="bc-label">Last Block</span>
+              <span class="bc-value">#<%= @blockchain["block_number"] || 0 %></span>
+            </div>
+          </div>
+          <div class="bc-status-card">
+            <span class="bc-icon">📋</span>
+            <div class="bc-info">
+              <span class="bc-label">Anchored Records</span>
+              <span class="bc-value"><%= @blockchain["anchor_count"] || 0 %></span>
+            </div>
+          </div>
+          <div class={"bc-status-card #{if @blockchain["access_control_active"], do: "bc-ok", else: "bc-warn"}"}>
+            <span class="bc-icon"><%= if @blockchain["access_control_active"], do: "🔒", else: "🔓" %></span>
+            <div class="bc-info">
+              <span class="bc-label">Access Control</span>
+              <span class="bc-value"><%= if @blockchain["access_control_active"], do: "RBAC Active", else: "Inactive" %></span>
+            </div>
+          </div>
+        </div>
+        <%= if @blockchain["last_tx_hash"] do %>
+          <div class="bc-tx">
+            <span class="bc-tx-label">Latest Tx:</span>
+            <code class="bc-tx-hash"><%= truncate_hash(@blockchain["last_tx_hash"]) %></code>
+          </div>
+        <% end %>
+      </div>
+
       <!-- Map + Sidebar -->
       <div class="main-content">
         <div id="traffic-map" phx-hook="TrafficMap" phx-update="ignore" class="map-container">
@@ -133,4 +181,10 @@ defmodule DigitalTwinWeb.DashboardLive do
   defp format_percent(nil), do: "0%"
   defp format_percent(val) when is_number(val), do: "#{trunc(val * 100)}%"
   defp format_percent(_), do: "0%"
+
+  defp truncate_hash(nil), do: ""
+  defp truncate_hash(hash) when is_binary(hash) and byte_size(hash) > 16 do
+    String.slice(hash, 0, 10) <> "..." <> String.slice(hash, -6, 6)
+  end
+  defp truncate_hash(hash), do: hash
 end

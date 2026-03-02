@@ -32,7 +32,7 @@ project_root = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__f
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-from blockchain import BlockchainClient, TLSDecisionContract
+from blockchain import BlockchainClient, TLSDecisionContract, AccessControlContract
 
 # Blockchain toggle
 BLOCKCHAIN_ENABLED = os.getenv("BLOCKCHAIN_ENABLED", "true").lower() != "false"
@@ -140,6 +140,7 @@ for tls_id, cfg in INTERSECTION_CONFIG.items():
 state_lock = threading.Lock()
 mqtt_client = None
 tls_contract = None  # TLSDecisionContract instance (set in main)
+access_control = None  # AccessControlContract instance (set in main)
 
 # Decision history buffers (per agent)
 decision_history = {tls_id: collections.deque(maxlen=HISTORY_SIZE) for tls_id in INTERSECTION_CONFIG}
@@ -223,6 +224,15 @@ def make_set_phase_tool(tls_id):
                 "duration": duration,
                 "queues_at_decision": old_queues,
             })
+
+        # --- BLOCKCHAIN: Validate command via access control ---
+        if access_control:
+            try:
+                allowed = access_control.validate_command(access_control.account, tls_id)
+                if not allowed:
+                    return f"Access denied: agent not authorized for {tls_id}"
+            except Exception as ac_err:
+                print(f"    [AccessControl] Validation error: {ac_err}")
 
         # --- BLOCKCHAIN: Log decision on-chain ---
         if tls_contract:
@@ -470,7 +480,7 @@ def agent_loop(agent_name, agent_id, agent_executor, system_prompt):
 # MAIN — Start MQTT + four agent threads
 # =====================================================================
 def main():
-    global mqtt_client, tls_contract
+    global mqtt_client, tls_contract, access_control
 
     # --- MQTT Setup ---
     mqtt_client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
@@ -485,9 +495,18 @@ def main():
         logging.basicConfig(level=logging.INFO, format="%(name)s | %(message)s")
         bc = BlockchainClient()
         if bc.is_connected:
+            # Deploy TLS Decision Logger
             tls_contract = TLSDecisionContract.deploy(bc)
             tls_contract.register_agent(bc.account)
-            print(f"[Blockchain] Contract deployed  ✔  {tls_contract.address}")
+            print(f"[Blockchain] TLSDecisionLog deployed  ✔  {tls_contract.address}")
+
+            # Deploy Access Control
+            access_control = AccessControlContract.deploy(bc)
+            access_control.grant_role(bc.account, "AI_AGENT")
+            for tls_id in INTERSECTION_CONFIG:
+                access_control.register_intersection(tls_id)
+            print(f"[Blockchain] AccessControl deployed  ✔  {access_control.address}")
+            print(f"[Blockchain] Registered {len(INTERSECTION_CONFIG)} intersections, agent authorized")
         else:
             print("[Blockchain] Not connected — decision logging disabled.")
     else:

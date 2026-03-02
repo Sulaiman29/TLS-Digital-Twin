@@ -25,7 +25,7 @@ project_root = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__f
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-from blockchain import BlockchainClient
+from blockchain import BlockchainClient, AccessControlContract
 
 # --- 2. CONFIGURATION ---
 MQTT_BROKER = "localhost"
@@ -109,11 +109,16 @@ def get_traffic_light_states():
 def run_simulation():
     # --- BLOCKCHAIN SETUP ---
     bc = None
+    ac = None
     if BLOCKCHAIN_ENABLED:
         logging.basicConfig(level=logging.INFO, format="%(name)s | %(message)s")
         bc = BlockchainClient()
         if bc.is_connected:
             print(f"[Blockchain] Connected  ✔  (block #{bc.get_block_number()})")
+            # Deploy Access Control and authorize publisher
+            ac = AccessControlContract.deploy(bc)
+            ac.grant_role(bc.account, "PUBLISHER")
+            print(f"[AccessControl] Publisher authorized  ✔  {ac.address}")
         else:
             print("[Blockchain] Not connected — anchoring disabled for this run.")
             bc = None

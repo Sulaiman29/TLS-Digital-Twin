@@ -34,6 +34,7 @@ TOPIC_METRICS = "simulation/tartu/metrics/live"
 TOPIC_VEHICLES = "simulation/tartu/vehicles/live"
 TOPIC_TL = "simulation/tartu/tl/live"
 TOPIC_COMMANDS = "simulation/tartu/commands"
+TOPIC_BLOCKCHAIN = "simulation/tartu/blockchain/live"
 
 # Blockchain toggle (set env BLOCKCHAIN_ENABLED=false to disable)
 BLOCKCHAIN_ENABLED = os.getenv("BLOCKCHAIN_ENABLED", "true").lower() != "false"
@@ -110,6 +111,8 @@ def run_simulation():
     # --- BLOCKCHAIN SETUP ---
     bc = None
     ac = None
+    bc_anchor_count = 0
+    bc_last_tx = None
     if BLOCKCHAIN_ENABLED:
         logging.basicConfig(level=logging.INFO, format="%(name)s | %(message)s")
         bc = BlockchainClient()
@@ -187,13 +190,32 @@ def run_simulation():
             # --- BLOCKCHAIN: ANCHOR DATA ---
             if bc:
                 # Anchor metrics & TL state every step (low volume)
-                bc.anchor_data(metrics_data)
+                tx1 = bc.anchor_data(metrics_data)
                 bc.anchor_data(tl_data)
+                bc_anchor_count += 2
+                if tx1:
+                    bc_last_tx = tx1
 
                 # Batch-anchor vehicle positions at configured interval
                 if step % BLOCKCHAIN_ANCHOR_INTERVAL == 0 and vehicles_data["vehicles"]:
-                    bc.anchor_batch(vehicles_data["vehicles"])
-            
+                    tx_batch = bc.anchor_batch(vehicles_data["vehicles"])
+                    bc_anchor_count += 1
+                    if tx_batch:
+                        bc_last_tx = tx_batch
+
+            # --- BLOCKCHAIN: PUBLISH STATUS TO DASHBOARD ---
+            if step % 5 == 0:
+                bc_status = {
+                    "connected": bc is not None,
+                    "data_anchored": bc is not None,
+                    "anchor_count": bc_anchor_count,
+                    "block_number": bc.get_block_number() if bc else 0,
+                    "last_tx_hash": bc_last_tx if bc_last_tx else None,
+                    "access_control_active": ac is not None,
+                    "step": step,
+                }
+                client.publish(TOPIC_BLOCKCHAIN, json.dumps(bc_status))
+
             if step % 50 == 0:
                 bc_info = f"  |  Chain block #{bc.get_block_number()}" if bc else ""
                 print(f"[Step {step}] Active Vehicles: {len(vehicle_ids)}{bc_info}")

@@ -5,6 +5,7 @@ Provides data integrity verification via hash-and-anchor on Ethereum (Ganache/Se
 
 from .blockchain_client import BlockchainClient
 from .contract_interface import TLSDecisionContract
+from .access_control import AccessControlContract
 
-__all__ = ["BlockchainClient", "TLSDecisionContract"]
+__all__ = ["BlockchainClient", "TLSDecisionContract", "AccessControlContract"]
 

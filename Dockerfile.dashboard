@@ -28,8 +28,10 @@ COPY digital_twin/assets assets/
 COPY digital_twin/lib lib/
 COPY digital_twin/priv priv/
 
-RUN mix assets.deploy
+# Compile first to generate phoenix-colocated hooks,
+# then build assets (esbuild needs the generated hooks)
 RUN mix compile
+RUN mix assets.deploy
 RUN mix release
 
 # ---- Stage 2: Runtime ----

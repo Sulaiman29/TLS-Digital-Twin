@@ -157,6 +157,28 @@ Open **http://localhost:4000** to see the live dashboard with:
 | `BLOCKCHAIN_ENABLED` | `true` | Set to `false` to disable blockchain |
 | `BLOCKCHAIN_RPC_URL` | `http://127.0.0.1:8545` | Ganache/Ethereum RPC endpoint |
 | `BLOCKCHAIN_ANCHOR_INTERVAL` | `5` | Batch-anchor vehicles every N steps |
+| `MQTT_BROKER` | `localhost` | MQTT broker hostname (Python scripts) |
+| `SUMO_MODE` | `gui` | `gui` for SUMO-GUI, `headless` for Docker |
+
+## Docker (Alternative)
+
+Run everything with a single command — no need to open 5 terminals:
+
+```bash
+# 1. Copy and fill in your .env
+cp .env.example .env
+# Edit .env and set OPENAI_API_KEY
+
+# 2. Build and start all services
+docker compose up --build
+
+# 3. Open the dashboard
+# http://localhost:4000
+```
+
+To stop: `docker compose down`
+
+> **Note:** Docker runs SUMO in headless mode (no GUI window). The Phoenix dashboard at `localhost:4000` provides full real-time visualization.
 
 ## Contributing
 Personal thesis implementation.

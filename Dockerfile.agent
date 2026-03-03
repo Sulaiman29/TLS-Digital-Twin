@@ -1,0 +1,21 @@
+# ============================================
+# Dockerfile for AI Agent (LLM-based)
+# ============================================
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy AI agent scripts
+COPY AI\ layer/ AI\ layer/
+
+# Copy blockchain module (needed for import)
+COPY blockchain/ blockchain/
+
+# Copy .env (if present, dotenv will load it)
+COPY .env* ./
+
+CMD ["python", "AI layer/tartu_agentic_brain.py"]

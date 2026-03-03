@@ -16,9 +16,14 @@ import Config
 #
 # Alternatively, you can use `mix phx.gen.release` to generate a `bin/server`
 # script that automatically sets the env var above.
-if System.get_env("PHX_SERVER") do
+if System.get_env("PHX_SERVER") || System.get_env("PORT") do
   config :digital_twin, DigitalTwinWeb.Endpoint, server: true
 end
+
+# MQTT broker config (defaults to localhost for local dev)
+config :digital_twin, :mqtt,
+  host: System.get_env("MQTT_HOST") || "localhost",
+  port: String.to_integer(System.get_env("MQTT_PORT") || "1883")
 
 config :digital_twin, DigitalTwinWeb.Endpoint,
   http: [port: String.to_integer(System.get_env("PORT", "4000"))]

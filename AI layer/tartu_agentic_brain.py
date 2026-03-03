@@ -43,7 +43,7 @@ from blockchain import BlockchainClient, TLSDecisionContract, AccessControlContr
 BLOCKCHAIN_ENABLED = os.getenv("BLOCKCHAIN_ENABLED", "true").lower() != "false"
 
 # --- CONFIGURATION ---
-BROKER = "localhost"
+BROKER = os.getenv("MQTT_BROKER", "localhost")
 TOPIC_VEHICLES = "simulation/tartu/vehicles/live"
 TOPIC_TL = "simulation/tartu/tl/live"
 TOPIC_COMMANDS = "simulation/tartu/commands"

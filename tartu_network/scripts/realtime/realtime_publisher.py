@@ -33,7 +33,7 @@ if project_root not in sys.path:
 from blockchain import BlockchainClient, AccessControlContract
 
 # --- 2. CONFIGURATION ---
-MQTT_BROKER = "localhost"
+MQTT_BROKER = os.getenv("MQTT_BROKER", "localhost")
 MQTT_PORT = 1883
 TOPIC_METRICS = "simulation/tartu/metrics/live"
 TOPIC_VEHICLES = "simulation/tartu/vehicles/live"
@@ -141,8 +141,9 @@ def run_simulation():
     tripinfo_file = os.path.join(output_dir, "tripinfo.xml")
     summary_file = os.path.join(output_dir, "summary.xml")
 
+    sumo_binary = "sumo" if os.getenv("SUMO_MODE", "gui") == "headless" else "sumo-gui"
     sumo_cmd = [
-        "sumo-gui", 
+        sumo_binary, 
         "-c", SUMO_CFG,
         "--start",
         "--quit-on-end",

@@ -4,6 +4,11 @@ import time
 import json
 import queue
 import logging
+from dotenv import load_dotenv
+
+# Load .env from project root
+load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", ".env"))
+
 import paho.mqtt.client as mqtt
 
 # --- 1. SETUP SUMO PATHS ---

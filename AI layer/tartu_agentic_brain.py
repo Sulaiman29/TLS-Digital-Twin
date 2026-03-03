@@ -22,6 +22,11 @@ import time
 import logging
 import threading
 import collections
+from dotenv import load_dotenv
+
+# Load .env from project root
+load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".env"))
+
 import paho.mqtt.client as mqtt
 from langchain_openai import ChatOpenAI
 from langchain_core.tools import tool

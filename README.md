@@ -118,7 +118,7 @@ mosquitto
 
 ### 1b. Start Ganache (optional, enables blockchain security)
 ```bash
-ganache --deterministic --port 8545
+npx -y ganache --deterministic --port 8545
 ```
 
 ### 2. Run SUMO Simulation with MQTT Publisher

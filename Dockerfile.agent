@@ -9,8 +9,8 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy AI agent scripts
-COPY AI\ layer/ AI\ layer/
+# Copy AI agent scripts (JSON form needed for space in path)
+COPY ["AI layer/", "AI layer/"]
 
 # Copy blockchain module (needed for import)
 COPY blockchain/ blockchain/

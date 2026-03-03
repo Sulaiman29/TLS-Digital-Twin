@@ -20,7 +20,7 @@ services:
     networks:
       - app-network
     healthcheck:
-      test: ["CMD-SHELL", "mosquitto_sub -h localhost -t '$$SYS/#' -C 1 -W 3 || exit 1"]
+      test: [ "CMD-SHELL", "mosquitto_sub -h localhost -t '$$SYS/#' -C 1 -W 3 || exit 1" ]
       interval: 5s
       timeout: 3s
       retries: 5
@@ -29,13 +29,13 @@ services:
   ganache:
     image: trufflesuite/ganache:latest
     container_name: dt-ganache
-    command: ["--deterministic", "--host", "0.0.0.0", "--port", "8545"]
+    command: [ "--deterministic", "--host", "0.0.0.0", "--port", "8545" ]
     ports:
       - "8545:8545"
     networks:
       - app-network
     healthcheck:
-      test: ["CMD-SHELL", "nc -z localhost 8545 || exit 1"]
+      test: [ "CMD-SHELL", "wget -qO- http://localhost:8545 || exit 1" ]
       interval: 5s
       timeout: 3s
       retries: 5

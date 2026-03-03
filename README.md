@@ -94,7 +94,7 @@ git clone https://github.com/Sulaiman29/TLS-Digital-Twin.git
 cd TLS-Digital-Twin
 
 # 2. Python dependencies
-pip install traci sumolib paho-mqtt langchain langchain-openai langgraph
+pip install -r requirements.txt
 
 # 3. Elixir/Phoenix dependencies
 cd digital_twin

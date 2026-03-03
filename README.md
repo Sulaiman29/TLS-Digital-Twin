@@ -93,16 +93,23 @@ This repository contains a traffic simulation project for Tartu, Estonia, implem
 git clone https://github.com/Sulaiman29/TLS-Digital-Twin.git
 cd TLS-Digital-Twin
 
-# 2. Python dependencies
+# 2. Create and activate virtual environment
+python -m venv .venv
+# Windows:
+.venv\Scripts\activate
+# macOS/Linux:
+# source .venv/bin/activate
+
+# 3. Install Python dependencies
 pip install -r requirements.txt
 
-# 3. Elixir/Phoenix dependencies
+# 4. Elixir/Phoenix dependencies
 cd digital_twin
 mix deps.get
 mix compile
 cd ..
 
-# 4. Blockchain dependencies (optional)
+# 5. Blockchain dependencies (optional)
 cd blockchain
 npm install
 npx hardhat compile

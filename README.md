@@ -19,13 +19,13 @@ This repository contains a traffic simulation project for Tartu, Estonia, implem
 └──────┬───────────────────────────────────┘
        │ MQTT (JSON)
        ▼
-┌──────────────────────────────────────────┐      ┌─────────────────────┐
-│  Digital Twin Dashboard (Elixir/Phoenix) │      │  Blockchain (Ganache)│
-│  Tortoise MQTT → GenServer → PubSub      │◄────►│  TLSDecisionLog.sol  │
-│  LiveView → LeafletJS (browser)          │      │  AccessControl.sol   │
-│  Blockchain Security Panel               │      │  Data anchoring (tx) │
+┌──────────────────────────────────────────┐      ┌───────────────────────┐
+│  Digital Twin Dashboard (Elixir/Phoenix) │      │  Blockchain (Ganache) │
+│  Tortoise MQTT → GenServer → PubSub      │◄────►│  TLSDecisionLog.sol   │
+│  LiveView → LeafletJS (browser)          │      │  AccessControl.sol    │
+│  Blockchain Security Panel               │      │  Data anchoring (tx)  │
 │  http://localhost:4000                   │      │  http://127.0.0.1:8545│
-└──────────────────────────────────────────┘      └─────────────────────┘
+└──────────────────────────────────────────┘      └───────────────────────┘
 ```
 
 ## Project Structure

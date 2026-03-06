@@ -35,6 +35,10 @@ defmodule DigitalTwin.TrafficState do
     GenServer.cast(__MODULE__, {:blockchain, bc_payload})
   end
 
+  def add_audit_entry(entry) do
+    GenServer.cast(__MODULE__, {:audit, entry})
+  end
+
   @doc "Subscribe to real-time traffic updates"
   def subscribe do
     Phoenix.PubSub.subscribe(@pubsub, @topic)
@@ -62,6 +66,7 @@ defmodule DigitalTwin.TrafficState do
         "last_tx_hash" => nil,
         "access_control_active" => false
       },
+      audit_log: [],
       last_update: nil
     }
 
@@ -105,5 +110,13 @@ defmodule DigitalTwin.TrafficState do
 
   defp broadcast(state) do
     Phoenix.PubSub.broadcast(@pubsub, @topic, {:traffic_update, state})
+  end
+
+  @impl true
+  def handle_cast({:audit, entry}, state) do
+    updated_log = [entry | state.audit_log] |> Enum.take(50)
+    new_state = %{state | audit_log: updated_log}
+    Phoenix.PubSub.broadcast(@pubsub, "audit:tartu", {:audit_update, updated_log})
+    {:noreply, new_state}
   end
 end

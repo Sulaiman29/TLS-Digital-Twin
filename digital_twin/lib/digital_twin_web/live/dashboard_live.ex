@@ -45,6 +45,12 @@ defmodule DigitalTwinWeb.DashboardLive do
   def render(assigns) do
     ~H"""
     <div class="dashboard">
+      <!-- Navigation -->
+      <nav class="nav-tabs">
+        <a href="/" class="nav-tab active">🗺️ Dashboard</a>
+        <a href="/audit" class="nav-tab">📋 Audit Trail</a>
+      </nav>
+
       <!-- Header -->
       <header class="dashboard-header">
         <div class="header-left">

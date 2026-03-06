@@ -25,7 +25,8 @@ defmodule DigitalTwin.Application do
            {"simulation/tartu/metrics/live", 0},
            {"simulation/tartu/vehicles/live", 0},
            {"simulation/tartu/tl/live", 0},
-           {"simulation/tartu/blockchain/live", 0}
+           {"simulation/tartu/blockchain/live", 0},
+           {"simulation/tartu/audit/live", 0}
          ]
        ]},
       # Phoenix endpoint — must be last

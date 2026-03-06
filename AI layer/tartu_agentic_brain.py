@@ -47,6 +47,7 @@ BROKER = os.getenv("MQTT_BROKER", "localhost")
 TOPIC_VEHICLES = "simulation/tartu/vehicles/live"
 TOPIC_TL = "simulation/tartu/tl/live"
 TOPIC_COMMANDS = "simulation/tartu/commands"
+TOPIC_AUDIT = "simulation/tartu/audit/live"
 
 # Tuning parameters
 MIN_HOLD_TIME = 15          # Min seconds before switching phase
@@ -244,8 +245,21 @@ def make_set_phase_tool(tls_id):
             try:
                 input_hash = BlockchainClient.hash_data(old_queues)
                 action_str = f"Phase {target_phase} ({direction}) for {duration}s"
-                tls_contract.log_decision(tls_id, action_str, input_hash)
+                tx_hash = tls_contract.log_decision(tls_id, action_str, input_hash)
                 print(f"    [Blockchain] Decision logged on-chain  ✔")
+
+                # Publish audit entry via MQTT for dashboard
+                if mqtt_client:
+                    import datetime
+                    audit_entry = {
+                        "intersection": tls_id,
+                        "action": action_str,
+                        "input_hash": input_hash[:16] + "...",
+                        "tx_hash": tx_hash[:16] + "..." if tx_hash else None,
+                        "timestamp": datetime.datetime.utcnow().strftime("%H:%M:%S"),
+                        "queues": old_queues,
+                    }
+                    mqtt_client.publish(TOPIC_AUDIT, json.dumps(audit_entry))
             except Exception as bc_err:
                 print(f"    [Blockchain] Log failed: {bc_err}")
 

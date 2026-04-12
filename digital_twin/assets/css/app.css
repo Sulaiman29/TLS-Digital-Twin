@@ -26,16 +26,16 @@ body {
   background: var(--bg-primary);
   color: var(--text-primary);
   font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-  overflow: hidden;
-  height: 100vh;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
 /* --- Dashboard layout --- */
 .dashboard {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-y: auto;
 }
 
 /* --- Header --- */

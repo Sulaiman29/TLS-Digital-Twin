@@ -42,6 +42,9 @@ from blockchain import BlockchainClient, TLSDecisionContract, AccessControlContr
 # Blockchain toggle
 BLOCKCHAIN_ENABLED = os.getenv("BLOCKCHAIN_ENABLED", "true").lower() != "false"
 
+# Pending audit entries (tool stores, agent_loop publishes with reasoning)
+pending_audit = {}
+
 # --- CONFIGURATION ---
 BROKER = os.getenv("MQTT_BROKER", "localhost")
 TOPIC_VEHICLES = "simulation/tartu/vehicles/live"
@@ -248,18 +251,20 @@ def make_set_phase_tool(tls_id):
                 tx_hash = tls_contract.log_decision(tls_id, action_str, input_hash)
                 print(f"    [Blockchain] Decision logged on-chain  ✔")
 
-                # Publish audit entry via MQTT for dashboard
+                # Store audit entry for agent_loop to publish with reasoning
                 if mqtt_client:
                     import datetime
-                    audit_entry = {
+                    pending_audit[tls_id] = {
                         "intersection": tls_id,
                         "action": action_str,
-                        "input_hash": input_hash[:16] + "...",
-                        "tx_hash": tx_hash[:16] + "..." if tx_hash else None,
+                        "input_hash": input_hash,
+                        "tx_hash": tx_hash if tx_hash else None,
                         "timestamp": datetime.datetime.utcnow().strftime("%H:%M:%S"),
                         "queues": old_queues,
+                        "phase": target_phase,
+                        "duration": duration,
+                        "direction": direction,
                     }
-                    mqtt_client.publish(TOPIC_AUDIT, json.dumps(audit_entry))
             except Exception as bc_err:
                 print(f"    [Blockchain] Log failed: {bc_err}")
 
@@ -484,6 +489,13 @@ def agent_loop(agent_name, agent_id, agent_executor, system_prompt):
 
                 response = events['messages'][-1].content
                 print(f"[{agent_name}] Decision: {response}")
+
+                # Publish pending audit entries with LLM reasoning
+                if agent_id in pending_audit and mqtt_client:
+                    entry = pending_audit.pop(agent_id)
+                    entry["reasoning"] = response
+                    entry["context"] = prompt[:500]  # first 500 chars of context
+                    mqtt_client.publish(TOPIC_AUDIT, json.dumps(entry))
             else:
                 if total > 0:
                     print(f"[{agent_name}] Skipping LLM call — current phase active with traffic.")

@@ -516,3 +516,207 @@ body {
   padding: 2px 6px;
   border-radius: 4px;
 }
+
+/* ====================================
+   Audit Detail Panel
+   ==================================== */
+
+.audit-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.audit-row-selected {
+  background: rgba(108, 92, 231, 0.12) !important;
+  border-left: 3px solid #6c5ce7;
+}
+
+.audit-detail {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px solid rgba(108, 92, 231, 0.3);
+  overflow: hidden;
+  animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.audit-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  background: rgba(108, 92, 231, 0.06);
+}
+
+.audit-detail-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.audit-detail-close {
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+
+.audit-detail-close:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+.audit-detail-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detail-section h3 {
+  margin: 0 0 12px 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detail-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.detail-value {
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.detail-value.highlight {
+  color: #6c5ce7;
+  font-weight: 600;
+}
+
+/* Queue Badges */
+.detail-queues {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.queue-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.queue-badge.queue-high {
+  background: rgba(255, 71, 87, 0.1);
+  border-color: rgba(255, 71, 87, 0.3);
+}
+
+.queue-badge.queue-mid {
+  background: rgba(255, 165, 2, 0.1);
+  border-color: rgba(255, 165, 2, 0.3);
+}
+
+.queue-badge.queue-empty {
+  background: rgba(0, 206, 201, 0.06);
+  border-color: rgba(0, 206, 201, 0.2);
+}
+
+.queue-dir {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.queue-count {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.queue-high .queue-count { color: #ff4757; }
+.queue-mid .queue-count { color: #ffa502; }
+.queue-empty .queue-count { color: #00cec9; }
+
+/* AI Reasoning Block */
+.detail-reasoning {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.detail-muted {
+  color: var(--text-secondary);
+  opacity: 0.6;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* Blockchain Hashes (full) */
+.detail-hashes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hash-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hash-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.hash-value-full {
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  color: #6c5ce7;
+  background: rgba(108, 92, 231, 0.08);
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(108, 92, 231, 0.15);
+  word-break: break-all;
+}

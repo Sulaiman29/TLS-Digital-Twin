@@ -1,0 +1,80 @@
+@startuml OTP_Supervision_Tree
+
+skinparam backgroundColor white
+skinparam defaultFontName "Segoe UI"
+skinparam defaultFontSize 12
+skinparam shadowing false
+skinparam roundcorner 10
+
+skinparam rectangle {
+    BorderThickness 2
+}
+
+skinparam arrow {
+    Color #475569
+    Thickness 1.5
+}
+
+
+' ===== Supervisor =====
+rectangle "<b>DigitalTwin.Supervisor</b>\n<i>strategy: one_for_one</i>" as SUP #FEF3C7;line:F59E0B {
+}
+
+' ===== Supervised Children =====
+rectangle "<b>Telemetry</b>\n<i>DigitalTwinWeb.Telemetry</i>\nMetrics collection" as TEL #F1F5F9;line:94A3B8
+
+rectangle "<b>DNSCluster</b>\n<i>Cluster discovery</i>" as DNS #F1F5F9;line:94A3B8
+
+rectangle "<b>Phoenix.PubSub</b>\n<i>In-process event bus</i>\nTopic: traffic:tartu\nTopic: audit:tartu" as PUBSUB #DBEAFE;line:3B82F6
+
+rectangle "<b>TrafficState</b>\n<i>GenServer</i>\nHolds live city state\n(metrics, vehicles, TL, blockchain)" as TS #D1FAE5;line:10B981
+
+rectangle "<b>Tortoise311.Connection</b>\n<i>MQTT Client</i>\nclient_id: digital_twin_elixir" as MQTT #DBEAFE;line:3B82F6
+
+rectangle "<b>DigitalTwinWeb.Endpoint</b>\n<i>Bandit HTTP/WebSocket Server</i>\nhttp://localhost:4000" as EP #EDE9FE;line:8B5CF6
+
+' ===== Handler & LiveView (not supervised directly, but part of data flow) =====
+rectangle "<b>MqttHandler</b>\n<i>Tortoise311.Handler behaviour</i>\nTopic-based pattern matching\nJSON decoding (Jason)" as MH #DBEAFE;line:3B82F6
+
+rectangle "<b>DashboardLive</b>\n<i>LiveView Process</i>\nMetrics cards, TL sidebar\nBlockchain security panel" as DASH #D1FAE5;line:10B981
+
+rectangle "<b>AuditLive</b>\n<i>LiveView Process</i>\nBlockchain decision audit trail" as AUDIT #D1FAE5;line:10B981
+
+rectangle "<b>TrafficMap.js</b>\n<i>LeafletJS Hook (Browser)</i>\nOpenStreetMap + vehicle markers\nSUMO XY → GPS transform" as JS #FEF3C7;line:F59E0B
+
+' ===== MQTT Subscriptions =====
+note right of MQTT
+  <b>MQTT Subscriptions (QoS 0)</b>
+  ──────────────────────────
+  simulation/tartu/metrics/live
+  simulation/tartu/vehicles/live
+  simulation/tartu/tl/live
+  simulation/tartu/blockchain/live
+  simulation/tartu/audit/live
+end note
+
+' ===== Supervision Links =====
+SUP -down-> TEL : supervises
+SUP -down-> DNS : supervises
+SUP -down-> PUBSUB : supervises
+SUP -down-> TS : supervises
+SUP -down-> MQTT : supervises
+SUP -down-> EP : supervises
+
+' ===== Data Flow =====
+MQTT -down-> MH : <i>on message</i>\n(callback)
+MH -right-> TS : <i>GenServer.cast</i>\nupdate_metrics()\nupdate_vehicles()\nupdate_traffic_lights()\nupdate_blockchain()\nadd_audit_entry()
+TS -right-> PUBSUB : <i>PubSub.broadcast</i>\n{:traffic_update, state}\n{:audit_update, log}
+PUBSUB -down-> DASH : <i>handle_info</i>\n{:traffic_update, state}
+PUBSUB -down-> AUDIT : <i>handle_info</i>\n{:audit_update, log}
+DASH -down-> JS : <i>push_event</i>\n"traffic_update"\n(vehicles, TL states)
+
+' ===== Layout hints =====
+TEL -[hidden]right-> DNS
+DNS -[hidden]right-> PUBSUB
+PUBSUB -[hidden]right-> TS
+TS -[hidden]right-> MQTT
+MQTT -[hidden]right-> EP
+DASH -[hidden]right-> AUDIT
+
+@enduml

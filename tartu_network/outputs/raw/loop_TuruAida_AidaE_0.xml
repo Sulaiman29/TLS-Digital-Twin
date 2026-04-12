@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-02-24T00:59:39.844203+05:00 by Eclipse SUMO GUI 1.25.0
+<!-- generated on 2026-03-30T13:06:55.442287+02:00 by Eclipse SUMO GUI 1.25.0
 <sumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
 
     <input>
@@ -27,7 +27,7 @@
     </report>
 
     <traci_server>
-        <remote-port value="56776"/>
+        <remote-port value="63225"/>
     </traci_server>
 
     <gui_only>
@@ -41,23 +41,63 @@
 
 <detector xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/det_e1_file.xsd">
     <interval begin="0.00" end="60.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="2.54" speed="6.63" harmonicMeanSpeed="6.57" length="5.00" nVehEntered="2"/>
-    <interval begin="60.00" end="120.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.16" speed="7.20" harmonicMeanSpeed="7.20" length="5.00" nVehEntered="1"/>
-    <interval begin="120.00" end="180.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="2.28" speed="7.34" harmonicMeanSpeed="7.31" length="5.00" nVehEntered="2"/>
-    <interval begin="180.00" end="240.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.17" speed="7.12" harmonicMeanSpeed="7.12" length="5.00" nVehEntered="1"/>
-    <interval begin="240.00" end="300.00" id="loop_TuruAida_AidaE_0" nVehContrib="3" flow="180.00" occupancy="3.51" speed="7.12" harmonicMeanSpeed="7.11" length="5.00" nVehEntered="3"/>
-    <interval begin="300.00" end="360.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.11" speed="7.51" harmonicMeanSpeed="7.51" length="5.00" nVehEntered="1"/>
-    <interval begin="360.00" end="420.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="2.34" speed="7.14" harmonicMeanSpeed="7.13" length="5.00" nVehEntered="2"/>
-    <interval begin="420.00" end="480.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="2.45" speed="6.80" harmonicMeanSpeed="6.80" length="5.00" nVehEntered="2"/>
-    <interval begin="480.00" end="540.00" id="loop_TuruAida_AidaE_0" nVehContrib="3" flow="180.00" occupancy="3.53" speed="7.11" harmonicMeanSpeed="7.08" length="5.00" nVehEntered="3"/>
-    <interval begin="540.00" end="600.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="2.35" speed="7.09" harmonicMeanSpeed="7.09" length="5.00" nVehEntered="2"/>
-    <interval begin="600.00" end="660.00" id="loop_TuruAida_AidaE_0" nVehContrib="3" flow="180.00" occupancy="3.57" speed="7.04" harmonicMeanSpeed="7.01" length="5.00" nVehEntered="3"/>
-    <interval begin="660.00" end="720.00" id="loop_TuruAida_AidaE_0" nVehContrib="3" flow="180.00" occupancy="3.57" speed="7.02" harmonicMeanSpeed="6.99" length="5.00" nVehEntered="3"/>
-    <interval begin="720.00" end="780.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.21" speed="6.87" harmonicMeanSpeed="6.87" length="5.00" nVehEntered="1"/>
-    <interval begin="780.00" end="840.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.17" speed="7.12" harmonicMeanSpeed="7.12" length="5.00" nVehEntered="1"/>
-    <interval begin="840.00" end="900.00" id="loop_TuruAida_AidaE_0" nVehContrib="5" flow="300.00" occupancy="6.10" speed="6.84" harmonicMeanSpeed="6.83" length="5.00" nVehEntered="5"/>
-    <interval begin="900.00" end="960.00" id="loop_TuruAida_AidaE_0" nVehContrib="3" flow="180.00" occupancy="3.42" speed="7.32" harmonicMeanSpeed="7.31" length="5.00" nVehEntered="3"/>
-    <interval begin="960.00" end="1020.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="2.45" speed="6.83" harmonicMeanSpeed="6.81" length="5.00" nVehEntered="2"/>
-    <interval begin="1020.00" end="1080.00" id="loop_TuruAida_AidaE_0" nVehContrib="5" flow="300.00" occupancy="5.81" speed="7.19" harmonicMeanSpeed="7.17" length="5.00" nVehEntered="5"/>
-    <interval begin="1080.00" end="1140.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="2.46" speed="6.79" harmonicMeanSpeed="6.78" length="5.00" nVehEntered="2"/>
-    <interval begin="1140.00" end="1192.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="69.23" occupancy="1.32" speed="7.29" harmonicMeanSpeed="7.29" length="5.00" nVehEntered="1"/>
+    <interval begin="60.00" end="120.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.25" speed="6.66" harmonicMeanSpeed="6.66" length="5.00" nVehEntered="1"/>
+    <interval begin="120.00" end="180.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="2.52" speed="6.69" harmonicMeanSpeed="6.62" length="5.00" nVehEntered="2"/>
+    <interval begin="180.00" end="240.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.24" speed="6.74" harmonicMeanSpeed="6.74" length="5.00" nVehEntered="1"/>
+    <interval begin="240.00" end="300.00" id="loop_TuruAida_AidaE_0" nVehContrib="3" flow="180.00" occupancy="3.77" speed="6.65" harmonicMeanSpeed="6.64" length="5.00" nVehEntered="3"/>
+    <interval begin="300.00" end="360.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.19" speed="7.01" harmonicMeanSpeed="7.01" length="5.00" nVehEntered="1"/>
+    <interval begin="360.00" end="420.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="2.29" speed="7.29" harmonicMeanSpeed="7.28" length="5.00" nVehEntered="2"/>
+    <interval begin="420.00" end="480.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="2.39" speed="6.97" harmonicMeanSpeed="6.97" length="5.00" nVehEntered="2"/>
+    <interval begin="480.00" end="540.00" id="loop_TuruAida_AidaE_0" nVehContrib="3" flow="180.00" occupancy="3.40" speed="7.36" harmonicMeanSpeed="7.36" length="5.00" nVehEntered="3"/>
+    <interval begin="540.00" end="600.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="2.37" speed="7.04" harmonicMeanSpeed="7.04" length="5.00" nVehEntered="2"/>
+    <interval begin="600.00" end="660.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="3.31" speed="7.36" harmonicMeanSpeed="7.36" length="5.00" nVehEntered="3"/>
+    <interval begin="660.00" end="720.00" id="loop_TuruAida_AidaE_0" nVehContrib="4" flow="240.00" occupancy="3.69" speed="7.05" harmonicMeanSpeed="7.03" length="5.00" nVehEntered="3"/>
+    <interval begin="720.00" end="780.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.20" speed="6.93" harmonicMeanSpeed="6.93" length="5.00" nVehEntered="1"/>
+    <interval begin="780.00" end="840.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.25" speed="6.69" harmonicMeanSpeed="6.69" length="5.00" nVehEntered="1"/>
+    <interval begin="840.00" end="900.00" id="loop_TuruAida_AidaE_0" nVehContrib="5" flow="300.00" occupancy="6.09" speed="6.86" harmonicMeanSpeed="6.84" length="5.00" nVehEntered="5"/>
+    <interval begin="900.00" end="960.00" id="loop_TuruAida_AidaE_0" nVehContrib="3" flow="180.00" occupancy="3.47" speed="7.23" harmonicMeanSpeed="7.21" length="5.00" nVehEntered="3"/>
+    <interval begin="960.00" end="1020.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="2.31" speed="7.22" harmonicMeanSpeed="7.22" length="5.00" nVehEntered="2"/>
+    <interval begin="1020.00" end="1080.00" id="loop_TuruAida_AidaE_0" nVehContrib="5" flow="300.00" occupancy="5.95" speed="7.03" harmonicMeanSpeed="7.00" length="5.00" nVehEntered="5"/>
+    <interval begin="1080.00" end="1140.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="2.24" speed="7.46" harmonicMeanSpeed="7.45" length="5.00" nVehEntered="2"/>
+    <interval begin="1140.00" end="1200.00" id="loop_TuruAida_AidaE_0" nVehContrib="3" flow="180.00" occupancy="3.52" speed="7.11" harmonicMeanSpeed="7.10" length="5.00" nVehEntered="3"/>
+    <interval begin="1200.00" end="1260.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.21" speed="6.91" harmonicMeanSpeed="6.91" length="5.00" nVehEntered="1"/>
+    <interval begin="1260.00" end="1320.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.08" speed="7.69" harmonicMeanSpeed="7.69" length="5.00" nVehEntered="1"/>
+    <interval begin="1320.00" end="1380.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="2.36" speed="7.05" harmonicMeanSpeed="7.05" length="5.00" nVehEntered="2"/>
+    <interval begin="1380.00" end="1440.00" id="loop_TuruAida_AidaE_0" nVehContrib="4" flow="240.00" occupancy="4.85" speed="6.88" harmonicMeanSpeed="6.88" length="5.00" nVehEntered="4"/>
+    <interval begin="1440.00" end="1500.00" id="loop_TuruAida_AidaE_0" nVehContrib="4" flow="240.00" occupancy="4.94" speed="6.76" harmonicMeanSpeed="6.74" length="5.00" nVehEntered="4"/>
+    <interval begin="1500.00" end="1560.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="2.39" speed="6.97" harmonicMeanSpeed="6.97" length="5.00" nVehEntered="2"/>
+    <interval begin="1560.00" end="1620.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="2.49" speed="6.68" harmonicMeanSpeed="6.68" length="5.00" nVehEntered="2"/>
+    <interval begin="1620.00" end="1680.00" id="loop_TuruAida_AidaE_0" nVehContrib="4" flow="240.00" occupancy="4.61" speed="7.24" harmonicMeanSpeed="7.24" length="5.00" nVehEntered="4"/>
+    <interval begin="1680.00" end="1740.00" id="loop_TuruAida_AidaE_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1740.00" end="1800.00" id="loop_TuruAida_AidaE_0" nVehContrib="4" flow="240.00" occupancy="4.94" speed="6.75" harmonicMeanSpeed="6.74" length="5.00" nVehEntered="4"/>
+    <interval begin="1800.00" end="1860.00" id="loop_TuruAida_AidaE_0" nVehContrib="5" flow="300.00" occupancy="6.09" speed="6.85" harmonicMeanSpeed="6.84" length="5.00" nVehEntered="5"/>
+    <interval begin="1860.00" end="1920.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.12" speed="7.42" harmonicMeanSpeed="7.42" length="5.00" nVehEntered="1"/>
+    <interval begin="1920.00" end="1980.00" id="loop_TuruAida_AidaE_0" nVehContrib="3" flow="180.00" occupancy="3.71" speed="6.76" harmonicMeanSpeed="6.74" length="5.00" nVehEntered="3"/>
+    <interval begin="1980.00" end="2040.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.27" speed="6.59" harmonicMeanSpeed="6.59" length="5.00" nVehEntered="1"/>
+    <interval begin="2040.00" end="2100.00" id="loop_TuruAida_AidaE_0" nVehContrib="3" flow="180.00" occupancy="3.72" speed="6.73" harmonicMeanSpeed="6.72" length="5.00" nVehEntered="3"/>
+    <interval begin="2100.00" end="2160.00" id="loop_TuruAida_AidaE_0" nVehContrib="5" flow="300.00" occupancy="5.94" speed="7.04" harmonicMeanSpeed="7.01" length="5.00" nVehEntered="5"/>
+    <interval begin="2160.00" end="2220.00" id="loop_TuruAida_AidaE_0" nVehContrib="4" flow="240.00" occupancy="4.73" speed="7.06" harmonicMeanSpeed="7.04" length="5.00" nVehEntered="4"/>
+    <interval begin="2220.00" end="2280.00" id="loop_TuruAida_AidaE_0" nVehContrib="3" flow="180.00" occupancy="3.62" speed="6.92" harmonicMeanSpeed="6.91" length="5.00" nVehEntered="3"/>
+    <interval begin="2280.00" end="2340.00" id="loop_TuruAida_AidaE_0" nVehContrib="4" flow="240.00" occupancy="4.82" speed="6.92" harmonicMeanSpeed="6.91" length="5.00" nVehEntered="4"/>
+    <interval begin="2340.00" end="2400.00" id="loop_TuruAida_AidaE_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="2400.00" end="2460.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="2.39" speed="6.96" harmonicMeanSpeed="6.96" length="5.00" nVehEntered="2"/>
+    <interval begin="2460.00" end="2520.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.11" speed="7.49" harmonicMeanSpeed="7.49" length="5.00" nVehEntered="1"/>
+    <interval begin="2520.00" end="2580.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.20" speed="6.94" harmonicMeanSpeed="6.94" length="5.00" nVehEntered="1"/>
+    <interval begin="2580.00" end="2640.00" id="loop_TuruAida_AidaE_0" nVehContrib="4" flow="240.00" occupancy="4.54" speed="7.35" harmonicMeanSpeed="7.34" length="5.00" nVehEntered="4"/>
+    <interval begin="2640.00" end="2700.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.29" speed="6.44" harmonicMeanSpeed="6.44" length="5.00" nVehEntered="1"/>
+    <interval begin="2700.00" end="2760.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="2.40" speed="6.95" harmonicMeanSpeed="6.94" length="5.00" nVehEntered="2"/>
+    <interval begin="2760.00" end="2820.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="2.33" speed="7.17" harmonicMeanSpeed="7.15" length="5.00" nVehEntered="2"/>
+    <interval begin="2820.00" end="2880.00" id="loop_TuruAida_AidaE_0" nVehContrib="3" flow="180.00" occupancy="3.51" speed="7.13" harmonicMeanSpeed="7.12" length="5.00" nVehEntered="3"/>
+    <interval begin="2880.00" end="2940.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.31" speed="6.34" harmonicMeanSpeed="6.34" length="5.00" nVehEntered="1"/>
+    <interval begin="2940.00" end="3000.00" id="loop_TuruAida_AidaE_0" nVehContrib="3" flow="180.00" occupancy="3.53" speed="7.10" harmonicMeanSpeed="7.08" length="5.00" nVehEntered="3"/>
+    <interval begin="3000.00" end="3060.00" id="loop_TuruAida_AidaE_0" nVehContrib="4" flow="240.00" occupancy="4.48" speed="7.44" harmonicMeanSpeed="7.43" length="5.00" nVehEntered="4"/>
+    <interval begin="3060.00" end="3120.00" id="loop_TuruAida_AidaE_0" nVehContrib="2" flow="120.00" occupancy="2.34" speed="7.11" harmonicMeanSpeed="7.11" length="5.00" nVehEntered="2"/>
+    <interval begin="3120.00" end="3180.00" id="loop_TuruAida_AidaE_0" nVehContrib="4" flow="240.00" occupancy="4.63" speed="7.20" harmonicMeanSpeed="7.19" length="5.00" nVehEntered="4"/>
+    <interval begin="3180.00" end="3240.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.22" speed="6.83" harmonicMeanSpeed="6.83" length="5.00" nVehEntered="1"/>
+    <interval begin="3240.00" end="3300.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.37" speed="6.09" harmonicMeanSpeed="6.09" length="5.00" nVehEntered="1"/>
+    <interval begin="3300.00" end="3360.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.15" speed="7.23" harmonicMeanSpeed="7.23" length="5.00" nVehEntered="1"/>
+    <interval begin="3360.00" end="3420.00" id="loop_TuruAida_AidaE_0" nVehContrib="4" flow="240.00" occupancy="4.81" speed="6.93" harmonicMeanSpeed="6.92" length="5.00" nVehEntered="4"/>
+    <interval begin="3420.00" end="3480.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.24" speed="6.70" harmonicMeanSpeed="6.70" length="5.00" nVehEntered="1"/>
+    <interval begin="3480.00" end="3540.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.28" speed="6.51" harmonicMeanSpeed="6.51" length="5.00" nVehEntered="1"/>
+    <interval begin="3540.00" end="3600.00" id="loop_TuruAida_AidaE_0" nVehContrib="1" flow="60.00" occupancy="1.30" speed="6.43" harmonicMeanSpeed="6.43" length="5.00" nVehEntered="1"/>
 </detector>

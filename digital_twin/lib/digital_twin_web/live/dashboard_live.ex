@@ -48,6 +48,7 @@ defmodule DigitalTwinWeb.DashboardLive do
       <!-- Navigation -->
       <nav class="nav-tabs">
         <a href="/" class="nav-tab active">🗺️ Dashboard</a>
+        <a href="/analytics" class="nav-tab">📊 Analytics</a>
         <a href="/audit" class="nav-tab">📋 Audit Trail</a>
       </nav>
 

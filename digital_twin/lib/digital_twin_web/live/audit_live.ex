@@ -64,6 +64,7 @@ defmodule DigitalTwinWeb.AuditLive do
       <!-- Navigation -->
       <nav class="nav-tabs">
         <a href="/" class="nav-tab">🗺️ Dashboard</a>
+        <a href="/analytics" class="nav-tab">📊 Analytics</a>
         <a href="/audit" class="nav-tab active">📋 Audit Trail</a>
       </nav>
 
@@ -164,7 +165,7 @@ defmodule DigitalTwinWeb.AuditLive do
                 <%= if @selected["queues"] do %>
                   <div class="detail-queues">
                     <%= for {dir, count} <- @selected["queues"] do %>
-                      <div class={"queue-badge #{if count > 5, do: "queue-high", else: if count > 0, do: "queue-mid", else: "queue-empty"}"}>
+                      <div class={"queue-badge #{if(count > 5, do: "queue-high", else: if(count > 0, do: "queue-mid", else: "queue-empty"))}"}>
                         <span class="queue-dir"><%= dir %></span>
                         <span class="queue-count"><%= count %></span>
                       </div>

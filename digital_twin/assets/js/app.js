@@ -26,9 +26,10 @@ import {hooks as colocatedHooks} from "phoenix-colocated/digital_twin"
 import topbar from "../vendor/topbar"
 
 import TrafficMap from "./hooks/traffic_map"
+import AnalyticsCharts from "./hooks/analytics_charts"
 
 const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
-const Hooks = {...colocatedHooks, TrafficMap}
+const Hooks = {...colocatedHooks, TrafficMap, AnalyticsCharts}
 const liveSocket = new LiveSocket("/live", Socket, {
   longPollFallbackMs: 2500,
   params: {_csrf_token: csrfToken},

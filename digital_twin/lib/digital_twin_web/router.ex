@@ -14,6 +14,7 @@ defmodule DigitalTwinWeb.Router do
     pipe_through :browser
 
     live "/", DashboardLive
+    live "/analytics", AnalyticsLive
     live "/audit", AuditLive
   end
 end

@@ -38,12 +38,16 @@ if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
 from blockchain import BlockchainClient, TLSDecisionContract, AccessControlContract
+from blockchain.perf_logger import PerfLogger
 
 # Blockchain toggle
 BLOCKCHAIN_ENABLED = os.getenv("BLOCKCHAIN_ENABLED", "true").lower() != "false"
 
 # Pending audit entries (tool stores, agent_loop publishes with reasoning)
 pending_audit = {}
+
+# Performance logger (initialized in main if blockchain enabled)
+perf = None
 
 # --- CONFIGURATION ---
 BROKER = os.getenv("MQTT_BROKER", "localhost")
@@ -237,7 +241,9 @@ def make_set_phase_tool(tls_id):
         # --- BLOCKCHAIN: Validate command via access control ---
         if access_control:
             try:
-                allowed = access_control.validate_command(access_control.account, tls_id)
+                allowed = perf.timed("access_control", access_control.validate_command,
+                                     access_control.account, tls_id,
+                                     extra=tls_id) if perf else access_control.validate_command(access_control.account, tls_id)
                 if not allowed:
                     return f"Access denied: agent not authorized for {tls_id}"
             except Exception as ac_err:
@@ -248,7 +254,9 @@ def make_set_phase_tool(tls_id):
             try:
                 input_hash = BlockchainClient.hash_data(old_queues)
                 action_str = f"Phase {target_phase} ({direction}) for {duration}s"
-                tx_hash = tls_contract.log_decision(tls_id, action_str, input_hash)
+                tx_hash = perf.timed("log_decision", tls_contract.log_decision,
+                                     tls_id, action_str, input_hash,
+                                     extra=tls_id) if perf else tls_contract.log_decision(tls_id, action_str, input_hash)
                 print(f"    [Blockchain] Decision logged on-chain  ✔")
 
                 # Store audit entry for agent_loop to publish with reasoning
@@ -511,7 +519,7 @@ def agent_loop(agent_name, agent_id, agent_executor, system_prompt):
 # MAIN — Start MQTT + four agent threads
 # =====================================================================
 def main():
-    global mqtt_client, tls_contract, access_control
+    global mqtt_client, tls_contract, access_control, perf
 
     # --- MQTT Setup ---
     mqtt_client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
@@ -538,6 +546,7 @@ def main():
                 access_control.register_intersection(tls_id)
             print(f"[Blockchain] AccessControl deployed  ✔  {access_control.address}")
             print(f"[Blockchain] Registered {len(INTERSECTION_CONFIG)} intersections, agent authorized")
+            perf = PerfLogger()
         else:
             print("[Blockchain] Not connected — decision logging disabled.")
     else:

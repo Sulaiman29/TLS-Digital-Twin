@@ -31,6 +31,7 @@ if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
 from blockchain import BlockchainClient, AccessControlContract
+from blockchain.perf_logger import PerfLogger
 
 # --- 2. CONFIGURATION ---
 MQTT_BROKER = os.getenv("MQTT_BROKER", "localhost")
@@ -116,6 +117,7 @@ def run_simulation():
     # --- BLOCKCHAIN SETUP ---
     bc = None
     ac = None
+    perf = None
     bc_anchor_count = 0
     bc_last_tx = None
     if BLOCKCHAIN_ENABLED:
@@ -127,6 +129,7 @@ def run_simulation():
             ac = AccessControlContract.deploy(bc)
             ac.grant_role(bc.account, "PUBLISHER")
             print(f"[AccessControl] Publisher authorized  ✔  {ac.address}")
+            perf = PerfLogger()
         else:
             print("[Blockchain] Not connected — anchoring disabled for this run.")
             bc = None
@@ -196,15 +199,21 @@ def run_simulation():
             # --- BLOCKCHAIN: ANCHOR DATA ---
             if bc:
                 # Anchor metrics & TL state every step (low volume)
-                tx1 = bc.anchor_data(metrics_data)
-                bc.anchor_data(tl_data)
+                tx1 = perf.timed("anchor_data", bc.anchor_data, metrics_data,
+                                 step=step, extra="metrics")
+                perf.timed("anchor_data", bc.anchor_data, tl_data,
+                           step=step, extra="tl_state")
                 bc_anchor_count += 2
                 if tx1:
                     bc_last_tx = tx1
 
                 # Batch-anchor vehicle positions at configured interval
                 if step % BLOCKCHAIN_ANCHOR_INTERVAL == 0 and vehicles_data["vehicles"]:
-                    tx_batch = bc.anchor_batch(vehicles_data["vehicles"])
+                    tx_batch = perf.timed("anchor_batch", bc.anchor_batch,
+                                          vehicles_data["vehicles"],
+                                          step=step,
+                                          data_size=len(vehicles_data["vehicles"]),
+                                          extra="vehicles")
                     bc_anchor_count += 1
                     if tx_batch:
                         bc_last_tx = tx_batch
@@ -231,6 +240,8 @@ def run_simulation():
     except KeyboardInterrupt:
         print("Stopping...")
     finally:
+        if perf:
+            perf.close()
         traci.close()
         client.loop_stop()
 

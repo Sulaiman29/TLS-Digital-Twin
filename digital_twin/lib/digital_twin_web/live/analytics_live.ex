@@ -3,6 +3,13 @@ defmodule DigitalTwinWeb.AnalyticsLive do
 
   alias DigitalTwin.TrafficState
 
+  @intersections [
+    {"TRiia_Kalevi", "Riia × Kalevi"},
+    {"TRiia_Turu", "Riia × Turu"},
+    {"TTuru_Soola", "Turu × Soola"},
+    {"TTuru_Aida", "Turu × Aida"}
+  ]
+
   @impl true
   def mount(_params, _session, socket) do
     if connected?(socket) do
@@ -10,35 +17,141 @@ defmodule DigitalTwinWeb.AnalyticsLive do
     end
 
     state = TrafficState.get_state()
+    default_int = "TRiia_Kalevi"
 
     {:ok,
      socket
+     |> assign(:intersections, @intersections)
+     |> assign(:selected_intersection, default_int)
      |> assign(:metrics, state.metrics)
-     |> assign(:metrics_history, state.metrics_history)
-     |> assign(:speed_distribution, state.speed_distribution)
-     |> assign(:intersection_counts, state.intersection_counts)
-     |> assign(:vehicle_count, state.metrics["vehicle_count"] || 0)
-     |> assign(:sim_time, state.metrics["time"] || 0)}
+     |> assign(:traffic_lights, state.traffic_lights)
+     |> assign(:per_intersection_metrics, state.per_intersection_metrics)
+     |> assign(:per_intersection_history, state.per_intersection_history)
+     |> assign(:vehicles, state.vehicles)
+     |> assign(:sim_time, state.metrics["time"] || 0)
+     |> assign_intersection_data(default_int, state)}
   end
 
   @impl true
   def handle_info({:traffic_update, state}, socket) do
+    selected = socket.assigns.selected_intersection
+
     socket =
       socket
       |> assign(:metrics, state.metrics)
-      |> assign(:metrics_history, state.metrics_history)
-      |> assign(:speed_distribution, state.speed_distribution)
-      |> assign(:intersection_counts, state.intersection_counts)
-      |> assign(:vehicle_count, state.metrics["vehicle_count"] || 0)
+      |> assign(:traffic_lights, state.traffic_lights)
+      |> assign(:per_intersection_metrics, state.per_intersection_metrics)
+      |> assign(:per_intersection_history, state.per_intersection_history)
+      |> assign(:vehicles, state.vehicles)
       |> assign(:sim_time, state.metrics["time"] || 0)
-      |> push_event("analytics_update", %{
-        metrics: state.metrics,
-        history: state.metrics_history,
-        speed_distribution: state.speed_distribution,
-        intersection_counts: state.intersection_counts
-      })
+      |> assign_intersection_data(selected, state)
+      |> push_intersection_update(selected, state)
 
     {:noreply, socket}
+  end
+
+  @impl true
+  def handle_event("select_intersection", %{"id" => int_id}, socket) do
+    state = TrafficState.get_state()
+
+    socket =
+      socket
+      |> assign(:selected_intersection, int_id)
+      |> assign_intersection_data(int_id, state)
+      |> push_intersection_update(int_id, state)
+
+    {:noreply, socket}
+  end
+
+  # Compute intersection-specific assigns for the template
+  defp assign_intersection_data(socket, int_id, state) do
+    int_metrics = get_in(state.per_intersection_metrics, [int_id]) ||
+      %{"vehicle_count" => 0, "avg_speed" => 0, "congestion_index" => 0, "stopped" => 0}
+
+    # Get the TL state for this intersection
+    tl_state = Enum.find(state.traffic_lights, fn tl -> tl["id"] == int_id end)
+
+    # Compute speed distribution for vehicles at this intersection only
+    int_vehicles = get_intersection_vehicles(state.vehicles, int_id)
+    int_speed_dist = compute_speed_distribution(int_vehicles)
+
+    socket
+    |> assign(:int_metrics, int_metrics)
+    |> assign(:int_tl_state, tl_state)
+    |> assign(:int_speed_dist, int_speed_dist)
+  end
+
+  # Push chart data to the JS hook
+  defp push_intersection_update(socket, int_id, state) do
+    history = Map.get(state.per_intersection_history, int_id, [])
+    int_metrics = get_in(state.per_intersection_metrics, [int_id]) ||
+      %{"vehicle_count" => 0, "avg_speed" => 0, "congestion_index" => 0, "stopped" => 0}
+
+    int_vehicles = get_intersection_vehicles(state.vehicles, int_id)
+    int_speed_dist = compute_speed_distribution(int_vehicles)
+
+    # Per-intersection current counts for the bar chart comparison
+    all_counts = Enum.map(["TRiia_Kalevi", "TRiia_Turu", "TTuru_Soola", "TTuru_Aida"], fn id ->
+      m = Map.get(state.per_intersection_metrics, id, %{})
+      m["vehicle_count"] || 0
+    end)
+
+    push_event(socket, "analytics_update", %{
+      history: history,
+      metrics: int_metrics,
+      speed_distribution: int_speed_dist,
+      all_intersection_counts: all_counts,
+      selected: int_id
+    })
+  end
+
+  # Filter vehicles belonging to a specific intersection
+  defp get_intersection_vehicles(vehicles, int_id) do
+    edges = get_intersection_edges(int_id)
+
+    Enum.filter(vehicles, fn v ->
+      lane = v["lane"] || ""
+      edge = lane |> String.split("_") |> Enum.drop(-1) |> Enum.join("_")
+      edge in edges or (String.starts_with?(lane, ":") and String.starts_with?(String.trim_leading(lane, ":"), int_id))
+    end)
+  end
+
+  defp get_intersection_edges("TRiia_Kalevi"), do: [
+    "RiiaN_RiiaKalevi", "RiiaKalevi_RiiaN",
+    "UlikW_RiiaKalevi", "RiiaKalevi_UlikW",
+    "KaleviE_RiiaKalevi", "RiiaKalevi_KaleviE",
+    "RiiaKalevi_RiiaTuru", "RiiaTuru_RiiaKalevi"
+  ]
+  defp get_intersection_edges("TRiia_Turu"), do: [
+    "RiiaKalevi_RiiaTuru", "RiiaTuru_RiiaKalevi",
+    "RiiaS_RiiaTuru", "RiiaTuru_RiiaS",
+    "TuruW_RiiaTuru", "RiiaTuru_TuruW",
+    "RiiaTuru_TuruSoola", "TuruSoola_RiiaTuru"
+  ]
+  defp get_intersection_edges("TTuru_Soola"), do: [
+    "RiiaTuru_TuruSoola", "TuruSoola_RiiaTuru",
+    "SoolaN_TuruSoola", "TuruSoola_SoolaN",
+    "SoolaS_TuruSoola", "TuruSoola_SoolaS",
+    "TuruSoola_TuruAida", "TuruAida_TuruSoola"
+  ]
+  defp get_intersection_edges("TTuru_Aida"), do: [
+    "TuruSoola_TuruAida", "TuruAida_TuruSoola",
+    "AidaE_TuruAida", "TuruAida_AidaE",
+    "AidaN_TuruAida", "TuruAida_AidaN",
+    "AidaS_TuruAida", "TuruAida_AidaS"
+  ]
+  defp get_intersection_edges(_), do: []
+
+  defp compute_speed_distribution(vehicles) do
+    Enum.reduce(vehicles, %{"stopped" => 0, "slow" => 0, "medium" => 0, "fast" => 0}, fn v, acc ->
+      speed = v["speed"] || 0
+      cond do
+        speed < 0.5  -> Map.update!(acc, "stopped", &(&1 + 1))
+        speed < 5.0  -> Map.update!(acc, "slow", &(&1 + 1))
+        speed < 10.0 -> Map.update!(acc, "medium", &(&1 + 1))
+        true         -> Map.update!(acc, "fast", &(&1 + 1))
+      end
+    end)
   end
 
   @impl true
@@ -56,7 +169,7 @@ defmodule DigitalTwinWeb.AnalyticsLive do
       <header class="dashboard-header">
         <div class="header-left">
           <h1>📊 Traffic Analytics</h1>
-          <span class="subtitle">Riia–Turu Corridor • Real-Time Statistics for Stakeholders</span>
+          <span class="subtitle">Riia–Turu Corridor • Per-Intersection Statistics</span>
         </div>
         <div class="header-right">
           <div class="sim-time">
@@ -66,34 +179,66 @@ defmodule DigitalTwinWeb.AnalyticsLive do
         </div>
       </header>
 
-      <!-- Summary Cards Row -->
+      <!-- Intersection Selector -->
+      <div class="intersection-selector">
+        <span class="selector-label">🚦 Select Intersection:</span>
+        <div class="selector-pills">
+          <%= for {id, label} <- @intersections do %>
+            <button
+              class={"selector-pill #{if @selected_intersection == id, do: "pill-active", else: ""}"}
+              phx-click="select_intersection"
+              phx-value-id={id}
+            >
+              <%= label %>
+            </button>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Intersection Summary Cards -->
       <div class="analytics-summary">
         <div class="analytics-summary-card">
           <div class="summary-icon">🚗</div>
           <div class="summary-body">
-            <span class="summary-value"><%= @metrics["vehicle_count"] || 0 %></span>
-            <span class="summary-label">Active Vehicles</span>
+            <span class="summary-value"><%= @int_metrics["vehicle_count"] || 0 %></span>
+            <span class="summary-label">Vehicles at Intersection</span>
           </div>
         </div>
         <div class="analytics-summary-card">
           <div class="summary-icon">⚡</div>
           <div class="summary-body">
-            <span class="summary-value"><%= format_speed(@metrics["avg_speed"]) %></span>
+            <span class="summary-value"><%= format_speed(@int_metrics["avg_speed"]) %></span>
             <span class="summary-label">Avg Speed (m/s)</span>
           </div>
         </div>
         <div class="analytics-summary-card">
           <div class="summary-icon">📈</div>
           <div class="summary-body">
-            <span class="summary-value"><%= format_percent(@metrics["congestion_index"]) %></span>
+            <span class="summary-value"><%= format_percent(@int_metrics["congestion_index"]) %></span>
             <span class="summary-label">Congestion Index</span>
           </div>
         </div>
         <div class="analytics-summary-card">
           <div class="summary-icon">🛑</div>
           <div class="summary-body">
-            <span class="summary-value"><%= @metrics["stopped"] || 0 %></span>
+            <span class="summary-value"><%= @int_metrics["stopped"] || 0 %></span>
             <span class="summary-label">Stopped Vehicles</span>
+          </div>
+        </div>
+        <div class="analytics-summary-card">
+          <div class="summary-icon">🚦</div>
+          <div class="summary-body">
+            <%= if @int_tl_state do %>
+              <div class="tl-state-inline">
+                <%= for {char, i} <- Enum.with_index(String.graphemes(@int_tl_state["state"] || "")) do %>
+                  <span class={"tl-light tl-#{char}"} title={"Link #{i}"}></span>
+                <% end %>
+              </div>
+              <span class="summary-label">Phase <%= @int_tl_state["phase"] %></span>
+            <% else %>
+              <span class="summary-value">—</span>
+              <span class="summary-label">Traffic Light</span>
+            <% end %>
           </div>
         </div>
       </div>
@@ -136,7 +281,7 @@ defmodule DigitalTwinWeb.AnalyticsLive do
           </div>
         </div>
 
-        <!-- Row 2: Distribution + Bar charts -->
+        <!-- Row 2: Distribution + Bar + Stopped -->
         <div class="chart-card" id="chart-speed-distribution">
           <div class="chart-header">
             <h3>🎯 Speed Distribution</h3>
@@ -149,7 +294,7 @@ defmodule DigitalTwinWeb.AnalyticsLive do
 
         <div class="chart-card" id="chart-intersection">
           <div class="chart-header">
-            <h3>🚦 Intersection Load</h3>
+            <h3>🚦 All Intersections Compare</h3>
             <span class="stakeholder-badge badge-municipality">🏙️ Municipality</span>
           </div>
           <div class="chart-body">

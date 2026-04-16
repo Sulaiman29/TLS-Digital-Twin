@@ -725,10 +725,59 @@ body {
    Analytics Page
    ==================================== */
 
+/* --- Intersection Selector --- */
+.intersection-selector {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 24px 4px;
+  flex-wrap: wrap;
+}
+
+.selector-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.selector-pills {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.selector-pill {
+  padding: 8px 18px;
+  border-radius: 24px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  outline: none;
+}
+
+.selector-pill:hover {
+  border-color: #6c5ce7;
+  color: var(--text-primary);
+  background: rgba(108, 92, 231, 0.08);
+}
+
+.selector-pill.pill-active {
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.25), rgba(77, 171, 247, 0.15));
+  border-color: #6c5ce7;
+  color: var(--text-primary);
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(108, 92, 231, 0.2);
+}
+
 /* --- Summary Cards Row --- */
 .analytics-summary {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 12px;
   padding: 12px 24px;
   flex-shrink: 0;
@@ -897,6 +946,10 @@ body {
   .analytics-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .analytics-summary {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -907,5 +960,17 @@ body {
   .analytics-summary {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .selector-pills {
+    flex-wrap: wrap;
+  }
+}
+
+/* TL state inline display */
+.tl-state-inline {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+  margin-bottom: 2px;
 }
 

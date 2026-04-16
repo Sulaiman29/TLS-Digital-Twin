@@ -1,8 +1,8 @@
 /**
- * AnalyticsCharts — Chart.js hook for the Tartu Digital Twin Analytics page
+ * AnalyticsCharts — Chart.js hook for per-intersection analytics
  *
- * Creates and live-updates 6 charts from server-pushed analytics data.
- * Uses the same dark theme palette as the rest of the dashboard.
+ * Creates and live-updates 6 charts filtered by the selected intersection.
+ * Receives data from the AnalyticsLive server push events.
  */
 
 import {
@@ -21,7 +21,6 @@ import {
   Legend,
 } from "chart.js";
 
-// Register only the components we need (tree-shaking friendly)
 Chart.register(
   LineController,
   BarController,
@@ -52,14 +51,6 @@ const COLORS = {
   cardBg: "#22253a",
 };
 
-// --- Utility: create gradient fill ---
-function createGradient(ctx, color, height = 300) {
-  const gradient = ctx.createLinearGradient(0, 0, 0, height);
-  gradient.addColorStop(0, color.replace(")", ", 0.35)").replace("rgb", "rgba"));
-  gradient.addColorStop(1, color.replace(")", ", 0.02)").replace("rgb", "rgba"));
-  return gradient;
-}
-
 function hexToRgba(hex, alpha) {
   const r = parseInt(hex.slice(1, 3), 16);
   const g = parseInt(hex.slice(3, 5), 16);
@@ -67,28 +58,47 @@ function hexToRgba(hex, alpha) {
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
 
-// --- Common chart options ---
+// Intersection name map for the bar chart
+const INT_LABELS = {
+  TRiia_Kalevi: "Riia×Kalevi",
+  TRiia_Turu: "Riia×Turu",
+  TTuru_Soola: "Turu×Soola",
+  TTuru_Aida: "Turu×Aida",
+};
+const INT_IDS = ["TRiia_Kalevi", "TRiia_Turu", "TTuru_Soola", "TTuru_Aida"];
+const INT_COLORS = [COLORS.blue, COLORS.purple, COLORS.cyan, COLORS.green];
+
+// --- Tooltip config ---
+const TOOLTIP_CONFIG = {
+  backgroundColor: COLORS.cardBg,
+  titleColor: COLORS.textPrimary,
+  bodyColor: COLORS.textSecondary,
+  borderColor: COLORS.purple,
+  borderWidth: 1,
+  cornerRadius: 8,
+  padding: 10,
+};
+
+// --- Common line options ---
 const COMMON_LINE_OPTIONS = {
   responsive: true,
   maintainAspectRatio: false,
-  animation: { duration: 300 },
+  animation: { duration: 0 },
   interaction: { mode: "index", intersect: false },
   plugins: {
     legend: { display: false },
-    tooltip: {
-      backgroundColor: COLORS.cardBg,
-      titleColor: COLORS.textPrimary,
-      bodyColor: COLORS.textSecondary,
-      borderColor: COLORS.purple,
-      borderWidth: 1,
-      cornerRadius: 8,
-      padding: 10,
-    },
+    tooltip: TOOLTIP_CONFIG,
   },
   scales: {
     x: {
       grid: { color: COLORS.gridColor },
-      ticks: { color: COLORS.textSecondary, maxTicksLimit: 10, font: { size: 10 } },
+      ticks: {
+        color: COLORS.textSecondary,
+        maxTicksLimit: 12,
+        font: { size: 10 },
+        autoSkip: true,
+        maxRotation: 0,
+      },
     },
     y: {
       grid: { color: COLORS.gridColor },
@@ -97,6 +107,20 @@ const COMMON_LINE_OPTIONS = {
     },
   },
 };
+
+// --- Format time label from sim second ---
+function formatTimeLabel(t) {
+  const m = Math.floor(t / 60);
+  const s = t % 60;
+  return `${String(m).padStart(2, "0")}:${String(Math.floor(s)).padStart(2, "0")}`;
+}
+
+// --- Downsample history for display (show max ~120 points) ---
+function downsample(arr, maxPoints = 120) {
+  if (arr.length <= maxPoints) return arr;
+  const step = Math.ceil(arr.length / maxPoints);
+  return arr.filter((_, i) => i % step === 0 || i === arr.length - 1);
+}
 
 // --- The Hook ---
 const AnalyticsCharts = {
@@ -110,235 +134,234 @@ const AnalyticsCharts = {
   },
 
   initCharts() {
-    // 1. Vehicle Count — Area chart
-    const vcCtx = document.getElementById("vehicleCountChart").getContext("2d");
-    this.charts.vehicleCount = new Chart(vcCtx, {
-      type: "line",
-      data: {
-        labels: [],
-        datasets: [
-          {
-            label: "Vehicles",
-            data: [],
-            borderColor: COLORS.blue,
-            backgroundColor: hexToRgba(COLORS.blue, 0.15),
-            borderWidth: 2,
-            fill: true,
-            tension: 0.4,
-            pointRadius: 0,
-            pointHitRadius: 8,
-          },
-        ],
-      },
-      options: {
-        ...COMMON_LINE_OPTIONS,
-        scales: {
-          ...COMMON_LINE_OPTIONS.scales,
-          y: { ...COMMON_LINE_OPTIONS.scales.y, title: { display: true, text: "Count", color: COLORS.textSecondary, font: { size: 10 } } },
-        },
-      },
-    });
-
-    // 2. Average Speed — Line chart
-    const asCtx = document.getElementById("avgSpeedChart").getContext("2d");
-    this.charts.avgSpeed = new Chart(asCtx, {
-      type: "line",
-      data: {
-        labels: [],
-        datasets: [
-          {
-            label: "Avg Speed (m/s)",
-            data: [],
-            borderColor: COLORS.green,
-            backgroundColor: hexToRgba(COLORS.green, 0.1),
-            borderWidth: 2,
-            fill: true,
-            tension: 0.4,
-            pointRadius: 0,
-            pointHitRadius: 8,
-          },
-        ],
-      },
-      options: {
-        ...COMMON_LINE_OPTIONS,
-        scales: {
-          ...COMMON_LINE_OPTIONS.scales,
-          y: { ...COMMON_LINE_OPTIONS.scales.y, title: { display: true, text: "m/s", color: COLORS.textSecondary, font: { size: 10 } } },
-        },
-      },
-    });
-
-    // 3. Congestion Index — Line chart with red zone
-    const ciCtx = document.getElementById("congestionChart").getContext("2d");
-    this.charts.congestion = new Chart(ciCtx, {
-      type: "line",
-      data: {
-        labels: [],
-        datasets: [
-          {
-            label: "Congestion",
-            data: [],
-            borderColor: COLORS.red,
-            backgroundColor: hexToRgba(COLORS.red, 0.12),
-            borderWidth: 2,
-            fill: true,
-            tension: 0.4,
-            pointRadius: 0,
-            pointHitRadius: 8,
-          },
-        ],
-      },
-      options: {
-        ...COMMON_LINE_OPTIONS,
-        scales: {
-          ...COMMON_LINE_OPTIONS.scales,
-          y: {
-            ...COMMON_LINE_OPTIONS.scales.y,
-            max: 1,
-            title: { display: true, text: "Index (0–1)", color: COLORS.textSecondary, font: { size: 10 } },
-          },
-        },
-      },
-    });
-
-    // 4. Speed Distribution — Doughnut
-    const sdCtx = document.getElementById("speedDistChart").getContext("2d");
-    this.charts.speedDist = new Chart(sdCtx, {
-      type: "doughnut",
-      data: {
-        labels: ["Stopped", "Slow (<5)", "Medium (<10)", "Fast (≥10)"],
-        datasets: [
-          {
-            data: [0, 0, 0, 0],
-            backgroundColor: [COLORS.red, COLORS.orange, COLORS.yellow, COLORS.green],
-            borderColor: COLORS.cardBg,
-            borderWidth: 3,
-            hoverOffset: 6,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        animation: { duration: 300 },
-        cutout: "55%",
-        plugins: {
-          legend: {
-            position: "bottom",
-            labels: {
-              color: COLORS.textSecondary,
-              padding: 14,
-              usePointStyle: true,
-              pointStyleWidth: 10,
-              font: { size: 11 },
+    // 1. Vehicle Count at Intersection — Area chart
+    this.charts.vehicleCount = new Chart(
+      document.getElementById("vehicleCountChart").getContext("2d"),
+      {
+        type: "line",
+        data: {
+          labels: [],
+          datasets: [
+            {
+              label: "Vehicles",
+              data: [],
+              borderColor: COLORS.blue,
+              backgroundColor: hexToRgba(COLORS.blue, 0.15),
+              borderWidth: 2,
+              fill: true,
+              tension: 0.3,
+              pointRadius: 0,
+              pointHitRadius: 8,
             },
-          },
-          tooltip: {
-            backgroundColor: COLORS.cardBg,
-            titleColor: COLORS.textPrimary,
-            bodyColor: COLORS.textSecondary,
-            borderColor: COLORS.purple,
-            borderWidth: 1,
-            cornerRadius: 8,
-            callbacks: {
-              label: (ctx) => ` ${ctx.label}: ${ctx.raw} vehicles`,
+          ],
+        },
+        options: {
+          ...COMMON_LINE_OPTIONS,
+          scales: {
+            ...COMMON_LINE_OPTIONS.scales,
+            y: {
+              ...COMMON_LINE_OPTIONS.scales.y,
+              title: { display: true, text: "Count", color: COLORS.textSecondary, font: { size: 10 } },
             },
           },
         },
-      },
-    });
+      }
+    );
 
-    // 5. Intersection Throughput — Bar chart
-    const itCtx = document.getElementById("intersectionChart").getContext("2d");
-    this.charts.intersection = new Chart(itCtx, {
-      type: "bar",
-      data: {
-        labels: ["Riia×Kalevi", "Riia×Turu", "Turu×Soola", "Turu×Aida"],
-        datasets: [
-          {
-            label: "Vehicles",
-            data: [0, 0, 0, 0],
-            backgroundColor: [
-              hexToRgba(COLORS.blue, 0.7),
-              hexToRgba(COLORS.purple, 0.7),
-              hexToRgba(COLORS.cyan, 0.7),
-              hexToRgba(COLORS.green, 0.7),
-            ],
-            borderColor: [COLORS.blue, COLORS.purple, COLORS.cyan, COLORS.green],
-            borderWidth: 1,
-            borderRadius: 6,
-            barPercentage: 0.6,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        animation: { duration: 300 },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            backgroundColor: COLORS.cardBg,
-            titleColor: COLORS.textPrimary,
-            bodyColor: COLORS.textSecondary,
-            borderColor: COLORS.purple,
-            borderWidth: 1,
-            cornerRadius: 8,
+    // 2. Average Speed at Intersection — Line chart
+    this.charts.avgSpeed = new Chart(
+      document.getElementById("avgSpeedChart").getContext("2d"),
+      {
+        type: "line",
+        data: {
+          labels: [],
+          datasets: [
+            {
+              label: "Avg Speed (m/s)",
+              data: [],
+              borderColor: COLORS.green,
+              backgroundColor: hexToRgba(COLORS.green, 0.1),
+              borderWidth: 2,
+              fill: true,
+              tension: 0.3,
+              pointRadius: 0,
+              pointHitRadius: 8,
+            },
+          ],
+        },
+        options: {
+          ...COMMON_LINE_OPTIONS,
+          scales: {
+            ...COMMON_LINE_OPTIONS.scales,
+            y: {
+              ...COMMON_LINE_OPTIONS.scales.y,
+              title: { display: true, text: "m/s", color: COLORS.textSecondary, font: { size: 10 } },
+            },
           },
         },
-        scales: {
-          x: {
-            grid: { color: COLORS.gridColor },
-            ticks: { color: COLORS.textSecondary, font: { size: 10 } },
-          },
-          y: {
-            grid: { color: COLORS.gridColor },
-            ticks: { color: COLORS.textSecondary, font: { size: 10 } },
-            beginAtZero: true,
-            title: { display: true, text: "Vehicles", color: COLORS.textSecondary, font: { size: 10 } },
-          },
-        },
-      },
-    });
+      }
+    );
 
-    // 6. Stopped Vehicles — Line chart
-    const svCtx = document.getElementById("stoppedChart").getContext("2d");
-    this.charts.stopped = new Chart(svCtx, {
-      type: "line",
-      data: {
-        labels: [],
-        datasets: [
-          {
-            label: "Stopped",
-            data: [],
-            borderColor: COLORS.orange,
-            backgroundColor: hexToRgba(COLORS.orange, 0.12),
-            borderWidth: 2,
-            fill: true,
-            tension: 0.4,
-            pointRadius: 0,
-            pointHitRadius: 8,
-          },
-        ],
-      },
-      options: {
-        ...COMMON_LINE_OPTIONS,
-        scales: {
-          ...COMMON_LINE_OPTIONS.scales,
-          y: { ...COMMON_LINE_OPTIONS.scales.y, title: { display: true, text: "Count", color: COLORS.textSecondary, font: { size: 10 } } },
+    // 3. Congestion Index at Intersection — Line chart
+    this.charts.congestion = new Chart(
+      document.getElementById("congestionChart").getContext("2d"),
+      {
+        type: "line",
+        data: {
+          labels: [],
+          datasets: [
+            {
+              label: "Congestion",
+              data: [],
+              borderColor: COLORS.red,
+              backgroundColor: hexToRgba(COLORS.red, 0.12),
+              borderWidth: 2,
+              fill: true,
+              tension: 0.3,
+              pointRadius: 0,
+              pointHitRadius: 8,
+            },
+          ],
         },
-      },
-    });
+        options: {
+          ...COMMON_LINE_OPTIONS,
+          scales: {
+            ...COMMON_LINE_OPTIONS.scales,
+            y: {
+              ...COMMON_LINE_OPTIONS.scales.y,
+              max: 1,
+              title: { display: true, text: "Index (0–1)", color: COLORS.textSecondary, font: { size: 10 } },
+            },
+          },
+        },
+      }
+    );
+
+    // 4. Speed Distribution at Intersection — Doughnut
+    this.charts.speedDist = new Chart(
+      document.getElementById("speedDistChart").getContext("2d"),
+      {
+        type: "doughnut",
+        data: {
+          labels: ["Stopped", "Slow (<5 m/s)", "Medium (<10 m/s)", "Fast (≥10 m/s)"],
+          datasets: [
+            {
+              data: [0, 0, 0, 0],
+              backgroundColor: [COLORS.red, COLORS.orange, COLORS.yellow, COLORS.green],
+              borderColor: COLORS.cardBg,
+              borderWidth: 3,
+              hoverOffset: 6,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: { duration: 0 },
+          cutout: "55%",
+          plugins: {
+            legend: {
+              position: "bottom",
+              labels: {
+                color: COLORS.textSecondary,
+                padding: 14,
+                usePointStyle: true,
+                pointStyleWidth: 10,
+                font: { size: 11 },
+              },
+            },
+            tooltip: {
+              ...TOOLTIP_CONFIG,
+              callbacks: {
+                label: (ctx) => ` ${ctx.label}: ${ctx.raw} vehicles`,
+              },
+            },
+          },
+        },
+      }
+    );
+
+    // 5. All Intersections Comparison — Bar chart (stays cross-intersection)
+    this.charts.intersection = new Chart(
+      document.getElementById("intersectionChart").getContext("2d"),
+      {
+        type: "bar",
+        data: {
+          labels: INT_IDS.map((id) => INT_LABELS[id]),
+          datasets: [
+            {
+              label: "Vehicles",
+              data: [0, 0, 0, 0],
+              backgroundColor: INT_IDS.map((_, i) => hexToRgba(INT_COLORS[i], 0.7)),
+              borderColor: INT_COLORS,
+              borderWidth: 1,
+              borderRadius: 6,
+              barPercentage: 0.6,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: { duration: 0 },
+          plugins: {
+            legend: { display: false },
+            tooltip: TOOLTIP_CONFIG,
+          },
+          scales: {
+            x: {
+              grid: { color: COLORS.gridColor },
+              ticks: { color: COLORS.textSecondary, font: { size: 10 } },
+            },
+            y: {
+              grid: { color: COLORS.gridColor },
+              ticks: { color: COLORS.textSecondary, font: { size: 10 } },
+              beginAtZero: true,
+              title: { display: true, text: "Vehicles", color: COLORS.textSecondary, font: { size: 10 } },
+            },
+          },
+        },
+      }
+    );
+
+    // 6. Stopped Vehicles at Intersection — Line chart
+    this.charts.stopped = new Chart(
+      document.getElementById("stoppedChart").getContext("2d"),
+      {
+        type: "line",
+        data: {
+          labels: [],
+          datasets: [
+            {
+              label: "Stopped",
+              data: [],
+              borderColor: COLORS.orange,
+              backgroundColor: hexToRgba(COLORS.orange, 0.12),
+              borderWidth: 2,
+              fill: true,
+              tension: 0.3,
+              pointRadius: 0,
+              pointHitRadius: 8,
+            },
+          ],
+        },
+        options: {
+          ...COMMON_LINE_OPTIONS,
+          scales: {
+            ...COMMON_LINE_OPTIONS.scales,
+            y: {
+              ...COMMON_LINE_OPTIONS.scales.y,
+              title: { display: true, text: "Count", color: COLORS.textSecondary, font: { size: 10 } },
+            },
+          },
+        },
+      }
+    );
   },
 
   updateCharts(data) {
-    const history = data.history || [];
-    const labels = history.map((h) => {
-      const t = h.time || 0;
-      const m = Math.floor(t / 60);
-      const s = t % 60;
-      return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
-    });
+    const history = downsample(data.history || []);
+    const labels = history.map((h) => formatTimeLabel(h.time || 0));
 
     // 1. Vehicle Count
     this.charts.vehicleCount.data.labels = labels;
@@ -355,7 +378,7 @@ const AnalyticsCharts = {
     this.charts.congestion.data.datasets[0].data = history.map((h) => h.congestion_index || 0);
     this.charts.congestion.update("none");
 
-    // 4. Speed Distribution
+    // 4. Speed Distribution (at selected intersection)
     const sd = data.speed_distribution || {};
     this.charts.speedDist.data.datasets[0].data = [
       sd.stopped || 0,
@@ -365,14 +388,18 @@ const AnalyticsCharts = {
     ];
     this.charts.speedDist.update("none");
 
-    // 5. Intersection Counts
-    const ic = data.intersection_counts || {};
-    this.charts.intersection.data.datasets[0].data = [
-      ic["TRiia_Kalevi"] || 0,
-      ic["TRiia_Turu"] || 0,
-      ic["TTuru_Soola"] || 0,
-      ic["TTuru_Aida"] || 0,
-    ];
+    // 5. All Intersections comparison bar
+    const counts = data.all_intersection_counts || [0, 0, 0, 0];
+    this.charts.intersection.data.datasets[0].data = counts;
+
+    // Highlight the selected intersection bar
+    const selectedIdx = INT_IDS.indexOf(data.selected);
+    this.charts.intersection.data.datasets[0].backgroundColor = INT_IDS.map((_, i) =>
+      i === selectedIdx ? hexToRgba(INT_COLORS[i], 1.0) : hexToRgba(INT_COLORS[i], 0.3)
+    );
+    this.charts.intersection.data.datasets[0].borderWidth = INT_IDS.map((_, i) =>
+      i === selectedIdx ? 2 : 1
+    );
     this.charts.intersection.update("none");
 
     // 6. Stopped Vehicles

@@ -8,15 +8,38 @@ defmodule DigitalTwin.TrafficState do
 
   @pubsub DigitalTwin.PubSub
   @topic "traffic:tartu"
-  @history_size 60
+  @history_size 600
 
-  # Lane prefixes that map to each intersection
-  @intersection_lane_prefixes %{
-    "TRiia_Kalevi" => ["Riia_south", "Kalevi", "Ulikooli", "Riia_north_in"],
-    "TRiia_Turu" => ["Riia_mid", "Turu_west", "Kaubamaja", "Riia_center"],
-    "TTuru_Soola" => ["Turu_mid", "Soola", "Turu_east_in"],
-    "TTuru_Aida" => ["Turu_east", "Aida", "Turu_out"]
+  # Edges whose lanes feed INTO or OUT OF each intersection (from edges.edg.xml).
+  # SUMO lane IDs follow the format: "edgeId_laneIndex"
+  @intersection_edges %{
+    "TRiia_Kalevi" => [
+      "RiiaN_RiiaKalevi", "RiiaKalevi_RiiaN",
+      "UlikW_RiiaKalevi", "RiiaKalevi_UlikW",
+      "KaleviE_RiiaKalevi", "RiiaKalevi_KaleviE",
+      "RiiaKalevi_RiiaTuru", "RiiaTuru_RiiaKalevi"
+    ],
+    "TRiia_Turu" => [
+      "RiiaKalevi_RiiaTuru", "RiiaTuru_RiiaKalevi",
+      "RiiaS_RiiaTuru", "RiiaTuru_RiiaS",
+      "TuruW_RiiaTuru", "RiiaTuru_TuruW",
+      "RiiaTuru_TuruSoola", "TuruSoola_RiiaTuru"
+    ],
+    "TTuru_Soola" => [
+      "RiiaTuru_TuruSoola", "TuruSoola_RiiaTuru",
+      "SoolaN_TuruSoola", "TuruSoola_SoolaN",
+      "SoolaS_TuruSoola", "TuruSoola_SoolaS",
+      "TuruSoola_TuruAida", "TuruAida_TuruSoola"
+    ],
+    "TTuru_Aida" => [
+      "TuruSoola_TuruAida", "TuruAida_TuruSoola",
+      "AidaE_TuruAida", "TuruAida_AidaE",
+      "AidaN_TuruAida", "TuruAida_AidaN",
+      "AidaS_TuruAida", "TuruAida_AidaS"
+    ]
   }
+
+  @intersection_ids Map.keys(@intersection_edges)
 
   # --- Client API ---
 
@@ -57,6 +80,8 @@ defmodule DigitalTwin.TrafficState do
 
   @impl true
   def init(_) do
+    empty_int_history = Enum.into(@intersection_ids, %{}, &{&1, []})
+
     state = %{
       metrics: %{
         "time" => 0,
@@ -77,6 +102,10 @@ defmodule DigitalTwin.TrafficState do
       },
       audit_log: [],
       metrics_history: [],
+      per_intersection_history: empty_int_history,
+      per_intersection_metrics: Enum.into(@intersection_ids, %{}, fn id ->
+        {id, %{"vehicle_count" => 0, "avg_speed" => 0, "congestion_index" => 0, "stopped" => 0}}
+      end),
       speed_distribution: %{"stopped" => 0, "slow" => 0, "medium" => 0, "fast" => 0},
       intersection_counts: %{},
       last_update: nil
@@ -92,7 +121,7 @@ defmodule DigitalTwin.TrafficState do
 
   @impl true
   def handle_cast({:metrics, metrics}, state) do
-    # Append to rolling history
+    # Append to global rolling history
     point = %{
       "time" => metrics["time"] || 0,
       "vehicle_count" => metrics["vehicle_count"] || 0,
@@ -101,9 +130,24 @@ defmodule DigitalTwin.TrafficState do
       "stopped" => metrics["stopped"] || 0
     }
 
-    history = Enum.take([point | state.metrics_history], @history_size) |> Enum.reverse()
+    history = append_to_history(state.metrics_history, point)
+    sim_time = metrics["time"] || 0
 
-    new_state = %{state | metrics: metrics, metrics_history: history, last_update: DateTime.utc_now()}
+    # Append per-intersection metrics to their histories
+    per_int_history =
+      Enum.into(@intersection_ids, %{}, fn int_id ->
+        int_metrics = Map.get(state.per_intersection_metrics, int_id, %{})
+        int_point = Map.put(int_metrics, "time", sim_time)
+        prev = Map.get(state.per_intersection_history, int_id, [])
+        {int_id, append_to_history(prev, int_point)}
+      end)
+
+    new_state = %{state |
+      metrics: metrics,
+      metrics_history: history,
+      per_intersection_history: per_int_history,
+      last_update: DateTime.utc_now()
+    }
     broadcast(new_state)
     {:noreply, new_state}
   end
@@ -112,14 +156,25 @@ defmodule DigitalTwin.TrafficState do
   def handle_cast({:vehicles, payload}, state) do
     vehicles = Map.get(payload, "vehicles", [])
 
-    # Compute speed distribution
-    speed_dist = compute_speed_distribution(vehicles)
+    # Group vehicles by intersection
+    grouped = group_vehicles_by_intersection(vehicles)
 
-    # Compute per-intersection vehicle counts
-    int_counts = compute_intersection_counts(vehicles)
+    # Compute per-intersection metrics
+    per_int_metrics =
+      Enum.into(@intersection_ids, %{}, fn int_id ->
+        int_vehicles = Map.get(grouped, int_id, [])
+        {int_id, compute_intersection_metrics(int_vehicles)}
+      end)
+
+    # Compute per-intersection speed distributions
+    speed_dist = compute_speed_distribution(vehicles)
+    int_counts = Enum.into(@intersection_ids, %{}, fn int_id ->
+      {int_id, length(Map.get(grouped, int_id, []))}
+    end)
 
     new_state = %{state |
       vehicles: vehicles,
+      per_intersection_metrics: per_int_metrics,
       speed_distribution: speed_dist,
       intersection_counts: int_counts,
       last_update: DateTime.utc_now()
@@ -155,6 +210,71 @@ defmodule DigitalTwin.TrafficState do
     Phoenix.PubSub.broadcast(@pubsub, @topic, {:traffic_update, state})
   end
 
+  # Append a point to a capped history list (newest at end)
+  defp append_to_history(history, point) do
+    (history ++ [point])
+    |> Enum.take(-@history_size)
+  end
+
+  # Group vehicles by their nearest intersection based on lane → edge mapping
+  defp group_vehicles_by_intersection(vehicles) do
+    # Pre-compute edge → intersection lookup
+    edge_lookup =
+      Enum.flat_map(@intersection_edges, fn {int_id, edges} ->
+        Enum.map(edges, fn edge -> {edge, int_id} end)
+      end)
+
+    Enum.reduce(vehicles, %{}, fn v, acc ->
+      lane = v["lane"] || ""
+      # Extract edge from lane ID: "edgeId_laneIndex" → "edgeId"
+      edge = lane |> String.split("_") |> Enum.drop(-1) |> Enum.join("_")
+
+      case Enum.find(edge_lookup, fn {e, _} -> e == edge end) do
+        {_, int_id} ->
+          Map.update(acc, int_id, [v], &[v | &1])
+        nil ->
+          # Also try matching internal edges (SUMO uses ":nodeId_..." for internal)
+          int_id = find_internal_edge_intersection(lane)
+          if int_id do
+            Map.update(acc, int_id, [v], &[v | &1])
+          else
+            acc
+          end
+      end
+    end)
+  end
+
+  # SUMO internal lanes follow pattern ":TRiia_Kalevi_0_0" → intersection "TRiia_Kalevi"
+  defp find_internal_edge_intersection(lane) do
+    if String.starts_with?(lane, ":") do
+      # Strip leading ":" and try to match intersection IDs
+      stripped = String.trim_leading(lane, ":")
+      Enum.find(@intersection_ids, fn int_id -> String.starts_with?(stripped, int_id) end)
+    else
+      nil
+    end
+  end
+
+  # Compute metrics for vehicles at a specific intersection
+  defp compute_intersection_metrics([]) do
+    %{"vehicle_count" => 0, "avg_speed" => 0.0, "congestion_index" => 0.0, "stopped" => 0}
+  end
+
+  defp compute_intersection_metrics(vehicles) do
+    count = length(vehicles)
+    speeds = Enum.map(vehicles, fn v -> v["speed"] || 0 end)
+    stopped = Enum.count(speeds, &(&1 < 0.5))
+    avg_speed = if count > 0, do: Float.round(Enum.sum(speeds) / count, 2), else: 0.0
+    congestion = if count > 0, do: Float.round(stopped / count, 2), else: 0.0
+
+    %{
+      "vehicle_count" => count,
+      "avg_speed" => avg_speed,
+      "congestion_index" => congestion,
+      "stopped" => stopped
+    }
+  end
+
   # Categorize vehicles into speed buckets
   defp compute_speed_distribution(vehicles) do
     Enum.reduce(vehicles, %{"stopped" => 0, "slow" => 0, "medium" => 0, "fast" => 0}, fn v, acc ->
@@ -164,25 +284,6 @@ defmodule DigitalTwin.TrafficState do
         speed < 5.0  -> Map.update!(acc, "slow", &(&1 + 1))
         speed < 10.0 -> Map.update!(acc, "medium", &(&1 + 1))
         true         -> Map.update!(acc, "fast", &(&1 + 1))
-      end
-    end)
-  end
-
-  # Count vehicles near each intersection based on lane ID prefix
-  defp compute_intersection_counts(vehicles) do
-    # Build a flat lookup: [{prefix, intersection_id}, ...]
-    prefix_lookup =
-      Enum.flat_map(@intersection_lane_prefixes, fn {int_id, prefixes} ->
-        Enum.map(prefixes, fn pfx -> {pfx, int_id} end)
-      end)
-
-    base = Map.keys(@intersection_lane_prefixes) |> Enum.into(%{}, &{&1, 0})
-
-    Enum.reduce(vehicles, base, fn v, acc ->
-      lane = v["lane"] || ""
-      case Enum.find(prefix_lookup, fn {pfx, _} -> String.starts_with?(lane, pfx) end) do
-        {_, int_id} -> Map.update!(acc, int_id, &(&1 + 1))
-        nil -> acc
       end
     end)
   end
